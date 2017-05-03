@@ -9,7 +9,7 @@ SITEURL = ''
 PATH = 'content'
 
 TIMEZONE = 'Europe/Paris'
-THEME = "/home/jjh/Documents/website/pelican-theme"
+THEME = "/home/jjh/Documents/website/pelican-theme/"
 
 DEFAULT_LANG = u'en'
 
