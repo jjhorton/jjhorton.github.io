@@ -2,14 +2,16 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'James'
-SITENAME = u'JJ Horton'
-SITEURL = ''
+AUTHOR = u'James Horton'
+SITENAME = u'My Little Site of Randomness'
+SITEURL = 'http://jjhorton.co.uk'
 
 PATH = 'content'
+GITHUB_URL = 'http://github.com/jjhorton/'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'Europe/London'
 THEME = "/home/jjh/Documents/website/pelican-theme/"
+DISPLAY_PAGES_ON_MENU = True
 
 DEFAULT_LANG = u'en'
 
@@ -20,15 +22,19 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+MENUITEMS = (
+    ('About', '/pages/about.html'),
+    ('CV', '/pages/cv.html'),
+)
+
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         ('Python.org', 'http://python.org/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('Github', 'http://github.com/jjhorton'),
+          ('Twitter', 'http://twitter.com/jamesjhorton'),
+	  ('LinkedIn', 'http://linkedin.com/in/jjhorton'),)
 
 DEFAULT_PAGINATION = 5
 
