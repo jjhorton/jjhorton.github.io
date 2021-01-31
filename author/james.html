@@ -15,11 +15,12 @@
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
-                <h1><a href="http://jjhorton.co.uk/">JJ Horton</a></h1>
+                <h1><a href="http://jjhorton.co.uk/">JJ Horton </a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
                     <li><a href="/pages/cv.html">CV</a></li>
                     <li><a href="http://jjhorton.co.uk/category/misc.html">misc</a></li>
+                    <li><a href="http://jjhorton.co.uk/category/raspberrypi.html">RaspberryPi</a></li>
                     <li><a href="http://jjhorton.co.uk/category/website.html">website</a></li>
                 </ul>
                 </nav>
@@ -27,30 +28,49 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/new-website.html">New Website</a></h1>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html">Bring a Raspberry Pi Cluster Back to Life</a></h1>
 <footer class="post-info">
-        <span>Mon 08 May 2017</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/pelican.html">pelican</a><a href="http://jjhorton.co.uk/tag/website.html">website</a><a href="http://jjhorton.co.uk/tag/github.html">github</a><a href="http://jjhorton.co.uk/tag/pages.html">pages</a></span>
-</footer><!-- /.post-info --><p>Well I have finally got arround to starting to sort my website out, after my old
-one disapeared from the internet. It seems that no one really noticed it was missing
-from the internet, so I must have just been talking to myself!</p>
-<p>The old site was a wordpress blog that I had been using on and off since 2011,
-I'd also had varrious attempts at a website since  getting my own domain 2006.
-The wordpress had done well but I hadn't updated in over a year when I got rid
-of it, unable to justify paying for hosting a blog that I have never really had
-time to update regularly since I finished university.There was a reasonable
-ammount of content on the site, but a lot of the original posts didn't really
-work as Wordpress had lost some of the features I used and a number of key
-plug-in I used were no longer avalible.</p>
-<p>So this is the new site... Or it will be once I have finished making it work, the
-replacement website is now hosted using <a href="https://pages.github.com/">
-Github Pages</a>, and is a statically generated HTML site created using
-<a href="http://docs.getpelican.com/en/stable/"> Pelican</a>. Hopefully it will
-be easy to keep working and slightly more upto date than my old blog was!</p>                </article>
+        <span>Sun 31 May 2020</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/raspberrypi.html">RaspberryPi</a><a href="http://jjhorton.co.uk/tag/pi2.html">Pi2</a><a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
+</footer><!-- /.post-info --><p>The raspberry pi cluster was built several years ago for some projects I was doing at the time, and experimenting with parallel computing. While the little raspberry pi's were never going to keep up with a proper PC, they were great for experimenting with the principles of parallel computing, being it making use of the multiple CPU cores on each device or trying to spread the calculation over multiple raspberry pi's. At thats all alongside the battle of dealing with the headache of moving data over a network efficiently.   </p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Testing out some new GNU Octave code on my Raspberry pi cluster <a href="https://twitter.com/hashtag/RaspberryPi?src=hash&amp;ref_src=twsrc%5Etfw">#RaspberryPi</a> <a href="https://twitter.com/hashtag/Cluster?src=hash&amp;ref_src=twsrc%5Etfw">#Cluster</a> <a href="https://twitter.com/hashtag/GNUOctave?src=hash&amp;ref_src=twsrc%5Etfw">#GNUOctave</a> <a href="https://t.co/c9OT9g9Ijb">pic.twitter.com/c9OT9g9Ijb</a></p>&mdash; James Horton (@JamesjHorton) <a href="https://twitter.com/JamesjHorton/status/715274998190116864?ref_src=twsrc%5Etfw">March 30, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>After a couple of years on off experimenting with the raspberry Pi's, when we ,moved to our new flat they ended up sat on the home network, and being used for odd jobs, one even had a old external hard drive attached to provide some Network Attached Storage when I need to move files around. After a reorganisation of the home office they need to find a new home, but having never been put in any sort of case they were not very portable, held together by some velcro.</p>
+<p>Having recently purchased an Ender3 3D printer at the start of the year, it seemed like a good use for the printer to build something a bit more rugged for the Raspberry Pi's to live in. Having a quick look on <a href="https://www.thingiverse.com/thing:2084736">Thingevers</a>, I came across the Six Inch Library, these cases are all designed to fit into a <a href="https://github.com/KronBjorn/SixInchRack">six inch rack</a> mount that is completely 3D printable.</p>
+<p>With a large selection of cases available, I had no problem in finding a suitable couple for both the Raspberry Pi's and the power supply. Although I decided that there could be some small improvements made to make they more suitable for what I was trying to do. A couple of problems I had always had with my cluster was trying to keep a tab on the basic information for each of the Pi's. Information such as Ip address, Memory usage and temperature, and I had always wanted to work out how to attach a screen to one of them to give me a health check at a glance.</p>
+<p><img src="images/RPi2_screen.png" width="350"></p>
+<p>As each of the Pi's was going in there own case, I went hunting for some displays a could try and mount on the front of each of the cases, and found some small OLED screen on EBay, which gave me 4 lines of text. This was more than enough to display the information I was looking for, I just had to make a custom font panel from the six inch library.</p>
+<p><img src="images/RPi2_Front_outside.png" width="350"></p>
+<p><img src="images/RPi2_Front_inside.png" width="350"></p>
+<p>The Six Inch Library is written in OpenSCAD, which worked well for me, as its programming interface combined with a quick hunt on google allowed me to be able to cut the hole of the screen and build a slot for it to sit in behind, so it could be slotted in without the need for lots of screws. It took 3 attempts to get it to all to fit together correctly, having messed up the measurements and then not allowed enough space to clear the Raspberry pi sitting behind it in the case, and getting the wires from the display round to the GPIO pins.</p>
+<p><img src="images/RPi2_case_internal.png" width="350"></p>
+<p>Having got this together, all that was left it to get the software running to display on the screens, thankfully the screens are very common and there is already a library for them to get it all up and running. The screens are the same as the adafruit ssd1306, and the <a href="https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage">Adafruit examples</a> and even included example displaying the information I was looking for. Having swapped out the Disk usage for the temperate and added the CPU frequency all was complete for the Raspberry Pi's.</p>
+<p><img src="images/RPi2_case_external.png" width="350"></p>
+<p>Adding the python to the crontab to run at reboot, so the display come up when the cluster is powered on, and the code running in a loop to keep it updated it was job done.    </p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My 3D printer has been busy the last couple of weeks, printing cases for my old Raspberry Pi 2B cluster that I&#39;m bringing back to life <a href="https://twitter.com/hashtag/raspberrypi?src=hash&amp;ref_src=twsrc%5Etfw">#raspberrypi</a> <a href="https://twitter.com/hashtag/cluster?src=hash&amp;ref_src=twsrc%5Etfw">#cluster</a> <a href="https://twitter.com/hashtag/3Dprinting?src=hash&amp;ref_src=twsrc%5Etfw">#3Dprinting</a> <a href="https://t.co/xJ0SoTG4NS">pic.twitter.com/xJ0SoTG4NS</a></p>&mdash; James Horton (@JamesjHorton) <a href="https://twitter.com/JamesjHorton/status/1235334229984243712?ref_src=twsrc%5Etfw">March 4, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Now that it is completely assembled as a single unit, I can hopefully move it around a bit easier,  I'm hoping to spend some time revisiting some of my old projects I once used the cluster for and see how much more performance I can get out of it now I understand what i'm doing with Python a bit more.  </p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://jjhorton.co.uk/new-website.html" rel="bookmark"
+                           title="Permalink to New Website">New Website</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Mon 08 May 2017</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/pelican.html">pelican</a><a href="http://jjhorton.co.uk/tag/website.html">website</a><a href="http://jjhorton.co.uk/tag/github.html">github</a><a href="http://jjhorton.co.uk/tag/pages.html">pages</a></span>
+</footer><!-- /.post-info -->                <p>Final starting to get my website up and running again, now hosted on github pages and using pelican</p>
+                <a class="readmore" href="http://jjhorton.co.uk/new-website.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
