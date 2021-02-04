@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Octave on my Raspberry Pi Cluster</title>
+        <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://github.com/jjhorton/">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="http://jjhorton.co.uk/">JJ Horton </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/cv.html">CV</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://jjhorton.co.uk/octave-on-my-raspberry-pi-cluster.html" rel="bookmark"
+           title="Permalink to Octave on my Raspberry Pi Cluster">Octave on my Raspberry Pi Cluster</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 10 March 2016</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/cluster.html">cluster</a><a href="http://jjhorton.co.uk/tag/matlab.html">Matlab</a><a href="http://jjhorton.co.uk/tag/octave.html">octave</a><a href="http://jjhorton.co.uk/tag/pi.html">pi</a><a href="http://jjhorton.co.uk/tag/raspberry-pi.html">raspberry pi</a></span>
+</footer><!-- /.post-info -->      <p>The main aim of building my Raspberry Pi Cluster was so that I could run
+octave code on it, now I'm not expecting to break any records, but
+ideally I want some performance. The best way I found to do this was
+with the parallel's package.</p>
+<p>With octave and the parallels package installed on each of the Raspberry
+Pi 2's in the cluster, I setup SSH so that no passwords are required
+between the nodes. The first step in running the octave scripts was to
+launch the parallels server on each of the  3 other Raspberry Pi's that
+I'm not connected to</p>
+<div class="highlight"><pre><span></span><code><span class="se">\#</span>!/bin/bash
+<span class="nv">USERNAME</span><span class="o">=</span>pi
+<span class="nv">HOSTS</span><span class="o">=</span><span class="s2">&quot;rpi1 rpi2 rpi3&quot;</span>
+<span class="nv">SCRIPT</span><span class="o">=</span><span class="s2">&quot;cd Documents/Octave; octave -q clusterStart.m&quot;</span>
+<span class="k">for</span> HOSTNAME in <span class="se">\$</span><span class="o">{</span>HOSTS<span class="o">}</span> <span class="p">;</span> <span class="k">do</span>
+ssh -l <span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span> <span class="se">\$</span><span class="o">{</span>HOSTNAME<span class="o">}</span> <span class="s2">&quot;\${SCRIPT}&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>This launches Octave and runs the following script:</p>
+<div class="highlight"><pre><span></span><code>pkg load parallel
+addpath<span class="o">(</span><span class="s2">&quot;\~/Documents/Octave/&quot;</span><span class="o">)</span><span class="p">;</span>
+addpath<span class="o">(</span><span class="s2">&quot;\~/Documents/Octave/Server&quot;</span><span class="o">)</span><span class="p">;</span>
+pserver
+</code></pre></div>
+
+<p>With each of these raspberry pi's now running on the 3 other Pi's it is now possible to send simple commands to them and get the results returned to the first Pi. The octave script that I used to test this out is bellow</p>
+<div class="highlight"><pre><span></span><code>clear<span class="p">;</span>
+pkg load parallel
+<span class="nv">hosts</span> <span class="o">=</span> <span class="o">{</span> <span class="s1">&#39;rpi0&#39;</span>, <span class="s1">&#39;rpi1&#39;</span>, <span class="s1">&#39;rpi2&#39;</span>, <span class="s1">&#39;rpi3&#39;</span> <span class="o">}</span><span class="p">;</span>
+<span class="nv">sockets</span> <span class="o">=</span> connect<span class="o">(</span>hosts<span class="o">)</span><span class="p">;</span>
+<span class="nv">psum</span> <span class="o">=</span> zeros<span class="o">(</span><span class="m">1</span>,3<span class="o">)</span><span class="p">;</span>
+reval<span class="o">(</span> <span class="s2">&quot;send(sum(\[1:10\]),sockets(1,:))&quot;</span>, sockets<span class="o">(</span><span class="m">2</span>,:<span class="o">))</span><span class="p">;</span>
+reval<span class="o">(</span> <span class="s2">&quot;send(sum(\[11:20\]),sockets(1,:))&quot;</span>, sockets<span class="o">(</span><span class="m">3</span>,:<span class="o">))</span><span class="p">;</span>
+reval<span class="o">(</span> <span class="s2">&quot;send(sum(\[21:30\]),sockets(1,:))&quot;</span>,sockets<span class="o">(</span><span class="m">4</span>,:<span class="o">))</span><span class="p">;</span>
+psum<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> recv<span class="o">(</span>sockets<span class="o">(</span><span class="m">2</span>,:<span class="o">))</span><span class="p">;</span>
+psum<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="o">=</span> recv<span class="o">(</span>sockets<span class="o">(</span><span class="m">3</span>,:<span class="o">))</span><span class="p">;</span>
+psum<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">=</span> recv<span class="o">(</span>sockets<span class="o">(</span><span class="m">4</span>,:<span class="o">))</span><span class="p">;</span>
+sum<span class="o">(</span>psum<span class="o">)</span>
+scloseall<span class="o">(</span>sockets<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+<p>This sets up the sockets for all 4 Raspberry Pi's including the one the code is run on (rpi0) and the 3 that are running the pserver (rpi1, rpi2 and rpi3). The code then sends commands as strings to be evaluated at the pserver's, which in this case are simple summation's, and then return the values to rpi0, which adds the 3 values they generated together and displays it on the screen.</p>
+<p>The next step for me in this project is to get it running my Twitter Sentiment Code.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/jjhorton">Github</a></li>
+                            <li><a href="http://twitter.com/jamesjhorton">Twitter</a></li>
+                            <li><a href="http://linkedin.com/in/jjhorton">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-59185025-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

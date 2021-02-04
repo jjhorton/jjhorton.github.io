@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - Jetson</title>
+        <title>Nvidia Jetson Testing</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -22,14 +22,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://jjhorton.co.uk/nvidia-jetson-testing.html" rel="bookmark"
+           title="Permalink to Nvidia Jetson Testing">Nvidia Jetson Testing</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/nvidia-jetson-testing.html">Nvidia Jetson Testing</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Sun 28 February 2021</span>
 <span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/testing.html">Testing</a></span>
-</footer><!-- /.post-info --><p>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.</p>
+</footer><!-- /.post-info -->      <p>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.</p>
 <p>This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</p>
 <p>By selecting two random numbers with are evenly distributed between a mini and max, to be the x and Y coordinates, we can then calculate the distance from the centre of the circle using pythagorus theorum.</p>
 <p><img alt="\Large a^2 + b^2 = c^2" src="https://latex.codecogs.com/svg.latex?\Large&space;a^2+b^2=c^2"></p>
@@ -321,31 +326,11 @@
 </tbody>
 </table>
 <p>What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).</p>
-<p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-case.html" rel="bookmark"
-                           title="Permalink to Nvidia Jetson case">Nvidia Jetson case</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 January 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Building a mini rack mount case for my Nvidia Jetson 2GB</p>
-                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-case.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

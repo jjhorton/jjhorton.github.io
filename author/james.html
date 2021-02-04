@@ -25,57 +25,322 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/nvidia-jetson-case.html">Nvidia Jetson case</a></h1>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/nvidia-jetson-testing.html">Nvidia Jetson Testing</a></h1>
 <footer class="post-info">
-        <span>Sun 31 January 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info --><p>Before Christmas I picked up a 2GB Jetson Nano to have a play with, I think these devices are interesting with the combination of an ARM processor and GPU. There have been devices like this before, and we even have a spare one at work in our Makerspace but I never found time to have an experiment with one. Now with extra time on my hands over winter with the joy of home working, and the recently released 2GB version for about <a href="https://www.okdo.com/p/nvidia-jetson-nano-2gb-development-kit-with-wifi-bundle/">£55</a> meant it was time to have an experiment.</p>
-<p><img src="images/Jetson_case_box.png" width="350"><div></p>
-<p>Once I had got to grip with the Jetson Nano, and <a href="https://courses.nvidia.com/certificates/a09ef4efea32411e9647c5f9e4f5a2c9">completed</a> NVidia's <a href="https://courses.nvidia.com/courses/course-v1:DLI+S-RX-02+V2/about">Getting Started With AI on Jetson Nano</a>, I started thinking about 3D printing a case, so that it wasn't another devboard lost down the back of my desk in an anti-static bag. At first I found a lot of design's on thingiverse, but many of these are targeted at the 4Gb version, which has more ports and uses a Dc jack to power it. I did <a href="https://www.thingiverse.com/thing:4649425">find an  one on thingiverse</a> which I printed at first, although I wasn't completely happy with this as a long term solution.</p>
-<p><img src="images/Jetson_case_online.png" width="350"> <div></p>
-<p>I decided to take a look at making 3D printing a case that would fit in with the <a href="https://github.com/KronBjorn/SixInchRack">Six Inch Rack Mount</a> system. As I already have an number of raspberry Pi's in this mini rack mount based system. My plan was that by modifying an existing OpenSCAD model so that I could fit The Jetson Nano in, and that put the correct ports so I would have suitable holes in the back panel. The Jetson Nano, while being bigger than the Raspberry PI 2's that are housed within the same front print, the Jetson Nano fits easily within the same space, except in terms of height due to the large heat sink. To allow the Jetson to fit in the rack mount cabinets I had to use 3U of height (each U is 1.44cm), instead of the 2U in the raspberry Pi cases.</p>
-<p><img src="images/Jetson_case_openscad.png" width="350"> <div></p>
-<p>Using the <a href="https://github.com/KronBjorn/SixInchRack/blob/master/RackCabinets/sixinch_library.scad">Six Inch Library</a> makes building up the components, using measurements taken from the Jetson Nano, very simple. Passing values for the size of the hole into a function that then builds the part which can then be exported as an STL, and then on to be 3D printed.  </p>
-<p>The square holes for each of ports of the ports on the Jetson Nano is described as a point on the back of the case by the first two coordinates, then followed by the X and Y coordinates representing the size of the square hole to be cut out of the back of the case. The other key values as the height of the side screws, which mounts the back panel to the main cabinet, then the number of units or height which in this case is 3 for 3U.   </p>
-<div class="highlight"><pre><span></span><code><span class="n">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="p">.</span><span class="n">scad</span><span class="o">&gt;</span>
+        <span>Sun 28 February 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/testing.html">Testing</a></span>
+</footer><!-- /.post-info --><p>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.</p>
+<p>This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</p>
+<p>By selecting two random numbers with are evenly distributed between a mini and max, to be the x and Y coordinates, we can then calculate the distance from the centre of the circle using pythagorus theorum.</p>
+<p><img alt="\Large a^2 + b^2 = c^2" src="https://latex.codecogs.com/svg.latex?\Large&space;a^2+b^2=c^2"></p>
+<p>Where our distance from the center from the cicrle is c, and our randomly selected x and y co-ordinates a and b. This means that our distance from the center of the circle is given by:</p>
+<p><img alt="\Large a^2 + b^2 = c^2" src="https://latex.codecogs.com/svg.latex?\Large&space;{distance}=\sqrt{x^2+y^2}"></p>
+<p>The next step is to see if this point falls within the circle, or in the area outside the circle. this is completed by comparing this distance from the centre of the circle with the radius of the circle. If this distance is less than the circle radius, then it is within the circle, and we count up how many times we get a value that falls inside the circle.  </p>
+<p>We can the use the ratio of the number of points that we have found within the circle and the total number of test completed to approximate the value of pi. The area of the circle is defined as:</p>
+<p><img alt="\Large a={}\pi}r^2" src="https://latex.codecogs.com/svg.latex?\Large&space;a_{circle}={\pi}r^2"></p>
+<p>The area of the square is twice the radius of the circle, for each the x and y axis we have used for generating all our points is, therefor the area is</p>
+<p><img alt="\Large a={}\pi}r^2" src="https://latex.codecogs.com/svg.latex?\Large&space;{a_{square}}={(2r)}^2"></p>
+<p>We can therefore calculate that the ratio in the area between the circle and the square is:</p>
+<p><img alt="\Large a={}\pi}r^2" src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{a_{circle}}{a_{square}}=\frac{{\pi}r^2}{{(2r)}^2}"></p>
+<p>This can be simplified to:</p>
+<p><img alt="\Large a={}\pi}r^2" src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{a_{circle}}{a_{square}}=\frac{\pi}{4}"></p>
+<p>Assuming that we have a sufficiently large number of points we can assume that the number of points which fall inside the circle is proportional to the total area of the square, so after rearranging we can then replace the areas with the number of points that fall within each:</p>
+<p><img alt="\Large a={}\pi}r^2" src="https://latex.codecogs.com/svg.latex?\Large&space;{\pi}=4\frac{a_{circle}}{a_{square}}"></p>
+<p>This formula, with is relatively simple can allow us to compute the value of pi, which can be realised with python using numpy. The implementation, generates a random number between a width, and then calculates the distance from the centre, that this point is from the centre of the circle. This is then compared to the circles radius, and if it falls within the circle the total is implemented. The final value of Pi is then calculated when the main loop is finished.    </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">square_hole</span>  <span class="o">=</span> <span class="p">[[</span><span class="mi">92</span><span class="p">.</span><span class="mi">5</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">74</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">57</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">];</span>
-<span class="n">round_hole</span>   <span class="o">=</span> <span class="p">[];</span>
-<span class="n">screw_top</span>    <span class="o">=</span> <span class="p">[];</span><span class="o">//</span><span class="n">mm</span>
-<span class="n">screw_bottom</span> <span class="o">=</span> <span class="p">[];</span><span class="o">//</span><span class="n">mm</span>
-<span class="n">screw_side</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
-<span class="n">depth</span>        <span class="o">=</span> <span class="mi">98</span><span class="p">;</span>
-<span class="n">units</span>        <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">back_plate</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">screw_top</span><span class="p">,</span><span class="n">screw_bottom</span><span class="p">,</span><span class="n">screw_side</span><span class="p">,</span><span class="n">square_hole</span><span class="p">,</span><span class="n">round_hole</span><span class="p">);</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+
+<span class="n">totalIn</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">)</span>
+
+  <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="kp">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="kp">power</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+  <span class="k">if</span> <span class="n">dist</span><span class="o">&lt;</span><span class="n">width</span><span class="p">:</span>
+    <span class="n">totalIn</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">my_pi</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="kp">divide</span><span class="p">(</span><span class="n">totalIn</span><span class="p">,</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">runtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pi is calculated as : </span><span class="si">%.10f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">my_pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Another key component is the placement of the screw holes in the main cabinet, for mounting the Jetson Board using the mounting screws, the positions are measured from the board and then mapped onto the round peg parts. I used the same M2.5 screws I use when mounting my raspberry Pi's in there Rack Mount, so the peg dimensions were taken from that design in the Six Inch Library.</p>
-<div class="highlight"><pre><span></span><code><span class="n">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="p">.</span><span class="n">scad</span><span class="o">&gt;</span>
+<p>The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varrying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.  </p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi Calculated</th>
+<th>Run Time(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>3.0000000000</td>
+<td>0.077</td>
+</tr>
+<tr>
+<td>1,000</td>
+<td>3.0760000000</td>
+<td>0.692</td>
+</tr>
+<tr>
+<td>10,000</td>
+<td>3.1360000000</td>
+<td>7.14</td>
+</tr>
+<tr>
+<td>100,000</td>
+<td>3.1518800000</td>
+<td>69.6</td>
+</tr>
+<tr>
+<td>1,000,000</td>
+<td>3.1409400000</td>
+<td>686</td>
+</tr>
+</tbody>
+</table>
+<p>The main thing we have control of is the number of iterations, and we can attempt to complete more iterations by optimising our code, the problem is the more iterations we do the longer is takes to complete, with 1,000,000 iterations taking 10 minutes we need to improve the execution time if we want to carry out more iterations.</p>
+<p>In Python Loops are relatively slow compared to other languages such as 'c' and 'c++', this is due to the dynamically typed nature of python. Vectorising the calculation of the values, using Numpy, this helps to remove or limit the number of loops that need to be completed, and operations on vectors are generally more efficient in dynamically typed languages, and by avoiding context switching large efficiency gains can be found.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">w</span><span class="o">=</span><span class="mi">95</span><span class="p">;</span>
-<span class="n">h</span><span class="o">=</span><span class="mi">98</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">screw_bottom_front</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="n">screw_side_front</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
-<span class="n">round_peg</span>          <span class="o">=</span> <span class="p">[[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="mi">86</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="mi">86</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="mi">58</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="mi">58</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]];</span>
-<span class="n">depth</span>              <span class="o">=</span> <span class="mi">98</span><span class="p">;</span>
-<span class="n">units</span>              <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">cabinet</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">screw_bottom_front</span><span class="p">,</span><span class="n">round_peg</span><span class="p">,</span><span class="n">screw_side_front</span><span class="p">);</span>
+<span class="n">test_points</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e9</span><span class="p">)</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">test_points</span><span class="o">/</span><span class="n">sample_size</span><span class="p">)</span><span class="o">*</span><span class="n">sample_size</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kp">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">width</span><span class="p">,</span><span class="kp">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">iterations</span><span class="o">/</span><span class="n">sample_size</span><span class="p">)):</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">sample_size</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">sample_size</span><span class="p">)</span>
+
+  <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">less</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="kp">add</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">),</span><span class="n">max_value</span><span class="p">)</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="kp">sum</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">pi_2</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="kp">divide</span><span class="p">(</span><span class="n">count</span><span class="p">,</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">runtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pi is calculated as : </span><span class="si">%.10f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pi_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runs: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">iterations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 </code></pre></div>
 
-<p><img src="images/Jetson_case_openscad2.png" width="350"> <div></p>
-<p>Getting these measurements alright took a couple of attempts, getting the tolerances correct so that the heights all lined up with the ports, as leaving enough room to actually plug all the cables in were all issues I had, but thankfully almost all were on the back panel, which is quick to produce on the 3D printer.</p>
-<p>The large Heat sink also give a possible indication of heat being an issue, this is already a bit of an issue in the Raspberry Pi Cases, but with the large heatsink, I decided to make use of a mesh front to the case. The mesh front was also available on thingevers, and allows a bit more airflow to the heatsink.  </p>
-<p><img src="images/Jetson_case_inside.png" width="350"> <div></p>
-<p>The mesh based panel is taken directly from the another <a href="https://github.com/pgrondek/SixInchRack/tree/master/RackCabinets/Mesh">github repositry</a> which contains a number of mesh grids. I have made use of the 3U mesh grid, but I needed to modify the positions of the screws, to line up with where the screws are placed on the main cabinet.</p>
-<p><img src="images/Jetson_case_complete.png" width="350"> <div></p>
-<p>With the case all completed, all that is left to do is add some handles when i get some black filament, taking them from the library and start getting a rack together like my Raspberry Pi Cluster. Once its all together I plan to have a look at getting started with <a href="https://cupy.dev/">CUPY</a> and <a href="https://github.com/rapidsai/cusignal">cuSignal</a>, and see what is possible with these Jetson Nano Boards.  </p>                </article>
+<p>This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.</p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi value</th>
+<th>Run Time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,000,000</td>
+<td>3.1449280000</td>
+<td>0.28814268112182617</td>
+</tr>
+<tr>
+<td>10,000,000</td>
+<td>3.1422772000</td>
+<td>2.569852352142334</td>
+</tr>
+<tr>
+<td>100,000,000</td>
+<td>3.1415957200</td>
+<td>26.24626588821411</td>
+</tr>
+</tbody>
+</table>
+<p>Now making use of the unique of the Nvidia Jetson baords which is the GPU along with the 128 CUDA cores. Taking advantage of these features involves switching from Numpy which executes on arm core to using CUPY. The CUPY library is designed to be compatible with numpy, using the same syntax and function names but to be used to execute the commands on the GPU.  </p>
+<p>While the syntax is almost identical between Numpy and CUPY, for the functions themselves, we actually need to deal with where the variables are located for the GPU version. Typically on a traditional Desktop PC the memory for the CPU and GPU are separate, and each time a variable needs to go between the two it has to be transferred over this typically PCIe link. This transfer takes time, but in the Jetson Boards the memory is shared between the CPU and the GPU, which means transfers are no longer a real issue but we still have the map the variables as ones that are able to be processed by the GPU as shown by the 'cp.array()' commands, and then make that data available to Numpy and the CPU with commands such as 'cp.asnumpy()'.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">test_points</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e9</span><span class="p">)</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">test_points</span><span class="o">/</span><span class="n">sample_size</span><span class="p">)</span><span class="o">*</span><span class="n">sample_size</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kp">dtype</span><span class="o">=</span><span class="n">cp</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="kp">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">width</span><span class="p">,</span><span class="kp">dtype</span><span class="o">=</span><span class="n">cp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">iterations</span><span class="o">/</span><span class="n">sample_size</span><span class="p">)):</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">sample_size</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">random_integers</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">sample_size</span><span class="p">)</span>
+
+  <span class="n">result</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="kp">less</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="kp">add</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">),</span><span class="n">max_value</span><span class="p">)</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="n">cp</span><span class="o">.</span><span class="kp">sum</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">pi_2</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">cp</span><span class="o">.</span><span class="kp">divide</span><span class="p">(</span><span class="n">count</span><span class="p">,</span><span class="n">iterations</span><span class="p">))</span>
+<span class="n">runtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pi is calculated as : </span><span class="si">%.10f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pi_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runs: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">iterations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.  </p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi value</th>
+<th>Run Time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,000,000</td>
+<td>3.1428120000</td>
+<td>0.536</td>
+</tr>
+<tr>
+<td>10,000,000</td>
+<td>3.1412428000</td>
+<td>0.952</td>
+</tr>
+<tr>
+<td>100,000,000</td>
+<td>3.1414888800</td>
+<td>5.70</td>
+</tr>
+<tr>
+<td>1,000,000,000</td>
+<td>3.1414574560</td>
+<td>48.8</td>
+</tr>
+</tbody>
+</table>
+<p>These large improvements in speed, have allowed us to complete far more iterations in a shorter amount of time, and in terms of out algorithm we can see the improvements in the accuracy of Pi we are estimating. By the time we are calculating 1e9 values, we are getting pi correct to 4 significant figures. The question is are there any more options to improve the speed of our algorithm?</p>
+<p>One element that we skipped over is the size of the vectors that we are working with, for the above testing they were fixed at 1e6, without any real justification. This number was picked as an integer divide of the number of points was planning to test with, but could this be optimised, lets test a few Vector lengths with a fixed number of iterations at 1e8.</p>
+<table>
+<thead>
+<tr>
+<th>Vector Length</th>
+<th>CPU Run Time (s)</th>
+<th>GPU Run Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1e3</td>
+<td>32.90589118003845</td>
+<td>845.9481966495514</td>
+</tr>
+<tr>
+<td>2e3</td>
+<td>21.258601665496826</td>
+<td>419.91091442108154</td>
+</tr>
+<tr>
+<td>5e3</td>
+<td>14.350736856460571</td>
+<td>176.34263348579407</td>
+</tr>
+<tr>
+<td>1e4</td>
+<td>12.010297298431396</td>
+<td>82.7622184753418</td>
+</tr>
+<tr>
+<td>2e4</td>
+<td>11.731840372085571</td>
+<td>44.24630069732666</td>
+</tr>
+<tr>
+<td>5e4</td>
+<td>12.223548173904419</td>
+<td>19.158890962600708</td>
+</tr>
+<tr>
+<td>1e5</td>
+<td>11.998411178588867</td>
+<td>10.91840648651123</td>
+</tr>
+<tr>
+<td>2e5</td>
+<td>11.46126127243042</td>
+<td>6.900986671447754</td>
+</tr>
+<tr>
+<td>5e5</td>
+<td>10.744648456573486</td>
+<td>5.601003646850586</td>
+</tr>
+<tr>
+<td>1e6</td>
+<td>10.448279619216919</td>
+<td>5.1830034255981445</td>
+</tr>
+<tr>
+<td>2e6</td>
+<td>10.199071407318115</td>
+<td>5.011155843734741</td>
+</tr>
+<tr>
+<td>5e6</td>
+<td>10.750465631484985</td>
+<td>4.939110279083252</td>
+</tr>
+<tr>
+<td>1e7</td>
+<td>10.633904695510864</td>
+<td>5.0449748039245605</td>
+</tr>
+<tr>
+<td>2e7</td>
+<td>10.581463098526001</td>
+<td>5.44777512550354</td>
+</tr>
+<tr>
+<td>2.5e7</td>
+<td>10.641862869262695</td>
+<td>6.6196606159210205</td>
+</tr>
+</tbody>
+</table>
+<p>What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).</p>
+<p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-case.html" rel="bookmark"
+                           title="Permalink to Nvidia Jetson case">Nvidia Jetson case</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Sun 31 January 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
+</footer><!-- /.post-info -->                <p>Building a mini rack mount case for my Nvidia Jetson 2GB</p>
+                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-case.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -149,5 +414,15 @@
                 <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
         </footer><!-- /#contentinfo -->
 
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-59185025-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
 </body>
 </html>

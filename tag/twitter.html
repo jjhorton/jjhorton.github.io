@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - misc</title>
+        <title>JJ Horton - Twitter</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -25,53 +25,41 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/hello-world.html">Hello World</a></h1>
-<footer class="post-info">
-        <span>Tue 02 May 2017</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/website.html">website</a></span>
-</footer><!-- /.post-info --><p>Is anyone there? Trying to get my wedbsite working Again...</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html" rel="bookmark"
-                           title="Permalink to Over clocking my Raspberry Pi cluster">Over clocking my Raspberry Pi cluster</a></h1>
-                </header>
-
-                <div class="entry-content">
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html">Over clocking my Raspberry Pi cluster</a></h1>
 <footer class="post-info">
         <span>Thu 10 March 2016</span>
 <span>| tags: <a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/data.html">Data</a><a href="http://jjhorton.co.uk/tag/matlab.html">Matlab</a><a href="http://jjhorton.co.uk/tag/twitter.html">Twitter</a></span>
-</footer><!-- /.post-info -->                <p>With my newly created raspberry pi cluster being made out of the
+</footer><!-- /.post-info --><p>With my newly created raspberry pi cluster being made out of the
 Raspberry Pi 2, I don't want it to lag to far behind the freshly
 announced Raspberry Pi 3. To try and keep up with the new hardware
-without replacing all of my Pi's I devices it was worth …</p>
-                <a class="readmore" href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+without replacing all of my Pi's I devices it was worth a go at
+overclocking them.</p>
+<p>Overlooking my Pi's should allow them to work a bit quicker, but it will reduce power efficient and increase the tempurature that the cluster runs at. Overclocking can be a dangerous game, as if you run the Pi's to hard you could easily cause hardware damage to the boards if the tempurature gets to high. Thankfully there are plenty of <a href="http://haydenjames.io/raspberry-pi-2-overclock/">guides on the
+Internet</a> to talk you through sure tasks which is what I used.</p>
+<p>All you have to do is edit the</p>
+<div class="highlight"><pre><span></span><code>sudo nano /boot/config.txt
+</code></pre></div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/building-a-raspberry-pi-cluster.html" rel="bookmark"
-                           title="Permalink to Building a Raspberry Pi Cluster">Building a Raspberry Pi Cluster</a></h1>
-                </header>
+<p>I then added the following at the end of the file, which increase not
+only the clocking frequency, but also the sdram and core frequency. It
+also enables over voltage and sets an upper temperature limit.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
+<span class="nv">sdram_freq</span><span class="o">=</span><span class="m">500</span>
+<span class="nv">core_freq</span><span class="o">=</span><span class="m">500</span>
+<span class="nv">over_voltage</span><span class="o">=</span><span class="m">2</span>
+<span class="nv">temp_limit</span><span class="o">=</span><span class="m">80</span> <span class="c1">#Will throttle to default clock speed if hit</span>
+</code></pre></div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 02 March 2016</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/cluster.html">cluster</a><a href="http://jjhorton.co.uk/tag/matlab.html">Matlab</a><a href="http://jjhorton.co.uk/tag/octave.html">octave</a><a href="http://jjhorton.co.uk/tag/pi.html">pi</a><a href="http://jjhorton.co.uk/tag/raspberry-pi.html">raspberry pi</a></span>
-</footer><!-- /.post-info -->                <p>I've had a long standing interest in Parallel Processing, and then a few months ago I came across Octave and its parallel package. Octave is very similar to MATLAB that I use every day, and for the most part basic MATLAB code works out of the box in Octave.</p>
-<p>I …</p>
-                <a class="readmore" href="http://jjhorton.co.uk/building-a-raspberry-pi-cluster.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
+<p>After which all there is to do is reboot the Raspberry Pi with</p>
+<div class="highlight"><pre><span></span><code>sudo reboot
+</code></pre></div>
+
+<p>Now time to test some code of my cluster and see what the performance increase is</p>                </article>
 <p class="paginator">
     Page 1 / 1
 </p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
