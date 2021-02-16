@@ -43,33 +43,33 @@
 <p><img src="images/Jetson_case_openscad.png" width="350"> <div></p>
 <p>Using the <a href="https://github.com/KronBjorn/SixInchRack/blob/master/RackCabinets/sixinch_library.scad">Six Inch Library</a> makes building up the components, using measurements taken from the Jetson Nano, very simple. Passing values for the size of the hole into a function that then builds the part which can then be exported as an STL, and then on to be 3D printed.  </p>
 <p>The square holes for each of ports of the ports on the Jetson Nano is described as a point on the back of the case by the first two coordinates, then followed by the X and Y coordinates representing the size of the square hole to be cut out of the back of the case. The other key values as the height of the side screws, which mounts the back panel to the main cabinet, then the number of units or height which in this case is 3 for 3U.   </p>
-<div class="highlight"><pre><span></span><code><span class="n">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="p">.</span><span class="n">scad</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span>include&lt;sixinch_library.scad&gt;
 
-<span class="n">square_hole</span>  <span class="o">=</span> <span class="p">[[</span><span class="mi">92</span><span class="p">.</span><span class="mi">5</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">74</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">57</span> <span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span> <span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="p">];</span>
-<span class="n">round_hole</span>   <span class="o">=</span> <span class="p">[];</span>
-<span class="n">screw_top</span>    <span class="o">=</span> <span class="p">[];</span><span class="o">//</span><span class="n">mm</span>
-<span class="n">screw_bottom</span> <span class="o">=</span> <span class="p">[];</span><span class="o">//</span><span class="n">mm</span>
-<span class="n">screw_side</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
-<span class="n">depth</span>        <span class="o">=</span> <span class="mi">98</span><span class="p">;</span>
-<span class="n">units</span>        <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">back_plate</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">screw_top</span><span class="p">,</span><span class="n">screw_bottom</span><span class="p">,</span><span class="n">screw_side</span><span class="p">,</span><span class="n">square_hole</span><span class="p">,</span><span class="n">round_hole</span><span class="p">);</span>
-</code></pre></div>
+square_hole  = [[92.5 ,3, 10, 5] , [74 ,3, 17, 15] , [57 ,4, 15, 16] , [40,4,15,8], [21,4,16,8], [5 ,3, 12, 5] ];
+round_hole   = [];
+screw_top    = [];//mm
+screw_bottom = [];//mm
+screw_side   = [1.5];
+depth        = 98;
+units        = 3;
+back_plate(units,depth,screw_top,screw_bottom,screw_side,square_hole,round_hole);
+</pre></div>
 
 <p>Another key component is the placement of the screw holes in the main cabinet, for mounting the Jetson Board using the mounting screws, the positions are measured from the board and then mapped onto the round peg parts. I used the same M2.5 screws I use when mounting my raspberry Pi's in there Rack Mount, so the peg dimensions were taken from that design in the Six Inch Library.</p>
-<div class="highlight"><pre><span></span><code><span class="n">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="p">.</span><span class="n">scad</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span>include&lt;sixinch_library.scad&gt;
 
-<span class="n">w</span><span class="o">=</span><span class="mi">95</span><span class="p">;</span>
-<span class="n">h</span><span class="o">=</span><span class="mi">98</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">screw_bottom_front</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="n">screw_side_front</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
-<span class="n">round_peg</span>          <span class="o">=</span> <span class="p">[[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="mi">86</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="mi">86</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="mi">58</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-                                         <span class="p">[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="mi">58</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]];</span>
-<span class="n">depth</span>              <span class="o">=</span> <span class="mi">98</span><span class="p">;</span>
-<span class="n">units</span>              <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">cabinet</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">screw_bottom_front</span><span class="p">,</span><span class="n">round_peg</span><span class="p">,</span><span class="n">screw_side_front</span><span class="p">);</span>
-</code></pre></div>
+w=95;
+h=98-17-2;
+screw_bottom_front = [];
+screw_side_front   = [1.5];
+round_peg          = [[w,h,6,2.4,4],
+                                         [w-86,h,6,2.4,4],
+                                         [w-86,h-58,6,2.4,4],
+                                         [w,h-58,6,2.4,4]];
+depth              = 98;
+units              = 3;
+cabinet(depth,units,screw_bottom_front,round_peg,screw_side_front);
+</pre></div>
 
 <p><img src="images/Jetson_case_openscad2.png" width="350"> <div></p>
 <p>Getting these measurements alright took a couple of attempts, getting the tolerances correct so that the heights all lined up with the ports, as leaving enough room to actually plug all the cables in were all issues I had, but thankfully almost all were on the back panel, which is quick to produce on the 3D printer.</p>

@@ -38,22 +38,22 @@ overclocking them.</p>
 <p>Overlooking my Pi's should allow them to work a bit quicker, but it will reduce power efficient and increase the tempurature that the cluster runs at. Overclocking can be a dangerous game, as if you run the Pi's to hard you could easily cause hardware damage to the boards if the tempurature gets to high. Thankfully there are plenty of <a href="http://haydenjames.io/raspberry-pi-2-overclock/">guides on the
 Internet</a> to talk you through sure tasks which is what I used.</p>
 <p>All you have to do is edit the</p>
-<div class="highlight"><pre><span></span><code>sudo nano /boot/config.txt
-</code></pre></div>
+<div class="highlight"><pre><span></span>sudo nano /boot/config.txt
+</pre></div>
 
 <p>I then added the following at the end of the file, which increase not
 only the clocking frequency, but also the sdram and core frequency. It
 also enables over voltage and sets an upper temperature limit.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
+<div class="highlight"><pre><span></span><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
 <span class="nv">sdram_freq</span><span class="o">=</span><span class="m">500</span>
 <span class="nv">core_freq</span><span class="o">=</span><span class="m">500</span>
 <span class="nv">over_voltage</span><span class="o">=</span><span class="m">2</span>
 <span class="nv">temp_limit</span><span class="o">=</span><span class="m">80</span> <span class="c1">#Will throttle to default clock speed if hit</span>
-</code></pre></div>
+</pre></div>
 
 <p>After which all there is to do is reboot the Raspberry Pi with</p>
-<div class="highlight"><pre><span></span><code>sudo reboot
-</code></pre></div>
+<div class="highlight"><pre><span></span>sudo reboot
+</pre></div>
 
 <p>Now time to test some code of my cluster and see what the performance increase is</p>                </article>
 <p class="paginator">

@@ -39,24 +39,24 @@ Pi 2's in the cluster, I setup SSH so that no passwords are required
 between the nodes. The first step in running the octave scripts was to
 launch the parallels server on each of the  3 other Raspberry Pi's that
 I'm not connected to</p>
-<div class="highlight"><pre><span></span><code><span class="se">\#</span>!/bin/bash
+<div class="highlight"><pre><span></span><span class="se">\#</span>!/bin/bash
 <span class="nv">USERNAME</span><span class="o">=</span>pi
 <span class="nv">HOSTS</span><span class="o">=</span><span class="s2">&quot;rpi1 rpi2 rpi3&quot;</span>
 <span class="nv">SCRIPT</span><span class="o">=</span><span class="s2">&quot;cd Documents/Octave; octave -q clusterStart.m&quot;</span>
 <span class="k">for</span> HOSTNAME in <span class="se">\$</span><span class="o">{</span>HOSTS<span class="o">}</span> <span class="p">;</span> <span class="k">do</span>
 ssh -l <span class="se">\$</span><span class="o">{</span>USERNAME<span class="o">}</span> <span class="se">\$</span><span class="o">{</span>HOSTNAME<span class="o">}</span> <span class="s2">&quot;\${SCRIPT}&quot;</span>
 <span class="k">done</span>
-</code></pre></div>
+</pre></div>
 
 <p>This launches Octave and runs the following script:</p>
-<div class="highlight"><pre><span></span><code>pkg load parallel
+<div class="highlight"><pre><span></span>pkg load parallel
 addpath<span class="o">(</span><span class="s2">&quot;\~/Documents/Octave/&quot;</span><span class="o">)</span><span class="p">;</span>
 addpath<span class="o">(</span><span class="s2">&quot;\~/Documents/Octave/Server&quot;</span><span class="o">)</span><span class="p">;</span>
 pserver
-</code></pre></div>
+</pre></div>
 
 <p>With each of these raspberry pi's now running on the 3 other Pi's it is now possible to send simple commands to them and get the results returned to the first Pi. The octave script that I used to test this out is bellow</p>
-<div class="highlight"><pre><span></span><code>clear<span class="p">;</span>
+<div class="highlight"><pre><span></span>clear<span class="p">;</span>
 pkg load parallel
 <span class="nv">hosts</span> <span class="o">=</span> <span class="o">{</span> <span class="s1">&#39;rpi0&#39;</span>, <span class="s1">&#39;rpi1&#39;</span>, <span class="s1">&#39;rpi2&#39;</span>, <span class="s1">&#39;rpi3&#39;</span> <span class="o">}</span><span class="p">;</span>
 <span class="nv">sockets</span> <span class="o">=</span> connect<span class="o">(</span>hosts<span class="o">)</span><span class="p">;</span>
@@ -69,7 +69,7 @@ psum<span class="o">(</span><span class="m">2</span><span class="o">)</span> <sp
 psum<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">=</span> recv<span class="o">(</span>sockets<span class="o">(</span><span class="m">4</span>,:<span class="o">))</span><span class="p">;</span>
 sum<span class="o">(</span>psum<span class="o">)</span>
 scloseall<span class="o">(</span>sockets<span class="o">)</span><span class="p">;</span>
-</code></pre></div>
+</pre></div>
 
 <p>This sets up the sockets for all 4 Raspberry Pi's including the one the code is run on (rpi0) and the 3 that are running the pserver (rpi1, rpi2 and rpi3). The code then sends commands as strings to be evaluated at the pserver's, which in this case are simple summation's, and then return the values to rpi0, which adds the 3 values they generated together and displays it on the screen.</p>
 <p>The next step for me in this project is to get it running my Twitter Sentiment Code.</p>                </article>
