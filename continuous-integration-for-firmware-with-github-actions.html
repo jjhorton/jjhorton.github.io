@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - James</title>
+        <title>Continuous Integration for Firmware with Github Actions</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,14 +23,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html" rel="bookmark"
+           title="Permalink to Continuous Integration for Firmware with Github Actions">Continuous Integration for Firmware with Github Actions</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html">Continuous Integration for Firmware with Github Actions</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Wed 17 March 2021</span>
 <span>| tags: <a href="http://jjhorton.co.uk/tag/github.html">Github</a><a href="http://jjhorton.co.uk/tag/ci.html">CI</a><a href="http://jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info --><p>For a couple of months I've been slowly building up a little project using some Development boards that include an FPGA, typically once i've finished editing my design I run all my simulations, tests and then check I can still build the firmware. While running these manually before each commit isn't typically much an issue, I wanted to automate this.</p>
+</footer><!-- /.post-info -->      <p>For a couple of months I've been slowly building up a little project using some Development boards that include an FPGA, typically once i've finished editing my design I run all my simulations, tests and then check I can still build the firmware. While running these manually before each commit isn't typically much an issue, I wanted to automate this.</p>
 <p>The project i'm working on uses a <a href="https://www.aliexpress.com/item/1005001686186007.html">ColorLite i5 FPGA board</a>, this with it Lattice ECP5 FPGA allows me to use a set of Open source tools to test and build my FPGA images. For simulations I'm using <a href="https://www.veripool.org/wiki/verilator">Verilator</a>, while for creating the FPGA images I'm using a combination of <a href="https://github.com/YosysHQ/yosys">Yosys</a> and <a href="https://github.com/YosysHQ/nextpnr">Next-PNR</a>. These excellent tools allow me to make use of the GitHub actions to test my FPGA images with very minimal effort.</p>
 <p>While my simulations require a couple of commands so these are contained to a makefile, the commands to build the FPGA image are very simple.</p>
 <div class="highlight"><pre><span></span>yosys -p <span class="s1">&#39;synth_ecp5 -json top.json&#39;</span> -S firmware/top.v
@@ -119,78 +124,11 @@ nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.
           <span class="no">make test-serial</span>
 </pre></div>
 
-<p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I'm  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I'm  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-nano-2gb-testing.html" rel="bookmark"
-                           title="Permalink to Nvidia Jetson Nano 2Gb Testing">Nvidia Jetson Nano 2Gb Testing</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 22 February 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/testing.html">Testing</a></span>
-</footer><!-- /.post-info -->                <p>Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing</p>
-                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-nano-2gb-testing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-case.html" rel="bookmark"
-                           title="Permalink to Nvidia Jetson case">Nvidia Jetson case</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 January 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Building a mini rack mount case for my Nvidia Jetson 2GB</p>
-                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-case.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html" rel="bookmark"
-                           title="Permalink to Bring a Raspberry Pi Cluster Back to Life">Bring a Raspberry Pi Cluster Back to Life</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 May 2020</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/raspberrypi.html">RaspberryPi</a><a href="http://jjhorton.co.uk/tag/pi2.html">Pi2</a><a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Bring back an old Raspberry Pi cluster back to life for some new projects</p>
-                <a class="readmore" href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/new-website.html" rel="bookmark"
-                           title="Permalink to New Website">New Website</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 08 May 2017</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/pelican.html">pelican</a><a href="http://jjhorton.co.uk/tag/website.html">website</a><a href="http://jjhorton.co.uk/tag/github.html">github</a><a href="http://jjhorton.co.uk/tag/pages.html">pages</a></span>
-</footer><!-- /.post-info -->                <p>Final starting to get my website up and running again, now hosted on github pages and using pelican</p>
-                <a class="readmore" href="http://jjhorton.co.uk/new-website.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 2
-        <a href="http://jjhorton.co.uk/author/james2.html">&raquo;</a>
-        <a href="http://jjhorton.co.uk/author/james2.html">&#8649;</a>
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
