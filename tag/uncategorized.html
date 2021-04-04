@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - Categories</title>
+        <title>JJ Horton - Uncategorized</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,18 +23,45 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
-    <h1>Categories on JJ Horton</h1>
-    <ul>
-        <li><a href="http://jjhorton.co.uk/category/bromley-canoe-club-kayaking.html">Bromley Canoe Club, Kayaking</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/bvcc-kayaking-white-water.html">BVCC, Kayaking, White Water</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/cluster-data.html">Cluster, Data</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/electronics-project-quadcopter-quadrotor-university.html">electronics, Project, Quadcopter, Quadrotor, university</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/github.html">Github</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/jetson.html">Jetson</a> (2)</li>
-        <li><a href="http://jjhorton.co.uk/category/misc.html">misc</a> (9)</li>
-        <li><a href="http://jjhorton.co.uk/category/raspberrypi.html">RaspberryPi</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/website.html">website</a> (1)</li>
-    </ul>
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/communication-control.html">Communication Control</a></h1>
+<footer class="post-info">
+        <span>Mon 09 April 2012</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/electronics.html">Electronics</a><a href="http://jjhorton.co.uk/tag/project.html">Project</a><a href="http://jjhorton.co.uk/tag/uncategorized.html">Uncategorized</a><a href="http://jjhorton.co.uk/tag/university.html">University</a></span>
+</footer><!-- /.post-info --><p>For the Quad rotor to work I need some control over it, I have got my
+<a href="http://jjhorton.co.uk/archives/67">communications link</a> all set up, but
+I need to sort out what I'm going to send over it. Previously I had just
+been sending gyroscope or accelerometer readings, but now this needs to
+become a two way system and for that I need to write some code at both
+ends that is up to the task.</p>
+<p>For the computer side of things I'm going to be using MATLAB, there are
+2 reasons I have chosen MATLAB for this task, the first of which is that
+I have done similar control stuff in MATLAB before, and the second being
+that there is lots of support out there for this kind of task for
+MATLAB. With MATLAB having many of the functions that I will need built
+in all I need to do is join up the dots.</p>
+<p><img src="images/GUIWithData.jpg" width="350"><div></p>
+<p>The above shows GUI that I developed to do the task, bellow I'll talk
+you though its main functions. The user interface was created using the
+GUIDE (Graphical User Interface Development Environment) that is
+supplied with MATLAB, which made placing all the parts in place simple
+case of drop and drag, but then came the part of making them do
+something. The GUI is made up of the following core components:</p>
+<ul>
+<li>Basic 3D Graphical display of the Quad Rotors orientation</li>
+<li>A plot of the 3 gyroscopes readings over the last 30 seconds</li>
+<li>A plot of the 3 accelerometers readings over the last 30 seconds</li>
+<li>A text display of the data sent and received from the Quad Rotor</li>
+<li>Button down the right hand side to control the quad rotor with</li>
+</ul>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - Categories</title>
+        <title>JJ Horton - Bluetooth</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,18 +23,40 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
-    <h1>Categories on JJ Horton</h1>
-    <ul>
-        <li><a href="http://jjhorton.co.uk/category/bromley-canoe-club-kayaking.html">Bromley Canoe Club, Kayaking</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/bvcc-kayaking-white-water.html">BVCC, Kayaking, White Water</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/cluster-data.html">Cluster, Data</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/electronics-project-quadcopter-quadrotor-university.html">electronics, Project, Quadcopter, Quadrotor, university</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/github.html">Github</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/jetson.html">Jetson</a> (2)</li>
-        <li><a href="http://jjhorton.co.uk/category/misc.html">misc</a> (9)</li>
-        <li><a href="http://jjhorton.co.uk/category/raspberrypi.html">RaspberryPi</a> (1)</li>
-        <li><a href="http://jjhorton.co.uk/category/website.html">website</a> (1)</li>
-    </ul>
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/communication.html">Communication</a></h1>
+<footer class="post-info">
+        <span>Fri 17 February 2012</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/bluetooth.html">Bluetooth</a><a href="http://jjhorton.co.uk/tag/electronics.html">electronics</a><a href="http://jjhorton.co.uk/tag/level-3.html">Level 3</a><a href="http://jjhorton.co.uk/tag/project.html">Project</a><a href="http://jjhorton.co.uk/tag/quadrotor.html">Quadrotor</a></span>
+</footer><!-- /.post-info --><p>For the communication system, there are many choices available from the
+traditional route of model building and control. The main issue with
+these systems is that they are very expensive, so for my project I have
+chosen to use a Bluetooth module.</p>
+<p><img src="images/BluetoothPcb.png" width="350"><div></p>
+<p>The module that I have chosen is the Spark fun Bluetooth Mate Silver
+from <a href="http://proto-pic.co.uk">proto-pic.co.uk</a>, this simply attaches to
+the RX and TX lines on the arduino processor that I’m using, this makes
+the communication very simple, helping to reduce the development time.</p>
+<p><img src="images/BluetoothHelloWorld.png" width="350"><div></p>
+<p>The Bluetooth module is mounted on the same main board as my processor,
+and only required a few quick solder connections to start getting some
+response on my computer. To start with a found that I wasn’t getting
+anything that I expected out of the board, but looking though the
+datasheets as well as a few useful posts on the
+<a href="http://sparkfun.com">sparkfun.com</a> website, I found that the default
+baud rate for the Bluetooth module was 115200 not 9600, I had been
+trying to use. This quick fix meant that in no time at all I was able to
+send data to my computer, and also with a little bit of code be able to
+flash an LED.</p>
+<p>Now to stop turning on and off LED’s and turn this into a quad rotor.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
