@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton</title>
+        <title>Filter Testing</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,14 +23,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://jjhorton.co.uk/filter-testing.html" rel="bookmark"
+           title="Permalink to Filter Testing">Filter Testing</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Fri 30 April 2021</span>
 <span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
-</footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
+</footer><!-- /.post-info -->      <p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
 <p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
 <p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
 <p><img src="images/Filter_Test_PCB_Schematic.png" width="350"></p>
@@ -63,78 +68,11 @@ grid on
 
 <p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
 <p><img src="images/Filter_Test_Single_433MHz.png" width="350"><div></p>
-<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html" rel="bookmark"
-                           title="Permalink to Continuous Integration for Firmware with Github Actions">Continuous Integration for Firmware with Github Actions</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 17 March 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/github.html">Github</a><a href="http://jjhorton.co.uk/tag/ci.html">CI</a><a href="http://jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Using Github actions to simulate, test and build an FPGA design</p>
-                <a class="readmore" href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-nano-2gb-testing.html" rel="bookmark"
-                           title="Permalink to Nvidia Jetson Nano 2Gb Testing">Nvidia Jetson Nano 2Gb Testing</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 22 February 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/testing.html">Testing</a></span>
-</footer><!-- /.post-info -->                <p>Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing</p>
-                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-nano-2gb-testing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/nvidia-jetson-case.html" rel="bookmark"
-                           title="Permalink to Nvidia Jetson case">Nvidia Jetson case</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 January 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Building a mini rack mount case for my Nvidia Jetson 2GB</p>
-                <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-case.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html" rel="bookmark"
-                           title="Permalink to Bring a Raspberry Pi Cluster Back to Life">Bring a Raspberry Pi Cluster Back to Life</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 May 2020</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/raspberrypi.html">RaspberryPi</a><a href="http://jjhorton.co.uk/tag/pi2.html">Pi2</a><a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Bring back an old Raspberry Pi cluster back to life for some new projects</p>
-                <a class="readmore" href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 6
-        <a href="http://jjhorton.co.uk/index2.html">&raquo;</a>
-        <a href="http://jjhorton.co.uk/index6.html">&#8649;</a>
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

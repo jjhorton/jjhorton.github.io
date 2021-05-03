@@ -26,104 +26,63 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html">Continuous Integration for Firmware with Github Actions</a></h1>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
 <footer class="post-info">
-        <span>Wed 17 March 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/github.html">Github</a><a href="http://jjhorton.co.uk/tag/ci.html">CI</a><a href="http://jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info --><p>For a couple of months I've been slowly building up a little project using some Development boards that include an FPGA, typically once i've finished editing my design I run all my simulations, tests and then check I can still build the firmware. While running these manually before each commit isn't typically much an issue, I wanted to automate this.</p>
-<p>The project i'm working on uses a <a href="https://www.aliexpress.com/item/1005001686186007.html">ColorLite i5 FPGA board</a>, this with it Lattice ECP5 FPGA allows me to use a set of Open source tools to test and build my FPGA images. For simulations I'm using <a href="https://www.veripool.org/wiki/verilator">Verilator</a>, while for creating the FPGA images I'm using a combination of <a href="https://github.com/YosysHQ/yosys">Yosys</a> and <a href="https://github.com/YosysHQ/nextpnr">Next-PNR</a>. These excellent tools allow me to make use of the GitHub actions to test my FPGA images with very minimal effort.</p>
-<p>While my simulations require a couple of commands so these are contained to a makefile, the commands to build the FPGA image are very simple.</p>
-<div class="highlight"><pre><span></span>yosys -p <span class="s1">&#39;synth_ecp5 -json top.json&#39;</span> -S firmware/top.v
-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config
+        <span>Fri 30 April 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
+</footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
+<p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
+<p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
+<p><img src="images/Filter_Test_PCB_Schematic.png" width="350"></p>
+<p><img src="images/Filter_Test_PCB_Layout.png" width="350"><div></p>
+<p>Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB's arriving.</p>
+<p><img src="images/Filter_Test_Lots_of_PCBs.png" width="350"><div></p>
+<p>As it the way when ordering these types of PCB's from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.</p>
+<p>For soldering the board I made us of a Hot Plate that I had recently <a href="https://www.aliexpress.com/item/4000887663480.html">purchased</a> for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB's before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB's much easier and hopeful with more consistent results.</p>
+<p><img src="images/Filter_Test_Soldering.png" width="350"><div></p>
+<p>The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA's performance is never going to beat the performance of the VNA's you will find in commercial labs, it's a great tool for testing out little filters like this that i'm making a home, you can find it on <a href="https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/">tindie</a>, although a newer model has since been released with an improved frequency range.</p>
+<p>For testing my filters, I hooked up the NanoVNA to my PC and used it with the software <a href="https://github.com/">NanoVNA QT GUI</a> which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.</p>
+<p><img src="images/Filter_Test_NanoVNA.png" width="350"><div></p>
+<p>The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.</p>
+<p><img src="images/Filter_Test_NanoVNA_ScreenShot.png" width="350"><div></p>
+<p>One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.</p>
+<p>For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my <a href="https://uk.leonardocompany.com/en/people-careers">employer</a> provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up <a href="https://uk.mathworks.com/products/matlab-online.html">MATLAB Online</a>. MATLAB online allows me to upload my files to "The cloud", and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it <a href="https://www.apple.com/uk/mac/m1/">M1 Processor</a>.</p>
+<p><img src="images/Filter_Test_Matlab_online.png" width="350"><div></p>
+<p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
+<p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
+<div class="highlight"><pre><span></span>measured_data = sparameters(&quot;Data/433_filter1.s2p&quot;);
+gains = 10*log10(measured_data.powergain);
+
+figure;
+plot(measured_data.Frequencies./1e6,gains)
+ylabel(&#39;Filter Gain (dB)&#39;)
+xlabel(&#39;Frequencey (MHz)&#39;)
+ylim([-70,0])
+grid on
 </pre></div>
 
-<p>To build the FPGA image is a simple task of running my 'top.v' verilog file though yosys, before doing place and route with nextpnr, which again is a single line. These simple lines allow me to test if I can build my design, as long as they don't return any error, then the build is successful.</p>
-<p>The GitHub actions are based on YAML files, which contain details of the container that the image is being run on, and the commands that are run for that image. These files are stored in the folder <code>.github/workflow</code> in the GitHub repository, I have two, one which runs the Simulation and one which build the FPGA Image.</p>
-<p>We will talk though the build firmware Github Action, which I have called <code>Build Firmware</code>. I have decided that this should be run whenever I push the repositry, for Pull requests and on demand. So we define the name of the action, and add the description of when it should be run, the <code>workflow_dispatch</code> allows me to manually trigger it being run.</p>
-<div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Firmware</span>
-
-<span class="nt">on</span><span class="p">:</span>
-  <span class="nt">push</span><span class="p">:</span>
-  <span class="nt">pull_request</span><span class="p">:</span>
-  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-</pre></div>
-
-<p>With the name, and when the action should be run defined, we move onto defining the action. For my build we need to define the <code>job</code> and the <code>build</code>. For this I am running on Ubuntu Latest as my image.</p>
-<div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
-  <span class="nt">build</span><span class="p">:</span>
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-</pre></div>
-
-<p>Now that we have the image we are running on we need to add the dependancies that are required for building out FPGA image. First step is to checkout our repository we are running from with the
-<code>uses: actions/checkout@v2</code>, which will get our repo using the default settings without any issues. With both Yosys and Next-Pnr needed to build the image, the next step is a little different to what I originally had planned. I thought that I would need to build these tools from source like I would on my own computer, but that is very time consuming, and I came across some pip packages, which installs them much quicker. This reduces build time, which on private repo's on GitHub are billed after you are passed your allowance.</p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install the required Tools</span>
-<span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">sudo -H pip3 install yowasp-yosys</span>
-    <span class="no">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span>
-</pre></div>
-
-<p>One problem I did come across when installing these packages, was that if I ran these <code>pip3 install</code> commands without sudo, then the commands that I need then aren't available. Running with <code>sudo</code> solves this issue although i'm not sure why.  </p>
-<p>Now we have all the tools in place we can now run both yosys and nextpnr, using the commands specific to the <code>yowasp-yosys</code> and <code>yowasp-nextpnr</code> packages, which are a little different to the standard commands I would use on my own Laptop.  </p>
-<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run yosys on the files</span>
-    <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run Place and Route</span>
-    <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span>
-</pre></div>
-
-<p>We can then pull all those components into a single <code>FirmwareBuild.yaml</code> file in the <code>.github/workflow</code> folder, which is then run on each push to the repo. The current design is very simple, but runs in a little over 30 seconds for the build, this makes running on each push manageable, but as the firmware design continues to grow, I may look to only run on Pull request.  </p>
-<div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Firmware</span>
-
-<span class="nt">on</span><span class="p">:</span>
-  <span class="nt">push</span><span class="p">:</span>
-  <span class="nt">pull_request</span><span class="p">:</span>
-  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-
-<span class="nt">jobs</span><span class="p">:</span>
-  <span class="nt">build</span><span class="p">:</span>
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-    <span class="nt">steps</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install the required Tools</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-          <span class="no">sudo -H pip3 install yowasp-yosys</span>
-          <span class="no">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run yosys on the files</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span>
-
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run Place and Route</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span>
-</pre></div>
-
-<p>The GitHub action for running the simulation is very similar, but instead of <code>pip3 install</code> for the build tools, I require <code>Verilator</code> which is available to install using apt. As the code to run my Verilator tests is identical between how i run it on my computer and in the GitHub action, I just us my make command to run the tests.</p>
-<div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simulate Firmware</span>
-
-<span class="nt">on</span><span class="p">:</span>
-  <span class="nt">push</span><span class="p">:</span>
-  <span class="nt">pull_request</span><span class="p">:</span>
-  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-
-<span class="nt">jobs</span><span class="p">:</span>
-  <span class="nt">test</span><span class="p">:</span>
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-
-    <span class="nt">steps</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Verilator required for the simulation</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt install verilator</span>
-
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run the Serial Test</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-          <span class="no">export VINC=/usr/share/verilator/include</span>
-          <span class="no">make test-serial</span>
-</pre></div>
-
-<p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I'm  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>                </article>
+<p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
+<p><img src="images/Filter_Test_Single_433MHz.png" width="350"><div></p>
+<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html" rel="bookmark"
+                           title="Permalink to Continuous Integration for Firmware with Github Actions">Continuous Integration for Firmware with Github Actions</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Wed 17 March 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/github.html">Github</a><a href="http://jjhorton.co.uk/tag/ci.html">CI</a><a href="http://jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
+</footer><!-- /.post-info -->                <p>Using Github actions to simulate, test and build an FPGA design</p>
+                <a class="readmore" href="http://jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -167,21 +126,6 @@ nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.
 <span>| tags: <a href="http://jjhorton.co.uk/tag/raspberrypi.html">RaspberryPi</a><a href="http://jjhorton.co.uk/tag/pi2.html">Pi2</a><a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
 </footer><!-- /.post-info -->                <p>Bring back an old Raspberry Pi cluster back to life for some new projects</p>
                 <a class="readmore" href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/new-website.html" rel="bookmark"
-                           title="Permalink to New Website">New Website</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 08 May 2017</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/pelican.html">pelican</a><a href="http://jjhorton.co.uk/tag/website.html">website</a><a href="http://jjhorton.co.uk/tag/github.html">github</a><a href="http://jjhorton.co.uk/tag/pages.html">pages</a></span>
-</footer><!-- /.post-info -->                <p>Final starting to get my website up and running again, now hosted on github pages and using pelican</p>
-                <a class="readmore" href="http://jjhorton.co.uk/new-website.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

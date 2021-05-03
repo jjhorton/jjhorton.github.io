@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - Matlab</title>
+        <title>JJ Horton - MATLAB</title>
         <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -26,40 +26,66 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html">Over clocking my Raspberry Pi cluster</a></h1>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
 <footer class="post-info">
-        <span>Thu 10 March 2016</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/data.html">Data</a><a href="http://jjhorton.co.uk/tag/matlab.html">Matlab</a><a href="http://jjhorton.co.uk/tag/twitter.html">Twitter</a></span>
-</footer><!-- /.post-info --><p>With my newly created raspberry pi cluster being made out of the
-Raspberry Pi 2, I don't want it to lag to far behind the freshly
-announced Raspberry Pi 3. To try and keep up with the new hardware
-without replacing all of my Pi's I devices it was worth a go at
-overclocking them.</p>
-<p>Overlooking my Pi's should allow them to work a bit quicker, but it will reduce power efficient and increase the tempurature that the cluster runs at. Overclocking can be a dangerous game, as if you run the Pi's to hard you could easily cause hardware damage to the boards if the tempurature gets to high. Thankfully there are plenty of <a href="http://haydenjames.io/raspberry-pi-2-overclock/">guides on the
-Internet</a> to talk you through sure tasks which is what I used.</p>
-<p>All you have to do is edit the</p>
-<div class="highlight"><pre><span></span>sudo nano /boot/config.txt
+        <span>Fri 30 April 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
+</footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
+<p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
+<p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
+<p><img src="images/Filter_Test_PCB_Schematic.png" width="350"></p>
+<p><img src="images/Filter_Test_PCB_Layout.png" width="350"><div></p>
+<p>Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB's arriving.</p>
+<p><img src="images/Filter_Test_Lots_of_PCBs.png" width="350"><div></p>
+<p>As it the way when ordering these types of PCB's from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.</p>
+<p>For soldering the board I made us of a Hot Plate that I had recently <a href="https://www.aliexpress.com/item/4000887663480.html">purchased</a> for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB's before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB's much easier and hopeful with more consistent results.</p>
+<p><img src="images/Filter_Test_Soldering.png" width="350"><div></p>
+<p>The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA's performance is never going to beat the performance of the VNA's you will find in commercial labs, it's a great tool for testing out little filters like this that i'm making a home, you can find it on <a href="https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/">tindie</a>, although a newer model has since been released with an improved frequency range.</p>
+<p>For testing my filters, I hooked up the NanoVNA to my PC and used it with the software <a href="https://github.com/">NanoVNA QT GUI</a> which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.</p>
+<p><img src="images/Filter_Test_NanoVNA.png" width="350"><div></p>
+<p>The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.</p>
+<p><img src="images/Filter_Test_NanoVNA_ScreenShot.png" width="350"><div></p>
+<p>One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.</p>
+<p>For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my <a href="https://uk.leonardocompany.com/en/people-careers">employer</a> provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up <a href="https://uk.mathworks.com/products/matlab-online.html">MATLAB Online</a>. MATLAB online allows me to upload my files to "The cloud", and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it <a href="https://www.apple.com/uk/mac/m1/">M1 Processor</a>.</p>
+<p><img src="images/Filter_Test_Matlab_online.png" width="350"><div></p>
+<p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
+<p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
+<div class="highlight"><pre><span></span>measured_data = sparameters(&quot;Data/433_filter1.s2p&quot;);
+gains = 10*log10(measured_data.powergain);
+
+figure;
+plot(measured_data.Frequencies./1e6,gains)
+ylabel(&#39;Filter Gain (dB)&#39;)
+xlabel(&#39;Frequencey (MHz)&#39;)
+ylim([-70,0])
+grid on
 </pre></div>
 
-<p>I then added the following at the end of the file, which increase not
-only the clocking frequency, but also the sdram and core frequency. It
-also enables over voltage and sets an upper temperature limit.</p>
-<div class="highlight"><pre><span></span><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
-<span class="nv">sdram_freq</span><span class="o">=</span><span class="m">500</span>
-<span class="nv">core_freq</span><span class="o">=</span><span class="m">500</span>
-<span class="nv">over_voltage</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">temp_limit</span><span class="o">=</span><span class="m">80</span> <span class="c1">#Will throttle to default clock speed if hit</span>
-</pre></div>
-
-<p>After which all there is to do is reboot the Raspberry Pi with</p>
-<div class="highlight"><pre><span></span>sudo reboot
-</pre></div>
-
-<p>Now time to test some code of my cluster and see what the performance increase is</p>                </article>
+<p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
+<p><img src="images/Filter_Test_Single_433MHz.png" width="350"><div></p>
+<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html" rel="bookmark"
+                           title="Permalink to Over clocking my Raspberry Pi cluster">Over clocking my Raspberry Pi cluster</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 10 March 2016</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/data.html">Data</a><a href="http://jjhorton.co.uk/tag/matlab.html">Matlab</a><a href="http://jjhorton.co.uk/tag/twitter.html">Twitter</a></span>
+</footer><!-- /.post-info -->                <p>With my newly created raspberry pi cluster being made out of the
+Raspberry Pi 2, I don't want it to lag to far behind the freshly
+announced Raspberry Pi 3. To try and keep up with the new hardware
+without replacing all of my Pi's I devices it was worth …</p>
+                <a class="readmore" href="http://jjhorton.co.uk/over-clocking-my-raspberry-pi-cluster.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
