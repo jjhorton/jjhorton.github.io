@@ -26,48 +26,179 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
+                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/pico-pmod-breakout-pcb.html">Pico PMod breakout PCB</a></h1>
 <footer class="post-info">
-        <span>Fri 30 April 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
-</footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
-<p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
-<p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
-<p><img src="images/Filter_Test_PCB_Schematic.png" width="350"></p>
-<p><img src="images/Filter_Test_PCB_Layout.png" width="350"><div></p>
-<p>Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB's arriving.</p>
-<p><img src="images/Filter_Test_Lots_of_PCBs.png" width="350"><div></p>
-<p>As it the way when ordering these types of PCB's from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.</p>
-<p>For soldering the board I made us of a Hot Plate that I had recently <a href="https://www.aliexpress.com/item/4000887663480.html">purchased</a> for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB's before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB's much easier and hopeful with more consistent results.</p>
-<p><img src="images/Filter_Test_Soldering.png" width="350"><div></p>
-<p>The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA's performance is never going to beat the performance of the VNA's you will find in commercial labs, it's a great tool for testing out little filters like this that i'm making a home, you can find it on <a href="https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/">tindie</a>, although a newer model has since been released with an improved frequency range.</p>
-<p>For testing my filters, I hooked up the NanoVNA to my PC and used it with the software <a href="https://github.com/">NanoVNA QT GUI</a> which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.</p>
-<p><img src="images/Filter_Test_NanoVNA.png" width="350"><div></p>
-<p>The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.</p>
-<p><img src="images/Filter_Test_NanoVNA_ScreenShot.png" width="350"><div></p>
-<p>One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.</p>
-<p>For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my <a href="https://uk.leonardocompany.com/en/people-careers">employer</a> provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up <a href="https://uk.mathworks.com/products/matlab-online.html">MATLAB Online</a>. MATLAB online allows me to upload my files to "The cloud", and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it <a href="https://www.apple.com/uk/mac/m1/">M1 Processor</a>.</p>
-<p><img src="images/Filter_Test_Matlab_online.png" width="350"><div></p>
-<p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
-<p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
-<div class="highlight"><pre><span></span>measured_data = sparameters(&quot;Data/433_filter1.s2p&quot;);
-gains = 10*log10(measured_data.powergain);
+        <span>Mon 31 May 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="http://jjhorton.co.uk/tag/pico.html">Pico</a><a href="http://jjhorton.co.uk/tag/pmod.html">PMod</a><a href="http://jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
+</footer><!-- /.post-info --><p><img src="images/PicoPmod-Breadboard.jpg" ><div></p>
+<p>After picking up a few <a href="https://www.raspberrypi.org/products/raspberry-pi-pico/">Raspberry Pi Pico's</a>, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple <a href="https://1bitsquared.com/collections/fpga/products/pmod-dip-switch">8 DIP switch</a> and a <a href="https://1bitsquared.com/products/pmod-7-segment-display">7 segment display</a>. These are great little boards for connecting to boards like the Raspberry PI Pico when experimenting but the interface with the Pico requires a breadboard to hook them up, so I was looking for a better way to get these PMod's hooked up.   </p>
+<p><img src="https://www.raspberrypi.org/app/uploads/2021/01/Raspberry-Pi-Pico-at-an-angle-900x643.png" ><div></p>
+<p>Why bother experimenting with the Raspberry Pi Pico? Well the things that interested me with the Raspberry Pi Pico was not only the low price but also the Programable I/O or PIO on the <a href="https://www.raspberrypi.org/documentation/rp2040/getting-started/">RP2040</a> device. This allows you to build small limited sate machines you can set up on some of the outputs, alongside some more traditional Hard IP (SPI/UART/I2C) on the device with a duel core ARM that supports running at a clock rate of over 100MHz. This make it interesting to play with, much as I have been playing around with on FPGA's in the past few months, without having to get your head around writing lots of HDL such as Verilog or VHDL.  </p>
+<h1>Designing a PCB with KiCAD</h1>
+<p><img src="images/PicoPmod-Schematic.png" ><div></p>
+<p>Once I had decided to build a PMod Board, I needed to decide the requirements of the board, I decided that I wanted to be able to use the extended PMoD setup, that is used on the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite I5 expansion board</a> that I owned, which would allow me to have both a duel PMod connection, and a few extra I/O pins as well as 5V access. I also decided that I would want to be able to connect PMod's as a host device, as well as connect into an FPGA board like the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite I5</a> . To do this I decided I would break out the 5V pin and 3v3 pin, so we can connect headers when I need to power PMod devices from the Picos power supply, or disconnect them when I want to use the USB connection.</p>
+<p>Other pins I looked to break out to headers was the analog inputs, and the 3v3 enable pin. This gives me more flexibility when choosing how to power the Pico when it is connected up as a client device to one of the FPGA boards. Another popular feature I added was connecting up the Run pin to a button which pulls it to ground, allowing the Pico to be safely reset, when I want to upload a new program.  </p>
+<p><img src="images/PicoPmod-Layout.png" ><div></p>
+<p><img src="images/PicoPmod-3D_Layout.png" ><div></p>
+<p>Once all the requirements were captured in the schematic, it was a quick task to layout the board. Thankfully, a footprint and schematic symbol that match the Pico requirements were available in a library which could be loaded into KiCAD that someone has made available on <a href="https://github.com/HeadBoffin/RP_Silicon_KiCad">Github</a>, which greatly speed up getting these boards made up. With the simple boards made up</p>
+<p><img src="images/PicoPmod-JLC_PCB.jpg" ><div></p>
+<h1>Building a counter example</h1>
+<p>With the boards made and tested, I was now ready to start hooking up a simple PMod, and getting my head round writing C/C++ again, as it has been a while.</p>
+<p>The process for compiling c/c++ for the Raspberry Pi Pico is really well documented, and the Raspberry Pi Website is a great resource in getting everything set up on matter on what you are using to compile the software. I did find the examples repo, a bit intimidating when wanting to build something from scratch for the cmake files but there were plenty of back to basics examples avalible from a quick google search.</p>
+<p>The first example that I wanted used the PMod <a href="https://1bitsquared.com/products/pmod-7-segment-display">7 segment display</a>, and I wanted to display a counter that increments once per second. The first set was getting a suitable cmake file setup, this includes all the information the Pico SDK needs to build my project, this is a simple project with no real external dependancies other the the <code>pico_stdlib</code> library and the code will be in my file <code>main.c</code>, which keeps this file nice and simple.</p>
+<div class="highlight"><pre><span></span>make_minimum_required(VERSION 3.12)
 
-figure;
-plot(measured_data.Frequencies./1e6,gains)
-ylabel(&#39;Filter Gain (dB)&#39;)
-xlabel(&#39;Frequencey (MHz)&#39;)
-ylim([-70,0])
-grid on
+# include(pico_sdk_import.cmake)
+include(<span class="nv">$ENV</span>{PICO_SDK_PATH}/pico_sdk_init.cmake)
+
+# Change your executable name to something creative!
+set(NAME pico-pmod) # <span class="nt">&lt;--</span> <span class="err">Name</span> <span class="err">your</span> <span class="err">project/executable</span> <span class="err">here!</span>
+
+<span class="err">#</span> <span class="err">Gooey</span> <span class="err">boilerplate</span>
+<span class="err">project(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span> <span class="err">C</span> <span class="err">CXX</span> <span class="err">ASM)</span>
+<span class="err">set(CMAKE_C_STANDARD</span> <span class="err">11)</span>
+<span class="err">set(CMAKE_CXX_STANDARD</span> <span class="err">17)</span>
+
+<span class="err">#</span> <span class="err">Initialize</span> <span class="err">the</span> <span class="err">SDK</span>
+<span class="err">pico_sdk_init()</span>
+
+<span class="err">#</span> <span class="err">Add</span> <span class="err">your</span> <span class="err">source</span> <span class="err">files</span>
+<span class="err">add_executable(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
+    <span class="err">main.c</span> <span class="err">#</span> <span class="err">&lt;--</span> <span class="err">Add</span> <span class="err">source</span> <span class="err">files</span> <span class="err">here!</span>
+<span class="err">)</span>
+
+<span class="err">#</span> <span class="err">Don&#39;t</span> <span class="err">forget</span> <span class="err">to</span> <span class="err">link</span> <span class="err">the</span> <span class="err">libraries</span> <span class="err">you</span> <span class="err">need!</span>
+<span class="err">target_link_libraries(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
+     <span class="err">pico_stdlib</span>
+<span class="err">)</span>
+
+<span class="err">#</span> <span class="err">create</span> <span class="err">map/bin/hex</span> <span class="err">file</span> <span class="err">etc.</span>
+<span class="err">pico_add_extra_outputs(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span><span class="err">)</span>
 </pre></div>
 
-<p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
-<p><img src="images/Filter_Test_Single_433MHz.png" width="350"><div></p>
-<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>                </article>
+<p>The next task is building up our program, first up is importing the standard library's, and at this point we will also set up some variables that we will need. One of the main once here are the <code>SEVEN_SEGMENT_PINS</code> array of constants, these list of pins can be swapped by changing the LCD_DISPLAY value which is the same as the PMod output connector of the custom PCB.</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;pico/stdlib.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#define LCD_DISPLAY 1</span>
+<span class="cp">#define LOOKUP_TABLE_LENGTH 50</span>
+
+<span class="cp">#if (LCD_DISPLAY==0)</span>
+    <span class="c1">//if plugged into pmod1</span>
+    <span class="k">const</span> <span class="n">uint</span> <span class="n">SEVEN_SEGMENT_PINS</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">};</span>
+<span class="cp">#else</span>
+    <span class="c1">//if plugged into pmod0</span>
+    <span class="k">const</span> <span class="n">uint</span> <span class="n">SEVEN_SEGMENT_PINS</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">};</span>
+<span class="cp">#endif</span>
+</pre></div>
+
+<p>The first function we define is a nice simple one, this is used to setup the output pins, initialising them as GPIO (General Purpose Input Output) Pins, setting the direction for each of them as outputs and setting them each as a low value. This function is called as part of the setup process, and is only used once.</p>
+<div class="highlight"><pre><span></span>int setup_display(){
+    for(int x = 0; x&lt;8; x++) {
+            gpio_init(SEVEN_SEGMENT_PINS[x]);
+            gpio_set_dir(SEVEN_SEGMENT_PINS[x], GPIO_OUT);
+            gpio_put(SEVEN_SEGMENT_PINS[x],0);
+    }
+}
+</pre></div>
+
+<p>The function is to display the values on the seven segment display, to do this we create an array with each row corresponding to the pins that we need to turn on to display the corresponding number, this array is <code>characters[]</code> array, with the first value of the <code>unit8</code> always set to zero and ignored the rest define each of the segments on the seven segment display.</p>
+<div class="highlight"><pre><span></span>int set_display(uint num1, uint num2){
+
+    // the table used to set the charcter to be on
+    uint8_t characters[] = {0b01000000, // 0
+                            0b01111001, // 1
+                            0b00100100, // 2
+                            0b00110000, // 3
+                            0b00011001, // 4
+                            0b00010010, // 5
+                            0b00000010, // 6
+                            0b01111000, // 7
+                            0b00000000, // 8
+                            0b00011000, // 9
+                            0b00001000, // A
+                            0b00000011, // B
+                            0b01000110, // C
+                            0b00100001, // D
+                            0b00000110, // E
+                            0b00001110};// F
+
+
+    // set the display values
+    //for the first digit
+    for(int x = 0; x&lt;7; x++) {
+        gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num1] &gt;&gt; x) &amp; 1U);
+    }
+
+    gpio_put(SEVEN_SEGMENT_PINS[7], 1);
+    sleep_ms(10);
+
+    //for the second digit
+    for(int x = 0; x&lt;7; x++) {
+        gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num2] &gt;&gt; x) &amp; 1U);
+    }
+
+    gpio_put(SEVEN_SEGMENT_PINS[7], 0);
+    sleep_ms(10);
+
+    return 0;
+}
+</pre></div>
+
+<p>The two displays are multiplexed together, so the output pins for this loop are set using the <code>gpioput()</code> function, cycling through the elements of the character with the <code>x</code> variable and writing the binary values to the pins from the characters array using the command <code>(characters[num1] &gt;&gt; x) &amp; 1U)</code>. We then let this display remain on for a few milliseconds using the function <code>sleep_ms(10);</code> before then setting the pin for the multiplexer <code>gpio_put(SEVEN_SEGMENT_PINS[7], 0);</code> and repeating the process for the other character with the <code>num2</code> value.</p>
+<p>The main function then pulls these two functions together, setting up the display and the counters that we will display. the counters are all initialised to zero, after we have called out <code>setup_display();</code> function. The main <code>counter</code> then cycles around 50 times, before we then increment <code>counter1</code>, once counter 1 has reached 15 (displayed on the screen as e), we then increment the 2nd digit. This results in the counter incrementing approximately once per second.</p>
+<div class="highlight"><pre><span></span>int main() {
+
+        // setup the outputs for the display
+        setup_display();
+
+        //initalise the counters used to count up on the display
+
+        uint counter = 0;
+        uint counter1 = 0;
+        uint counter2 = 0;
+
+        // main loop for updating the display and updating the counter
+        while (true) {
+            set_display(counter1, counter2);
+            counter++;
+
+            if(counter&gt;PAUSE_LENGTH){ counter = 0; counter1++;}
+            if(counter1&gt;15){ counter1=0; counter2++;}
+            if(counter2&gt;15){ counter2=0;}
+    }
+}
+</pre></div>
+
+<p>The next set is building the code i have written, this is a standard process which is well documented in the SDK documentation. As I tend to stick to the terminal when working on my Macbook, I just type the commands in which is a simple as:</p>
+<div class="highlight"><pre><span></span> export PICO_SDK_PATH=../pico-sdk
+ mkdir build
+ cd build
+ cmake ..
+ make -j4
+</pre></div>
+
+<p>With the code build successfully, we can then copy  it onto the Pico, with the PMod Board this is now easier and doesn't require unplugging the Pico. Instead we can hold down the run button, then press the Boot button. the releasing the Run followed by Boot button and the Pico appears on as a removable drive ready for us to drop the <code>pico-pmod.uf2</code> file onto it, at which point it begins running our program.</p>
+<h1>What next</h1>
+<p>The next challenge will be building some examples with PIO, working with a few more PMod type devices. One error that needs fixing, 5v and GND pin wrong way round, in order to match the Colorlite i5 FPGA Dev Board that I have. I'm planning on building a few custom PMod boards so I can develop and test both FPGA based examples and Pico Based examples, to improve my coding ability for coding on both.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://jjhorton.co.uk/filter-testing.html" rel="bookmark"
+                           title="Permalink to Filter Testing">Filter Testing</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Fri 30 April 2021</span>
+<span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
+</footer><!-- /.post-info -->                <p>Testing of Home made filters with NanoVNA</p>
+                <a class="readmore" href="http://jjhorton.co.uk/filter-testing.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -111,21 +242,6 @@ grid on
 <span>| tags: <a href="http://jjhorton.co.uk/tag/jetson.html">Jetson</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
 </footer><!-- /.post-info -->                <p>Building a mini rack mount case for my Nvidia Jetson 2GB</p>
                 <a class="readmore" href="http://jjhorton.co.uk/nvidia-jetson-case.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html" rel="bookmark"
-                           title="Permalink to Bring a Raspberry Pi Cluster Back to Life">Bring a Raspberry Pi Cluster Back to Life</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sun 31 May 2020</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/raspberrypi.html">RaspberryPi</a><a href="http://jjhorton.co.uk/tag/pi2.html">Pi2</a><a href="http://jjhorton.co.uk/tag/cluster.html">Cluster</a><a href="http://jjhorton.co.uk/tag/3dprinting.html">3DPrinting</a></span>
-</footer><!-- /.post-info -->                <p>Bring back an old Raspberry Pi cluster back to life for some new projects</p>
-                <a class="readmore" href="http://jjhorton.co.uk/bring-a-raspberry-pi-cluster-back-to-life.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
