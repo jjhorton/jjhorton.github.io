@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <title>JJ Horton - VNA</title>
-        <link rel="stylesheet" href="http://jjhorton.co.uk/theme/css/main.css" />
+        <link rel="stylesheet" href="https://jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
-                <h1><a href="http://jjhorton.co.uk/">JJ Horton </a></h1>
+                <h1><a href="https://jjhorton.co.uk/">JJ Horton </a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
                     <li><a href="/archives.html">Posts</a></li>
@@ -26,10 +26,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
+                    <h1 class="entry-title"><a href="https://jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
 <footer class="post-info">
         <span>Fri 30 April 2021</span>
-<span>| tags: <a href="http://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="http://jjhorton.co.uk/tag/filters.html">Filters</a><a href="http://jjhorton.co.uk/tag/vna.html">VNA</a><a href="http://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
+<span>| tags: <a href="https://jjhorton.co.uk/tag/sdr.html">SDR</a><a href="https://jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://jjhorton.co.uk/tag/vna.html">VNA</a><a href="https://jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
 </footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
 <p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
 <p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
