@@ -52,28 +52,27 @@
 include(<span class="nv">$ENV</span>{PICO_SDK_PATH}/pico_sdk_init.cmake)
 
 # Change your executable name to something creative!
-set(NAME pico-pmod) # <span class="nt">&lt;--</span> <span class="err">Name</span> <span class="err">your</span> <span class="err">project/executable</span> <span class="err">here!</span>
+set(NAME pico-pmod)
 
-<span class="err">#</span> <span class="err">Gooey</span> <span class="err">boilerplate</span>
-<span class="err">project(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span> <span class="err">C</span> <span class="err">CXX</span> <span class="err">ASM)</span>
-<span class="err">set(CMAKE_C_STANDARD</span> <span class="err">11)</span>
-<span class="err">set(CMAKE_CXX_STANDARD</span> <span class="err">17)</span>
+project(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span> C CXX ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
-<span class="err">#</span> <span class="err">Initialize</span> <span class="err">the</span> <span class="err">SDK</span>
-<span class="err">pico_sdk_init()</span>
+# Initialize the SDK
+pico_sdk_init()
 
-<span class="err">#</span> <span class="err">Add</span> <span class="err">your</span> <span class="err">source</span> <span class="err">files</span>
-<span class="err">add_executable(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
-    <span class="err">main.c</span> <span class="err">#</span> <span class="err">&lt;--</span> <span class="err">Add</span> <span class="err">source</span> <span class="err">files</span> <span class="err">here!</span>
-<span class="err">)</span>
+# Add your source files
+add_executable(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
+    main.c
+)
 
-<span class="err">#</span> <span class="err">Don&#39;t</span> <span class="err">forget</span> <span class="err">to</span> <span class="err">link</span> <span class="err">the</span> <span class="err">libraries</span> <span class="err">you</span> <span class="err">need!</span>
-<span class="err">target_link_libraries(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
-     <span class="err">pico_stdlib</span>
-<span class="err">)</span>
+# Don&#39;t forget to link the libraries you need!
+target_link_libraries(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
+     pico_stdlib
+)
 
-<span class="err">#</span> <span class="err">create</span> <span class="err">map/bin/hex</span> <span class="err">file</span> <span class="err">etc.</span>
-<span class="err">pico_add_extra_outputs(</span><span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span><span class="err">)</span>
+# create map/bin/hex file etc.
+pico_add_extra_outputs(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>)
 </pre></div>
 
 <p>The next task is building up our program, first up is importing the standard library's, and at this point we will also set up some variables that we will need. One of the main once here are the <code>SEVEN_SEGMENT_PINS</code> array of constants, these list of pins can be swapped by changing the LCD_DISPLAY value which is the same as the PMod output connector of the custom PCB.</p>
