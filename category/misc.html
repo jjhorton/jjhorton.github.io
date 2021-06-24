@@ -26,163 +26,92 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">Pico PMod breakout PCB</a></h1>
+                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/inspectrum-with-sigmf-files.html">Inspectrum with SigMF Files</a></h1>
 <footer class="post-info">
-        <span>Mon 31 May 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info --><p><img src="images/PicoPmod-Breadboard.jpg"  width="300"><div></p>
-<p>After picking up a few <a href="https://www.raspberrypi.org/products/raspberry-pi-pico/">Raspberry Pi Pico's</a>, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple <a href="https://1bitsquared.com/collections/fpga/products/pmod-dip-switch">8 DIP switch</a> and a <a href="https://1bitsquared.com/products/pmod-7-segment-display">7 segment display</a>. These are great little boards for connecting to boards like the Raspberry PI Pico when experimenting but the interface with the Pico requires a breadboard to hook them up, so I was looking for a better way to get these PMod's hooked up.   </p>
-<p><img src="https://www.raspberrypi.org/app/uploads/2021/01/Raspberry-Pi-Pico-at-an-angle-900x643.png"  width="400" ><div></p>
-<p>Why bother experimenting with the Raspberry Pi Pico? Well the things that interested me with the Raspberry Pi Pico was not only the low price but also the Programable I/O or PIO on the <a href="https://www.raspberrypi.org/documentation/rp2040/getting-started/">RP2040</a> device. This allows you to build small limited sate machines you can set up on some of the outputs, alongside some more traditional Hard IP (SPI/UART/I2C) on the device with a duel core ARM that supports running at a clock rate of over 100MHz. This make it interesting to play with, much as I have been playing around with on FPGA's in the past few months, without having to get your head around writing lots of HDL such as Verilog or VHDL.  </p>
-<h1>Designing a PCB with KiCAD</h1>
-<p><img src="images/PicoPmod-Schematic.png" ><div></p>
-<p>Once I had decided to build a PMod Board, I needed to decide the requirements of the board, I decided that I wanted to be able to use the extended PMoD setup, that is used on the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite I5 expansion board</a> that I owned, which would allow me to have both a duel PMod connection, and a few extra I/O pins as well as 5V access. I also decided that I would want to be able to connect PMod's as a host device, as well as connect into an FPGA board like the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite I5</a> . To do this I decided I would break out the 5V pin and 3v3 pin, so we can connect headers when I need to power PMod devices from the Picos power supply, or disconnect them when I want to use the USB connection.</p>
-<p>Other pins I looked to break out to headers was the analog inputs, and the 3v3 enable pin. This gives me more flexibility when choosing how to power the Pico when it is connected up as a client device to one of the FPGA boards. Another popular feature I added was connecting up the Run pin to a button which pulls it to ground, allowing the Pico to be safely reset, when I want to upload a new program.  </p>
-<p><img src="images/PicoPmod-Layout.png" ><div></p>
-<p><img src="images/PicoPmod-3D_Layout.png" ><div></p>
-<p>Once all the requirements were captured in the schematic, it was a quick task to layout the board. Thankfully, a footprint and schematic symbol that match the Pico requirements were available in a library which could be loaded into KiCAD that someone has made available on <a href="https://github.com/HeadBoffin/RP_Silicon_KiCad">Github</a>, which greatly speed up getting these boards made up. With the simple boards made up</p>
-<p><img src="images/PicoPmod-JLC_PCB.jpg" ><div></p>
-<h1>Building a counter example</h1>
-<p>With the boards made and tested, I was now ready to start hooking up a simple PMod, and getting my head round writing C/C++ again, as it has been a while.</p>
-<p>The process for compiling c/c++ for the Raspberry Pi Pico is really well documented, and the Raspberry Pi Website is a great resource in getting everything set up on matter on what you are using to compile the software. I did find the examples repo, a bit intimidating when wanting to build something from scratch for the cmake files but there were plenty of back to basics examples avalible from a quick google search.</p>
-<p>The first example that I wanted used the PMod <a href="https://1bitsquared.com/products/pmod-7-segment-display">7 segment display</a>, and I wanted to display a counter that increments once per second. The first set was getting a suitable cmake file setup, this includes all the information the Pico SDK needs to build my project, this is a simple project with no real external dependancies other the the <code>pico_stdlib</code> library and the code will be in my file <code>main.c</code>, which keeps this file nice and simple.</p>
-<div class="highlight"><pre><span></span>make_minimum_required(VERSION 3.12)
-
-# include(pico_sdk_import.cmake)
-include(<span class="nv">$ENV</span>{PICO_SDK_PATH}/pico_sdk_init.cmake)
-
-# Change your executable name to something creative!
-set(NAME pico-pmod)
-
-project(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span> C CXX ASM)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
-
-# Initialize the SDK
-pico_sdk_init()
-
-# Add your source files
-add_executable(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
-    main.c
-)
-
-# Don&#39;t forget to link the libraries you need!
-target_link_libraries(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>
-     pico_stdlib
-)
-
-# create map/bin/hex file etc.
-pico_add_extra_outputs(<span class="cp">${</span><span class="n">NAME</span><span class="cp">}</span>)
+        <span>Thu 24 June 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/sigmf.html">SigMF</a><a href="https://www.jjhorton.co.uk/tag/inspectrum.html">Inspectrum</a><a href="https://www.jjhorton.co.uk/tag/rf-data.html">RF Data</a><a href="https://www.jjhorton.co.uk/tag/datasets.html">Datasets</a><a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a></span>
+</footer><!-- /.post-info --><p>This post is as much a note to myself, for the next time that I hit this issue, which is installing <a href="https://github.com/miek/inspectrum">Inspectrum</a> with SigMF support.</p>
+<p>The tool I'm installing is <a href="https://github.com/miek/inspectrum">Inspectrum</a> which is for analysing captured files of sampled data, primarily from Software Defined Radios. This allows for looking at signals, and analysing what is in the capture. I was looking to use this tool with some <a href="https://github.com/gnuradio/SigMF">SigMF</a> files, the Signal Meta data files are made up of a Binary File containing the sample data, and a JSON companion file, which contains details about the capture. This file with details about the capture can also include annotations, which is what I am interested in today. The SigMF Repository contains all the details on what the standard supports: <a href="https://github.com/gnuradio/SigMF">github.com/gnuradio/SigMF</a></p>
+<p>The Github repo for <a href="https://github.com/miek/inspectrum">Inspectrum</a> includes details on how to get it built, which is a simple case of running a few commands on my Ubuntu PC:</p>
+<div class="highlight"><pre><span></span>sudo apt-get install qtbase5-dev libfftw3-dev cmake pkg-config libliquid-dev
+sudo apt-get install build-essential git
+git clone https://github.com/miek/inspectrum.git
+cd inspectrum/
+mkdir build
+cd build/
+cmake ..
+make
+sudo make install
 </pre></div>
 
-<p>The next task is building up our program, first up is importing the standard library's, and at this point we will also set up some variables that we will need. One of the main once here are the <code>SEVEN_SEGMENT_PINS</code> array of constants, these list of pins can be swapped by changing the LCD_DISPLAY value which is the same as the PMod output connector of the custom PCB.</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;pico/stdlib.h&quot;</span><span class="cp"></span>
-
-<span class="cp">#define LCD_DISPLAY 1</span>
-<span class="cp">#define LOOKUP_TABLE_LENGTH 50</span>
-
-<span class="cp">#if (LCD_DISPLAY==0)</span>
-    <span class="c1">//if plugged into pmod1</span>
-    <span class="k">const</span> <span class="n">uint</span> <span class="n">SEVEN_SEGMENT_PINS</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">};</span>
-<span class="cp">#else</span>
-    <span class="c1">//if plugged into pmod0</span>
-    <span class="k">const</span> <span class="n">uint</span> <span class="n">SEVEN_SEGMENT_PINS</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">};</span>
-<span class="cp">#endif</span>
+<p>The cmake command behaves as expected but it does not find <code>libsigmf</code> which is probably expected as I haven't installed it as part of installing the dependancies in the first two commands:</p>
+<div class="highlight"><pre><span></span>-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version &quot;0.29.1&quot;)
+-- Found FFTW: /usr/lib/x86_64-linux-gnu/libfftw3f.so  
+-- Found LIQUID: /usr/lib/x86_64-linux-gnu/libliquid.so  
+-- libsigmf not found. Disabling SigMF support
+-- Configuring done
+-- Generating done
 </pre></div>
 
-<p>The first function we define is a nice simple one, this is used to setup the output pins, initialising them as GPIO (General Purpose Input Output) Pins, setting the direction for each of them as outputs and setting them each as a low value. This function is called as part of the setup process, and is only used once.</p>
-<div class="highlight"><pre><span></span>int setup_display(){
-    for(int x = 0; x&lt;8; x++) {
-            gpio_init(SEVEN_SEGMENT_PINS[x]);
-            gpio_set_dir(SEVEN_SEGMENT_PINS[x], GPIO_OUT);
-            gpio_put(SEVEN_SEGMENT_PINS[x],0);
-    }
-}
+<p>This means that I won't be able to open sigmf files in <a href="https://github.com/miek/inspectrum">Inspectrum</a>, as <a href="https://github.com/miek/inspectrum">Inspectrum</a> will now throw an error even when you attempt to open just the binary <code>.sigmf-data</code> files, in the newer versions.</p>
+<p><img src="images/Inspectrum_SigMF_Error.png" ><div></p>
+<p>The issue I found next was that there were no clear instructions on how to install this <a href="https://github.com/deepsig/libsigmf">libsigmf</a> within its git repository, this seemed to be some assumed knowledge which I was clearly lacking. After a hunt around the repo, and looking though the github workflow files it was possible to work out the steps I seemed, by building and installing the <a href="https://github.com/deepsig/libsigmf">libsigmf</a> examples, which seemed to get the missing <a href="https://github.com/deepsig/libsigmf">libsigmf</a> library installed:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/deepsig/libsigmf.git
+cd libsigmf
+cmake -B build
+cmake --build build
+sudo -H cmake --install build
 </pre></div>
 
-<p>The function is to display the values on the seven segment display, to do this we create an array with each row corresponding to the pins that we need to turn on to display the corresponding number, this array is <code>characters[]</code> array, with the first value of the <code>unit8</code> always set to zero and ignored the rest define each of the segments on the seven segment display.</p>
-<div class="highlight"><pre><span></span>int set_display(uint num1, uint num2){
-
-    // the table used to set the charcter to be on
-    uint8_t characters[] = {0b01000000, // 0
-                            0b01111001, // 1
-                            0b00100100, // 2
-                            0b00110000, // 3
-                            0b00011001, // 4
-                            0b00010010, // 5
-                            0b00000010, // 6
-                            0b01111000, // 7
-                            0b00000000, // 8
-                            0b00011000, // 9
-                            0b00001000, // A
-                            0b00000011, // B
-                            0b01000110, // C
-                            0b00100001, // D
-                            0b00000110, // E
-                            0b00001110};// F
-
-
-    // set the display values
-    //for the first digit
-    for(int x = 0; x&lt;7; x++) {
-        gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num1] &gt;&gt; x) &amp; 1U);
-    }
-
-    gpio_put(SEVEN_SEGMENT_PINS[7], 1);
-    sleep_ms(10);
-
-    //for the second digit
-    for(int x = 0; x&lt;7; x++) {
-        gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num2] &gt;&gt; x) &amp; 1U);
-    }
-
-    gpio_put(SEVEN_SEGMENT_PINS[7], 0);
-    sleep_ms(10);
-
-    return 0;
-}
+<p>The one step I then discovered I had missed is that I also need to install the dependancies for the <a href="https://github.com/deepsig/libsigmf">libsigmf</a> package on my Ubuntu PC, thankfully these are just available using apt on Ubuntu 20 LTS.</p>
+<div class="highlight"><pre><span></span>sudo apt install libflatbuffers-dev nlohmann-json3-dev
 </pre></div>
 
-<p>The two displays are multiplexed together, so the output pins for this loop are set using the <code>gpioput()</code> function, cycling through the elements of the character with the <code>x</code> variable and writing the binary values to the pins from the characters array using the command <code>(characters[num1] &gt;&gt; x) &amp; 1U)</code>. We then let this display remain on for a few milliseconds using the function <code>sleep_ms(10);</code> before then setting the pin for the multiplexer <code>gpio_put(SEVEN_SEGMENT_PINS[7], 0);</code> and repeating the process for the other character with the <code>num2</code> value.</p>
-<p>The main function then pulls these two functions together, setting up the display and the counters that we will display. the counters are all initialised to zero, after we have called out <code>setup_display();</code> function. The main <code>counter</code> then cycles around 50 times, before we then increment <code>counter1</code>, once counter 1 has reached 15 (displayed on the screen as e), we then increment the 2nd digit. This results in the counter incrementing approximately once per second.</p>
-<div class="highlight"><pre><span></span>int main() {
-
-        // setup the outputs for the display
-        setup_display();
-
-        //initalise the counters used to count up on the display
-
-        uint counter = 0;
-        uint counter1 = 0;
-        uint counter2 = 0;
-
-        // main loop for updating the display and updating the counter
-        while (true) {
-            set_display(counter1, counter2);
-            counter++;
-
-            if(counter&gt;PAUSE_LENGTH){ counter = 0; counter1++;}
-            if(counter1&gt;15){ counter1=0; counter2++;}
-            if(counter2&gt;15){ counter2=0;}
-    }
-}
+<p>Now we are able to remove the build folder from the <a href="https://github.com/miek/inspectrum">Inspectrum</a> repositry we created earlier, and have a go at building again. Now we get a Much better looking message from the cmake command including <code>Enabling SigMF support</code>.</p>
+<div class="highlight"><pre><span></span>-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version &quot;0.29.1&quot;)
+-- Found FFTW: /usr/lib/x86_64-linux-gnu/libfftw3f.so  
+-- Found LIQUID: /usr/lib/x86_64-linux-gnu/libliquid.so  
+-- libsigmf found. Enabling SigMF support
+-- Configuring done
+-- Generating done
 </pre></div>
 
-<p>The next set is building the code i have written, this is a standard process which is well documented in the SDK documentation. As I tend to stick to the terminal when working on my Macbook, I just type the commands in which is a simple as:</p>
-<div class="highlight"><pre><span></span> export PICO_SDK_PATH=../pico-sdk
- mkdir build
- cd build
- cmake ..
- make -j4
-</pre></div>
-
-<p>With the code build successfully, we can then copy  it onto the Pico, with the PMod Board this is now easier and doesn't require unplugging the Pico. Instead we can hold down the run button, then press the Boot button. the releasing the Run followed by Boot button and the Pico appears on as a removable drive ready for us to drop the <code>pico-pmod.uf2</code> file onto it, at which point it begins running our program.</p>
-<h1>What next</h1>
-<p>The next challenge will be building some examples with PIO, working with a few more PMod type devices. One error that needs fixing, 5v and GND pin wrong way round, in order to match the Colorlite i5 FPGA Dev Board that I have. I'm planning on building a few custom PMod boards so I can develop and test both FPGA based examples and Pico Based examples, to improve my coding ability for coding on both.</p>                </article>
+<p>From here is just a case of completing the build, running <code>instpectrum</code> and opening up a sigmf file.</p>
+<p><img src="images/Inspectrum_WithAnnotations.png" ><div></p>
+<p>This means that I can now have a good look at some of the data files complete with the annotations that I have downloaded and wanted to explore. The files I am taking a look at are downloaded from <a href="https://deepsig.ai">DeepSig</a> for a competition being run at <a href="https://www.spawc2021.com/data-competition/">IEEE International Workshop on Signal Processing Advances in Wireless Communications</a>, with this synthetic dataset of over 100Gb of RF data making up the <a href="https://eval.ai/web/challenges/challenge-page/1057/overview">Wideband Signal Recognition challenge</a>. The dataset is currently available for anyone to download if they follow the challenge links and provide an email address, although it may take a while to download given its size. Now I've seen the data it is tempting to have a go and see what I can do, having played around with Modulation Recognition using machine Learning in the past it looks like a tempting challenge to have a go at, although it looks like a big challenge and I'm not sure how far I would get as a one man band over just a couple of months.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html" rel="bookmark"
+                           title="Permalink to Pico PMod breakout PCB">Pico PMod breakout PCB</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Mon 31 May 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
+</footer><!-- /.post-info -->                <p>Building a PMod Based board to the New Raspberry Pi Pico</p>
+                <a class="readmore" href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -230,23 +159,6 @@ without replacing all of my Pi's I devices it was worth …</p>
 </footer><!-- /.post-info -->                <p>I've had a long standing interest in Parallel Processing, and then a few months ago I came across Octave and its parallel package. Octave is very similar to MATLAB that I use every day, and for the most part basic MATLAB code works out of the box in Octave.</p>
 <p>I …</p>
                 <a class="readmore" href="https://www.jjhorton.co.uk/building-a-raspberry-pi-cluster.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/week-two-in-scotland.html" rel="bookmark"
-                           title="Permalink to Week Two in Scotland">Week Two in Scotland</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 16 April 2013</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/bvcc.html">BVCC</a><a href="https://www.jjhorton.co.uk/tag/kayaking.html">Kayaking</a><a href="https://www.jjhorton.co.uk/tag/white-water.html">White Water</a></span>
-</footer><!-- /.post-info -->                <p>Well week 2 wasn't much different to week 1, with there still being no water in Scotland. As a result much of the time was spent walking and sight seeing rather than kayaking.</p>
-<p><img src="images/DSCF2758.JPG" ><div></p>
-<p>We paddled the River Awe, which allowed us to see some interesting signs, hide Richards boat in …</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/week-two-in-scotland.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
