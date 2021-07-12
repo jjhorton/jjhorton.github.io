@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - PMod</title>
+        <title>PMod 8x8 Infrared Sensor</title>
         <link rel="stylesheet" href="https://www.jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,14 +23,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html" rel="bookmark"
+           title="Permalink to PMod 8x8 Infrared Sensor">PMod 8x8 Infrared Sensor</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">PMod 8x8 Infrared Sensor</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Mon 12 July 2021</span>
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a></span>
-</footer><!-- /.post-info --><p>After seeing a post on twitter where someone was experimenting with the AMG8834 sensor, and I wanted to give it a go. This sensor can be purchased preassembled on <a href="https://www.aliexpress.com/wholesale?&amp;SearchText=amg8833">breakout boards</a>, ready to drop into a breadboard and build a system around.</p>
+</footer><!-- /.post-info -->      <p>After seeing a post on twitter where someone was experimenting with the AMG8834 sensor, and I wanted to give it a go. This sensor can be purchased preassembled on <a href="https://www.aliexpress.com/wholesale?&amp;SearchText=amg8833">breakout boards</a>, ready to drop into a breadboard and build a system around.</p>
 <p>While I could build something around these breakout boards, I decided to take a different route and have a go at building one of my own boards. for the connector I wanted to use a PMod, as this would allow me to use the board with both my <a href="https://www.raspberrypi.org/products/raspberry-pi-pico/">Raspberry Pi Pico</a> <a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">Boards</a> that I just made, as well as the <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">iceBreaker</a> FPGA board I already own, and maybe in the future I may have a go with getting it working with my <a href="https://store.digilentinc.com/cora-z7-zynq-7000-single-core-and-dual-core-options-for-arm-fpga-soc-development/">Zynq based Cora Z7 board</a>. This makes the PMod connector an excellent solution for my small prototypes, to be able to move between these types of boards.</p>
 <p><img src="images/PModInfrared_schematic.png" width="500"><div></p>
 <p>For building my breakout board, I use KiCAD, and the process of building this board is as simple as copying the design as given in the sensors datasheet, the circuit required is very simple and helps minimise any potential errors. the main effort was ensuring that the i2c interface pins match up with the available i2c pins on the <a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">Raspberry Pi Pico PMod board</a>  connector. Once that is done its just a case of order the PCB and waiting for it to turn up in the post.</p>
@@ -109,31 +114,11 @@ plt.colorbar(h)
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A quick test this morning to confirm I did get my AMG8834 thermal sensor working with the Pico, although given the time the files were last edited last night I might need that energy drink soon <a href="https://twitter.com/hashtag/electronics?src=hash&amp;ref_src=twsrc%5Etfw">#electronics</a> <a href="https://twitter.com/hashtag/rppico?src=hash&amp;ref_src=twsrc%5Etfw">#rppico</a> <a href="https://twitter.com/hashtag/rp2040?src=hash&amp;ref_src=twsrc%5Etfw">#rp2040</a> <a href="https://twitter.com/hashtag/LateNight?src=hash&amp;ref_src=twsrc%5Etfw">#LateNight</a> <a href="https://t.co/bSTmoAp1lP">pic.twitter.com/bSTmoAp1lP</a></p>&mdash; James Horton (@JamesjHorton) <a href="https://twitter.com/JamesjHorton/status/1403252809064198147?ref_src=twsrc%5Etfw">June 11, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>With that now completed, my next task is to look at getting an identical example in HDL which uses either the Icebreaker Board or the Colorlite i5, this will be a bit more of a challenge, but it will be a great little project for improving my HDL coding skills.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>With that now completed, my next task is to look at getting an identical example in HDL which uses either the Icebreaker Board or the Colorlite i5, this will be a bit more of a challenge, but it will be a great little project for improving my HDL coding skills.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html" rel="bookmark"
-                           title="Permalink to Pico PMod breakout PCB">Pico PMod breakout PCB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 31 May 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board to the New Raspberry Pi Pico</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
