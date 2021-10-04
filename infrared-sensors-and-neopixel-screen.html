@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - FPGA</title>
+        <title>Infrared Sensors and Neopixel screen</title>
         <link rel="stylesheet" href="https://www.jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,14 +23,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://www.jjhorton.co.uk/infrared-sensors-and-neopixel-screen.html" rel="bookmark"
+           title="Permalink to Infrared Sensors and Neopixel screen">Infrared Sensors and Neopixel screen</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/infrared-sensors-and-neopixel-screen.html">Infrared Sensors and Neopixel screen</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Thu 30 September 2021</span>
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a></span>
-</footer><!-- /.post-info --><p>After perviously building a <a href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">PMod Infrared Sensor board</a>, that was perviously streaming data over the serial link from the <a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">RP2040 PMod board</a> to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.</p>
+</footer><!-- /.post-info -->      <p>After perviously building a <a href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">PMod Infrared Sensor board</a>, that was perviously streaming data over the serial link from the <a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">RP2040 PMod board</a> to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.</p>
 <p>The screen that I looked to use is a custom board based on using the Neopixel LED's that I have previously used with the <a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">RP2040 board</a>, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor. The screens which I assembled last month, provide a great way to display the data, the first task is to look at connecting every together, then building a colour map to display the temperature values.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sometime you can&#39;t beat an evening spent playing with LEDs making patterns <a href="https://twitter.com/hashtag/leds?src=hash&amp;ref_src=twsrc%5Etfw">#leds</a> <a href="https://twitter.com/hashtag/electronics?src=hash&amp;ref_src=twsrc%5Etfw">#electronics</a> <a href="https://t.co/kchJTo22p3">pic.twitter.com/kchJTo22p3</a></p>&mdash; James Horton (@JamesjHorton) <a href="https://twitter.com/JamesjHorton/status/1432432328370962435?ref_src=twsrc%5Etfw">August 30, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -86,76 +91,11 @@ const int RGB_LOOKUP[][3] = {{255,14,240},{255,13,240},{255,12,240},{255,11,240}
 
 <p>With this colour map we can now start creating images on the NeoPixel based screen from the thermal sensor, which are easy to understand.</p>
 <p><img src="images/Thermal_NeoPixel.jpg" ><div></p>
-<p>The next stage is to look at getting my head around implementing a similar thing on the my FPGA boards, on either the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite i5</a> or <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">iceBreaker</a> boards.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>The next stage is to look at getting my head around implementing a similar thing on the my FPGA boards, on either the <a href="https://www.aliexpress.com/item/1005001686186007.html">colorlite i5</a> or <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">iceBreaker</a> boards.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html" rel="bookmark"
-                           title="Permalink to RP2040 PMod PCB">RP2040 PMod PCB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 31 August 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/rp2040.html">RP2040</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board using a Raspberry Pi RP2040 microcontroller</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html" rel="bookmark"
-                           title="Permalink to PMod 8x8 Infrared Sensor">PMod 8x8 Infrared Sensor</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 12 July 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board with an 8x8 Infrared Sensor</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html" rel="bookmark"
-                           title="Permalink to Pico PMod breakout PCB">Pico PMod breakout PCB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 31 May 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board to the New Raspberry Pi Pico</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html" rel="bookmark"
-                           title="Permalink to Continuous Integration for Firmware with Github Actions">Continuous Integration for Firmware with Github Actions</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 17 March 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/github.html">Github</a><a href="https://www.jjhorton.co.uk/tag/ci.html">CI</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Using Github actions to simulate, test and build an FPGA design</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/continuous-integration-for-firmware-with-github-actions.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
