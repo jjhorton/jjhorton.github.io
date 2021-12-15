@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - Filters</title>
+        <title>JJ Horton - PCB</title>
         <link rel="stylesheet" href="https://www.jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -100,29 +100,11 @@ C2.ExtendBoardProfile = false;
 <p><img src="images/MatlabFilter_Frequency_response_measured_2440_5.png" ><div></p>
 <p>The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB's are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB's themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as <a href="https://jlcpcb.com/capabilities/Capabilities">4.5 for a double sided PCB</a>, which is typically a useful number to use but unfortunately this <a href="https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs">value actually varies with frequency</a> which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.</p>
 <p>The next stage is experiment with simulating the filters that were originally created, and to see if by changing the dielectric constant I can match up the simulation with the measured results. this would mean that I could have a go at re-creating the filters with a corrected value for dielectric constant at 2.45GHz, when having a second attempt at building some filters.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/filter-testing.html" rel="bookmark"
-                           title="Permalink to Filter Testing">Filter Testing</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 30 April 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/vna.html">VNA</a><a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
-</footer><!-- /.post-info -->                <p>Testing of Home made filters with NanoVNA</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/filter-testing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">

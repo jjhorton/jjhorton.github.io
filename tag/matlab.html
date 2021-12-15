@@ -26,48 +26,99 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/filter-testing.html">Filter Testing</a></h1>
+                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/designing-pcb-filters-using-matlab.html">Designing PCB Filters using MATLAB</a></h1>
 <footer class="post-info">
-        <span>Fri 30 April 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/vna.html">VNA</a><a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
-</footer><!-- /.post-info --><p>This post is going to take a look at some Filters that I have "made at home", for when I am experimenting with my Software Defined Radio's. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
-<p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a href="https://www.youtube.com/watch?v=TnRn3Kn_aXg">video</a> on RF design on <a href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/">hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
-<p>I quick search on mouser gave me a suitable <a href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv">Filter Part</a>, The <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
-<p><img src="images/Filter_Test_PCB_Schematic.png" width="350"></p>
-<p><img src="images/Filter_Test_PCB_Layout.png" width="350"><div></p>
-<p>Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB's arriving.</p>
-<p><img src="images/Filter_Test_Lots_of_PCBs.png" width="350"><div></p>
-<p>As it the way when ordering these types of PCB's from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.</p>
-<p>For soldering the board I made us of a Hot Plate that I had recently <a href="https://www.aliexpress.com/item/4000887663480.html">purchased</a> for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB's before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB's much easier and hopeful with more consistent results.</p>
-<p><img src="images/Filter_Test_Soldering.png" width="350"><div></p>
-<p>The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA's performance is never going to beat the performance of the VNA's you will find in commercial labs, it's a great tool for testing out little filters like this that i'm making a home, you can find it on <a href="https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/">tindie</a>, although a newer model has since been released with an improved frequency range.</p>
-<p>For testing my filters, I hooked up the NanoVNA to my PC and used it with the software <a href="https://github.com/">NanoVNA QT GUI</a> which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.</p>
-<p><img src="images/Filter_Test_NanoVNA.png" width="350"><div></p>
-<p>The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.</p>
-<p><img src="images/Filter_Test_NanoVNA_ScreenShot.png" width="350"><div></p>
-<p>One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.</p>
-<p>For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my <a href="https://uk.leonardocompany.com/en/people-careers">employer</a> provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up <a href="https://uk.mathworks.com/products/matlab-online.html">MATLAB Online</a>. MATLAB online allows me to upload my files to "The cloud", and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it <a href="https://www.apple.com/uk/mac/m1/">M1 Processor</a>.</p>
-<p><img src="images/Filter_Test_Matlab_online.png" width="350"><div></p>
-<p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
-<p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
-<div class="highlight"><pre><span></span>measured_data = sparameters(&quot;Data/433_filter1.s2p&quot;);
-gains = 10*log10(measured_data.powergain);
-
-figure;
-plot(measured_data.Frequencies./1e6,gains)
-ylabel(&#39;Filter Gain (dB)&#39;)
-xlabel(&#39;Frequencey (MHz)&#39;)
-ylim([-70,0])
-grid on
+        <span>Wed 15 December 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/pcb.html">PCB</a><a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a></span>
+</footer><!-- /.post-info --><p><a href="https://mathworks.com">Mathworks</a> released the RF PCB Toolbox with the <a href="https://uk.mathworks.com/help/rfpcb/release-notes.html">latest release</a> of MATLAB, R2021B, this toolbox allows the creation and visualisation of "Transmission lines, Couplers, Splitters, Filters, and More", this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I've always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.</p>
+<p><img src="images/MatlabFilter_Assembled.jpg" ><div></p>
+<p>The filter I decided to have a go at is one to work in the 2.4GHz ISM band, centred at 2440MHz, with a pass band of 80MHz, then as much stop band attenuation as possible. After having a look though the documentation I decided to have a go at the Hairpin filter.</p>
+<p>From the examples in the documentation for the toolbox which walk you though building the filter, I built myself a script with all the user configurable user configurable variables at the start. We begin by defining these parameters that we are going to use in our filter implementation, this includes variables such as our filter order <code>n</code> and then specific properties such as the substrate and conductor that will make up our filter. In my case here as i'm looking to build the filter on a standard standard PCB, we are setting these variables based on there spec sheet, for FR4 and copper rather then more expensive options they default to.</p>
+<div class="highlight"><pre><span></span>N = 3;
+Ripple = 0.1;
+BandWidth = 10;
+Z0 = 50;
+f = linspace(1500e6,3000e6,601);
+EpsilonR = 4.5;
+Height = 1.6e-3;
+d = dielectric(&quot;FR4&quot;);
+d.EpsilonR = EpsilonR;
+m = metal(&quot;Copper&quot;);
 </pre></div>
 
-<p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
-<p><img src="images/Filter_Test_Single_433MHz.png" width="350"><div></p>
-<p>For the plot above I've added the red lines which show the performance as quoted in the filter <a href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf">datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB's has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i've measured them all with the NanoVNA.</p>                </article>
+<p>With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.</p>
+<div class="highlight"><pre><span></span>filter = filterHairpin();
+filter.FilterOrder = N;
+filter.Substrate = d;
+filter.Conductor = m;
+filter.Height = Height;
+filter = design(filter,2440e6,&#39;FBW&#39;,BandWidth,&#39;RippleFactor&#39;,Ripple);
+</pre></div>
+
+<p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
+<p><img src="images/MatlabFilter_Design_Matlab.png" ><div></p>
+<p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
+<div class="highlight"><pre><span></span>spar = sparameters(filter,f);
+figure()
+rfplot(spar);
+</pre></div>
+
+<p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
+<p><img src="images/MatlabFilter_Frequency_response_2440_3.png" ><div></p>
+<p>The next plot is the Current Distribution, i'm not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.</p>
+<p><img src="images/MatlabFilter_Current.png" ><div></p>
+<p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn't find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
+<p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
+<div class="highlight"><pre><span></span>p = pcbComponent(filter);
+W = PCBServices.PCBWayWriter;
+W.Filename = &#39;Filter_2440MHz_3&#39;;
+C1 = PCBConnectors.SMAEdge_Samtec;
+C2 = PCBConnectors.SMAEdge_Samtec;
+
+
+C1.EdgeLocation = &#39;west&#39;;
+C1.ExtendBoardProfile = false;
+C2.EdgeLocation = &#39;east&#39;;
+C2.ExtendBoardProfile = false;
+
+[A,g] = gerberWrite(p,W,{C1,C2})
+</pre></div>
+
+<p>It actually took me a long time to work out how to add the connectors, and i'm not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed to create them, the N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area's of the PCB missing with the connectors floating away from the PCB. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to the designed filter to stop MATLAB from placing the SMA's ground connection within the filter. The issues liked this all seemed to be a bit buggy early release problems, but given this is the first release they will hopefully improve with time.</p>
+<p>With the output files generated I then opened loaded the Gerber files into KiCad's Gerber Viewer and imported the layer into PCB New, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don't think should have been added.</p>
+<p><img src="images/MatlabFilter_PCBs.jpg" ></p>
+<p>With all that sorted, I added my designs to my filters GitHub repo and ordered the PCB using the Gerber files that were generated by KiCAD. Once the PCB's had arrived from JLCPCB about a month after I had ordered, it was time to add some SMA connectors and give them a test.</p>
+<p><img src="images/MatlabFilterSoldering.jpg" ></p>
+<p>I'm using a NanoVNA to test them out, while not as great as a proper Network Analyser, but give the Nano VNA cost £60 it a great way of being able to get a good idea of there performance of these little filters at home.</p>
+<p><img src="images/MatlabFilter_Testing.jpg" > <div></p>
+<p>The NanoVNA can be used with PC based software, such as i'm using bellow, which is much easier to interact with rather than the tiny screen, though this interface I can also calibrate the results, and use the s-parameter menu, to take measurements of each of the filters, which can be stored to S-parameter files that can be imported into MATLAB for analysis.</p>
+<p><img src="images/MatlabFilter_nanoVNA_plot_2440_3.png" ><div></p>
+<p>The main test here is if the filters that I have make actually match the simulation, so the bext way to asssess them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
+<p><img src="images/MatlabFilter_Frequency_response_measured_2440_3.png" ><div></p>
+<p>The 3rd order filter is almost close to what is expected, but with the pass band pushed to a lower frequency, and a wider pass band, the attenuation of the filter at frequencies above the designed pass band is actually similar to what is expected. With it producing a similar ammount of attenuation, with a similar roll of to the simulation.   </p>
+<p>We can also look at the results for the 5th Order Filter, which also shows a lot of similar characteristics, with the roll of at both high and low frequencies appearing to match the simulation, with the exception of the pass band being shifted to lower frequencies.</p>
+<p><img src="images/MatlabFilter_Frequency_response_measured_2440_5.png" ><div></p>
+<p>The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB's are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB's themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as <a href="https://jlcpcb.com/capabilities/Capabilities">4.5 for a double sided PCB</a>, which is typically a useful number to use but unfortunately this <a href="https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs">value actually varies with frequency</a> which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.</p>
+<p>The next stage is experiment with simulating the filters that were originally created, and to see if by changing the dielectric constant I can match up the simulation with the measured results. this would mean that I could have a go at re-creating the filters with a corrected value for dielectric constant at 2.45GHz, when having a second attempt at building some filters.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://www.jjhorton.co.uk/filter-testing.html" rel="bookmark"
+                           title="Permalink to Filter Testing">Filter Testing</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Fri 30 April 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/vna.html">VNA</a><a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a></span>
+</footer><!-- /.post-info -->                <p>Testing of Home made filters with NanoVNA</p>
+                <a class="readmore" href="https://www.jjhorton.co.uk/filter-testing.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

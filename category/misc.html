@@ -26,94 +26,99 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">Seven Segment Display PMod Board</a></h1>
+                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/designing-pcb-filters-using-matlab.html">Designing PCB Filters using MATLAB</a></h1>
 <footer class="post-info">
-        <span>Tue 30 November 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
-</footer><!-- /.post-info --><p>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in <a href="https://www.thelegendofq.co.uk/encoder.html">the movies</a>.</p>
-<p><img src="images/SevenSegment_bond_gps_encoder.png" width="350" ><div></p>
-<p>The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don't have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">iceBreaker FPGA</a> which has two digits, and removes the decimal point to allow multiplexing between the two displays.</p>
-<p><img src="images/icebreaker-pmod-7-segment.jpg" width="350" ><div></p>
-<p>Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.</p>
-<p><img src="images/GN_Semic_GN1640.png" width="350 ><div></p>
-<p>Devices such as the <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">GN Semic GN1640</a> which is the chip I decided to tag onto an order I was already placing at <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">LCSC Components</a>, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.</p>
-<p><img src="images/SevenSegment_schematic.png" width="350" ><div></p>
-<p>The circuit for these <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">GN1640</a> chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from <a href="https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR">Mouser</a>.</p>
-<p><img src="images/SevenSegment_pcb.png" width="350"><div></p>
-<p>The boards were laid out so that they would fit within the maximum 10x10cm limits of the <a href="https://jlcpcb.com">JLC PCB</a> 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.</p>
-<p><img src="images/SevenSegment_complete.jpg" width="350"><div></p>
-<p>With the PCB's made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the <a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">RP2040 PMod boards</a> that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.</p>
-<p><img src="images/SevenSegment_TM1640-Timing.png" width="350"><div></p>
-<p>The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.</p>
-<div class="highlight"><pre><span></span>void enable()
-{
-            //command to turn on the display
-            int command1[] = {1,1,1,1,0,0,0,1};
-            //initallisation
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,0);
-            sleep_ms(0.2);
-            //send the bits
-            for(int i=0; i &lt; 8; ++i ){
-                gpio_put(pin_data,command1[i]);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
-            //end the transmission
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,1);
-            sleep_ms(0.2);
-            gpio_put(pin_data,1);
-
-            sleep_ms(10);
-}
+        <span>Wed 15 December 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/pcb.html">PCB</a><a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a></span>
+</footer><!-- /.post-info --><p><a href="https://mathworks.com">Mathworks</a> released the RF PCB Toolbox with the <a href="https://uk.mathworks.com/help/rfpcb/release-notes.html">latest release</a> of MATLAB, R2021B, this toolbox allows the creation and visualisation of "Transmission lines, Couplers, Splitters, Filters, and More", this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I've always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.</p>
+<p><img src="images/MatlabFilter_Assembled.jpg" ><div></p>
+<p>The filter I decided to have a go at is one to work in the 2.4GHz ISM band, centred at 2440MHz, with a pass band of 80MHz, then as much stop band attenuation as possible. After having a look though the documentation I decided to have a go at the Hairpin filter.</p>
+<p>From the examples in the documentation for the toolbox which walk you though building the filter, I built myself a script with all the user configurable user configurable variables at the start. We begin by defining these parameters that we are going to use in our filter implementation, this includes variables such as our filter order <code>n</code> and then specific properties such as the substrate and conductor that will make up our filter. In my case here as i'm looking to build the filter on a standard standard PCB, we are setting these variables based on there spec sheet, for FR4 and copper rather then more expensive options they default to.</p>
+<div class="highlight"><pre><span></span>N = 3;
+Ripple = 0.1;
+BandWidth = 10;
+Z0 = 50;
+f = linspace(1500e6,3000e6,601);
+EpsilonR = 4.5;
+Height = 1.6e-3;
+d = dielectric(&quot;FR4&quot;);
+d.EpsilonR = EpsilonR;
+m = metal(&quot;Copper&quot;);
 </pre></div>
 
-<p>With the display enabled I was then able to start sending data, this follows a similar design pattern with a function taking in the address and data, to trigger a series of short delays followed by setting the clock and data pins either high or low to transmit the data.  </p>
-<div class="highlight"><pre><span></span>void txData(uint8_t pos, uint8_t data)
-{
-            uint8_t addr = 0b11000000 + pos;
-
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,0);
-            sleep_ms(0.2);
-
-            for(int i=0; i &lt; 8; ++i ){
-                gpio_put(pin_data,(addr &gt;&gt; i) &amp; 1U);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
-
-            for(int i=0 ; i &lt; 8; ++i ){
-                gpio_put(pin_data,(data &gt;&gt; i) &amp; 1U);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,1);
-            sleep_ms(0.2);
-            gpio_put(pin_data,1);
-}
+<p>With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.</p>
+<div class="highlight"><pre><span></span>filter = filterHairpin();
+filter.FilterOrder = N;
+filter.Substrate = d;
+filter.Conductor = m;
+filter.Height = Height;
+filter = design(filter,2440e6,&#39;FBW&#39;,BandWidth,&#39;RippleFactor&#39;,Ripple);
 </pre></div>
 
-<p>The next challenge now I'm able to send data to the display using simple functions, is to look at turning the control functions into a C++ object, and then look at putting the display to a practical use. Another route to look at is setting up the PIO state machine to work with the display and possibly build a simple example that can also work with my <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">Ice Breaker FPGA</a>.</p>                </article>
+<p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
+<p><img src="images/MatlabFilter_Design_Matlab.png" ><div></p>
+<p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
+<div class="highlight"><pre><span></span>spar = sparameters(filter,f);
+figure()
+rfplot(spar);
+</pre></div>
+
+<p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
+<p><img src="images/MatlabFilter_Frequency_response_2440_3.png" ><div></p>
+<p>The next plot is the Current Distribution, i'm not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.</p>
+<p><img src="images/MatlabFilter_Current.png" ><div></p>
+<p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn't find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
+<p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
+<div class="highlight"><pre><span></span>p = pcbComponent(filter);
+W = PCBServices.PCBWayWriter;
+W.Filename = &#39;Filter_2440MHz_3&#39;;
+C1 = PCBConnectors.SMAEdge_Samtec;
+C2 = PCBConnectors.SMAEdge_Samtec;
+
+
+C1.EdgeLocation = &#39;west&#39;;
+C1.ExtendBoardProfile = false;
+C2.EdgeLocation = &#39;east&#39;;
+C2.ExtendBoardProfile = false;
+
+[A,g] = gerberWrite(p,W,{C1,C2})
+</pre></div>
+
+<p>It actually took me a long time to work out how to add the connectors, and i'm not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed to create them, the N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area's of the PCB missing with the connectors floating away from the PCB. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to the designed filter to stop MATLAB from placing the SMA's ground connection within the filter. The issues liked this all seemed to be a bit buggy early release problems, but given this is the first release they will hopefully improve with time.</p>
+<p>With the output files generated I then opened loaded the Gerber files into KiCad's Gerber Viewer and imported the layer into PCB New, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don't think should have been added.</p>
+<p><img src="images/MatlabFilter_PCBs.jpg" ></p>
+<p>With all that sorted, I added my designs to my filters GitHub repo and ordered the PCB using the Gerber files that were generated by KiCAD. Once the PCB's had arrived from JLCPCB about a month after I had ordered, it was time to add some SMA connectors and give them a test.</p>
+<p><img src="images/MatlabFilterSoldering.jpg" ></p>
+<p>I'm using a NanoVNA to test them out, while not as great as a proper Network Analyser, but give the Nano VNA cost £60 it a great way of being able to get a good idea of there performance of these little filters at home.</p>
+<p><img src="images/MatlabFilter_Testing.jpg" > <div></p>
+<p>The NanoVNA can be used with PC based software, such as i'm using bellow, which is much easier to interact with rather than the tiny screen, though this interface I can also calibrate the results, and use the s-parameter menu, to take measurements of each of the filters, which can be stored to S-parameter files that can be imported into MATLAB for analysis.</p>
+<p><img src="images/MatlabFilter_nanoVNA_plot_2440_3.png" ><div></p>
+<p>The main test here is if the filters that I have make actually match the simulation, so the bext way to asssess them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
+<p><img src="images/MatlabFilter_Frequency_response_measured_2440_3.png" ><div></p>
+<p>The 3rd order filter is almost close to what is expected, but with the pass band pushed to a lower frequency, and a wider pass band, the attenuation of the filter at frequencies above the designed pass band is actually similar to what is expected. With it producing a similar ammount of attenuation, with a similar roll of to the simulation.   </p>
+<p>We can also look at the results for the 5th Order Filter, which also shows a lot of similar characteristics, with the roll of at both high and low frequencies appearing to match the simulation, with the exception of the pass band being shifted to lower frequencies.</p>
+<p><img src="images/MatlabFilter_Frequency_response_measured_2440_5.png" ><div></p>
+<p>The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB's are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB's themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as <a href="https://jlcpcb.com/capabilities/Capabilities">4.5 for a double sided PCB</a>, which is typically a useful number to use but unfortunately this <a href="https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs">value actually varies with frequency</a> which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.</p>
+<p>The next stage is experiment with simulating the filters that were originally created, and to see if by changing the dielectric constant I can match up the simulation with the measured results. this would mean that I could have a go at re-creating the filters with a corrected value for dielectric constant at 2.45GHz, when having a second attempt at building some filters.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html" rel="bookmark"
+                           title="Permalink to Seven Segment Display PMod Board">Seven Segment Display PMod Board</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Tue 30 November 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
+</footer><!-- /.post-info -->                <p>Building a PMod Based board to work with a 7 Segment Display</p>
+                <a class="readmore" href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -157,21 +162,6 @@
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a></span>
 </footer><!-- /.post-info -->                <p>Building a PMod Based board with an 8x8 Infrared Sensor</p>
                 <a class="readmore" href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/inspectrum-with-sigmf-files.html" rel="bookmark"
-                           title="Permalink to Inspectrum with SigMF Files">Inspectrum with SigMF Files</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Thu 24 June 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/sigmf.html">SigMF</a><a href="https://www.jjhorton.co.uk/tag/inspectrum.html">Inspectrum</a><a href="https://www.jjhorton.co.uk/tag/rf-data.html">RF Data</a><a href="https://www.jjhorton.co.uk/tag/datasets.html">Datasets</a><a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a></span>
-</footer><!-- /.post-info -->                <p>Installing Inspectrum with SigMF files support</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/inspectrum-with-sigmf-files.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
