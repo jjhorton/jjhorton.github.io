@@ -66,7 +66,7 @@ rfplot(spar);
 <p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
 <p><img src="images/MatlabFilter_Frequency_response_2440_3.png" width="600" ><div></p>
 <p>The next plot is the Current Distribution, i'm not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.</p>
-<p><img src="images/MatlabFilter_Current.png" ><div></p>
+<p><img src="images/MatlabFilter_Current.png" width="600"><div></p>
 <p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn't find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
 <p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
 <div class="highlight"><pre><span></span>p = pcbComponent(filter);
