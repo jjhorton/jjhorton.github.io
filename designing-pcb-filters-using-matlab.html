@@ -61,7 +61,7 @@ filter = design(filter,2440e6,&#39;FBW&#39;,BandWidth,&#39;RippleFactor&#39;,Rip
 </pre></div>
 
 <p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
-<p><img src="images/MatlabFilter_Design_Matlab.png" ><div></p>
+<p><img src="images/MatlabFilter_Design_Matlab.png" width="600"><div></p>
 <p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
 <div class="highlight"><pre><span></span>spar = sparameters(filter,f);
 figure()
