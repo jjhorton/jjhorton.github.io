@@ -30,7 +30,7 @@
 <footer class="post-info">
         <span>Fri 31 December 2021</span>
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
-</footer><!-- /.post-info --><p><img src="images/ChristmasCountdown_initial.jpg" width="350" ><div></p>
+</footer><!-- /.post-info --><p><img src="images/ChristmasCountdown_Initial.jpg" width="350" ><div></p>
 <p>Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the <a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">PMod Display</a> that I had around, and then run from one of the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a> that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</p>
 <p>The code that runs on the <a href="https://www.raspberrypi.com/products/rp2040/">RP2040</a> relies on a serial link as there is no real time clock on the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a>. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
