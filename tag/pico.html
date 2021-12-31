@@ -26,94 +26,105 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">Seven Segment Display PMod Board</a></h1>
+                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/christmas-countdown.html">Christmas Countdown</a></h1>
 <footer class="post-info">
-        <span>Tue 30 November 2021</span>
+        <span>Fri 31 December 2021</span>
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
-</footer><!-- /.post-info --><p>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in <a href="https://www.thelegendofq.co.uk/encoder.html">the movies</a>.</p>
-<p><img src="images/SevenSegment_bond_gps_encoder.png" width="350" ><div></p>
-<p>The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don't have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">iceBreaker FPGA</a> which has two digits, and removes the decimal point to allow multiplexing between the two displays.</p>
-<p><img src="images/icebreaker-pmod-7-segment.jpg" width="350" ><div></p>
-<p>Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.</p>
-<p><img src="images/GN_Semic_GN1640.png" width="350 ><div></p>
-<p>Devices such as the <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">GN Semic GN1640</a> which is the chip I decided to tag onto an order I was already placing at <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">LCSC Components</a>, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.</p>
-<p><img src="images/SevenSegment_schematic.png" width="350" ><div></p>
-<p>The circuit for these <a href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html">GN1640</a> chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from <a href="https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR">Mouser</a>.</p>
-<p><img src="images/SevenSegment_pcb.png" width="350"><div></p>
-<p>The boards were laid out so that they would fit within the maximum 10x10cm limits of the <a href="https://jlcpcb.com">JLC PCB</a> 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.</p>
-<p><img src="images/SevenSegment_complete.jpg" width="350"><div></p>
-<p>With the PCB's made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the <a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">RP2040 PMod boards</a> that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.</p>
-<p><img src="images/SevenSegment_TM1640-Timing.png" width="350"><div></p>
-<p>The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.</p>
-<div class="highlight"><pre><span></span>void enable()
-{
-            //command to turn on the display
-            int command1[] = {1,1,1,1,0,0,0,1};
-            //initallisation
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,0);
-            sleep_ms(0.2);
-            //send the bits
-            for(int i=0; i &lt; 8; ++i ){
-                gpio_put(pin_data,command1[i]);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
-            //end the transmission
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,1);
-            sleep_ms(0.2);
-            gpio_put(pin_data,1);
+</footer><!-- /.post-info --><p><img src="images/ChristmasCountdown_initial.jpg" width="350" ><div></p>
+<p>Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the <a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">PMod Display</a> that I had around, and then run from one of the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a> that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</p>
+<p>The code that runs on the <a href="https://www.raspberrypi.com/products/rp2040/">RP2040</a> relies on a serial link as there is no real time clock on the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a>. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pico/stdlib.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pico/stdio_usb.h&quot;</span><span class="cp"></span>
 
-            sleep_ms(10);
-}
+<span class="c1">// Custom 7 Segment Display</span>
+<span class="cp">#include</span> <span class="cpf">&quot;My7Seg.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//initalise the display</span>
+    <span class="n">My7Seg</span> <span class="n">Display</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">Display</span><span class="p">.</span><span class="n">enable</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">seconds_left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">countdown_str</span> <span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+
+    <span class="n">stdio_init_all</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Countdown Clock starting!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">Display</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="kt">double</span><span class="p">(</span><span class="mi">99999999</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">getchar_timeout_us</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span><span class="p">){</span>
+
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+                    <span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">getchar_timeout_us</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">seconds_left</span> <span class="o">=</span> <span class="n">strtof</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">Display</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="kt">double</span><span class="p">(</span><span class="n">seconds_left</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
-<p>With the display enabled I was then able to start sending data, this follows a similar design pattern with a function taking in the address and data, to trigger a series of short delays followed by setting the clock and data pins either high or low to transmit the data.  </p>
-<div class="highlight"><pre><span></span>void txData(uint8_t pos, uint8_t data)
-{
-            uint8_t addr = 0b11000000 + pos;
+<p>The actually calculation of the number of seconds takes place on a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero</a>, this takes the current time which it gets from its Wifi Network connection, and then calculates the difference between the current time and the number of seconds until Christmas day, and sends it over the serial link to the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 Board</a>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
 
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,0);
-            sleep_ms(0.2);
+<span class="c1"># /dev/tty.usbmodem1101 115200</span>
 
-            for(int i=0; i &lt; 8; ++i ){
-                gpio_put(pin_data,(addr &gt;&gt; i) &amp; 1U);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
+<span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/tty.usbmodem1101&#39;</span><span class="p">)</span>  <span class="c1"># open serial port</span>
+<span class="n">sio</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BufferedRWPair</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">ser</span><span class="p">))</span>
 
-            for(int i=0 ; i &lt; 8; ++i ){
-                gpio_put(pin_data,(data &gt;&gt; i) &amp; 1U);
-                sleep_ms(0.2);
-                gpio_put(pin_clk,1);
-                sleep_ms(0.4);
-                gpio_put(pin_clk,0);
-                sleep_ms(0.2);
-            }
-            gpio_put(pin_data,0);
-            sleep_ms(0.2);
-            gpio_put(pin_clk,1);
-            sleep_ms(0.2);
-            gpio_put(pin_data,1);
-}
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">thisyear</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">xmas</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">thisyear</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">now</span> <span class="o">&lt;</span> <span class="n">xmas</span><span class="p">:</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xmas</span> <span class="o">-</span> <span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">my_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span>
+    <span class="n">my_str</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+    <span class="n">sio</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span>
+    <span class="n">sio</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
-<p>The next challenge now I'm able to send data to the display using simple functions, is to look at turning the control functions into a C++ object, and then look at putting the display to a practical use. Another route to look at is setting up the PIO state machine to work with the display and possibly build a simple example that can also work with my <a href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga">Ice Breaker FPGA</a>.</p>                </article>
+<p><img src="images/ChristmasCountdown_OpenSCAD.jpg" width="350" ><div></p>
+<p>With the main coding element taken care of the next task is building the case for the PCB's, I wanted to be able to mount the two boards together, and be able to attach the whole setup to my whiteboard, for the I created a simple case, which has holes in the back for placing some small magnets, and then holes in the front for mounting the PCB's on the front.</p>
+<p><img src="images/ChristmasCountdown_CaseBack.jpg" width="350" ><div></p>
+<p>This simple case provides an effective way of being mounted up on the Whiteboard, although now I am finally getting round to writing this all up, it is several days past Christmas so until next December it will have to wait until then, unless I can find a new date to countdown until.</p>
+<p><img src="images/ChristmasCountdown_Zero.jpg" width="350" ><div></p>
+<p>The code used to create this board, and the code for the case will be available <a href="https://github.com/jjhorton/RP2040_Countdown">here</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html" rel="bookmark"
+                           title="Permalink to Seven Segment Display PMod Board">Seven Segment Display PMod Board</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Tue 30 November 2021</span>
+<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
+</footer><!-- /.post-info -->                <p>Building a PMod Based board to work with a 7 Segment Display</p>
+                <a class="readmore" href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -159,24 +170,11 @@
                 <a class="readmore" href="https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html" rel="bookmark"
-                           title="Permalink to Pico PMod breakout PCB">Pico PMod breakout PCB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Mon 31 May 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board to the New Raspberry Pi Pico</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+    Page 1 / 2
+        <a href="https://www.jjhorton.co.uk/tag/pico2.html">&raquo;</a>
+        <a href="https://www.jjhorton.co.uk/tag/pico2.html">&#8649;</a>
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>JJ Horton - misc</title>
+        <title>Christmas Countdown</title>
         <link rel="stylesheet" href="https://www.jjhorton.co.uk/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,14 +23,19 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://www.jjhorton.co.uk/christmas-countdown.html" rel="bookmark"
+           title="Permalink to Christmas Countdown">Christmas Countdown</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://www.jjhorton.co.uk/christmas-countdown.html">Christmas Countdown</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Fri 31 December 2021</span>
 <span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
-</footer><!-- /.post-info --><p><img src="images/ChristmasCountdown_initial.jpg" width="350" ><div></p>
+</footer><!-- /.post-info -->      <p><img src="images/ChristmasCountdown_initial.jpg" width="350" ><div></p>
 <p>Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the <a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">PMod Display</a> that I had around, and then run from one of the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a> that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</p>
 <p>The code that runs on the <a href="https://www.raspberrypi.com/products/rp2040/">RP2040</a> relies on a serial link as there is no real time clock on the <a href="https://github.com/jjhorton/Pico_Pmod">RP2040 boards</a>. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -105,78 +110,11 @@
 <p><img src="images/ChristmasCountdown_CaseBack.jpg" width="350" ><div></p>
 <p>This simple case provides an effective way of being mounted up on the Whiteboard, although now I am finally getting round to writing this all up, it is several days past Christmas so until next December it will have to wait until then, unless I can find a new date to countdown until.</p>
 <p><img src="images/ChristmasCountdown_Zero.jpg" width="350" ><div></p>
-<p>The code used to create this board, and the code for the case will be available <a href="https://github.com/jjhorton/RP2040_Countdown">here</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+<p>The code used to create this board, and the code for the case will be available <a href="https://github.com/jjhorton/RP2040_Countdown">here</a>.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/designing-pcb-filters-using-matlab.html" rel="bookmark"
-                           title="Permalink to Designing PCB Filters using MATLAB">Designing PCB Filters using MATLAB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 15 December 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/matlab.html">MATLAB</a><a href="https://www.jjhorton.co.uk/tag/filters.html">Filters</a><a href="https://www.jjhorton.co.uk/tag/pcb.html">PCB</a><a href="https://www.jjhorton.co.uk/tag/sdr.html">SDR</a></span>
-</footer><!-- /.post-info -->                <p>Creating PCB filters using MATLAB RF PCB Toolbox</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/designing-pcb-filters-using-matlab.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html" rel="bookmark"
-                           title="Permalink to Seven Segment Display PMod Board">Seven Segment Display PMod Board</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 30 November 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/display.html">Display</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board to work with a 7 Segment Display</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/infrared-sensors-and-neopixel-screen.html" rel="bookmark"
-                           title="Permalink to Infrared Sensors and Neopixel screen">Infrared Sensors and Neopixel screen</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Thu 30 September 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a></span>
-</footer><!-- /.post-info -->                <p>Hooking up the Infrared Sensor with a Neopixel based displays</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/infrared-sensors-and-neopixel-screen.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html" rel="bookmark"
-                           title="Permalink to RP2040 PMod PCB">RP2040 PMod PCB</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 31 August 2021</span>
-<span>| tags: <a href="https://www.jjhorton.co.uk/tag/raspberry-pi.html">Raspberry Pi</a><a href="https://www.jjhorton.co.uk/tag/pico.html">Pico</a><a href="https://www.jjhorton.co.uk/tag/rp2040.html">RP2040</a><a href="https://www.jjhorton.co.uk/tag/pmod.html">PMod</a><a href="https://www.jjhorton.co.uk/tag/fpga.html">FPGA</a></span>
-</footer><!-- /.post-info -->                <p>Building a PMod Based board using a Raspberry Pi RP2040 microcontroller</p>
-                <a class="readmore" href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 5
-        <a href="https://www.jjhorton.co.uk/category/misc2.html">&raquo;</a>
-        <a href="https://www.jjhorton.co.uk/category/misc5.html">&#8649;</a>
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
