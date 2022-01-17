@@ -232,8 +232,7 @@ The journey up to Fort William had been a battle, with the country being hit by 
       <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/a-cold-weekend-in-dartmoor/</guid>
-      <description>Last weekend was spent in one of the places that I have kayaked the most, dartmoor. Although trips here normally revole around the river dart, normally on the loop and upper this time we found ourselves looking further afield. Paddling with 4 friends from uni on the same weekend that the River Source event the aim was to try and avoid the country park as best we could.
-Our accommodation for the weekend was a YHA camping barn which is basic at best, very different to the usual bunkhouses with beds and central heating.</description>
+      <description>Last weekend was spent in one of the places that I have kayaked the most, dartmoor. Although trips here normally revole around the river dart, normally on the loop and upper this time we found ourselves looking further afield. Paddling with 4 friends from uni on the same weekend that the River Source event the aim was to try and avoid the country park as best we could.</description>
     </item>
     
     <item>
@@ -319,6 +318,7 @@ With my project being based on an Arduino Nano processor I was able to use the S
       
       <guid>https://jjhorton.co.uk/posts/communication/</guid>
       <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
+ 
 The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
     </item>
     

@@ -11,12 +11,12 @@ With my project being based on an Arduino Nano processor I was able to use the S
 With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/getting-the-rotors-running/'>
 <meta property='og:site_name' content='James Horton'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Electronics' /><meta property='article:tag' content='Project' /><meta property='article:tag' content='University' /><meta property='article:published_time' content='2012-04-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2012-04-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/' />
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Electronics' /><meta property='article:tag' content='Project' /><meta property='article:tag' content='University' /><meta property='article:published_time' content='2012-04-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2012-04-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/Quadcopter_rotortest.jpg' />
 <meta name="twitter:site" content="@JamesjHorton">
     <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Getting the Rotors Running">
 <meta name="twitter:description" content="After several weeks off nothing happening, then hitting problems with the filtering i&amp;rsquo;ve finally found sometime to get some work done on my project. This week I have been getting the rotors running, which is surprisingly simple no that I know how it all works.
 With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s."><meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content='https://jjhorton.co.uk/' />
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/Quadcopter_rotortest.jpg' />
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -183,6 +183,14 @@ if (!doNotTrack) {
 <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/getting-the-rotors-running/">
+                
+                    <img src="/img/Quadcopter_rotortest.jpg" loading="lazy" alt="Featured image of post Getting the Rotors Running" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -229,7 +237,18 @@ This allows me to comunicate to the servo&rsquo;s using a simplified
 interface, not having to worry about the interrupts, and timing cycles.
 This does come at the cost of code size ad run speed, but if this
 becomes a problem I can always go back and take another look at it.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><figure 
+	>
+	<a href="/img/Quadcopter_rotortest.jpg" >
+		<img src="/img/Quadcopter_rotortest.jpg"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
 <p>The code I created uses 3 main functions, with another one for testing,
 these functions are:</p>
 <ul>
@@ -244,38 +263,38 @@ rotor up for a short period of time individually before starting the
 next, again this will probably be removed from the final code .</li>
 </ul>
 <p>The code is shown here, although its very simple</p>
-<pre tabindex="0"><code>//the code to control the rotor speeds
-#include 	Servo.h;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="c1">//the code to control the rotor speeds
+</span><span class="c1"></span><span class="cp">#include</span> 	<span class="cpf">Servo.h;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="n">Servo</span> <span class="n">rotor1</span><span class="p">;</span>
+<span class="n">Servo</span> <span class="n">rotor2</span><span class="p">;</span>
+<span class="n">Servo</span> <span class="n">rotor3</span><span class="p">;</span>
+<span class="n">Servo</span> <span class="n">rotor4</span><span class="p">;</span>
 
-Servo rotor1;
-Servo rotor2;
-Servo rotor3;
-Servo rotor4;
+<span class="kt">void</span> <span class="nf">initRotor</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">//attach the servos, to stop them from beeping
+</span><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+	<span class="n">rotor2</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+	<span class="n">rotor3</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+	<span class="n">rotor4</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+	<span class="c1">//This will then set all the rotors to zero rotorSet(0, 0, 0, 0);
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kt">void</span> <span class="nf">rotorSet</span><span class="p">(</span><span class="kt">int</span> <span class="n">speed1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed4</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//speed values must be given as 0-1000, to update power
+</span><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">speed1</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="n">rotor2</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">speed2</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="n">rotor3</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">speed3</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="n">rotor4</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="n">speed4</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
 
-void initRotor() {
-	//attach the servos, to stop them from beeping
-	rotor1.attach(3);
-	rotor2.attach(5);
-	rotor3.attach(6);
-	rotor4.attach(10);
-	//This will then set all the rotors to zero rotorSet(0, 0, 0, 0);
-}
-void rotorSet(int speed1, int speed2, int speed3, int speed4) {
-	//speed values must be given as 0-1000, to update power
-	rotor1.writeMicroseconds(speed1 + 1000);
-	rotor2.writeMicroseconds(speed2 + 1000);
-	rotor3.writeMicroseconds(speed3 + 1000);
-	rotor4.writeMicroseconds(speed4 + 1000);
-}
-
-void rotorStop() {
-	//this function stops al the rotors
-	rotor1.writeMicroseconds(700);
-	rotor2.writeMicroseconds(700);
-	rotor3.writeMicroseconds(700);
-	rotor4.writeMicroseconds(700);
-}
-</code></pre><p>The code is mainly driven by the writeMicroseconds operation off the
+<span class="kt">void</span> <span class="nf">rotorStop</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">//this function stops al the rotors
+</span><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+	<span class="n">rotor2</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+	<span class="n">rotor3</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+	<span class="n">rotor4</span><span class="p">.</span><span class="n">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>The code is mainly driven by the writeMicroseconds operation off the
 servo object, this allows for the updating off the servo pulse width,
 which is normally defined as between 1000 and 2000 Micro Seconds,
 representing the minimum and maximum output respectively from the ESC
@@ -319,9 +338,15 @@ soon have this quad rotor off the ground.</p>
             <div class="flex article-list--tile">
                 
                     
-<article class="">
+<article class="has-image">
     <a href="/posts/serial-control-and-matlab/">
         
+        
+            <div class="article-image">
+                
+                    <img src="/img/QuadcopterFrame.png" loading="lazy" data-key="" data-hash="/img/QuadcopterFrame.png"/>
+                
+            </div>
         
 
         <div class="article-details">
@@ -331,9 +356,15 @@ soon have this quad rotor off the ground.</p>
 </article>
                 
                     
-<article class="">
+<article class="has-image">
     <a href="/posts/communication-control/">
         
+        
+            <div class="article-image">
+                
+                    <img src="/img/GUIWithData.jpg" loading="lazy" data-key="" data-hash="/img/GUIWithData.jpg"/>
+                
+            </div>
         
 
         <div class="article-details">
@@ -343,9 +374,15 @@ soon have this quad rotor off the ground.</p>
 </article>
                 
                     
-<article class="">
+<article class="has-image">
     <a href="/posts/processing-power/">
         
+        
+            <div class="article-image">
+                
+                    <img src="/img/QuadcopterFrame.png" loading="lazy" data-key="" data-hash="/img/QuadcopterFrame.png"/>
+                
+            </div>
         
 
         <div class="article-details">

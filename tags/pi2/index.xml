@@ -16,5 +16,36 @@
       <description>The raspberry pi cluster was built several years ago for some projects I was doing at the time, and experimenting with parallel computing. While the little raspberry pi&amp;rsquo;s were never going to keep up with a proper PC, they were great for experimenting with the principles of parallel computing, being it making use of the multiple CPU cores on each device or trying to spread the calculation over multiple raspberry pi&amp;rsquo;s.</description>
     </item>
     
+    <item>
+      <title>Octave on my Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</guid>
+      <description>The main aim of building my Raspberry Pi Cluster was so that I could run octave code on it, now I&amp;rsquo;m not expecting to break any records, but ideally I want some performance. The best way I found to do this was with the parallel&amp;rsquo;s package.
+With octave and the parallels package installed on each of the Raspberry Pi 2&amp;rsquo;s in the cluster, I setup SSH so that no passwords are required between the nodes.</description>
+    </item>
+    
+    <item>
+      <title>Over clocking my Raspberry Pi cluster</title>
+      <link>https://jjhorton.co.uk/posts/over-clocking-my-raspberry-pi-cluster/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/over-clocking-my-raspberry-pi-cluster/</guid>
+      <description>With my newly created raspberry pi cluster being made out of the Raspberry Pi 2, I don&amp;rsquo;t want it to lag to far behind the freshly announced Raspberry Pi 3. To try and keep up with the new hardware without replacing all of my Pi&amp;rsquo;s I devices it was worth a go at overclocking them.
+Overlooking my Pi&amp;rsquo;s should allow them to work a bit quicker, but it will reduce power efficient and increase the tempurature that the cluster runs at.</description>
+    </item>
+    
+    <item>
+      <title>Building a Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</guid>
+      <description>I&amp;rsquo;ve had a long standing interest in Parallel Processing, and then a few months ago I came across Octave and its parallel package. Octave is very similar to MATLAB that I use every day, and for the most part basic MATLAB code works out of the box in Octave.
+I used this as the perfect excuse to build myself a mini-cluster computer&amp;hellip;
+The mini cluster needed to be cheep, so I based it on the raspberry pi.</description>
+    </item>
+    
   </channel>
 </rss>
