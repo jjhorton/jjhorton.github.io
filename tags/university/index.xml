@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>University on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/university/</link>
+    <description>Recent content in University on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/university/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Low Cost Quad Rotor Design and Implementation Report</title>
+      <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
+      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
+      <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
+Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
+    </item>
+    
+    <item>
+      <title>Serial Communication and MATLAB</title>
+      <link>https://jjhorton.co.uk/posts/serial-control-and-matlab/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/serial-control-and-matlab/</guid>
+      <description>For producing the Quad Rotor&amp;rsquo;s GUI I needed to be able to implement the serial communication in MATLAB. This it seemed would be a simple task as on windows machines it is a simple task of opening the comms port, send the data, and closing the port. All seemed so simple, but as it turns out this was not the case on the Mac which I was using from my project with MATLAB R2008a</description>
+    </item>
+    
+    <item>
+      <title>Communication Control</title>
+      <link>https://jjhorton.co.uk/posts/communication-control/</link>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/communication-control/</guid>
+      <description>For the Quad rotor to work I need some control over it, I have got my communications link all set up, but I need to sort out what I&amp;rsquo;m going to send over it. Previously I had just been sending gyroscope or accelerometer readings, but now this needs to become a two way system and for that I need to write some code at both ends that is up to the task.</description>
+    </item>
+    
+    <item>
+      <title>Getting the Rotors Running</title>
+      <link>https://jjhorton.co.uk/posts/getting-the-rotors-running/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/getting-the-rotors-running/</guid>
+      <description>After several weeks off nothing happening, then hitting problems with the filtering i&amp;rsquo;ve finally found sometime to get some work done on my project. This week I have been getting the rotors running, which is surprisingly simple no that I know how it all works.
+With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.</description>
+    </item>
+    
+  </channel>
+</rss>

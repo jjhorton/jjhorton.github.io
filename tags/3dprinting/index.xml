@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3DPrinting on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/3dprinting/</link>
+    <description>Recent content in 3DPrinting on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sun, 31 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/3dprinting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nvidia Jetson case</title>
+      <link>https://jjhorton.co.uk/posts/jetson2gbcase/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/jetson2gbcase/</guid>
+      <description>Before Christmas I picked up a 2GB Jetson Nano to have a play with, I think these devices are interesting with the combination of an ARM processor and GPU. There have been devices like this before, and we even have a spare one at work in our Makerspace but I never found time to have an experiment with one. Now with extra time on my hands over winter with the joy of home working, and the recently released 2GB version for about £55 meant it was time to have an experiment.</description>
+    </item>
+    
+    <item>
+      <title>Bring a Raspberry Pi Cluster Back to Life</title>
+      <link>https://jjhorton.co.uk/posts/piclusterreborn/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/piclusterreborn/</guid>
+      <description>The raspberry pi cluster was built several years ago for some projects I was doing at the time, and experimenting with parallel computing. While the little raspberry pi&amp;rsquo;s were never going to keep up with a proper PC, they were great for experimenting with the principles of parallel computing, being it making use of the multiple CPU cores on each device or trying to spread the calculation over multiple raspberry pi&amp;rsquo;s.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RF Data on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/rf-data/</link>
+    <description>Recent content in RF Data on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rf-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inspectrum with SigMF Files</title>
+      <link>https://jjhorton.co.uk/posts/inspectrumsigmf/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/inspectrumsigmf/</guid>
+      <description>This post is as much a note to myself, for the next time that I hit this issue, which is installing Inspectrum with SigMF support.
+The tool I&amp;rsquo;m installing is Inspectrum which is for analysing captured files of sampled data, primarily from Software Defined Radios. This allows for looking at signals, and analysing what is in the capture. I was looking to use this tool with some SigMF files, the Signal Meta data files are made up of a Binary File containing the sample data, and a JSON companion file, which contains details about the capture.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on James Horton</title>
+    <link>https://jjhorton.co.uk/pages/</link>
+    <description>Recent content in Pages on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language><atom:link href="https://jjhorton.co.uk/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://jjhorton.co.uk/pages/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/pages/about/</guid>
+      <description>Title: About Aurthor: James Date: 2017-04-01 Modified: 2021-02-08
+So I&amp;rsquo;m an Electronic Engineer, who now spends most of his time doing DSP and Signal processing at work. I spend a lot of time working with MATLAB and Simulink in my day job as a &amp;ldquo;Systems Engineer&amp;rdquo; for a defence company. Outside of work you will find my experimenting with Software Defined Radio (SDR), open source FPGA boards, and 3D Printing.</description>
+    </item>
+    
+  </channel>
+</rss>

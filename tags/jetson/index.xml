@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jetson on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/jetson/</link>
+    <description>Recent content in Jetson on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/jetson/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nvidia Jetson Nano 2Gb Testing</title>
+      <link>https://jjhorton.co.uk/posts/jetsontesting/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/jetsontesting/</guid>
+      <description>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.
+This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</description>
+    </item>
+    
+    <item>
+      <title>Nvidia Jetson case</title>
+      <link>https://jjhorton.co.uk/posts/jetson2gbcase/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/jetson2gbcase/</guid>
+      <description>Before Christmas I picked up a 2GB Jetson Nano to have a play with, I think these devices are interesting with the combination of an ARM processor and GPU. There have been devices like this before, and we even have a spare one at work in our Makerspace but I never found time to have an experiment with one. Now with extra time on my hands over winter with the joy of home working, and the recently released 2GB version for about £55 meant it was time to have an experiment.</description>
+    </item>
+    
+  </channel>
+</rss>

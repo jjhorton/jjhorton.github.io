@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bluetooth on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/bluetooth/</link>
+    <description>Recent content in Bluetooth on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 17 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Communication</title>
+      <link>https://jjhorton.co.uk/posts/communication/</link>
+      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/communication/</guid>
+      <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
+The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'><title>Nvidia Jetson Nano 2Gb Testing</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/jetsontesting/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Nvidia Jetson Nano 2Gb Testing'>
+<meta property='og:description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/jetsontesting/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Nvidia' /><meta property='article:tag' content='GPU' /><meta property='article:tag' content='Jetson' /><meta property='article:tag' content='Testing' /><meta property='article:published_time' content='2021-02-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-02-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/Jetson_case_box.png' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Nvidia Jetson Nano 2Gb Testing">
+<meta name="twitter:description" content="Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/Jetson_case_box.png' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/jetsontesting/">
+                
+                    <img src="/img/Jetson_case_box.png" loading="lazy" alt="Featured image of post Nvidia Jetson Nano 2Gb Testing" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/jetsontesting/">Nvidia Jetson Nano 2Gb Testing</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 22, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.</p>
+<p>This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</p>
+<p><figure 
+	>
+	<a href="https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg" >
+		<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>Image from <a class="link" href="https://en.wikipedia.org/wiki/Monte_Carlo_integration#/media/File:MonteCarloIntegrationCircle.svg"  target="_blank" rel="noopener"
+    >wikipedia</a></p>
+<p>By selecting two random numbers with are evenly distributed between a min and max, to be the x and Y coordinates, we can then calculate the distance from the centre of the circle using pythagorus theorem.</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a%5e2&#43;b%5e2=c%5e2" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a%5e2&#43;b%5e2=c%5e2"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>Where our distance from the centre from the cicrle is c, and our randomly selected x and y co-ordinates a and b. This means that our distance from the centre of the circle is given by:</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&#43;y%5e2%7d" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&#43;y%5e2%7d"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>The next step is to see if this point falls within the circle, or in the area outside the circle. this is completed by comparing this distance from the centre of the circle with the radius of the circle. If this distance is less than the circle radius, then it is within the circle, and we count up how many times we get a value that falls inside the circle.</p>
+<p>We can the use the ratio of the number of points that we have found within the circle and the total number of test completed to approximate the value of pi. The area of the circle is defined as:</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>The area of the square is twice the radius of the circle, for each the x and y axis we have used for generating all our points is, therefor the area is</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>We can therefore calculate that the ratio in the area between the circle and the square is:</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>This can be simplified to:</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>Assuming that we have a sufficiently large number of points we can assume that the number of points which fall inside the circle is proportional to the total area of the square, so after rearranging we can then replace the areas with the number of points that fall within each:</p>
+<p><figure 
+	>
+	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d" >
+		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>This formula, with is relatively simple can allow us to compute the value of pi, which can be realised with python using numpy. The implementation, generates a random number between a width, and then calculates the distance from the centre, that this point is from the centre of the circle. This is then compared to the circles radius, and if it falls within the circle the total is implemented. The final value of Pi is then calculated when the main loop is finished.</p>
+<pre tabindex="0"><code>import numpy as np
+import time
+
+iterations = int(1e6)
+
+totalIn = 0.0
+width = np.power(2,15)
+
+start = time.time()
+
+for iter in range(iterations):
+  x = np.random.random_integers(-width,width)
+  y = np.random.random_integers(-width,width)
+
+  dist = np.sqrt(np.power(x,2)+np.power(y,2))
+
+  if dist&lt;width:
+    totalIn += 1
+
+
+my_pi = 4 * np.divide(totalIn,iterations)
+runtime = time.time() - start
+print(&quot;Pi is calculated as : %.10f&quot; % my_pi)
+print(runtime)
+</code></pre><p>The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.</p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi Calculated</th>
+<th>Run Time(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>3.0000000000</td>
+<td>0.077</td>
+</tr>
+<tr>
+<td>1,000</td>
+<td>3.0760000000</td>
+<td>0.692</td>
+</tr>
+<tr>
+<td>10,000</td>
+<td>3.1360000000</td>
+<td>7.14</td>
+</tr>
+<tr>
+<td>100,000</td>
+<td>3.1518800000</td>
+<td>69.6</td>
+</tr>
+<tr>
+<td>1,000,000</td>
+<td>3.1409400000</td>
+<td>686</td>
+</tr>
+</tbody>
+</table>
+<p>The main thing we have control of is the number of iterations, and we can attempt to complete more iterations by optimising our code, the problem is the more iterations we do the longer is takes to complete, with 1,000,000 iterations taking 10 minutes we need to improve the execution time if we want to carry out more iterations.</p>
+<p>In Python Loops are relatively slow compared to other languages such as &lsquo;c&rsquo; and &lsquo;c++&rsquo;, this is due to the dynamically typed nature of python. Vectorising the calculation of the values, using Numpy helps to remove or limit the number of loops that need to be completed, and operations on vectors are generally more efficient in dynamically typed languages, and by avoiding context switching large efficiency gains can be found.</p>
+<pre tabindex="0"><code>import numpy as np
+import time
+
+test_points = int(1e9)
+sample_size = int(1e6)
+iterations = int(test_points/sample_size)*sample_size
+
+count = np.array(0,dtype=np.float64)
+width = np.power(2,15)
+
+start = time.time()
+
+max_value = np.array(width*width,dtype=np.float32)
+
+for iter in range(int(iterations/sample_size)):
+  x = np.random.random_integers(-width,width,sample_size)
+  y = np.random.random_integers(-width,width,sample_size)
+
+  result = np.less(np.add(x*x,y*y),max_value)
+  count = count + np.sum(result)
+
+pi_2 = 4.0 * np.divide(count,iterations)
+runtime = time.time() - start
+
+print(&quot;Pi is calculated as : %.10f&quot; % pi_2)
+print(&quot;Runs: %i&quot; % iterations)
+print(runtime)
+
+</code></pre><p>This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.</p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi value</th>
+<th>Run Time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,000,000</td>
+<td>3.1449280000</td>
+<td>0.28814268112182617</td>
+</tr>
+<tr>
+<td>10,000,000</td>
+<td>3.1422772000</td>
+<td>2.569852352142334</td>
+</tr>
+<tr>
+<td>100,000,000</td>
+<td>3.1415957200</td>
+<td>26.24626588821411</td>
+</tr>
+</tbody>
+</table>
+<p>Now making use of the unique of the Nvidia Jetson boards which is the GPU along with the 128 CUDA cores. Taking advantage of these features involves switching from Numpy which executes on arm core to using CUPY. The CUPY library is designed to be compatible with numpy, using the same syntax and function names but to be used to execute the commands on the GPU.</p>
+<p>While the syntax is almost identical between Numpy and CUPY, for the functions themselves, we actually need to deal with where the variables are located for the GPU version. Typically on a traditional Desktop PC the memory for the CPU and GPU are separate, and each time a variable needs to go between the two it has to be transferred over what is typically a PCIe link. This transfer takes time, but in the Jetson Boards the memory is shared between the CPU and the GPU, which means transfers are no longer a real issue but we still have the map the variables as ones that are able to be processed by the GPU as shown by the &lsquo;cp.array()&rsquo; commands, and then make that data available to Numpy and the CPU with commands such as &lsquo;cp.asnumpy()&rsquo;.</p>
+<pre tabindex="0"><code>import numpy as np
+import cupy as cp
+import time
+
+test_points = int(1e9)
+sample_size = int(1e6)
+iterations = int(test_points/sample_size)*sample_size
+
+count = cp.array(0,dtype=cp.float64)
+width = cp.power(2,15)
+
+start = time.time()
+
+max_value = cp.array(width*width,dtype=cp.float32)
+
+for iter in range(int(iterations/sample_size)):
+  x = cp.random.random_integers(-width,width,sample_size)
+  y = cp.random.random_integers(-width,width,sample_size)
+
+  result = cp.less(cp.add(x*x,y*y),max_value)
+  count = count + cp.sum(result)
+
+pi_2 = cp.asnumpy(4.0 * cp.divide(count,iterations))
+runtime = time.time() - start
+
+print(&quot;Pi is calculated as : %.10f&quot; % pi_2)
+print(&quot;Runs: %i&quot; % iterations)
+print(runtime)
+
+</code></pre><p>Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.</p>
+<table>
+<thead>
+<tr>
+<th>Iterations</th>
+<th>Pi value</th>
+<th>Run Time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,000,000</td>
+<td>3.1428120000</td>
+<td>0.536</td>
+</tr>
+<tr>
+<td>10,000,000</td>
+<td>3.1412428000</td>
+<td>0.952</td>
+</tr>
+<tr>
+<td>100,000,000</td>
+<td>3.1414888800</td>
+<td>5.70</td>
+</tr>
+<tr>
+<td>1,000,000,000</td>
+<td>3.1414574560</td>
+<td>48.8</td>
+</tr>
+</tbody>
+</table>
+<p>These large improvements in speed, have allowed us to complete far more iterations in a shorter amount of time, and in terms of out algorithm we can see the improvements in the accuracy of Pi we are estimating. By the time we are calculating 1e9 values, we are getting pi correct to 4 significant figures. The question is are there any more options to improve the speed of our algorithm?</p>
+<p>One element that we skipped over is the size of the vectors that we are working with, for the above testing they were fixed at 1e6, without any real justification. This number was picked as an integer divide of the number of points was planning to test with, but could this be optimised, lets test a few Vector lengths with a fixed number of iterations at 1e8.</p>
+<table>
+<thead>
+<tr>
+<th>Vector Length</th>
+<th>CPU Run Time (s)</th>
+<th>GPU Run Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1e3</td>
+<td>32.9</td>
+<td>846</td>
+</tr>
+<tr>
+<td>2e3</td>
+<td>21.3</td>
+<td>420</td>
+</tr>
+<tr>
+<td>5e3</td>
+<td>14.4</td>
+<td>176</td>
+</tr>
+<tr>
+<td>1e4</td>
+<td>12.0</td>
+<td>82.8</td>
+</tr>
+<tr>
+<td>2e4</td>
+<td>11.7</td>
+<td>44.2</td>
+</tr>
+<tr>
+<td>5e4</td>
+<td>12.2</td>
+<td>19.2</td>
+</tr>
+<tr>
+<td>1e5</td>
+<td>12.0</td>
+<td>10.9</td>
+</tr>
+<tr>
+<td>2e5</td>
+<td>11.5</td>
+<td>6.90</td>
+</tr>
+<tr>
+<td>5e5</td>
+<td>10.7</td>
+<td>5.60</td>
+</tr>
+<tr>
+<td>1e6</td>
+<td>10.4</td>
+<td>5.18</td>
+</tr>
+<tr>
+<td>2e6</td>
+<td>10.2</td>
+<td>5.01</td>
+</tr>
+<tr>
+<td>5e6</td>
+<td>10.8</td>
+<td>4.94</td>
+</tr>
+<tr>
+<td>1e7</td>
+<td>10.6</td>
+<td>5.04</td>
+</tr>
+<tr>
+<td>2e7</td>
+<td>10.6</td>
+<td>5.45</td>
+</tr>
+<tr>
+<td>2.5e7</td>
+<td>10.6</td>
+<td>6.62</td>
+</tr>
+</tbody>
+</table>
+<p>What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).</p>
+<p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/nvidia/">Nvidia</a>
+        
+            <a href="/tags/gpu/">GPU</a>
+        
+            <a href="/tags/jetson/">Jetson</a>
+        
+            <a href="/tags/testing/">Testing</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

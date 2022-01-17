@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/project/</link>
+    <description>Recent content in Project on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Low Cost Quad Rotor Design and Implementation Report</title>
+      <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
+      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
+      <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
+Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
+    </item>
+    
+    <item>
+      <title>Serial Communication and MATLAB</title>
+      <link>https://jjhorton.co.uk/posts/serial-control-and-matlab/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/serial-control-and-matlab/</guid>
+      <description>For producing the Quad Rotor&amp;rsquo;s GUI I needed to be able to implement the serial communication in MATLAB. This it seemed would be a simple task as on windows machines it is a simple task of opening the comms port, send the data, and closing the port. All seemed so simple, but as it turns out this was not the case on the Mac which I was using from my project with MATLAB R2008a</description>
+    </item>
+    
+    <item>
+      <title>Communication Control</title>
+      <link>https://jjhorton.co.uk/posts/communication-control/</link>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/communication-control/</guid>
+      <description>For the Quad rotor to work I need some control over it, I have got my communications link all set up, but I need to sort out what I&amp;rsquo;m going to send over it. Previously I had just been sending gyroscope or accelerometer readings, but now this needs to become a two way system and for that I need to write some code at both ends that is up to the task.</description>
+    </item>
+    
+    <item>
+      <title>Getting the Rotors Running</title>
+      <link>https://jjhorton.co.uk/posts/getting-the-rotors-running/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/getting-the-rotors-running/</guid>
+      <description>After several weeks off nothing happening, then hitting problems with the filtering i&amp;rsquo;ve finally found sometime to get some work done on my project. This week I have been getting the rotors running, which is surprisingly simple no that I know how it all works.
+With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.</description>
+    </item>
+    
+    <item>
+      <title>Communication</title>
+      <link>https://jjhorton.co.uk/posts/communication/</link>
+      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/communication/</guid>
+      <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
+The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
+    </item>
+    
+    <item>
+      <title>Processing Power</title>
+      <link>https://jjhorton.co.uk/posts/processing-power/</link>
+      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
+      <description>To get everything talking together I’m going to need something to sit in the middle, and provide all the processing power. On the recommendation of my supervisor I had a look at the arduino boards. The arduino boards are based on Atmel processors in the middle with a boot loader per-installed to allow the uploading of programs straight onto the board from USB.
+ Arduino Nano Board 
+There are many variants of the processor available, all with more than enough programming power for what I will be doing, the important thing for me to consider was which input and output interfaces I’d need for my quad rotor.</description>
+    </item>
+    
+    <item>
+      <title>Quad Rotor Project, Introduction</title>
+      <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
+      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
+      <description>Well one day after looking though pictures of these magical 4 rotor helicopter type things hovering, I was sold it was a good idea… that was over a year ago, and now I’m building one for my 3^rd^ year project at university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going the in the opposite direction. The forces can be shown on a simple wire frame model</description>
+    </item>
+    
+  </channel>
+</rss>

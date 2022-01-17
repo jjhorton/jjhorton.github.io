@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RP2040 on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/rp2040/</link>
+    <description>Recent content in RP2040 on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RP2040 PMod PCB</title>
+      <link>https://jjhorton.co.uk/posts/rp2040_pmod/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/rp2040_pmod/</guid>
+      <description>Having perviously built myself a Pico PMod Board around the Raspberry Pi Pico, I wanted to take this to the next level, and build myself a few boards from scratch. So once the orders went live for the RP2040 microcontroller a few months ago, I ordered some, and then did nothing with them for a while.
+ 
+Like many people, I seem to end up with more ideas than time and it took me a little while to get around to this one.</description>
+    </item>
+    
+  </channel>
+</rss>

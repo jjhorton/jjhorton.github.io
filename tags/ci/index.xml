@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/ci/</link>
+    <description>Recent content in CI on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous Integration for Firmware with Github Actions</title>
+      <link>https://jjhorton.co.uk/posts/firmwareci/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/firmwareci/</guid>
+      <description>For a couple of months I&amp;rsquo;ve been slowly building up a little project using some Development boards that include an FPGA, typically once i&amp;rsquo;ve finished editing my design I run all my simulations, tests and then check I can still build the firmware. While running these manually before each commit isn&amp;rsquo;t typically much an issue, I wanted to automate this.
+The project i&amp;rsquo;m working on uses a ColorLite i5 FPGA board, this with it Lattice ECP5 FPGA allows me to use a set of Open source tools to test and build my FPGA images.</description>
+    </item>
+    
+  </channel>
+</rss>

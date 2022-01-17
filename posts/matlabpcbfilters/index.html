@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Creating PCB filters using MATLAB RF PCB Toolbox'><title>Designing PCB Filters using MATLAB</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/matlabpcbfilters/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Designing PCB Filters using MATLAB'>
+<meta property='og:description' content='Creating PCB filters using MATLAB RF PCB Toolbox'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/matlabpcbfilters/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='MATLAB' /><meta property='article:tag' content='Filters' /><meta property='article:tag' content='PCB' /><meta property='article:tag' content='SDR' /><meta property='article:published_time' content='2021-12-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-12-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/MatlabFilter_Assembled.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Designing PCB Filters using MATLAB">
+<meta name="twitter:description" content="Creating PCB filters using MATLAB RF PCB Toolbox"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/MatlabFilter_Assembled.jpg' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/matlabpcbfilters/">
+                
+                    <img src="/img/MatlabFilter_Assembled.jpg" loading="lazy" alt="Featured image of post Designing PCB Filters using MATLAB" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/matlabpcbfilters/">Designing PCB Filters using MATLAB</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Creating PCB filters using MATLAB RF PCB Toolbox
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 15, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p><a class="link" href="https://mathworks.com"  target="_blank" rel="noopener"
+    >Mathworks</a> released the RF PCB Toolbox with the <a class="link" href="https://uk.mathworks.com/help/rfpcb/release-notes.html"  target="_blank" rel="noopener"
+    >latest release</a> of MATLAB, R2021B, this toolbox allows the creation and visualisation of &ldquo;Transmission lines, Couplers, Splitters, Filters, and More&rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I&rsquo;ve always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.</p>
+<p>The filter I decided to have a go at is one to work in the 2.4GHz ISM band, centred at 2440MHz, with a pass band of 80MHz, then as much stop band attenuation as possible. After having a look though the documentation I decided to have a go at the Hairpin filter.</p>
+<p>From the examples in the documentation for the toolbox which walk you though building the filter, I built myself a script with all the user configurable user configurable variables at the start. We begin by defining these parameters that we are going to use in our filter implementation, this includes variables such as our filter order <code>n</code> and then specific properties such as the substrate and conductor that will make up our filter. In my case here as i&rsquo;m looking to build the filter on a standard standard PCB, we are setting these variables based on there spec sheet, for FR4 and copper rather then more expensive options they default to.</p>
+<pre tabindex="0"><code>N = 3;
+Ripple = 0.1;
+BandWidth = 10;
+Z0 = 50;
+f = linspace(1500e6,3000e6,601);
+EpsilonR = 4.5;
+Height = 1.6e-3;
+d = dielectric(&quot;FR4&quot;);
+d.EpsilonR = EpsilonR;
+m = metal(&quot;Copper&quot;);
+</code></pre><p>With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.</p>
+<pre tabindex="0"><code>filter = filterHairpin();
+filter.FilterOrder = N;
+filter.Substrate = d;
+filter.Conductor = m;
+filter.Height = Height;
+filter = design(filter,2440e6,'FBW',BandWidth,'RippleFactor',Ripple);
+
+</code></pre><p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Design_Matlab.png" >
+		<img src="/img/MatlabFilter_Design_Matlab.png"
+			
+			
+			
+			loading="lazy"
+			alt="Matlab Filter design plot">
+	</a>
+	
+	<figcaption>Matlab Filter design plot</figcaption>
+	
+</figure></p>
+<p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
+<pre tabindex="0"><code>spar = sparameters(filter,f);
+figure()
+rfplot(spar);
+</code></pre><p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Frequency_response_2440_3.png" >
+		<img src="/img/MatlabFilter_Frequency_response_2440_3.png"
+			
+			
+			
+			loading="lazy"
+			alt="Simulated Frequency Response">
+	</a>
+	
+	<figcaption>Simulated Frequency Response</figcaption>
+	
+</figure></p>
+<p>The next plot is the Current Distribution, i&rsquo;m not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Current.png" >
+		<img src="/img/MatlabFilter_Current.png"
+			
+			
+			
+			loading="lazy"
+			alt="Current Plots">
+	</a>
+	
+	<figcaption>Current Plots</figcaption>
+	
+</figure></p>
+<p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn&rsquo;t find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
+<p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
+<pre tabindex="0"><code>p = pcbComponent(filter);
+W = PCBServices.PCBWayWriter;
+W.Filename = 'Filter_2440MHz_3';
+C1 = PCBConnectors.SMAEdge_Samtec;
+C2 = PCBConnectors.SMAEdge_Samtec;
+
+
+C1.EdgeLocation = 'west';
+C1.ExtendBoardProfile = false;
+C2.EdgeLocation = 'east';
+C2.ExtendBoardProfile = false;
+
+[A,g] = gerberWrite(p,W,{C1,C2})
+</code></pre><p>It actually took me a long time to work out how to add the connectors, and i&rsquo;m not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed to create them, the N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area&rsquo;s of the PCB missing with the connectors floating away from the PCB. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to the designed filter to stop MATLAB from placing the SMA&rsquo;s ground connection within the filter. The issues liked this all seemed to be a bit buggy early release problems, but given this is the first release they will hopefully improve with time.</p>
+<p>With the output files generated I then opened loaded the Gerber files into KiCad&rsquo;s Gerber Viewer and imported the layer into PCB New, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don&rsquo;t think should have been added.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_PCBs.jpg" >
+		<img src="/img/MatlabFilter_PCBs.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Red PCB&rsquo;s from JLCPCB">
+	</a>
+	
+	<figcaption>Red PCB’s from JLCPCB</figcaption>
+	
+</figure></p>
+<p>With all that sorted, I added my designs to my filters GitHub repo and ordered the PCB using the Gerber files that were generated by KiCAD. Once the PCB&rsquo;s had arrived from JLCPCB about a month after I had ordered, it was time to add some SMA connectors and give them a test.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilterSoldering.jpg" >
+		<img src="/img/MatlabFilterSoldering.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Soldering the SMA Connectors">
+	</a>
+	
+	<figcaption>Soldering the SMA Connectors</figcaption>
+	
+</figure></p>
+<p>I&rsquo;m using a NanoVNA to test them out, while not as great as a proper Network Analyser, but give the Nano VNA cost £60 it a great way of being able to get a good idea of there performance of these little filters at home.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Testing.jpg" >
+		<img src="/img/MatlabFilter_Testing.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Testing with Nano VNA">
+	</a>
+	
+	<figcaption>Testing with Nano VNA</figcaption>
+	
+</figure></p>
+<p>The NanoVNA can be used with PC based software, such as i&rsquo;m using bellow, which is much easier to interact with rather than the tiny screen, though this interface I can also calibrate the results, and use the s-parameter menu, to take measurements of each of the filters, which can be stored to S-parameter files that can be imported into MATLAB for analysis.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_nanoVNA_plot_2440_3.png" >
+		<img src="/img/MatlabFilter_nanoVNA_plot_2440_3.png"
+			
+			
+			
+			loading="lazy"
+			alt="VNA View showing the measurements from 3rd order filter">
+	</a>
+	
+	<figcaption>VNA View showing the measurements from 3rd order filter</figcaption>
+	
+</figure></p>
+<p>The main test here is if the filters that I have make actually match the simulation, so the bext way to asssess them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Frequency_response_measured_2440_3.png" >
+		<img src="/img/MatlabFilter_Frequency_response_measured_2440_3.png"
+			
+			
+			
+			loading="lazy"
+			alt="Measured Filter response">
+	</a>
+	
+	<figcaption>Measured Filter response</figcaption>
+	
+</figure></p>
+<p>The 3rd order filter is almost close to what is expected, but with the pass band pushed to a lower frequency, and a wider pass band, the attenuation of the filter at frequencies above the designed pass band is actually similar to what is expected. With it producing a similar ammount of attenuation, with a similar roll of to the simulation.</p>
+<p>We can also look at the results for the 5th Order Filter, which also shows a lot of similar characteristics, with the roll of at both high and low frequencies appearing to match the simulation, with the exception of the pass band being shifted to lower frequencies.</p>
+<p><figure 
+	>
+	<a href="/img/MatlabFilter_Frequency_response_measured_2440_5.png" >
+		<img src="/img/MatlabFilter_Frequency_response_measured_2440_5.png"
+			
+			
+			
+			loading="lazy"
+			alt="5th Order filter results compared with simulated">
+	</a>
+	
+	<figcaption>5th Order filter results compared with simulated</figcaption>
+	
+</figure></p>
+<p>The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB&rsquo;s are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB&rsquo;s themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as <a class="link" href="https://jlcpcb.com/capabilities/Capabilities"  target="_blank" rel="noopener"
+    >4.5 for a double sided PCB</a>, which is typically a useful number to use but unfortunately this <a class="link" href="https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs"  target="_blank" rel="noopener"
+    >value actually varies with frequency</a> which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.</p>
+<p>The next stage is experiment with simulating the filters that were originally created, and to see if by changing the dielectric constant I can match up the simulation with the measured results. this would mean that I could have a go at re-creating the filters with a corrected value for dielectric constant at 2.45GHz, when having a second attempt at building some filters.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/matlab/">Matlab</a>
+        
+            <a href="/tags/filters/">Filters</a>
+        
+            <a href="/tags/pcb/">PCB</a>
+        
+            <a href="/tags/sdr/">SDR</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/posts/filtertesting/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/Filter_Test_Lots_of_PCBs.png" loading="lazy" data-key="" data-hash="/img/Filter_Test_Lots_of_PCBs.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Filter Testing</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

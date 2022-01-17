@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pi on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/pi/</link>
+    <description>Recent content in pi on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 10 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Octave on my Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</guid>
+      <description>The main aim of building my Raspberry Pi Cluster was so that I could run octave code on it, now I&amp;rsquo;m not expecting to break any records, but ideally I want some performance. The best way I found to do this was with the parallel&amp;rsquo;s package.
+With octave and the parallels package installed on each of the Raspberry Pi 2&amp;rsquo;s in the cluster, I setup SSH so that no passwords are required between the nodes.</description>
+    </item>
+    
+    <item>
+      <title>Building a Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</guid>
+      <description>I&amp;rsquo;ve had a long standing interest in Parallel Processing, and then a few months ago I came across Octave and its parallel package. Octave is very similar to MATLAB that I use every day, and for the most part basic MATLAB code works out of the box in Octave.
+I used this as the perfect excuse to build myself a mini-cluster computer&amp;hellip;
+The mini cluster needed to be cheep, so I based it on the raspberry pi.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Testing of Home made filters with NanoVNA'><title>Filter Testing</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/filtertesting/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Filter Testing'>
+<meta property='og:description' content='Testing of Home made filters with NanoVNA'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/filtertesting/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='SDR' /><meta property='article:tag' content='Filters' /><meta property='article:tag' content='VNA' /><meta property='article:tag' content='MATLAB' /><meta property='article:published_time' content='2021-04-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-04-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/Filter_Test_Lots_of_PCBs.png' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Filter Testing">
+<meta name="twitter:description" content="Testing of Home made filters with NanoVNA"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/Filter_Test_Lots_of_PCBs.png' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/filtertesting/">
+                
+                    <img src="/img/Filter_Test_Lots_of_PCBs.png" loading="lazy" alt="Featured image of post Filter Testing" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/filtertesting/">Filter Testing</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Testing of Home made filters with NanoVNA
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 30, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>This post is going to take a look at some Filters that I have &ldquo;made at home&rdquo;, for when I am experimenting with my Software Defined Radio&rsquo;s. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.</p>
+<p>For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a <a class="link" href="https://www.youtube.com/watch?v=TnRn3Kn_aXg"  target="_blank" rel="noopener"
+    >video</a> on RF design on <a class="link" href="https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/"  target="_blank" rel="noopener"
+    >hackaday</a> I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.</p>
+<p>I quick search on mouser gave me a suitable <a class="link" href="https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv"  target="_blank" rel="noopener"
+    >Filter Part</a>, The <a class="link" href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf"  target="_blank" rel="noopener"
+    >datasheet</a> confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_PCB_Schematic.png" >
+		<img src="/img/Filter_Test_PCB_Schematic.png"
+			
+			
+			
+			loading="lazy"
+			alt="PCB Scematic">
+	</a>
+	
+	<figcaption>PCB Scematic</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_PCB_Layout.png" >
+		<img src="/img/Filter_Test_PCB_Layout.png"
+			
+			
+			
+			loading="lazy"
+			alt="PCB Layout">
+	</a>
+	
+	<figcaption>PCB Layout</figcaption>
+	
+</figure></p>
+<p>Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB&rsquo;s arriving.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_Lots_of_PCBs.png" >
+		<img src="/img/Filter_Test_Lots_of_PCBs.png"
+			
+			
+			
+			loading="lazy"
+			alt="PCB&rsquo;s Arrived">
+	</a>
+	
+	<figcaption>PCB’s Arrived</figcaption>
+	
+</figure></p>
+<p>As it the way when ordering these types of PCB&rsquo;s from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.</p>
+<p>For soldering the board I made us of a Hot Plate that I had recently <a class="link" href="https://www.aliexpress.com/item/4000887663480.html"  target="_blank" rel="noopener"
+    >purchased</a> for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB&rsquo;s before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB&rsquo;s much easier and hopeful with more consistent results.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_Soldering.png" >
+		<img src="/img/Filter_Test_Soldering.png"
+			
+			
+			
+			loading="lazy"
+			alt="Filter soldering">
+	</a>
+	
+	<figcaption>Filter soldering</figcaption>
+	
+</figure></p>
+<p>The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA&rsquo;s performance is never going to beat the performance of the VNA&rsquo;s you will find in commercial labs, it&rsquo;s a great tool for testing out little filters like this that i&rsquo;m making a home, you can find it on <a class="link" href="https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/"  target="_blank" rel="noopener"
+    >tindie</a>, although a newer model has since been released with an improved frequency range.</p>
+<p>For testing my filters, I hooked up the NanoVNA to my PC and used it with the software <a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >NanoVNA QT GUI</a> which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_NanoVNA.png" >
+		<img src="/img/Filter_Test_NanoVNA.png"
+			
+			
+			
+			loading="lazy"
+			alt="NanoVNA Testing">
+	</a>
+	
+	<figcaption>NanoVNA Testing</figcaption>
+	
+</figure></p>
+<p>The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_NanoVNA_ScreenShot.png" >
+		<img src="/img/Filter_Test_NanoVNA_ScreenShot.png"
+			
+			
+			
+			loading="lazy"
+			alt="Nano VNA PC Software">
+	</a>
+	
+	<figcaption>Nano VNA PC Software</figcaption>
+	
+</figure></p>
+<p>One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.</p>
+<p>For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my <a class="link" href="https://uk.leonardocompany.com/en/people-careers"  target="_blank" rel="noopener"
+    >employer</a> provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up <a class="link" href="https://uk.mathworks.com/products/matlab-online.html"  target="_blank" rel="noopener"
+    >MATLAB Online</a>. MATLAB online allows me to upload my files to &ldquo;The cloud&rdquo;, and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it <a class="link" href="https://www.apple.com/uk/mac/m1/"  target="_blank" rel="noopener"
+    >M1 Processor</a>.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_Matlab_online.png" >
+		<img src="/img/Filter_Test_Matlab_online.png"
+			
+			
+			
+			loading="lazy"
+			alt="Using Matlab online to process the results">
+	</a>
+	
+	<figcaption>Using Matlab online to process the results</figcaption>
+	
+</figure></p>
+<p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
+<p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
+<pre tabindex="0"><code>measured_data = sparameters(&quot;Data/433_filter1.s2p&quot;);
+gains = 10*log10(measured_data.powergain);
+
+figure;
+plot(measured_data.Frequencies./1e6,gains)
+ylabel('Filter Gain (dB)')
+xlabel('Frequencey (MHz)')
+ylim([-70,0])
+grid on
+</code></pre><p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
+<p><figure 
+	>
+	<a href="/img/Filter_Test_Single_433MHz.png" >
+		<img src="/img/Filter_Test_Single_433MHz.png"
+			
+			
+			
+			loading="lazy"
+			alt="Filter gain plotted in MATLAB">
+	</a>
+	
+	<figcaption>Filter gain plotted in MATLAB</figcaption>
+	
+</figure></p>
+<p>For the plot above I&rsquo;ve added the red lines which show the performance as quoted in the filter <a class="link" href="https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf"  target="_blank" rel="noopener"
+    >datasheet</a>, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB&rsquo;s has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i&rsquo;ve measured them all with the NanoVNA.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/sdr/">SDR</a>
+        
+            <a href="/tags/filters/">Filters</a>
+        
+            <a href="/tags/vna/">VNA</a>
+        
+            <a href="/tags/matlab/">Matlab</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/posts/matlabpcbfilters/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/MatlabFilter_Assembled.jpg" loading="lazy" data-key="" data-hash="/img/MatlabFilter_Assembled.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Designing PCB Filters using MATLAB</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pi2 on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/pi2/</link>
+    <description>Recent content in Pi2 on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pi2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bring a Raspberry Pi Cluster Back to Life</title>
+      <link>https://jjhorton.co.uk/posts/piclusterreborn/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/piclusterreborn/</guid>
+      <description>The raspberry pi cluster was built several years ago for some projects I was doing at the time, and experimenting with parallel computing. While the little raspberry pi&amp;rsquo;s were never going to keep up with a proper PC, they were great for experimenting with the principles of parallel computing, being it making use of the multiple CPU cores on each device or trying to spread the calculation over multiple raspberry pi&amp;rsquo;s.</description>
+    </item>
+    
+  </channel>
+</rss>

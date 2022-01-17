@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matlab on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/matlab/</link>
+    <description>Recent content in Matlab on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Designing PCB Filters using MATLAB</title>
+      <link>https://jjhorton.co.uk/posts/matlabpcbfilters/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/matlabpcbfilters/</guid>
+      <description>Mathworks released the RF PCB Toolbox with the latest release of MATLAB, R2021B, this toolbox allows the creation and visualisation of &amp;ldquo;Transmission lines, Couplers, Splitters, Filters, and More&amp;rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go.</description>
+    </item>
+    
+    <item>
+      <title>Filter Testing</title>
+      <link>https://jjhorton.co.uk/posts/filtertesting/</link>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/filtertesting/</guid>
+      <description>This post is going to take a look at some Filters that I have &amp;ldquo;made at home&amp;rdquo;, for when I am experimenting with my Software Defined Radio&amp;rsquo;s. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.
+For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself.</description>
+    </item>
+    
+    <item>
+      <title>Octave on my Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/octave-on-my-raspberry-pi-cluster/</guid>
+      <description>The main aim of building my Raspberry Pi Cluster was so that I could run octave code on it, now I&amp;rsquo;m not expecting to break any records, but ideally I want some performance. The best way I found to do this was with the parallel&amp;rsquo;s package.
+With octave and the parallels package installed on each of the Raspberry Pi 2&amp;rsquo;s in the cluster, I setup SSH so that no passwords are required between the nodes.</description>
+    </item>
+    
+    <item>
+      <title>Over clocking my Raspberry Pi cluster</title>
+      <link>https://jjhorton.co.uk/posts/over-clocking-my-raspberry-pi-cluster/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/over-clocking-my-raspberry-pi-cluster/</guid>
+      <description>With my newly created raspberry pi cluster being made out of the Raspberry Pi 2, I don&amp;rsquo;t want it to lag to far behind the freshly announced Raspberry Pi 3. To try and keep up with the new hardware without replacing all of my Pi&amp;rsquo;s I devices it was worth a go at overclocking them.
+Overlooking my Pi&amp;rsquo;s should allow them to work a bit quicker, but it will reduce power efficient and increase the tempurature that the cluster runs at.</description>
+    </item>
+    
+    <item>
+      <title>Building a Raspberry Pi Cluster</title>
+      <link>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/building-a-raspberry-pi-cluster/</guid>
+      <description>I&amp;rsquo;ve had a long standing interest in Parallel Processing, and then a few months ago I came across Octave and its parallel package. Octave is very similar to MATLAB that I use every day, and for the most part basic MATLAB code works out of the box in Octave.
+I used this as the perfect excuse to build myself a mini-cluster computer&amp;hellip;
+The mini cluster needed to be cheep, so I based it on the raspberry pi.</description>
+    </item>
+    
+    <item>
+      <title>Serial Communication and MATLAB</title>
+      <link>https://jjhorton.co.uk/posts/serial-control-and-matlab/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/serial-control-and-matlab/</guid>
+      <description>For producing the Quad Rotor&amp;rsquo;s GUI I needed to be able to implement the serial communication in MATLAB. This it seemed would be a simple task as on windows machines it is a simple task of opening the comms port, send the data, and closing the port. All seemed so simple, but as it turns out this was not the case on the Mac which I was using from my project with MATLAB R2008a</description>
+    </item>
+    
+  </channel>
+</rss>

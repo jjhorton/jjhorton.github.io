@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/testing/</link>
+    <description>Recent content in Testing on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nvidia Jetson Nano 2Gb Testing</title>
+      <link>https://jjhorton.co.uk/posts/jetsontesting/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/jetsontesting/</guid>
+      <description>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.
+This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</description>
+    </item>
+    
+  </channel>
+</rss>

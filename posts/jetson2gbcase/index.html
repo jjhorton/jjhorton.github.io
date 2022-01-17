@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Building a mini rack mount case for my Nvidia Jetson 2GB'><title>Nvidia Jetson case</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/jetson2gbcase/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Nvidia Jetson case'>
+<meta property='og:description' content='Building a mini rack mount case for my Nvidia Jetson 2GB'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/jetson2gbcase/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Jetson' /><meta property='article:tag' content='3DPrinting' /><meta property='article:published_time' content='2021-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-01-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/Jetson_case_complete.png' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Nvidia Jetson case">
+<meta name="twitter:description" content="Building a mini rack mount case for my Nvidia Jetson 2GB"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/Jetson_case_complete.png' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/jetson2gbcase/">
+                
+                    <img src="/img/Jetson_case_complete.png" loading="lazy" alt="Featured image of post Nvidia Jetson case" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/jetson2gbcase/">Nvidia Jetson case</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Building a mini rack mount case for my Nvidia Jetson 2GB
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 31, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>Before Christmas I picked up a 2GB Jetson Nano to have a play with, I think these devices are interesting with the combination of an ARM processor and GPU. There have been devices like this before, and we even have a spare one at work in our Makerspace but I never found time to have an experiment with one. Now with extra time on my hands over winter with the joy of home working, and the recently released 2GB version for about <a class="link" href="https://www.okdo.com/p/nvidia-jetson-nano-2gb-development-kit-with-wifi-bundle/"  target="_blank" rel="noopener"
+    >£55</a> meant it was time to have an experiment.</p>
+<p><figure 
+	>
+	<a href="/img/Jetson_case_box.png" >
+		<img src="/img/Jetson_case_box.png"
+			
+			
+			
+			loading="lazy"
+			alt="Jetson Nano">
+	</a>
+	
+	<figcaption>Jetson Nano</figcaption>
+	
+</figure></p>
+<p>Once I had got to grip with the Jetson Nano, and <a class="link" href="https://courses.nvidia.com/certificates/a09ef4efea32411e9647c5f9e4f5a2c9"  target="_blank" rel="noopener"
+    >completed</a> NVidia&rsquo;s <a class="link" href="https://courses.nvidia.com/courses/course-v1:DLI&#43;S-RX-02&#43;V2/about"  target="_blank" rel="noopener"
+    >Getting Started With AI on Jetson Nano</a>, I started thinking about 3D printing a case, so that it wasn&rsquo;t another devboard lost down the back of my desk in an anti-static bag. At first I found a lot of design&rsquo;s on thingiverse, but many of these are targeted at the 4Gb version, which has more ports and uses a Dc jack to power it. I did <a class="link" href="https://www.thingiverse.com/thing:4649425"  target="_blank" rel="noopener"
+    >find an  one on thingiverse</a> which I printed at first, although I wasn&rsquo;t completely happy with this as a long term solution.</p>
+<p><figure 
+	>
+	<a href="/img/Jetson_case_online.png" >
+		<img src="/img/Jetson_case_online.png"
+			
+			
+			
+			loading="lazy"
+			alt="3D Printed Case">
+	</a>
+	
+	<figcaption>3D Printed Case</figcaption>
+	
+</figure></p>
+<p>I decided to take a look at making 3D printing a case that would fit in with the <a class="link" href="https://github.com/KronBjorn/SixInchRack"  target="_blank" rel="noopener"
+    >Six Inch Rack Mount</a> system. As I already have an number of raspberry Pi&rsquo;s in this mini rack mount based system. My plan was that by modifying an existing OpenSCAD model so that I could fit The Jetson Nano in, and that put the correct ports so I would have suitable holes in the back panel. The Jetson Nano, while being bigger than the Raspberry PI 2&rsquo;s that are housed within the same front print, the Jetson Nano fits easily within the same space, except in terms of height due to the large heat sink. To allow the Jetson to fit in the rack mount cabinets I had to use 3U of height (each U is 1.44cm), instead of the 2U in the raspberry Pi cases.</p>
+<p><figure 
+	>
+	<a href="/img/Jetson_case_openscad.png" >
+		<img src="/img/Jetson_case_openscad.png"
+			
+			
+			
+			loading="lazy"
+			alt="OpenScad Case">
+	</a>
+	
+	<figcaption>OpenScad Case</figcaption>
+	
+</figure></p>
+<p>Using the <a class="link" href="https://github.com/KronBjorn/SixInchRack/blob/master/RackCabinets/sixinch_library.scad"  target="_blank" rel="noopener"
+    >Six Inch Library</a> makes building up the components, using measurements taken from the Jetson Nano, very simple. Passing values for the size of the hole into a function that then builds the part which can then be exported as an STL, and then on to be 3D printed.</p>
+<p>The square holes for each of ports of the ports on the Jetson Nano is described as a point on the back of the case by the first two coordinates, then followed by the X and Y coordinates representing the size of the square hole to be cut out of the back of the case. The other key values as the height of the side screws, which mounts the back panel to the main cabinet, then the number of units or height which in this case is 3 for 3U.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-OpenSCAD" data-lang="OpenSCAD"><span class="k">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="err">.</span><span class="n">scad</span><span class="o">&gt;</span>
+
+<span class="n">square_hole</span>  <span class="o">=</span> <span class="p">[[</span><span class="m">92.5</span> <span class="p">,</span><span class="m">3</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="m">74</span> <span class="p">,</span><span class="m">3</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">15</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="m">57</span> <span class="p">,</span><span class="m">4</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">16</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="m">40</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">15</span><span class="p">,</span><span class="m">8</span><span class="p">],</span> <span class="p">[</span><span class="m">21</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">16</span><span class="p">,</span><span class="m">8</span><span class="p">],</span> <span class="p">[</span><span class="m">5</span> <span class="p">,</span><span class="m">3</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">5</span><span class="p">]</span> <span class="p">];</span>
+<span class="n">round_hole</span>   <span class="o">=</span> <span class="p">[];</span>
+<span class="n">screw_top</span>    <span class="o">=</span> <span class="p">[];</span><span class="c1">//mm
+</span><span class="c1"></span><span class="n">screw_bottom</span> <span class="o">=</span> <span class="p">[];</span><span class="c1">//mm
+</span><span class="c1"></span><span class="n">screw_side</span>   <span class="o">=</span> <span class="p">[</span><span class="m">1.5</span><span class="p">];</span>
+<span class="n">depth</span>        <span class="o">=</span> <span class="m">98</span><span class="p">;</span>
+<span class="n">units</span>        <span class="o">=</span> <span class="m">3</span><span class="p">;</span>
+<span class="n">back_plate</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">screw_top</span><span class="p">,</span><span class="n">screw_bottom</span><span class="p">,</span><span class="n">screw_side</span><span class="p">,</span><span class="n">square_hole</span><span class="p">,</span><span class="n">round_hole</span><span class="p">);</span>
+</code></pre></div><p>Another key component is the placement of the screw holes in the main cabinet, for mounting the Jetson Board using the mounting screws, the positions are measured from the board and then mapped onto the round peg parts. I used the same M2.5 screws I use when mounting my raspberry Pi&rsquo;s in there Rack Mount, so the peg dimensions were taken from that design in the Six Inch Library.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-OpenSCAD" data-lang="OpenSCAD"><span class="k">include</span><span class="o">&lt;</span><span class="n">sixinch_library</span><span class="err">.</span><span class="n">scad</span><span class="o">&gt;</span>
+
+<span class="n">w</span><span class="o">=</span><span class="m">95</span><span class="p">;</span>
+<span class="n">h</span><span class="o">=</span><span class="m">98</span><span class="o">-</span><span class="m">17</span><span class="o">-</span><span class="m">2</span><span class="p">;</span>
+<span class="n">screw_bottom_front</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="n">screw_side_front</span>   <span class="o">=</span> <span class="p">[</span><span class="m">1.5</span><span class="p">];</span>
+<span class="n">round_peg</span>          <span class="o">=</span> <span class="p">[[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">2.4</span><span class="p">,</span><span class="m">4</span><span class="p">],</span>
+										 <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="m">86</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">2.4</span><span class="p">,</span><span class="m">4</span><span class="p">],</span>
+										 <span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="m">86</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="m">58</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">2.4</span><span class="p">,</span><span class="m">4</span><span class="p">],</span>
+										 <span class="p">[</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="o">-</span><span class="m">58</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">2.4</span><span class="p">,</span><span class="m">4</span><span class="p">]];</span>
+<span class="n">depth</span>              <span class="o">=</span> <span class="m">98</span><span class="p">;</span>
+<span class="n">units</span>              <span class="o">=</span> <span class="m">3</span><span class="p">;</span>
+<span class="n">cabinet</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">screw_bottom_front</span><span class="p">,</span><span class="n">round_peg</span><span class="p">,</span><span class="n">screw_side_front</span><span class="p">);</span>
+</code></pre></div><p>&ldquo;<figure 
+	>
+	<a href="/img/Jetson_case_openscad2.png" >
+		<img src="/img/Jetson_case_openscad2.png"
+			
+			
+			
+			loading="lazy"
+			alt="Hole possitioning for mounting">
+	</a>
+	
+	<figcaption>Hole possitioning for mounting</figcaption>
+	
+</figure></p>
+<p>Getting these measurements alright took a couple of attempts, getting the tolerances correct so that the heights all lined up with the ports, as leaving enough room to actually plug all the cables in were all issues I had, but thankfully almost all were on the back panel, which is quick to produce on the 3D printer.</p>
+<p>The large Heat sink also give a possible indication of heat being an issue, this is already a bit of an issue in the Raspberry Pi Cases, but with the large heatsink, I decided to make use of a mesh front to the case. The mesh front was also available on thingevers, and allows a bit more airflow to the heatsink.</p>
+<p><figure 
+	>
+	<a href="/img/Jetson_case_inside.png" >
+		<img src="/img/Jetson_case_inside.png"
+			
+			
+			
+			loading="lazy"
+			alt="Part assembled Case">
+	</a>
+	
+	<figcaption>Part assembled Case</figcaption>
+	
+</figure></p>
+<p>The mesh based panel is taken directly from the another <a class="link" href="https://github.com/pgrondek/SixInchRack/tree/master/RackCabinets/Mesh"  target="_blank" rel="noopener"
+    >github repositry</a> which contains a number of mesh grids. I have made use of the 3U mesh grid, but I needed to modify the positions of the screws, to line up with where the screws are placed on the main cabinet.</p>
+<p><figure 
+	>
+	<a href="/img/Jetson_case_complete.png" >
+		<img src="/img/Jetson_case_complete.png"
+			
+			
+			
+			loading="lazy"
+			alt="Full Assembled Case">
+	</a>
+	
+	<figcaption>Full Assembled Case</figcaption>
+	
+</figure></p>
+<p>With the case all completed, all that is left to do is add some handles when i get some black filament, taking them from the library and start getting a rack together like my Raspberry Pi Cluster. Once its all together I plan to have a look at getting started with <a class="link" href="https://cupy.dev/"  target="_blank" rel="noopener"
+    >CUPY</a> and <a class="link" href="https://github.com/rapidsai/cusignal"  target="_blank" rel="noopener"
+    >cuSignal</a>, and see what is possible with these Jetson Nano Boards.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/jetson/">Jetson</a>
+        
+            <a href="/tags/3dprinting/">3DPrinting</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

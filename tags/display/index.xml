@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Display on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/display/</link>
+    <description>Recent content in Display on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/display/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Christmas Countdown</title>
+      <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
+      <description>Christmas Countdown on the Whiteboard 
+Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
+    </item>
+    
+    <item>
+      <title>Seven Segment Display PMod Board</title>
+      <link>https://jjhorton.co.uk/posts/sevensegmentdisp/</link>
+      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
+      <description>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in the movies.
+The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all.</description>
+    </item>
+    
+  </channel>
+</rss>

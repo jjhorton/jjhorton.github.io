@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VNA on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/vna/</link>
+    <description>Recent content in VNA on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 30 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/vna/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Filter Testing</title>
+      <link>https://jjhorton.co.uk/posts/filtertesting/</link>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/filtertesting/</guid>
+      <description>This post is going to take a look at some Filters that I have &amp;ldquo;made at home&amp;rdquo;, for when I am experimenting with my Software Defined Radio&amp;rsquo;s. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.
+For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself.</description>
+    </item>
+    
+  </channel>
+</rss>

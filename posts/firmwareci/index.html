@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using Github actions to simulate, test and build an FPGA design using Open Source tools'><title>Continuous Integration for Firmware with Github Actions</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/firmwareci/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Continuous Integration for Firmware with Github Actions'>
+<meta property='og:description' content='Using Github actions to simulate, test and build an FPGA design using Open Source tools'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/firmwareci/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Github' /><meta property='article:tag' content='CI' /><meta property='article:tag' content='Continuous Integration' /><meta property='article:tag' content='FPGA' /><meta property='article:published_time' content='2021-03-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-03-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Continuous Integration for Firmware with Github Actions">
+<meta name="twitter:description" content="Using Github actions to simulate, test and build an FPGA design using Open Source tools"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/firmwareci/">Continuous Integration for Firmware with Github Actions</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Using Github actions to simulate, test and build an FPGA design using Open Source tools
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 17, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>For a couple of months I&rsquo;ve been slowly building up a little project using some Development boards that include an FPGA, typically once i&rsquo;ve finished editing my design I run all my simulations, tests and then check I can still build the firmware. While running these manually before each commit isn&rsquo;t typically much an issue, I wanted to automate this.</p>
+<p>The project i&rsquo;m working on uses a <a class="link" href="https://www.aliexpress.com/item/1005001686186007.html"  target="_blank" rel="noopener"
+    >ColorLite i5 FPGA board</a>, this with it Lattice ECP5 FPGA allows me to use a set of Open source tools to test and build my FPGA images. For simulations I&rsquo;m using <a class="link" href="https://www.veripool.org/wiki/verilator"  target="_blank" rel="noopener"
+    >Verilator</a>, while for creating the FPGA images I&rsquo;m using a combination of <a class="link" href="https://github.com/YosysHQ/yosys"  target="_blank" rel="noopener"
+    >Yosys</a> and <a class="link" href="https://github.com/YosysHQ/nextpnr"  target="_blank" rel="noopener"
+    >Next-PNR</a>. These excellent tools allow me to make use of the GitHub actions to test my FPGA images with very minimal effort.</p>
+<p>While my simulations require a couple of commands so these are contained to a makefile, the commands to build the FPGA image are very simple.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yosys -p <span class="s1">&#39;synth_ecp5 -json top.json&#39;</span> -S firmware/top.v
+nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config
+
+</code></pre></div><p>To build the FPGA image is a simple task of running my &lsquo;top.v&rsquo; verilog file though yosys, before doing place and route with nextpnr, which again is a single line. These simple lines allow me to test if I can build my design, as long as they don&rsquo;t return any error, then the build is successful.</p>
+<p>The GitHub actions are based on YAML files, which contain details of the container that the image is being run on, and the commands that are run for that image. These files are stored in the folder <code>.github/workflow</code> in the GitHub repository, I have two, one which runs the Simulation and one which build the FPGA Image.</p>
+<p>We will talk though the build firmware Github Action, which I have called <code>Build Firmware</code>. I have decided that this should be run whenever I push the repositry, for Pull requests and on demand. So we define the name of the action, and add the description of when it should be run, the <code>workflow_dispatch</code> allows me to manually trigger it being run.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></code></pre></div><p>With the name, and when the action should be run defined, we move onto defining the action. For my build we need to define the <code>job</code> and the <code>build</code>. For this I am running on Ubuntu Latest as my image.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></code></pre></div><p>Now that we have the image we are running on we need to add the dependancies that are required for building out FPGA image. First step is to checkout our repository we are running from with the
+<code>uses: actions/checkout@v2</code>, which will get our repo using the default settings without any issues. With both Yosys and Next-Pnr needed to build the image, the next step is a little different to what I originally had planned. I thought that I would need to build these tools from source like I would on my own computer, but that is very time consuming, and I came across some pip packages, which installs them much quicker. This reduces build time, which on private repo&rsquo;s on GitHub are billed after you are passed your allowance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML">- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
+</span><span class="w"></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w">
+</span><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-yosys</span><span class="w">
+</span><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">
+</span></code></pre></div><p>One problem I did come across when installing these packages, was that if I ran these <code>pip3 install</code> commands without sudo, then the commands that I need then aren&rsquo;t available. Running with <code>sudo</code> solves this issue although i&rsquo;m not sure why.</p>
+<p>Now we have all the tools in place we can now run both yosys and nextpnr, using the commands specific to the <code>yowasp-yosys</code> and <code>yowasp-nextpnr</code> packages, which are a little different to the standard commands I would use on my own Laptop.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
+</span><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
+</span><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
+</span></code></pre></div><p>We can then pull all those components into a single <code>FirmwareBuild.yaml</code> file in the <code>.github/workflow</code> folder, which is then run on each push to the repo. The current design is very simple, but runs in a little over 30 seconds for the build, this makes running on each push manageable, but as the firmware design continues to grow, I may look to only run on Pull request.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">          sudo -H pip3 install yowasp-yosys
+</span><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">          
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
+</span><span class="w">
+</span></code></pre></div><p>The GitHub action for running the simulation is very similar, but instead of <code>pip3 install</code> for the build tools, I require <code>Verilator</code> which is available to install using apt. As the code to run my Verilator tests is identical between how i run it on my computer and in the GitHub action, I just us my make command to run the tests.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Simulate Firmware</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Verilator required for the simulation</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo apt install verilator</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run the Serial Test</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">          export VINC=/usr/share/verilator/include
+</span><span class="sd">          make test-serial</span><span class="w">          
+</span></code></pre></div><p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I&rsquo;m  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/github/">Github</a>
+        
+            <a href="/tags/ci/">CI</a>
+        
+            <a href="/tags/continuous-integration/">Continuous Integration</a>
+        
+            <a href="/tags/fpga/">FPGA</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

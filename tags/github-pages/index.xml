@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github pages on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/github-pages/</link>
+    <description>Recent content in github pages on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Mon, 08 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Website</title>
+      <link>https://jjhorton.co.uk/posts/new_website/</link>
+      <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/new_website/</guid>
+      <description>Final starting to get my website up and running again, now hosted on github pages and using pelican</description>
+    </item>
+    
+  </channel>
+</rss>
