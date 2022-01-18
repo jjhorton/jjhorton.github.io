@@ -193,6 +193,28 @@ The mini cluster needed to be cheep, so I based it on the raspberry pi.</descrip
     </item>
     
     <item>
+      <title>Popping into Wales for a paddle</title>
+      <link>https://jjhorton.co.uk/posts/popping-into-wales-for-a-paddle/</link>
+      <pubDate>Fri, 10 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/popping-into-wales-for-a-paddle/</guid>
+      <description>With most of the country suffering with storms and rain over the Christmas period one of the few groups of people who were looking out the window all excited were the kayakers…
+I think the ford maybe a bit to deep today, time to find another way around #flood pic.twitter.com/FylGGkijTS
+&amp;mdash; James Horton (@JamesjHorton) January 2, 2014  Unfortunately unable to get out paddling until after the new year we hit the road on the Friday after new year to meet up in Swansea ready for a bit of paddling.</description>
+    </item>
+    
+    <item>
+      <title>A weekend on the Wye</title>
+      <link>https://jjhorton.co.uk/posts/a-weekend-on-the-wye/</link>
+      <pubDate>Tue, 09 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/a-weekend-on-the-wye/</guid>
+      <description>After reaching the end of yet another year at uni (and almost the end of my time there), I tagged along with Blackwater Valley Canoe Club (BVCC) for a trip along the River Wye.
+ 
+As I no longer have much to do with my time (expect move out my old house), I decided to take an extra day off, and head across to the Black Mountains for a bonus day of cycling in the unusually sunny Wales.</description>
+    </item>
+    
+    <item>
       <title>36 Hours in North Wales</title>
       <link>https://jjhorton.co.uk/posts/36-hours-in-north-wales/</link>
       <pubDate>Tue, 16 Apr 2013 00:00:00 +0000</pubDate>
@@ -227,12 +249,30 @@ The journey up to Fort William had been a battle, with the country being hit by 
     </item>
     
     <item>
+      <title>Lake District</title>
+      <link>https://jjhorton.co.uk/posts/lake-district/</link>
+      <pubDate>Tue, 26 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/lake-district/</guid>
+      <description>Last weekend I joined Blackwater Valley Canoe Club for a trip unto the Lake District, for most of the people going they were heading up on Thursday making the most of the February half term. Unfortunately we don’t get half terms at university, so I had to wait until my final lecture had finished at 5pm on Friday to hit the road and head north, which as it turns out is a very long way!</description>
+    </item>
+    
+    <item>
       <title>A cold weekend in Dartmoor</title>
       <link>https://jjhorton.co.uk/posts/a-cold-weekend-in-dartmoor/</link>
       <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/a-cold-weekend-in-dartmoor/</guid>
       <description>Last weekend was spent in one of the places that I have kayaked the most, dartmoor. Although trips here normally revole around the river dart, normally on the loop and upper this time we found ourselves looking further afield. Paddling with 4 friends from uni on the same weekend that the River Source event the aim was to try and avoid the country park as best we could.</description>
+    </item>
+    
+    <item>
+      <title>A weekend on the Barle</title>
+      <link>https://jjhorton.co.uk/posts/a-weekend-on-the-barle/</link>
+      <pubDate>Fri, 02 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/a-weekend-on-the-barle/</guid>
+      <description>For the 4th year in a row a trip down the River Barle marks the start of my winter white water session here in the Uk. The river Barle being my second white water kayaking trip seems like a long time ago, paddling for survival in one of the University of Surrey Canoe Club boats on my second trip since starting university. Now 4 years on I find myself drifting down the river in my play boat drifting along enjoying the sights.</description>
     </item>
     
     <item>
@@ -243,6 +283,15 @@ The journey up to Fort William had been a battle, with the country being hit by 
       <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
       <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
 Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
+    </item>
+    
+    <item>
+      <title>Hurley for the day</title>
+      <link>https://jjhorton.co.uk/posts/hurley-for-the-day/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/hurley-for-the-day/</guid>
+      <description>After nearly 4 years of paddling I&amp;rsquo;ve finally got around to getting some qualifications, the first one a few weeks ago was the FSRT (Foundation Safety and Rescue) Training. The training was run by Simon from backwater valley canoe club and was good fun, even though last year I did my advanced white water safety and rescue. We did the course on the river Thames, nearly Hurley weir and to break the day up we couldn&amp;rsquo;t say no to a quick play on the weir which was on 2 gates.</description>
     </item>
     
     <item>
@@ -309,6 +358,16 @@ The Fall of Lora are formed as the tide changes, and lasts for a few hours, with
       <guid>https://jjhorton.co.uk/posts/getting-the-rotors-running/</guid>
       <description>After several weeks off nothing happening, then hitting problems with the filtering i&amp;rsquo;ve finally found sometime to get some work done on my project. This week I have been getting the rotors running, which is surprisingly simple no that I know how it all works.
 With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.</description>
+    </item>
+    
+    <item>
+      <title>Packed and ready to hit the road to Scotland</title>
+      <link>https://jjhorton.co.uk/posts/packed-and-ready-to-hit-the-road-to-scotland/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/packed-and-ready-to-hit-the-road-to-scotland/</guid>
+      <description>Well the time has come for my first trip to scotland, and its been a long time coming. Most people who take up kayaking tend to end up kayaking as many places at home before the head overseas, but for me the sunshine in the alps has ment I&amp;rsquo;ve never headed north beyond Yorkshire.
+So what to take to scotland? Well the big boats in, thats a given but I&amp;rsquo;m also taking the Playboat, I don&amp;rsquo;t know why at the moment but I&amp;rsquo;m sure that it&amp;rsquo;ll hit the water at some point over the 10 days.</description>
     </item>
     
     <item>
