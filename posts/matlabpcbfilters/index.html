@@ -231,25 +231,25 @@ if (!doNotTrack) {
     >latest release</a> of MATLAB, R2021B, this toolbox allows the creation and visualisation of &ldquo;Transmission lines, Couplers, Splitters, Filters, and More&rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I&rsquo;ve always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.</p>
 <p>The filter I decided to have a go at is one to work in the 2.4GHz ISM band, centred at 2440MHz, with a pass band of 80MHz, then as much stop band attenuation as possible. After having a look though the documentation I decided to have a go at the Hairpin filter.</p>
 <p>From the examples in the documentation for the toolbox which walk you though building the filter, I built myself a script with all the user configurable user configurable variables at the start. We begin by defining these parameters that we are going to use in our filter implementation, this includes variables such as our filter order <code>n</code> and then specific properties such as the substrate and conductor that will make up our filter. In my case here as i&rsquo;m looking to build the filter on a standard standard PCB, we are setting these variables based on there spec sheet, for FR4 and copper rather then more expensive options they default to.</p>
-<pre tabindex="0"><code>N = 3;
-Ripple = 0.1;
-BandWidth = 10;
-Z0 = 50;
-f = linspace(1500e6,3000e6,601);
-EpsilonR = 4.5;
-Height = 1.6e-3;
-d = dielectric(&quot;FR4&quot;);
-d.EpsilonR = EpsilonR;
-m = metal(&quot;Copper&quot;);
-</code></pre><p>With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.</p>
-<pre tabindex="0"><code>filter = filterHairpin();
-filter.FilterOrder = N;
-filter.Substrate = d;
-filter.Conductor = m;
-filter.Height = Height;
-filter = design(filter,2440e6,'FBW',BandWidth,'RippleFactor',Ripple);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">N</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">Ripple</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">BandWidth</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">Z0</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">f</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mf">1500e6</span><span class="p">,</span><span class="mf">3000e6</span><span class="p">,</span><span class="mi">601</span><span class="p">);</span>
+<span class="n">EpsilonR</span> <span class="p">=</span> <span class="mf">4.5</span><span class="p">;</span>
+<span class="n">Height</span> <span class="p">=</span> <span class="mf">1.6e-3</span><span class="p">;</span>
+<span class="n">d</span> <span class="p">=</span> <span class="n">dielectric</span><span class="p">(</span>&#34;<span class="n">FR4</span>&#34;<span class="p">);</span>
+<span class="n">d</span><span class="p">.</span><span class="n">EpsilonR</span> <span class="p">=</span> <span class="n">EpsilonR</span><span class="p">;</span>
+<span class="n">m</span> <span class="p">=</span> <span class="n">metal</span><span class="p">(</span>&#34;<span class="n">Copper</span>&#34;<span class="p">);</span>
+</code></pre></div><p>With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">filter</span> <span class="p">=</span> <span class="n">filterHairpin</span><span class="p">();</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">FilterOrder</span> <span class="p">=</span> <span class="n">N</span><span class="p">;</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">Substrate</span> <span class="p">=</span> <span class="n">d</span><span class="p">;</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">Conductor</span> <span class="p">=</span> <span class="n">m</span><span class="p">;</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">Height</span> <span class="p">=</span> <span class="n">Height</span><span class="p">;</span>
+<span class="n">filter</span> <span class="p">=</span> <span class="n">design</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span><span class="mf">2440e6</span><span class="p">,</span><span class="s">&#39;FBW&#39;</span><span class="p">,</span><span class="n">BandWidth</span><span class="p">,</span><span class="s">&#39;RippleFactor&#39;</span><span class="p">,</span><span class="n">Ripple</span><span class="p">);</span>
 
-</code></pre><p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
+</code></pre></div><p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
 <p><figure 
 	>
 	<a href="/img/MatlabFilter_Design_Matlab.png" >
@@ -265,10 +265,10 @@ filter = design(filter,2440e6,'FBW',BandWidth,'RippleFactor',Ripple);
 	
 </figure></p>
 <p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
-<pre tabindex="0"><code>spar = sparameters(filter,f);
-figure()
-rfplot(spar);
-</code></pre><p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">spar</span> <span class="p">=</span> <span class="n">sparameters</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span><span class="n">f</span><span class="p">);</span>
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">rfplot</span><span class="p">(</span><span class="n">spar</span><span class="p">);</span>
+</code></pre></div><p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
 <p><figure 
 	>
 	<a href="/img/MatlabFilter_Frequency_response_2440_3.png" >
@@ -300,21 +300,21 @@ rfplot(spar);
 </figure></p>
 <p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn&rsquo;t find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
 <p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
-<pre tabindex="0"><code>p = pcbComponent(filter);
-W = PCBServices.PCBWayWriter;
-W.Filename = 'Filter_2440MHz_3';
-C1 = PCBConnectors.SMAEdge_Samtec;
-C2 = PCBConnectors.SMAEdge_Samtec;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">p</span> <span class="p">=</span> <span class="n">pcbComponent</span><span class="p">(</span><span class="n">filter</span><span class="p">);</span>
+<span class="n">W</span> <span class="p">=</span> <span class="n">PCBServices</span><span class="p">.</span><span class="n">PCBWayWriter</span><span class="p">;</span>
+<span class="n">W</span><span class="p">.</span><span class="n">Filename</span> <span class="p">=</span> <span class="s">&#39;Filter_2440MHz_3&#39;</span><span class="p">;</span>
+<span class="n">C1</span> <span class="p">=</span> <span class="n">PCBConnectors</span><span class="p">.</span><span class="n">SMAEdge_Samtec</span><span class="p">;</span>
+<span class="n">C2</span> <span class="p">=</span> <span class="n">PCBConnectors</span><span class="p">.</span><span class="n">SMAEdge_Samtec</span><span class="p">;</span>
 
 
-C1.EdgeLocation = 'west';
-C1.ExtendBoardProfile = false;
-C2.EdgeLocation = 'east';
-C2.ExtendBoardProfile = false;
+<span class="n">C1</span><span class="p">.</span><span class="n">EdgeLocation</span> <span class="p">=</span> <span class="s">&#39;west&#39;</span><span class="p">;</span>
+<span class="n">C1</span><span class="p">.</span><span class="n">ExtendBoardProfile</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="n">C2</span><span class="p">.</span><span class="n">EdgeLocation</span> <span class="p">=</span> <span class="s">&#39;east&#39;</span><span class="p">;</span>
+<span class="n">C2</span><span class="p">.</span><span class="n">ExtendBoardProfile</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>
 
-[A,g] = gerberWrite(p,W,{C1,C2})
-</code></pre><p>It actually took me a long time to work out how to add the connectors, and i&rsquo;m not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed to create them, the N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area&rsquo;s of the PCB missing with the connectors floating away from the PCB. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to the designed filter to stop MATLAB from placing the SMA&rsquo;s ground connection within the filter. The issues liked this all seemed to be a bit buggy early release problems, but given this is the first release they will hopefully improve with time.</p>
-<p>With the output files generated I then opened loaded the Gerber files into KiCad&rsquo;s Gerber Viewer and imported the layer into PCB New, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don&rsquo;t think should have been added.</p>
+<span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">g</span><span class="p">]</span> <span class="p">=</span> <span class="n">gerberWrite</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">W</span><span class="p">,{</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">})</span>
+</code></pre></div><p>It actually took me a long time to work out how to add the connectors, and I&rsquo;m not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed the only way I could work out how to add them. The N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area&rsquo;s of the PCB Filter missing with the connectors floating away from the PCB in the resulting Plots and gerber files. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to force the designed filter to put the connectors where i wanted and stop MATLAB from placing the SMA&rsquo;s ground connection within the filter. The issues like this all seemed to be a bit buggy, typical early release problems, but given this is the first release they will hopefully improve with time.</p>
+<p>With the output files generated I then opened loaded the Gerber files into KiCad&rsquo;s Gerber Viewer and imported the layer into PcbNew, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don&rsquo;t think should have been added.</p>
 <p><figure 
 	>
 	<a href="/img/MatlabFilter_PCBs.jpg" >
@@ -344,7 +344,7 @@ C2.ExtendBoardProfile = false;
 	<figcaption>Soldering the SMA Connectors</figcaption>
 	
 </figure></p>
-<p>I&rsquo;m using a NanoVNA to test them out, while not as great as a proper Network Analyser, but give the Nano VNA cost £60 it a great way of being able to get a good idea of there performance of these little filters at home.</p>
+<p>I&rsquo;m using a NanoVNA to test them out, while not as good as a proper Network Analyser, but given the Nano VNA cost £60 it provides a great way of being able to get a good idea of there performance of these little filters at home.</p>
 <p><figure 
 	>
 	<a href="/img/MatlabFilter_Testing.jpg" >
@@ -374,7 +374,7 @@ C2.ExtendBoardProfile = false;
 	<figcaption>VNA View showing the measurements from 3rd order filter</figcaption>
 	
 </figure></p>
-<p>The main test here is if the filters that I have make actually match the simulation, so the bext way to asssess them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
+<p>The main test here is if the filters that I have make actually match the simulation, so the best way to assses them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
 <p><figure 
 	>
 	<a href="/img/MatlabFilter_Frequency_response_measured_2440_3.png" >
