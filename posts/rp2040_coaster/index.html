@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Building an unnecessarily complex Neopixel based Drinks coaster'><title>Neopixel Drinks Coaster</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/rp2040_coaster/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Neopixel Drinks Coaster'>
+<meta property='og:description' content='Building an unnecessarily complex Neopixel based Drinks coaster'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/rp2040_coaster/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Neopixel' /><meta property='article:tag' content='Electronics' /><meta property='article:tag' content='Pico' /><meta property='article:published_time' content='2022-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-01-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/NeopixelCoaster_PCB.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Neopixel Drinks Coaster">
+<meta name="twitter:description" content="Building an unnecessarily complex Neopixel based Drinks coaster"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/NeopixelCoaster_PCB.jpg' />
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-59185025-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/rp2040_coaster/">
+                
+                    <img src="/img/NeopixelCoaster_PCB.jpg" loading="lazy" alt="Featured image of post Neopixel Drinks Coaster" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/rp2040_coaster/">Neopixel Drinks Coaster</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Building an unnecessarily complex Neopixel based Drinks coaster
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 31, 2022</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from <a class="link" href="https://www.marksandspencer.com/ie/c/food/not-just-any-food/food-news/christmas-gin"  target="_blank" rel="noopener"
+    >Marks and Spencer&rsquo;s</a>, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&rsquo;s.</p>
+<p>The design was to be simple, a drinks coaster made from a 10cm square PCB, which could be powered by one of the many USB-C chargers that we have round the house, with a number of RGB LED&rsquo;s on the top, which could light up any bottle or glass when placed on top of it. To detect when a drink was placed on, I planned on using small switches on each corner, that a micro-controller on board, could then be triggered by to set the RGB colors of.</p>
+<p><figure 
+	>
+	<a href="/img/NeopixelCoaster_sch.png" >
+		<img src="/img/NeopixelCoaster_sch.png"
+			
+			
+			
+			loading="lazy"
+			alt="kiCad Schematic for Rp2040 Coaster">
+	</a>
+	
+	<figcaption>kiCad Schematic for Rp2040 Coaster</figcaption>
+	
+</figure></p>
+<p>The design is a simple one that uses the parts I had readily available, given the on-going parts shortage, as a result the microcontroller is a RP2040, which seems massively overpowered but I have many at home and you have to use what is avalible today, but who needs a Duel Core processor to just drive a couple of LED&rsquo;s? The LED&rsquo;s are essentially Neopixels, the WS2812B LEDs, which I had a reel I purchased earlier in the year from Aliexpress, when I was building some little displays I used with the <a class="link" href="http://www.jjhorton.co.uk/posts/infraredsensorneopixel/"  target="_blank" rel="noopener"
+    >Thermal Sensor</a>. Much of the rest of the design is based on the RP2040 <a class="link" href="https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf"  target="_blank" rel="noopener"
+    >Reference design</a>, so was quick to pull together using KiCad, and before you know it the PCB is off to be manufactured.</p>
+<p><figure 
+	>
+	<a href="/img/NeopixelCoaster_Render.png" >
+		<img src="/img/NeopixelCoaster_Render.png"
+			
+			
+			
+			loading="lazy"
+			alt="Render of the Rp2040 Coaster PCB">
+	</a>
+	
+	<figcaption>Render of the Rp2040 Coaster PCB</figcaption>
+	
+</figure></p>
+<p>With the PCB order, the next job was to add some sort of case or cover for the board, and protect it from the contents of the bottle which wuld be placed on top. For this I used OpenSCAD to produce a tight fitting cover which could be 3D printed. The Case makes use of a few simple shapes, producing a square with the shape of the PCB cut away, and by matching the dimensions closely I&rsquo;m able to get a case the pushes onto the board.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-OpenSCAD" data-lang="OpenSCAD">
+<span class="nb">difference</span><span class="p">(){</span>
+    <span class="nb">difference</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="o">-</span><span class="m">0</span><span class="p">])</span>
+            <span class="nb">cube</span><span class="p">([</span><span class="m">95</span><span class="p">,</span><span class="m">95</span><span class="p">,</span><span class="m">7</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+        <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">])</span>
+            <span class="nb">cube</span><span class="p">([</span><span class="m">86</span><span class="p">,</span><span class="m">90</span><span class="p">,</span><span class="m">2.5</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">])</span>
+            <span class="nb">cube</span><span class="p">([</span><span class="m">91</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">3.1</span><span class="p">],</span><span class="l">true</span><span class="p">);};</span>
+    <span class="p">}</span>
+    <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">41.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">1.5</span><span class="p">])</span>
+        <span class="nb">cube</span><span class="p">([</span><span class="m">13</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+
+     <span class="nb">translate</span><span class="p">([</span><span class="m">47.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">0.9</span><span class="p">])</span>
+        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+
+     <span class="nb">translate</span><span class="p">([</span><span class="m">46.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.9</span><span class="p">])</span>
+        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">8</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+
+     <span class="nb">translate</span><span class="p">([</span><span class="m">43</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.25</span><span class="p">])</span>
+        <span class="nb">cube</span><span class="p">([</span><span class="m">5</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">3</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+    <span class="p">}</span>  
+<span class="p">}</span>
+
+</code></pre></div><p>OpenSCAD is great when you just want to assemble a few simple shapes pragmatically, but I found it difficult to use in this context building a more complex piece with elements that need to fit together. I might look at trying something like FreeCAD next time, as it might be better suited to my needs especially as the PCB can be easily imported into freecad to see how the shapes interact. Even with these issues, having a 3D printer at home means that even an error such as this can be quickly corrected and solved, although it seems wasteful taking 4 attempts to get a part to fit together well.</p>
+<p><figure 
+	>
+	<a href="/img/NeopixelCoaster_Bodge.jpg" >
+		<img src="/img/NeopixelCoaster_Bodge.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="PCB with problems">
+	</a>
+	
+	<figcaption>PCB with problems</figcaption>
+	
+</figure></p>
+<p>The first revision of the PCB, was a bit of a fail, as after making a few late changes to the PCB, a power rail was added that went though the ground plane on the back of the PCB. I was able to bodge this, with a bit of thin wire and some careful cutting with a scalpel, to test the design, before making some quick corrections and then getting a fresh PCB made up. One advantage of this was it let me work on a case, and getting it to fit with the board I had made up which would have the same dimensions as the final board.</p>
+<p><figure 
+	>
+	<a href="/img/Neopixel_WithCase.jpg" >
+		<img src="/img/Neopixel_WithCase.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Asseembled PCB with the 3D printed cover ">
+	</a>
+	
+	<figcaption>Asseembled PCB with the 3D printed cover</figcaption>
+	
+</figure></p>
+<p>The code for controlling the board is just based on the examples provided with the Pico Board, which provides the functionality to send a stream of RGB values, to the interface and select the LED to be turned on. The decision on if to turn the coaster on is based on the number of the switches that are not high, the Pin Numbers for the switches are stored in <code>BUTTON_PINS</code>, and the first loop checks if they are high or low, the color that is then set is driven by the counter <code>my_test</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">level</span><span class="o">&lt;</span><span class="mi">180</span><span class="p">;</span> <span class="n">level</span><span class="o">++</span> <span class="p">){</span>
+
+  <span class="kt">int</span> <span class="n">my_test</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">gpio_get</span><span class="p">(</span><span class="n">BUTTON_PINS</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="mi">1</span><span class="p">){</span>
+	     <span class="n">my_test</span><span class="o">++</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">//Set the center LED&#39;s
+</span><span class="c1"></span>	<span class="k">if</span><span class="p">(</span><span class="n">my_test</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">){</span>
+	   <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+		     <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+	     <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">179</span> <span class="o">-</span> <span class="n">level</span><span class="p">;</span>
+			 <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">else</span><span class="p">{</span>
+	<span class="n">set_colour</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>In the case where at least 3 of the buttons have triggered, the color is set from an array of values in <code>RGB_LOOKUP</code>, this contains the 180 RGB values that create the smooth color transitions, with the next value in the lookup table being selected after each loop, before resetting once all values have been used.</p>
+<p><figure 
+	>
+	<a href="/img/NeopixelCoaster_Complete.jpg" >
+		<img src="/img/NeopixelCoaster_Complete.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="The completed RP2040 powered coaster">
+	</a>
+	
+	<figcaption>The completed RP2040 powered coaster</figcaption>
+	
+</figure></p>
+<p>With the code completed, the PCB and case assembled we can bring it all together, and see what we have. I&rsquo;m happy with the results, and the code, PCB and case can all be found on Github if you want to have a look. <a class="link" href="https://github.com/jjhorton/Rp2040_Coaster"  target="_blank" rel="noopener"
+    >gihub.com/jjhorton/</a></p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sometimes you think your Gin bottle needs RGB lights, and you end up building something unnecessary like this <a href="https://twitter.com/hashtag/electronics?src=hash&amp;ref_src=twsrc%5Etfw">#electronics</a> <a href="https://t.co/q5HyRK8X9F">pic.twitter.com/q5HyRK8X9F</a></p>&mdash; James Horton (@JamesjHorton) <a href="https://twitter.com/JamesjHorton/status/1488206830568419331?ref_src=twsrc%5Etfw">January 31, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>The changing colors work well on the textured glass of this bottle very well, the next task is to work out how I could make it battery powered&hellip;</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/neopixel/">Neopixel</a>
+        
+            <a href="/tags/electronics/">Electronics</a>
+        
+            <a href="/tags/pico/">Pico</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

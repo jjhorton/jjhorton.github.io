@@ -6,22 +6,40 @@
     <description>Recent content in Tags on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Display</title>
-      <link>https://jjhorton.co.uk/tags/display/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <title>Electronics</title>
+      <link>https://jjhorton.co.uk/tags/electronics/</link>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jjhorton.co.uk/tags/display/</guid>
+      <guid>https://jjhorton.co.uk/tags/electronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neopixel</title>
+      <link>https://jjhorton.co.uk/tags/neopixel/</link>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/tags/neopixel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pico</title>
       <link>https://jjhorton.co.uk/tags/pico/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/tags/pico/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Display</title>
+      <link>https://jjhorton.co.uk/tags/display/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/tags/display/</guid>
       <description></description>
     </item>
     
@@ -301,15 +319,6 @@
       <pubDate>Tue, 02 Apr 2013 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/tags/uscc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Electronics</title>
-      <link>https://jjhorton.co.uk/tags/electronics/</link>
-      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/tags/electronics/</guid>
       <description></description>
     </item>
     

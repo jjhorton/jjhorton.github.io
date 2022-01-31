@@ -6,7 +6,16 @@
     <description>Recent content in Pico on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pico/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pico/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neopixel Drinks Coaster</title>
+      <link>https://jjhorton.co.uk/posts/rp2040_coaster/</link>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/rp2040_coaster/</guid>
+      <description>This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from Marks and Spencer&amp;rsquo;s, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&amp;rsquo;s.</description>
+    </item>
+    
     <item>
       <title>Christmas Countdown</title>
       <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
