@@ -158,6 +158,12 @@
     <loc>https://jjhorton.co.uk/posts/first_post/</loc>
     <lastmod>2017-05-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://jjhorton.co.uk/pages/about/</loc>
+    <lastmod>2017-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/pages/</loc>
+    <lastmod>2017-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jjhorton.co.uk/tags/octave/</loc>
     <lastmod>2016-03-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -287,10 +293,6 @@
     <loc>https://jjhorton.co.uk/posts/hello-world/</loc>
     <lastmod>2012-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/pages/about/</loc>
-  </url><url>
     <loc>https://jjhorton.co.uk/categories/</loc>
-  </url><url>
-    <loc>https://jjhorton.co.uk/pages/</loc>
   </url>
 </urlset>
