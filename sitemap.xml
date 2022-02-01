@@ -2,10 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jjhorton.co.uk/tags/electronics/</loc>
-    <lastmod>2022-01-31T00:00:00+00:00</lastmod>
+    <loc>https://jjhorton.co.uk/tags/github-pages/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/github-workflow/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/hugo/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/website/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/website-upgrade/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/electronics/</loc>
     <lastmod>2022-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/neopixel/</loc>
@@ -15,12 +36,6 @@
     <lastmod>2022-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/pico/</loc>
-    <lastmod>2022-01-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2022-01-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/</loc>
     <lastmod>2022-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/christmascountdown/</loc>
@@ -134,16 +149,10 @@
     <loc>https://jjhorton.co.uk/tags/pi2/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/tags/github-pages/</loc>
-    <lastmod>2017-05-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/posts/new_website/</loc>
     <lastmod>2017-05-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/pelican/</loc>
-    <lastmod>2017-05-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/website/</loc>
     <lastmod>2017-05-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/first_post/</loc>
