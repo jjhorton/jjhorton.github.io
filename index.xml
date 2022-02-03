@@ -2861,6 +2861,97 @@ height=&amp;ldquo;480px&amp;rdquo;}&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
+        <title>Mapping in Matlab</title>
+        <link>https://jjhorton.co.uk/posts/mapping-in-matlab/</link>
+        <pubDate>Thu, 15 Nov 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/mapping-in-matlab/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/MapPort350.jpg" alt="Featured image of post Mapping in Matlab" /&gt;&lt;p&gt;As part of a project that I&amp;rsquo;m completing in my masters course at
+university I found that I need to plot data on a map, specifically the
+routes of undersea cables that pass though the oceans and the depth of
+the sea bed. My group needed this information so that we would be able
+to prove that the plan we had for the product we were producing had a
+suitable depth rating as well as being in range of the cables we were
+going to be fixing.&lt;/p&gt;
+&lt;p&gt;The first big problem, getting hold of the data. To start with I played
+around with the data that is provided with the mapping toolbox in MATLAB
+for depth data but found that this wasn&amp;rsquo;t good enough for my purposes.
+After some hunting around the some links on MATLAB pages pointed me to
+the &lt;a class=&#34;link&#34; href=&#34;http://www.ngdc.noaa.gov/mgg/global/global.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ETOPO1 1 Arc-Minute Global Relief
+Model&lt;/a&gt; were there is a
+download to such data in a much higher resolution than MATLAB provides.
+Now to plot this data.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;%set the map edges&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;latlim&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;lonlim&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;worldmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;latlim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lonlim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;refvec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;etopo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;etopo1_bed_c.flt&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;latlim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lonlim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;geoshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;refvec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;DisplayType&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;surface&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;demcmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This proveds me with a map within my longitude and latitude limits,
+which in this case are set over the central Mediterian area. This map is
+useful for seeing the general shape of the area, but what was important
+for use was defining the depths of operation, so for this i changed the
+final line of code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;n&#34;&gt;demcmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;inc&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.01&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2500&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This function now plots all heights above 0 (land) as one colour, then
+at 500 meter increments down to 2500 meters bellow mean sea level in
+different colours, with all depths bellow this is another colour. This
+allowed for the assessment of what depths the sea floor is in different
+areas.&lt;/p&gt;
+&lt;p&gt;The next aspect that needed to be covered was to look at ranges that
+could be covered from an individual port, for the early stage of
+research we were in we decided that we would just want to plot circles
+out from the port at 50 nautical mile separations, to gage the distances
+we would need to cover. The code to do such a task was relatively simple&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;c&#34;&gt;%set data for Port&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;portlat&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;37.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;portlong&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;15.083&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;%add line on map for every 50 nautical miles&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;350&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;latc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;longc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scircle1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;portlat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;portlong&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,[],&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;earthRadius&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;NMR&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;plotm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;latc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;longc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;End&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Which plotted the circles out to 350 Nautical Miles, one important point
+to note was this the longitude and latitude need to be in decimal
+format, as otherwise it won&amp;rsquo;t plot in the right location.&lt;/p&gt;
+&lt;p&gt;Next I needed to add some more data to my map, the approximate location
+of undersea cables, for this I used the data that is provided by &lt;a class=&#34;link&#34; href=&#34;http://www.cablemap.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Greg&amp;rsquo;s
+Cable Map&lt;/a&gt;. This is downloadable from the
+site and comes in either Raw File formate and KML, I downloaded it in
+KML as it is easy to plot such data in MATLAB, in fact it only takes one
+line:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;n&#34;&gt;geoshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Cables.shp&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;DisplayType&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Line&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Color&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s&#34;&gt;&amp;#39;MarkerEdgeColor&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;auto&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This line takes in the data file as the first argument, in this case
+&amp;lsquo;Cables.shp&amp;rsquo;, then a series of variable&amp;rsquo;s to define what it does with
+that data, which in this case is draw lines to represent them in red.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/MapPort350.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/MapPort350.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image0&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image0&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;So this is the full map that I created (which includes a few extra bits not
+mentioned here), now to do it all around the world to pick some
+suitable sites for our project to be based.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>A cold weekend in Dartmoor</title>
         <link>https://jjhorton.co.uk/posts/a-cold-weekend-in-dartmoor/</link>
         <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>

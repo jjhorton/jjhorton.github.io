@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='As part of a project that I&amp;rsquo;m completing in my masters course at university I found that I need to plot data on a map, specifically the routes of undersea cables that pass though the oceans and the depth of the sea bed. My group needed this information so that we would be able to prove that the plan we had for the product we were producing had a suitable depth rating as well as being in range of the cables we were going to be fixing.'><title>Mapping in Matlab</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/mapping-in-matlab/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Mapping in Matlab'>
+<meta property='og:description' content='As part of a project that I&amp;rsquo;m completing in my masters course at university I found that I need to plot data on a map, specifically the routes of undersea cables that pass though the oceans and the depth of the sea bed. My group needed this information so that we would be able to prove that the plan we had for the product we were producing had a suitable depth rating as well as being in range of the cables we were going to be fixing.'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/mapping-in-matlab/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Matlab' /><meta property='article:tag' content='Mapping' /><meta property='article:tag' content='Data' /><meta property='article:published_time' content='2012-11-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2012-11-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/MapPort350.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Mapping in Matlab">
+<meta name="twitter:description" content="As part of a project that I&amp;rsquo;m completing in my masters course at university I found that I need to plot data on a map, specifically the routes of undersea cables that pass though the oceans and the depth of the sea bed. My group needed this information so that we would be able to prove that the plan we had for the product we were producing had a suitable depth rating as well as being in range of the cables we were going to be fixing."><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/MapPort350.jpg' />
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-59185025-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://www.linkedin.com/in/jjhorton/'
+                            target="_blank"
+                            title="LinkedIn"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/mapping-in-matlab/">
+                
+                    <img src="/img/MapPort350.jpg" loading="lazy" alt="Featured image of post Mapping in Matlab" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/mapping-in-matlab/">Mapping in Matlab</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 15, 2012</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>As part of a project that I&rsquo;m completing in my masters course at
+university I found that I need to plot data on a map, specifically the
+routes of undersea cables that pass though the oceans and the depth of
+the sea bed. My group needed this information so that we would be able
+to prove that the plan we had for the product we were producing had a
+suitable depth rating as well as being in range of the cables we were
+going to be fixing.</p>
+<p>The first big problem, getting hold of the data. To start with I played
+around with the data that is provided with the mapping toolbox in MATLAB
+for depth data but found that this wasn&rsquo;t good enough for my purposes.
+After some hunting around the some links on MATLAB pages pointed me to
+the <a class="link" href="http://www.ngdc.noaa.gov/mgg/global/global.html"  target="_blank" rel="noopener"
+    >ETOPO1 1 Arc-Minute Global Relief
+Model</a> were there is a
+download to such data in a much higher resolution than MATLAB provides.
+Now to plot this data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">figure</span>
+<span class="c">%set the map edges</span>
+<span class="n">latlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">32</span> <span class="mi">42</span><span class="p">];</span>
+<span class="n">lonlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">25</span><span class="p">];</span>
+
+<span class="n">worldmap</span><span class="p">(</span><span class="n">latlim</span><span class="p">,</span><span class="n">lonlim</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">]</span> <span class="p">=</span> <span class="n">etopo</span><span class="p">(</span><span class="s">&#39;etopo1_bed_c.flt&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">latlim</span><span class="p">,</span> <span class="n">lonlim</span><span class="p">);</span>
+<span class="n">geoshow</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;surface&#39;</span><span class="p">);</span>
+
+<span class="n">demcmap</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
+</code></pre></div><p>This proveds me with a map within my longitude and latitude limits,
+which in this case are set over the central Mediterian area. This map is
+useful for seeing the general shape of the area, but what was important
+for use was defining the depths of operation, so for this i changed the
+final line of code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">demcmap</span><span class="p">(</span><span class="s">&#39;inc&#39;</span><span class="p">,</span><span class="o">\</span><span class="p">[</span><span class="mf">0.01</span> <span class="o">-</span><span class="mi">2500</span><span class="o">\</span><span class="p">],</span><span class="mi">500</span><span class="p">);</span>
+</code></pre></div><p>This function now plots all heights above 0 (land) as one colour, then
+at 500 meter increments down to 2500 meters bellow mean sea level in
+different colours, with all depths bellow this is another colour. This
+allowed for the assessment of what depths the sea floor is in different
+areas.</p>
+<p>The next aspect that needed to be covered was to look at ranges that
+could be covered from an individual port, for the early stage of
+research we were in we decided that we would just want to plot circles
+out from the port at 50 nautical mile separations, to gage the distances
+we would need to cover. The code to do such a task was relatively simple</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="c">%set data for Port</span>
+<span class="n">portlat</span> <span class="p">=</span> <span class="mf">37.5</span><span class="p">;</span>
+<span class="n">portlong</span> <span class="p">=</span> <span class="mf">15.083</span><span class="p">;</span>
+<span class="c">%add line on map for every 50 nautical miles</span>
+<span class="k">for</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">350</span>
+    <span class="p">[</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">]</span> <span class="p">=</span> <span class="n">scircle1</span><span class="p">(</span><span class="n">portlat</span><span class="p">,</span><span class="n">portlong</span><span class="p">,</span><span class="n">x</span><span class="p">,[],</span><span class="n">earthRadius</span><span class="p">(</span><span class="s">&#39;NMR&#39;</span><span class="p">));</span>
+    <span class="n">plotm</span><span class="p">(</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">End</span>
+</code></pre></div><p>Which plotted the circles out to 350 Nautical Miles, one important point
+to note was this the longitude and latitude need to be in decimal
+format, as otherwise it won&rsquo;t plot in the right location.</p>
+<p>Next I needed to add some more data to my map, the approximate location
+of undersea cables, for this I used the data that is provided by <a class="link" href="http://www.cablemap.info/"  target="_blank" rel="noopener"
+    >Greg&rsquo;s
+Cable Map</a>. This is downloadable from the
+site and comes in either Raw File formate and KML, I downloaded it in
+KML as it is easy to plot such data in MATLAB, in fact it only takes one
+line:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">geoshow</span><span class="p">(</span><span class="s">&#39;Cables.shp&#39;</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;Line&#39;</span><span class="p">,</span> <span class="s">&#39;Color&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span>
+<span class="s">&#39;MarkerEdgeColor&#39;</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">);</span>
+</code></pre></div><p>This line takes in the data file as the first argument, in this case
+&lsquo;Cables.shp&rsquo;, then a series of variable&rsquo;s to define what it does with
+that data, which in this case is draw lines to represent them in red.</p>
+<p><figure 
+	>
+	<a href="/img/MapPort350.jpg" >
+		<img src="/img/MapPort350.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="image0">
+	</a>
+	
+	<figcaption>image0</figcaption>
+	
+</figure></p>
+<p>So this is the full map that I created (which includes a few extra bits not
+mentioned here), now to do it all around the world to pick some
+suitable sites for our project to be based.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/matlab/">Matlab</a>
+        
+            <a href="/tags/mapping/">Mapping</a>
+        
+            <a href="/tags/data/">Data</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

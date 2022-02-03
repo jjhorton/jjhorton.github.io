@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/data/</link>
-    <description>Recent content in Data on James Horton</description>
+    <title>Mapping on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/mapping/</link>
+    <description>Recent content in Mapping on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Thu, 15 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/mapping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mapping in Matlab</title>
       <link>https://jjhorton.co.uk/posts/mapping-in-matlab/</link>
