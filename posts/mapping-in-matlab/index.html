@@ -299,24 +299,24 @@ the <a class="link" href="http://www.ngdc.noaa.gov/mgg/global/global.html"  targ
 Model</a> were there is a
 download to such data in a much higher resolution than MATLAB provides.
 Now to plot this data.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">figure</span>
-<span class="c">%set the map edges</span>
-<span class="n">latlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">32</span> <span class="mi">42</span><span class="p">];</span>
-<span class="n">lonlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">25</span><span class="p">];</span>
-
-<span class="n">worldmap</span><span class="p">(</span><span class="n">latlim</span><span class="p">,</span><span class="n">lonlim</span><span class="p">);</span>
-
-<span class="p">[</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">]</span> <span class="p">=</span> <span class="n">etopo</span><span class="p">(</span><span class="s">&#39;etopo1_bed_c.flt&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">latlim</span><span class="p">,</span> <span class="n">lonlim</span><span class="p">);</span>
-<span class="n">geoshow</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;surface&#39;</span><span class="p">);</span>
-
-<span class="n">demcmap</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
-</code></pre></div><p>This proveds me with a map within my longitude and latitude limits,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">figure</span>
+</span></span><span class="line"><span class="cl"><span class="c">%set the map edges</span>
+</span></span><span class="line"><span class="cl"><span class="n">latlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">32</span> <span class="mi">42</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">lonlim</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">25</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">worldmap</span><span class="p">(</span><span class="n">latlim</span><span class="p">,</span><span class="n">lonlim</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">]</span> <span class="p">=</span> <span class="n">etopo</span><span class="p">(</span><span class="s">&#39;etopo1_bed_c.flt&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">latlim</span><span class="p">,</span> <span class="n">lonlim</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">geoshow</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">refvec</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;surface&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">demcmap</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
+</span></span></code></pre></div><p>This proveds me with a map within my longitude and latitude limits,
 which in this case are set over the central Mediterian area. This map is
 useful for seeing the general shape of the area, but what was important
 for use was defining the depths of operation, so for this i changed the
 final line of code:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">demcmap</span><span class="p">(</span><span class="s">&#39;inc&#39;</span><span class="p">,</span><span class="o">\</span><span class="p">[</span><span class="mf">0.01</span> <span class="o">-</span><span class="mi">2500</span><span class="o">\</span><span class="p">],</span><span class="mi">500</span><span class="p">);</span>
-</code></pre></div><p>This function now plots all heights above 0 (land) as one colour, then
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">demcmap</span><span class="p">(</span><span class="s">&#39;inc&#39;</span><span class="p">,</span><span class="o">\</span><span class="p">[</span><span class="mf">0.01</span> <span class="o">-</span><span class="mi">2500</span><span class="o">\</span><span class="p">],</span><span class="mi">500</span><span class="p">);</span>
+</span></span></code></pre></div><p>This function now plots all heights above 0 (land) as one colour, then
 at 500 meter increments down to 2500 meters bellow mean sea level in
 different colours, with all depths bellow this is another colour. This
 allowed for the assessment of what depths the sea floor is in different
@@ -326,15 +326,15 @@ could be covered from an individual port, for the early stage of
 research we were in we decided that we would just want to plot circles
 out from the port at 50 nautical mile separations, to gage the distances
 we would need to cover. The code to do such a task was relatively simple</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="c">%set data for Port</span>
-<span class="n">portlat</span> <span class="p">=</span> <span class="mf">37.5</span><span class="p">;</span>
-<span class="n">portlong</span> <span class="p">=</span> <span class="mf">15.083</span><span class="p">;</span>
-<span class="c">%add line on map for every 50 nautical miles</span>
-<span class="k">for</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">350</span>
-    <span class="p">[</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">]</span> <span class="p">=</span> <span class="n">scircle1</span><span class="p">(</span><span class="n">portlat</span><span class="p">,</span><span class="n">portlong</span><span class="p">,</span><span class="n">x</span><span class="p">,[],</span><span class="n">earthRadius</span><span class="p">(</span><span class="s">&#39;NMR&#39;</span><span class="p">));</span>
-    <span class="n">plotm</span><span class="p">(</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">End</span>
-</code></pre></div><p>Which plotted the circles out to 350 Nautical Miles, one important point
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">%set data for Port</span>
+</span></span><span class="line"><span class="cl"><span class="n">portlat</span> <span class="p">=</span> <span class="mf">37.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">portlong</span> <span class="p">=</span> <span class="mf">15.083</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c">%add line on map for every 50 nautical miles</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">350</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">]</span> <span class="p">=</span> <span class="n">scircle1</span><span class="p">(</span><span class="n">portlat</span><span class="p">,</span><span class="n">portlong</span><span class="p">,</span><span class="n">x</span><span class="p">,[],</span><span class="n">earthRadius</span><span class="p">(</span><span class="s">&#39;NMR&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plotm</span><span class="p">(</span><span class="n">latc</span><span class="p">,</span><span class="n">longc</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">End</span>
+</span></span></code></pre></div><p>Which plotted the circles out to 350 Nautical Miles, one important point
 to note was this the longitude and latitude need to be in decimal
 format, as otherwise it won&rsquo;t plot in the right location.</p>
 <p>Next I needed to add some more data to my map, the approximate location
@@ -344,9 +344,9 @@ Cable Map</a>. This is downloadable from the
 site and comes in either Raw File formate and KML, I downloaded it in
 KML as it is easy to plot such data in MATLAB, in fact it only takes one
 line:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">geoshow</span><span class="p">(</span><span class="s">&#39;Cables.shp&#39;</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;Line&#39;</span><span class="p">,</span> <span class="s">&#39;Color&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span>
-<span class="s">&#39;MarkerEdgeColor&#39;</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">);</span>
-</code></pre></div><p>This line takes in the data file as the first argument, in this case
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">geoshow</span><span class="p">(</span><span class="s">&#39;Cables.shp&#39;</span><span class="p">,</span> <span class="s">&#39;DisplayType&#39;</span><span class="p">,</span> <span class="s">&#39;Line&#39;</span><span class="p">,</span> <span class="s">&#39;Color&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#39;MarkerEdgeColor&#39;</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">);</span>
+</span></span></code></pre></div><p>This line takes in the data file as the first argument, in this case
 &lsquo;Cables.shp&rsquo;, then a series of variable&rsquo;s to define what it does with
 that data, which in this case is draw lines to represent them in red.</p>
 <p><figure 

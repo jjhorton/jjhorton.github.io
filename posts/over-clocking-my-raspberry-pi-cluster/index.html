@@ -295,18 +295,18 @@ overclocking them.</p>
     >guides on the
 Internet</a> to talk you through sure tasks which is what I used.</p>
 <p>All you have to do is edit the</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nano /boot/config.txt
-</code></pre></div><p>I then added the following at the end of the file, which increase not
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /boot/config.txt
+</span></span></code></pre></div><p>I then added the following at the end of the file, which increase not
 only the clocking frequency, but also the sdram and core frequency. It
 also enables over voltage and sets an upper temperature limit.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
-<span class="nv">sdram_freq</span><span class="o">=</span><span class="m">500</span>
-<span class="nv">core_freq</span><span class="o">=</span><span class="m">500</span>
-<span class="nv">over_voltage</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">temp_limit</span><span class="o">=</span><span class="m">80</span> <span class="c1">#Will throttle to default clock speed if hit</span>
-</code></pre></div><p>After which all there is to do is reboot the Raspberry Pi with</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo reboot
-</code></pre></div><p>Now time to test some code of my cluster and see what the performance increase is</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">arm_freq</span><span class="o">=</span><span class="m">1000</span>
+</span></span><span class="line"><span class="cl"><span class="nv">sdram_freq</span><span class="o">=</span><span class="m">500</span>
+</span></span><span class="line"><span class="cl"><span class="nv">core_freq</span><span class="o">=</span><span class="m">500</span>
+</span></span><span class="line"><span class="cl"><span class="nv">over_voltage</span><span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">temp_limit</span><span class="o">=</span><span class="m">80</span> <span class="c1">#Will throttle to default clock speed if hit</span>
+</span></span></code></pre></div><p>After which all there is to do is reboot the Raspberry Pi with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
+</span></span></code></pre></div><p>Now time to test some code of my cluster and see what the performance increase is</p>
 
 </section>
 

@@ -309,11 +309,11 @@ if (!doNotTrack) {
     >RP2040 boards</a>. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.</p>
 <pre tabindex="0"><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-#include &quot;pico/stdlib.h&quot;
-#include &quot;pico/stdio_usb.h&quot;
+#include &#34;pico/stdlib.h&#34;
+#include &#34;pico/stdio_usb.h&#34;
 
 // Custom 7 Segment Display
-#include &quot;My7Seg.h&quot;
+#include &#34;My7Seg.h&#34;
 
 int main() {
 	//initalise the display
@@ -325,14 +325,14 @@ int main() {
 	char countdown_str [8];
 
 	stdio_init_all();
-	printf(&quot;Countdown Clock starting!\n&quot;);
+	printf(&#34;Countdown Clock starting!\n&#34;);
 	Display.setValue(double(99999999), 0);
 
 	while(1){
 		buffer[0] = getchar_timeout_us(0);
 
 		if (buffer[0] != 0){
-			if (buffer[0] == 'a'){
+			if (buffer[0] == &#39;a&#39;){
 
 				for(int i = 0; i&lt;8; i++){
 					buffer[i] = getchar_timeout_us(0);
@@ -352,7 +352,7 @@ from datetime import *
 
 # /dev/tty.usbmodem1101 115200
 
-ser = serial.Serial('/dev/tty.usbmodem1101')  # open serial port
+ser = serial.Serial(&#39;/dev/tty.usbmodem1101&#39;)  # open serial port
 sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
 
 while(1):
@@ -365,8 +365,8 @@ while(1):
 	else:
 		delta = 0
 
-	my_str = str('a'+ str(delta))
-	my_str.ljust(9, &quot;.&quot;)
+	my_str = str(&#39;a&#39;+ str(delta))
+	my_str.ljust(9, &#34;.&#34;)
 
 	sio.write(my_str)
 	sio.flush()

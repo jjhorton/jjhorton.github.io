@@ -322,31 +322,30 @@ if (!doNotTrack) {
 	
 </figure></p>
 <p>With the PCB order, the next job was to add some sort of case or cover for the board, and protect it from the contents of the bottle which wuld be placed on top. For this I used OpenSCAD to produce a tight fitting cover which could be 3D printed. The Case makes use of a few simple shapes, producing a square with the shape of the PCB cut away, and by matching the dimensions closely I&rsquo;m able to get a case the pushes onto the board.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-OpenSCAD" data-lang="OpenSCAD">
-<span class="nb">difference</span><span class="p">(){</span>
-    <span class="nb">difference</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="o">-</span><span class="m">0</span><span class="p">])</span>
-            <span class="nb">cube</span><span class="p">([</span><span class="m">95</span><span class="p">,</span><span class="m">95</span><span class="p">,</span><span class="m">7</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-        <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">])</span>
-            <span class="nb">cube</span><span class="p">([</span><span class="m">86</span><span class="p">,</span><span class="m">90</span><span class="p">,</span><span class="m">2.5</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">])</span>
-            <span class="nb">cube</span><span class="p">([</span><span class="m">91</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">3.1</span><span class="p">],</span><span class="l">true</span><span class="p">);};</span>
-    <span class="p">}</span>
-    <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">41.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">1.5</span><span class="p">])</span>
-        <span class="nb">cube</span><span class="p">([</span><span class="m">13</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-
-     <span class="nb">translate</span><span class="p">([</span><span class="m">47.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">0.9</span><span class="p">])</span>
-        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-
-     <span class="nb">translate</span><span class="p">([</span><span class="m">46.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.9</span><span class="p">])</span>
-        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">8</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-
-     <span class="nb">translate</span><span class="p">([</span><span class="m">43</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.25</span><span class="p">])</span>
-        <span class="nb">cube</span><span class="p">([</span><span class="m">5</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">3</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
-    <span class="p">}</span>  
-<span class="p">}</span>
-
-</code></pre></div><p>OpenSCAD is great when you just want to assemble a few simple shapes pragmatically, but I found it difficult to use in this context building a more complex piece with elements that need to fit together. I might look at trying something like FreeCAD next time, as it might be better suited to my needs especially as the PCB can be easily imported into freecad to see how the shapes interact. Even with these issues, having a 3D printer at home means that even an error such as this can be quickly corrected and solved, although it seems wasteful taking 4 attempts to get a part to fit together well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-OpenSCAD" data-lang="OpenSCAD"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">difference</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">difference</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="o">-</span><span class="m">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">cube</span><span class="p">([</span><span class="m">95</span><span class="p">,</span><span class="m">95</span><span class="p">,</span><span class="m">7</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">cube</span><span class="p">([</span><span class="m">86</span><span class="p">,</span><span class="m">90</span><span class="p">,</span><span class="m">2.5</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">translate</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">cube</span><span class="p">([</span><span class="m">91</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">3.1</span><span class="p">],</span><span class="l">true</span><span class="p">);};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="nb">translate</span><span class="p">([</span><span class="m">41.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">1.5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">cube</span><span class="p">([</span><span class="m">13</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="nb">translate</span><span class="p">([</span><span class="m">47.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="o">-</span><span class="m">0.9</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">3.2</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="nb">translate</span><span class="p">([</span><span class="m">46.5</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.9</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">cube</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">8</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="nb">translate</span><span class="p">([</span><span class="m">43</span><span class="p">,</span><span class="o">-</span><span class="m">6.61</span><span class="p">,</span><span class="m">0.25</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">cube</span><span class="p">([</span><span class="m">5</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">3</span><span class="p">],</span><span class="l">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>OpenSCAD is great when you just want to assemble a few simple shapes pragmatically, but I found it difficult to use in this context building a more complex piece with elements that need to fit together. I might look at trying something like FreeCAD next time, as it might be better suited to my needs especially as the PCB can be easily imported into freecad to see how the shapes interact. Even with these issues, having a 3D printer at home means that even an error such as this can be quickly corrected and solved, although it seems wasteful taking 4 attempts to get a part to fit together well.</p>
 <p><figure 
 	>
 	<a href="/img/NeopixelCoaster_Bodge.jpg" >
@@ -377,30 +376,30 @@ if (!doNotTrack) {
 	
 </figure></p>
 <p>The code for controlling the board is just based on the examples provided with the Pico Board, which provides the functionality to send a stream of RGB values, to the interface and select the LED to be turned on. The decision on if to turn the coaster on is based on the number of the switches that are not high, the Pin Numbers for the switches are stored in <code>BUTTON_PINS</code>, and the first loop checks if they are high or low, the color that is then set is driven by the counter <code>my_test</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">level</span><span class="o">&lt;</span><span class="mi">180</span><span class="p">;</span> <span class="n">level</span><span class="o">++</span> <span class="p">){</span>
-
-  <span class="kt">int</span> <span class="n">my_test</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">gpio_get</span><span class="p">(</span><span class="n">BUTTON_PINS</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="mi">1</span><span class="p">){</span>
-	     <span class="n">my_test</span><span class="o">++</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="c1">//Set the center LED&#39;s
-</span><span class="c1"></span>	<span class="k">if</span><span class="p">(</span><span class="n">my_test</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">){</span>
-	   <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
-		     <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
-		<span class="p">}</span>
-		<span class="k">else</span> <span class="p">{</span>
-	     <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">179</span> <span class="o">-</span> <span class="n">level</span><span class="p">;</span>
-			 <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">else</span><span class="p">{</span>
-	<span class="n">set_colour</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>In the case where at least 3 of the buttons have triggered, the color is set from an array of values in <code>RGB_LOOKUP</code>, this contains the 180 RGB values that create the smooth color transitions, with the next value in the lookup table being selected after each loop, before resetting once all values have been used.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">level</span><span class="o">&lt;</span><span class="mi">180</span><span class="p">;</span> <span class="n">level</span><span class="o">++</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">my_test</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">gpio_get</span><span class="p">(</span><span class="n">BUTTON_PINS</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	     <span class="n">my_test</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//Set the center LED&#39;s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="p">(</span><span class="n">my_test</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	   <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		     <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	     <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">179</span> <span class="o">-</span> <span class="n">level</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			 <span class="n">setcenter</span><span class="p">(</span><span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB_LOOKUP</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">set_colour</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In the case where at least 3 of the buttons have triggered, the color is set from an array of values in <code>RGB_LOOKUP</code>, this contains the 180 RGB values that create the smooth color transitions, with the next value in the lookup table being selected after each loop, before resetting once all values have been used.</p>
 <p><figure 
 	>
 	<a href="/img/NeopixelCoaster_Complete.jpg" >

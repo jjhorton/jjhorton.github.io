@@ -294,81 +294,79 @@ if (!doNotTrack) {
     >Yosys</a> and <a class="link" href="https://github.com/YosysHQ/nextpnr"  target="_blank" rel="noopener"
     >Next-PNR</a>. These excellent tools allow me to make use of the GitHub actions to test my FPGA images with very minimal effort.</p>
 <p>While my simulations require a couple of commands so these are contained to a makefile, the commands to build the FPGA image are very simple.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yosys -p <span class="s1">&#39;synth_ecp5 -json top.json&#39;</span> -S firmware/top.v
-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config
-
-</code></pre></div><p>To build the FPGA image is a simple task of running my &lsquo;top.v&rsquo; verilog file though yosys, before doing place and route with nextpnr, which again is a single line. These simple lines allow me to test if I can build my design, as long as they don&rsquo;t return any error, then the build is successful.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yosys -p <span class="s1">&#39;synth_ecp5 -json top.json&#39;</span> -S firmware/top.v
+</span></span><span class="line"><span class="cl">nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config
+</span></span></code></pre></div><p>To build the FPGA image is a simple task of running my &rsquo;top.v&rsquo; verilog file though yosys, before doing place and route with nextpnr, which again is a single line. These simple lines allow me to test if I can build my design, as long as they don&rsquo;t return any error, then the build is successful.</p>
 <p>The GitHub actions are based on YAML files, which contain details of the container that the image is being run on, and the commands that are run for that image. These files are stored in the folder <code>.github/workflow</code> in the GitHub repository, I have two, one which runs the Simulation and one which build the FPGA Image.</p>
 <p>We will talk though the build firmware Github Action, which I have called <code>Build Firmware</code>. I have decided that this should be run whenever I push the repositry, for Pull requests and on demand. So we define the name of the action, and add the description of when it should be run, the <code>workflow_dispatch</code> allows me to manually trigger it being run.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
-</span></code></pre></div><p>With the name, and when the action should be run defined, we move onto defining the action. For my build we need to define the <code>job</code> and the <code>build</code>. For this I am running on Ubuntu Latest as my image.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></code></pre></div><p>Now that we have the image we are running on we need to add the dependancies that are required for building out FPGA image. First step is to checkout our repository we are running from with the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></div><p>With the name, and when the action should be run defined, we move onto defining the action. For my build we need to define the <code>job</code> and the <code>build</code>. For this I am running on Ubuntu Latest as my image.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span></code></pre></div><p>Now that we have the image we are running on we need to add the dependancies that are required for building out FPGA image. First step is to checkout our repository we are running from with the
 <code>uses: actions/checkout@v2</code>, which will get our repo using the default settings without any issues. With both Yosys and Next-Pnr needed to build the image, the next step is a little different to what I originally had planned. I thought that I would need to build these tools from source like I would on my own computer, but that is very time consuming, and I came across some pip packages, which installs them much quicker. This reduces build time, which on private repo&rsquo;s on GitHub are billed after you are passed your allowance.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML">- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
-</span><span class="w"></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w">
-</span><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-yosys</span><span class="w">
-</span><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">
-</span></code></pre></div><p>One problem I did come across when installing these packages, was that if I ran these <code>pip3 install</code> commands without sudo, then the commands that I need then aren&rsquo;t available. Running with <code>sudo</code> solves this issue although i&rsquo;m not sure why.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl">- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-yosys</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">
+</span></span></span></code></pre></div><p>One problem I did come across when installing these packages, was that if I ran these <code>pip3 install</code> commands without sudo, then the commands that I need then aren&rsquo;t available. Running with <code>sudo</code> solves this issue although i&rsquo;m not sure why.</p>
 <p>Now we have all the tools in place we can now run both yosys and nextpnr, using the commands specific to the <code>yowasp-yosys</code> and <code>yowasp-nextpnr</code> packages, which are a little different to the standard commands I would use on my own Laptop.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
-</span><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
-</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
-</span><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
-</span></code></pre></div><p>We can then pull all those components into a single <code>FirmwareBuild.yaml</code> file in the <code>.github/workflow</code> folder, which is then run on each push to the repo. The current design is very simple, but runs in a little over 30 seconds for the build, this makes running on each push manageable, but as the firmware design continues to grow, I may look to only run on Pull request.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">          sudo -H pip3 install yowasp-yosys
-</span><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">          
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
-</span><span class="w">
-</span></code></pre></div><p>The GitHub action for running the simulation is very similar, but instead of <code>pip3 install</code> for the build tools, I require <code>Verilator</code> which is available to install using apt. As the code to run my Verilator tests is identical between how i run it on my computer and in the GitHub action, I just us my make command to run the tests.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Simulate Firmware</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Verilator required for the simulation</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo apt install verilator</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run the Serial Test</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">          export VINC=/usr/share/verilator/include
-</span><span class="sd">          make test-serial</span><span class="w">          
-</span></code></pre></div><p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I&rsquo;m  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
+</span></span></span></code></pre></div><p>We can then pull all those components into a single <code>FirmwareBuild.yaml</code> file in the <code>.github/workflow</code> folder, which is then run on each push to the repo. The current design is very simple, but runs in a little over 30 seconds for the build, this makes running on each push manageable, but as the firmware design continues to grow, I may look to only run on Pull request.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-yosys
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
+</span></span></span></code></pre></div><p>The GitHub action for running the simulation is very similar, but instead of <code>pip3 install</code> for the build tools, I require <code>Verilator</code> which is available to install using apt. As the code to run my Verilator tests is identical between how i run it on my computer and in the GitHub action, I just us my make command to run the tests.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Simulate Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Verilator required for the simulation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo apt install verilator</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run the Serial Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          export VINC=/usr/share/verilator/include
+</span></span></span><span class="line"><span class="cl"><span class="sd">          make test-serial</span><span class="w">          
+</span></span></span></code></pre></div><p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I&rsquo;m  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>
 
 </section>
 

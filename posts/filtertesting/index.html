@@ -408,16 +408,16 @@ if (!doNotTrack) {
 </figure></p>
 <p>The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.</p>
 <p>The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">measured_data</span> <span class="p">=</span> <span class="n">sparameters</span><span class="p">(</span>&#34;<span class="n">Data</span><span class="o">/</span><span class="mi">433</span><span class="n">_filter1</span><span class="p">.</span><span class="n">s2p</span>&#34;<span class="p">);</span>
-<span class="n">gains</span> <span class="p">=</span> <span class="mi">10</span><span class="o">*</span><span class="nb">log10</span><span class="p">(</span><span class="n">measured_data</span><span class="p">.</span><span class="n">powergain</span><span class="p">);</span>
-
-<span class="n">figure</span><span class="p">;</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">measured_data</span><span class="p">.</span><span class="n">Frequencies</span><span class="o">./</span><span class="mf">1e6</span><span class="p">,</span><span class="n">gains</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Filter Gain (dB)&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Frequencey (MHz)&#39;</span><span class="p">)</span>
-<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">grid</span> <span class="n">on</span>
-</code></pre></div><p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">measured_data</span> <span class="p">=</span> <span class="n">sparameters</span><span class="p">(</span>&#34;<span class="n">Data</span><span class="o">/</span><span class="mi">433</span><span class="n">_filter1</span><span class="p">.</span><span class="n">s2p</span>&#34;<span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">gains</span> <span class="p">=</span> <span class="mi">10</span><span class="o">*</span><span class="nb">log10</span><span class="p">(</span><span class="n">measured_data</span><span class="p">.</span><span class="n">powergain</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">figure</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">plot</span><span class="p">(</span><span class="n">measured_data</span><span class="p">.</span><span class="n">Frequencies</span><span class="o">./</span><span class="mf">1e6</span><span class="p">,</span><span class="n">gains</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Filter Gain (dB)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Frequencey (MHz)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid</span> <span class="n">on</span>
+</span></span></code></pre></div><p>For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with <code>sparameters()</code> function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.</p>
 <p><figure 
 	>
 	<a href="/img/Filter_Test_Single_433MHz.png" >

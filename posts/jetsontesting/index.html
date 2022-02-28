@@ -418,7 +418,7 @@ for iter in range(iterations):
 
 my_pi = 4 * np.divide(totalIn,iterations)
 runtime = time.time() - start
-print(&quot;Pi is calculated as : %.10f&quot; % my_pi)
+print(&#34;Pi is calculated as : %.10f&#34; % my_pi)
 print(runtime)
 </code></pre><p>The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.</p>
 <table>
@@ -483,10 +483,9 @@ for iter in range(int(iterations/sample_size)):
 pi_2 = 4.0 * np.divide(count,iterations)
 runtime = time.time() - start
 
-print(&quot;Pi is calculated as : %.10f&quot; % pi_2)
-print(&quot;Runs: %i&quot; % iterations)
+print(&#34;Pi is calculated as : %.10f&#34; % pi_2)
+print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
-
 </code></pre><p>This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.</p>
 <table>
 <thead>
@@ -541,10 +540,9 @@ for iter in range(int(iterations/sample_size)):
 pi_2 = cp.asnumpy(4.0 * cp.divide(count,iterations))
 runtime = time.time() - start
 
-print(&quot;Pi is calculated as : %.10f&quot; % pi_2)
-print(&quot;Runs: %i&quot; % iterations)
+print(&#34;Pi is calculated as : %.10f&#34; % pi_2)
+print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
-
 </code></pre><p>Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.</p>
 <table>
 <thead>

@@ -328,32 +328,30 @@ on:
         cd ..
     - name: Debug info
       run: |
-        echo &quot;REPO: $GITHUB_REPOSITORY&quot;
-        echo &quot;ACTOR: $GITHUB_ACTOR&quot;
+        echo &#34;REPO: $GITHUB_REPOSITORY&#34;
+        echo &#34;ACTOR: $GITHUB_ACTOR&#34;
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: 'latest'
+        hugo-version: &#39;latest&#39;
         extended: true
-
 </code></pre><p>With all the tools and files installed we can now complete the main event, building the site is completed with a single command <code>hugo -d output</code> which overwrites the existing site in the github pages directory, that we checked out earlier, the following commands then setup the git user so that a commit can be made from the repo, committing and pushing the latest version of the site up to github page ready for uses to see when they open up my website within a few seconds.</p>
 <pre tabindex="0"><code>
     - name: Build and deploy site
       run: |
-        echo '=================== Build site ==================='
+        echo &#39;=================== Build site ===================&#39;
         hugo -d output
-        echo '=================== Publish to GitHub Pages ==================='
+        echo &#39;=================== Publish to GitHub Pages ===================&#39;
         cd output
-        git config user.name &quot;${GITHUB_ACTOR}&quot;
-        git config user.email &quot;${GITHUB_ACTOR}@users.noreply.github.com&quot;
+        git config user.name &#34;${GITHUB_ACTOR}&#34;
+        git config user.email &#34;${GITHUB_ACTOR}@users.noreply.github.com&#34;
         git add .
-        echo -n 'Files to Commit:' &amp;&amp; ls -l | wc -l
+        echo -n &#39;Files to Commit:&#39; &amp;&amp; ls -l | wc -l
         timestamp=$(date +%s%3N)
-        git commit -m &quot;[ci] Automated deployment to GitHub Pages on $timestamp&quot;
+        git commit -m &#34;[ci] Automated deployment to GitHub Pages on $timestamp&#34;
         git push --force
         cd ../
-        echo '=================== Done  ==================='
-
+        echo &#39;=================== Done  ===================&#39;
 </code></pre><p>With that the latest version of my website is deployed everytime I add a new update.</p>
 
 </section>

@@ -409,7 +409,7 @@ add_executable(${NAME}
     main.c
 )
 
-# Don't forget to link the libraries you need!
+# Don&#39;t forget to link the libraries you need!
 target_link_libraries(${NAME}
 	 pico_stdlib
 )
@@ -417,7 +417,7 @@ target_link_libraries(${NAME}
 # create map/bin/hex file etc.
 pico_add_extra_outputs(${NAME})
 </code></pre><p>The next task is building up our program, first up is importing the standard library&rsquo;s, and at this point we will also set up some variables that we will need. One of the main once here are the <code>SEVEN_SEGMENT_PINS</code> array of constants, these list of pins can be swapped by changing the LCD_DISPLAY value which is the same as the PMod output connector of the custom PCB.</p>
-<pre tabindex="0"><code>#include &quot;pico/stdlib.h&quot;
+<pre tabindex="0"><code>#include &#34;pico/stdlib.h&#34;
 
 #define LCD_DISPLAY 1
 #define LOOKUP_TABLE_LENGTH 50
@@ -429,7 +429,6 @@ pico_add_extra_outputs(${NAME})
 	//if plugged into pmod0
 	const uint SEVEN_SEGMENT_PINS[] = {21,19,17,3,20,18,16,2};
 #endif
-
 </code></pre><p>The first function we define is a nice simple one, this is used to setup the output pins, initialising them as GPIO (General Purpose Input Output) Pins, setting the direction for each of them as outputs and setting them each as a low value. This function is called as part of the setup process, and is only used once.</p>
 <pre tabindex="0"><code>int setup_display(){
 	for(int x = 0; x&lt;8; x++) {
