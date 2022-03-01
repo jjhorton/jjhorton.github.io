@@ -6,7 +6,16 @@
     <description>Recent content in Posts on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous Integration for Firmware testing using Verilator</title>
+      <link>https://jjhorton.co.uk/posts/firmware-testing/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/firmware-testing/</guid>
+      <description>I was looking to build a simple flashing LED example using my IceBreaker FPGA Board, for this I wanted to build on CI tools I set up before, and add some more useful testing to my setup. First of all lets look at what we are aiming to build, the PMOD board has 8 LED&amp;rsquo;s each connected to a single pin, setting the IO pin high turns the LED on. With one LED on at a time, cycling though all the LED&amp;rsquo;s one at a time at a speed which is easily slow enough to see.</description>
+    </item>
+    
     <item>
       <title>Website Upgrade</title>
       <link>https://jjhorton.co.uk/posts/website-upgrade/</link>
