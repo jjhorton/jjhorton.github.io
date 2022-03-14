@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using Github actions to automatically add FPGA Place and Route stats to pull requests'><title>Adding FPGA build stats to Github Pull requests</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/fpga-build-stats/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Adding FPGA build stats to Github Pull requests'>
+<meta property='og:description' content='Using Github actions to automatically add FPGA Place and Route stats to pull requests'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/fpga-build-stats/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Github' /><meta property='article:tag' content='CI' /><meta property='article:tag' content='Continuous Integration' /><meta property='article:tag' content='FPGA' /><meta property='article:tag' content='Verilog' /><meta property='article:published_time' content='2022-03-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-14T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/colorlitei5.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Adding FPGA build stats to Github Pull requests">
+<meta name="twitter:description" content="Using Github actions to automatically add FPGA Place and Route stats to pull requests"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/colorlitei5.jpg' />
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-59185025-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://www.linkedin.com/in/jjhorton/'
+                            target="_blank"
+                            title="LinkedIn"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/fpga-build-stats/">
+                
+                    <img src="/img/colorlitei5.jpg" loading="lazy" alt="Featured image of post Adding FPGA build stats to Github Pull requests" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/fpga-build-stats/">Adding FPGA build stats to Github Pull requests</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Using Github actions to automatically add FPGA Place and Route stats to pull requests
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 14, 2022</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>The pervious post on building the LED example is <a class="link" href="https://jjhorton.co.uk/posts/firmware-testing/" >Firmware Testing</a> and aims to add the building of the FPGA for the iceBreaker FPGA board. The FPGA image will be built using the github actions workflow that is similar to that which was used in my <a class="link" href="https://jjhorton.co.uk/posts/firmwareci/" >post</a> but with the addition of adding some detailed comments in the pull requests and using the Lattice ice40 part in place of the Lattice ECP5.</p>
+<p>The continuation of the <a class="link" href="https://jjhorton.co.uk/posts/firmware-testing/" >pervious workflow</a> starts by adding the tools for building the FPGA image in the form of yosys and nextpnr, which will be used. These are both installed using pip, as this is the quickest way to get upto date builds of the tools which can be installed quickly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install deps</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-yosys
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ice40-all
+</span></span></span><span class="line"><span class="cl"><span class="sd">           # Runs a set of commands using the runners shell</span><span class="w">          
+</span></span></span></code></pre></div><p>First up we are doing sythesis using yosys, this takes our verilog design and converts it into map RTL design which is mapped onto the logic cells that are in our FPGA. For this design we are using the default synth command for the ice40 device, and generating the local map as a json file, ready to be put though the place and route tool.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          </span><span class="w">          </span><span class="l">yowasp-yosys -p &#39;synth_ice40 -top blinky -json blinky.json&#39; blinky.v</span><span class="w">
+</span></span></span></code></pre></div><p>The next step is to use nextpnr to place and route our design onto the ice40 FPGA, here we is where we want to collect the data on the designs performance, this is done by adding the <code> --log nextpnr.log</code> flag is the nextpnr. at this stage we also use icepack to prepare out design so it can be uploaded to our FPGA should we download it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run nextpnr on the files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          yowasp-nextpnr-ice40 --up5k --package sg48 --json blinky.json --pcf icebreaker.pcf --asc blinky.asc --log nextpnr.log
+</span></span></span><span class="line"><span class="cl"><span class="sd">          yowasp-icepack blinky.asc blinky.bin</span><span class="w">          
+</span></span></span></code></pre></div><p>The next stage is to extract the data from nextpnr log file, using some command line tools to put the data from the log files into a text  file called <code>utilisation.txt</code> before then formatting the text into the <code>results.txt</code> file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Extract the stats from the build log file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info: FPGA Place and Route statistics:&#39; &gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info:```&#39; &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          awk &#39;/Info: Logic utilisation before packing:/&#39; RS= nextpnr.log &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info: &#39; &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          awk &#39;/Total DFFs:/&#39; RS= nextpnr.log  &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info: &#39; &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          awk &#39;/Info: Device utilisation:/&#39; RS= nextpnr.log &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info: &#39; &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          grep &#34;MHz&#34; nextpnr.log | tail -1  &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Info:```&#39; &gt;&gt; utilisation.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sed &#39;s/^.\{5\}//&#39; utilisation.txt &gt;results.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          rm utilisation.txt</span><span class="w">          
+</span></span></span></code></pre></div><p>The data in the <code>results.txt</code> is then used to comment on the Pull request (Assuming the github action is not running on the scheduled event), to allow the build statistics including device utilization and the estimated maximum design frequency to be viewed in the pull request comments.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">comment PR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">github.event.schedule != &#39;0 8 * * 1&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">machine-learning-apps/pr-comment@master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware/results.txt</span><span class="w">
+</span></span></span></code></pre></div><p>The generated values that are produced by next-pnr for the ice40 FPGA are then add added to the github pull request, so they can be veiwed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> Device utilisation:
+</span></span><span class="line"><span class="cl"> 	         ICESTORM_LC:    40/ <span class="m">5280</span>     0%
+</span></span><span class="line"><span class="cl"> 	        ICESTORM_RAM:     0/   <span class="m">30</span>     0%
+</span></span><span class="line"><span class="cl"> 	               SB_IO:     9/   <span class="m">96</span>     9%
+</span></span><span class="line"><span class="cl"> 	               SB_GB:     2/    <span class="m">8</span>    25%
+</span></span><span class="line"><span class="cl"> 	        ICESTORM_PLL:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	         SB_WARMBOOT:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	        ICESTORM_DSP:     0/    <span class="m">8</span>     0%
+</span></span><span class="line"><span class="cl"> 	      ICESTORM_HFOSC:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	      ICESTORM_LFOSC:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	              SB_I2C:     0/    <span class="m">2</span>     0%
+</span></span><span class="line"><span class="cl"> 	              SB_SPI:     0/    <span class="m">2</span>     0%
+</span></span><span class="line"><span class="cl"> 	              IO_I3C:     0/    <span class="m">2</span>     0%
+</span></span><span class="line"><span class="cl"> 	         SB_LEDDA_IP:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	         SB_RGBA_DRV:     0/    <span class="m">1</span>     0%
+</span></span><span class="line"><span class="cl"> 	      ICESTORM_SPRAM:     0/    <span class="m">4</span>     0%
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> Max frequency <span class="k">for</span> clock <span class="s1">&#39;CLK$SB_IO_IN_$glb_clk&#39;</span>: 74.76 MHz <span class="o">(</span>PASS at 12.00 MHz<span class="o">)</span>
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/github/">Github</a>
+        
+            <a href="/tags/ci/">CI</a>
+        
+            <a href="/tags/continuous-integration/">Continuous Integration</a>
+        
+            <a href="/tags/fpga/">FPGA</a>
+        
+            <a href="/tags/verilog/">Verilog</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/posts/firmware-testing/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/icebreaker.jpg" loading="lazy" data-key="" data-hash="/img/icebreaker.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Continuous Integration for Firmware testing using Verilator</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/firmwareci/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/colorlitei5.jpg" loading="lazy" data-key="" data-hash="/img/colorlitei5.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Continuous Integration for Firmware with Github Actions</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2022 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -2,31 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jjhorton.co.uk/posts/fpga-build-stats/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jjhorton.co.uk/tags/ci/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/continuous-integration/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/posts/firmware-testing/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/fpga/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/github/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/verilog/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/firmware-testing/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/github-pages/</loc>

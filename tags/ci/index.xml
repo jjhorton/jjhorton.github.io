@@ -6,7 +6,16 @@
     <description>Recent content in CI on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding FPGA build stats to Github Pull requests</title>
+      <link>https://jjhorton.co.uk/posts/fpga-build-stats/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/fpga-build-stats/</guid>
+      <description>The pervious post on building the LED example is Firmware Testing and aims to add the building of the FPGA for the iceBreaker FPGA board. The FPGA image will be built using the github actions workflow that is similar to that which was used in my post but with the addition of adding some detailed comments in the pull requests and using the Lattice ice40 part in place of the Lattice ECP5.</description>
+    </item>
+    
     <item>
       <title>Continuous Integration for Firmware testing using Verilator</title>
       <link>https://jjhorton.co.uk/posts/firmware-testing/</link>
