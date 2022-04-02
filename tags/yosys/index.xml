@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yosys on James Horton</title>
+    <link>https://jjhorton.co.uk/tags/yosys/</link>
+    <description>Recent content in Yosys on James Horton</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/yosys/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Opensource FPGA tools for ECP5 Evaluation Board</title>
+      <link>https://jjhorton.co.uk/posts/ecp5g-eval/</link>
+      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/ecp5g-eval/</guid>
+      <description>In this post I am recording how I got my first design onto the ECP5 Development board that I recently purchased. This devboard makes use of the LFE5UM5G FPGA, on a pcb, with lots of IO broken out including the SERDES Pins. For this example, I am using the on-board 8 LED&amp;rsquo;s, and an example that I originally used with my icebreaker board and an LED PMod.
+ Getting the ECP5 Devboard setup</description>
+    </item>
+    
+  </channel>
+</rss>
