@@ -22,8 +22,7 @@
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
-      <description>Christmas Countdown on the Whiteboard 
-Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
+      <description>Christmas Countdown on the Whiteboard Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
     </item>
     
     <item>
@@ -53,7 +52,6 @@ The screen that I looked to use is a custom board based on using the Neopixel LE
       
       <guid>https://jjhorton.co.uk/posts/rp2040_pmod/</guid>
       <description>Having perviously built myself a Pico PMod Board around the Raspberry Pi Pico, I wanted to take this to the next level, and build myself a few boards from scratch. So once the orders went live for the RP2040 microcontroller a few months ago, I ordered some, and then did nothing with them for a while.
- 
 Like many people, I seem to end up with more ideas than time and it took me a little while to get around to this one.</description>
     </item>
     
@@ -72,8 +70,7 @@ Like many people, I seem to end up with more ideas than time and it took me a li
       <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/picopmod/</guid>
-      <description>Pico on a Breadboard 
-After picking up a few Raspberry Pi Pico&amp;rsquo;s, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple 8 DIP switch and a 7 segment display.</description>
+      <description>Pico on a Breadboard After picking up a few Raspberry Pi Pico&amp;rsquo;s, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple 8 DIP switch and a 7 segment display.</description>
     </item>
     
   </channel>

@@ -14,7 +14,7 @@
       
       <guid>https://jjhorton.co.uk/posts/ecp5g-eval/</guid>
       <description>In this post I am recording how I got my first design onto the ECP5 Development board that I recently purchased. This devboard makes use of the LFE5UM5G FPGA, on a pcb, with lots of IO broken out including the SERDES Pins. For this example, I am using the on-board 8 LED&amp;rsquo;s, and an example that I originally used with my icebreaker board and an LED PMod.
- Getting the ECP5 Devboard setup</description>
+Getting the ECP5 Devboard setup As a Macbook Air user, with its M1 processor, sometimes means getting the right tools can be a challenge.</description>
     </item>
     
   </channel>

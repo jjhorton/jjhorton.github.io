@@ -14,7 +14,7 @@
       
       <guid>https://jjhorton.co.uk/posts/ecp5g-eval/</guid>
       <description>In this post I am recording how I got my first design onto the ECP5 Development board that I recently purchased. This devboard makes use of the LFE5UM5G FPGA, on a pcb, with lots of IO broken out including the SERDES Pins. For this example, I am using the on-board 8 LED&amp;rsquo;s, and an example that I originally used with my icebreaker board and an LED PMod.
- Getting the ECP5 Devboard setup</description>
+Getting the ECP5 Devboard setup As a Macbook Air user, with its M1 processor, sometimes means getting the right tools can be a challenge.</description>
     </item>
     
     <item>
@@ -59,8 +59,7 @@
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
-      <description>Christmas Countdown on the Whiteboard 
-Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
+      <description>Christmas Countdown on the Whiteboard Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
     </item>
     
     <item>
@@ -99,7 +98,6 @@ The screen that I looked to use is a custom board based on using the Neopixel LE
       
       <guid>https://jjhorton.co.uk/posts/rp2040_pmod/</guid>
       <description>Having perviously built myself a Pico PMod Board around the Raspberry Pi Pico, I wanted to take this to the next level, and build myself a few boards from scratch. So once the orders went live for the RP2040 microcontroller a few months ago, I ordered some, and then did nothing with them for a while.
- 
 Like many people, I seem to end up with more ideas than time and it took me a little while to get around to this one.</description>
     </item>
     
@@ -128,8 +126,7 @@ The tool I&amp;rsquo;m installing is Inspectrum which is for analysing captured 
       <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/picopmod/</guid>
-      <description>Pico on a Breadboard 
-After picking up a few Raspberry Pi Pico&amp;rsquo;s, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple 8 DIP switch and a 7 segment display.</description>
+      <description>Pico on a Breadboard After picking up a few Raspberry Pi Pico&amp;rsquo;s, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple 8 DIP switch and a 7 segment display.</description>
     </item>
     
     <item>
@@ -246,7 +243,7 @@ The mini cluster needed to be cheep, so I based it on the raspberry pi.</descrip
       <guid>https://jjhorton.co.uk/posts/popping-into-wales-for-a-paddle/</guid>
       <description>With most of the country suffering with storms and rain over the Christmas period one of the few groups of people who were looking out the window all excited were the kayakers…
 I think the ford maybe a bit to deep today, time to find another way around #flood pic.twitter.com/FylGGkijTS
-&amp;mdash; James Horton (@JamesjHorton) January 2, 2014  Unfortunately unable to get out paddling until after the new year we hit the road on the Friday after new year to meet up in Swansea ready for a bit of paddling.</description>
+&amp;mdash; James Horton (@JamesjHorton) January 2, 2014 Unfortunately unable to get out paddling until after the new year we hit the road on the Friday after new year to meet up in Swansea ready for a bit of paddling.</description>
     </item>
     
     <item>
@@ -256,7 +253,6 @@ I think the ford maybe a bit to deep today, time to find another way around #flo
       
       <guid>https://jjhorton.co.uk/posts/a-weekend-on-the-wye/</guid>
       <description>After reaching the end of yet another year at uni (and almost the end of my time there), I tagged along with Blackwater Valley Canoe Club (BVCC) for a trip along the River Wye.
- 
 As I no longer have much to do with my time (expect move out my old house), I decided to take an extra day off, and head across to the Black Mountains for a bonus day of cycling in the unusually sunny Wales.</description>
     </item>
     
@@ -276,10 +272,7 @@ As I no longer have much to do with my time (expect move out my old house), I de
       
       <guid>https://jjhorton.co.uk/posts/week-two-in-scotland/</guid>
       <description>Well week 2 wasn&amp;rsquo;t much different to week 1, with there still being no water in Scotland. As a result much of the time was spent walking and sight seeing rather than kayaking.
- 
 We paddled the River Awe, which allowed us to see some interesting signs, hide Richards boat in the middle of the river and experience a bit of white water.
- 
- 
 Luckily the River Garry was releasing again this week, which gave me opportunity to get my head wet, as well as practice my air brace.</description>
     </item>
     
@@ -290,7 +283,6 @@ Luckily the River Garry was releasing again this week, which gave me opportunit
       
       <guid>https://jjhorton.co.uk/posts/week-one-in-scotland/</guid>
       <description>This last week I have been in the Fort William area with the university of Surrey Canoe Club, for a week of white water paddling. Despite Fort William being known for giving reliable white water we managed to pick the time of year were there was no rain, and only snow!
- 
 The journey up to Fort William had been a battle, with the country being hit by large snowfall and high wind warning along almost the entire route, but all the vehicles managed to make it along the A82 without incident, unlike many cars that were seen along the way.</description>
     </item>
     
@@ -318,7 +310,8 @@ The journey up to Fort William had been a battle, with the country being hit by 
       <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/a-cold-weekend-in-dartmoor/</guid>
-      <description>Last weekend was spent in one of the places that I have kayaked the most, dartmoor. Although trips here normally revole around the river dart, normally on the loop and upper this time we found ourselves looking further afield. Paddling with 4 friends from uni on the same weekend that the River Source event the aim was to try and avoid the country park as best we could.</description>
+      <description>Last weekend was spent in one of the places that I have kayaked the most, dartmoor. Although trips here normally revole around the river dart, normally on the loop and upper this time we found ourselves looking further afield. Paddling with 4 friends from uni on the same weekend that the River Source event the aim was to try and avoid the country park as best we could.
+Our accommodation for the weekend was a YHA camping barn which is basic at best, very different to the usual bunkhouses with beds and central heating.</description>
     </item>
     
     <item>
@@ -432,7 +425,6 @@ So what to take to scotland? Well the big boats in, thats a given but I&amp;rsqu
       
       <guid>https://jjhorton.co.uk/posts/communication/</guid>
       <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
- 
 The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
     </item>
     
@@ -443,8 +435,7 @@ The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-
       
       <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
       <description>To get everything talking together I’m going to need something to sit in the middle, and provide all the processing power. On the recommendation of my supervisor I had a look at the arduino boards. The arduino boards are based on Atmel processors in the middle with a boot loader per-installed to allow the uploading of programs straight onto the board from USB.
- Arduino Nano Board 
-There are many variants of the processor available, all with more than enough programming power for what I will be doing, the important thing for me to consider was which input and output interfaces I’d need for my quad rotor.</description>
+Arduino Nano Board There are many variants of the processor available, all with more than enough programming power for what I will be doing, the important thing for me to consider was which input and output interfaces I’d need for my quad rotor.</description>
     </item>
     
     <item>
