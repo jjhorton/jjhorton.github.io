@@ -6,7 +6,16 @@
     <description>Recent content in Posts on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Controlling Neopixels with iceBreaker FPGA </title>
+      <link>https://jjhorton.co.uk/posts/neopixelfirmware/</link>
+      <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/neopixelfirmware/</guid>
+      <description>Having perviously got my Neopixel PCB working with my RP2040 Board, i&amp;rsquo;ve be wanting to spend some time building up a FPGA example, that has some of the same functionality. For this I wanted to build an example in Verilog that could be deployed to my icebreaker FPGA devboard, with its ice40 FPGA which as 5K LUTs is a great match for this task with it serial over USB link and PMod Connectors.</description>
+    </item>
+    
     <item>
       <title>Opensource FPGA tools for ECP5 Evaluation Board</title>
       <link>https://jjhorton.co.uk/posts/ecp5g-eval/</link>
