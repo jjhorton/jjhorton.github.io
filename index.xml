@@ -6,7 +6,143 @@
         <description>Recent content on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Getting started with Ice Sugar Pro </title>
+        <link>https://jjhorton.co.uk/posts/icesugarpro/</link>
+        <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/icesugarpro/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/iCESugarpro-devboard.jpg" alt="Featured image of post Getting started with Ice Sugar Pro " /&gt;&lt;p&gt;Having previously purchased a several FPGA development boards, this is the latest one for working with both Yosys and Next-pnr, an open source FPGA tool chain. I have brought 2 of these other boards which are both based around the color light modules, these boards are avalible as both the &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lattice ECP5 FPGA Colorlight i5 Development Board&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005003832457085.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lattice ECP5 FPGA Colorlight i9 Development Board&lt;/a&gt;. They include a breakout board that allows you to connect PMod Modules, HDMI (Which i&amp;rsquo;ve never used) and a USB-C port that allows the connection of a computer to do the programming and serial connections. The breakout board is important for these versions, as it includes everything you need to program the FPGA boards, which can&amp;rsquo;t be done when they aren&amp;rsquo;t in the breakout board.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/iCESugarpro-colorlight.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-colorlight.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Other Boards from the same seller&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Other Boards from the same seller&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005002270742248.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ice Sugar Pro&lt;/a&gt; is a variation of these boards, it makes use of the same breakout board with the PMod breakouts, but uses a custom FPGA board rather than the modules that are designed for driving the LED Matrix Boards. This means it has some extra features that are specifically designed to make working with it a bit easier, the main one for me is the USB-C port on the FPGA module itself, which provides the debug/programming interface as well as a serial port directly on the FPGA board. Where as my other board don&amp;rsquo;t have the direct programmability, only reprogrammable with the breakout board. This means it should make life easier when I start thinking about building and designing my own custom breakout board.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/iCESugarpro-compare.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-compare.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Ice Sugar Pro Development Board (Right) Along with Colorlight i9 (Left) and i5 (Center)&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Ice Sugar Pro Development Board (Right) Along with Colorlight i9 (Left) and i5 (Center)&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The pin out &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro/blob/master/doc/iCESugar-pro-pinmap.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iCE Sugar Pro&lt;/a&gt; host board which is available from the sellers &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git Repository&lt;/a&gt; is shown bellow, while I do sometimes fid it tricky to map the pins out using this diagram, it is much easier than using the schematic.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/iCESugarpro-pinmap.png&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-pinmap.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Ice Sugar Pro Pinout from Sellers Git Repo&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Ice Sugar Pro Pinout from Sellers Git Repo&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Unfortunately the connections are different to the other Colorlight &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;i5&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005003832457085.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;i9&lt;/a&gt; modules, as the FPGA is in a different package.&lt;/p&gt;
+&lt;p&gt;Getting a simple FPGA example up and running, displaying a simple pattern on an &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/PMod/tree/master/PMod_LED&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LED PMod board&lt;/a&gt;. The code for this is taken from another project, but is just a case of displaying an LED that is bit shifted across the 8 LED&amp;rsquo;s&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;no&#34;&gt;`default_nettype&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;none&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blinky&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;input&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 		&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;output&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;parameter&lt;/span&gt; 	&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;c1&#34;&gt;// When the counter reaches top value shift the LEd accross one
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b10000000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;assign&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;endmodule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The pinout for the FPGA needs to be mapped to the output pins which the port that the PMod board is connected to, these are stored in our &lt;code&gt;icesugarpro.pcf&lt;/code&gt; file. This not only tells the FPGA where the LED&amp;rsquo;s are connected to, but also where our only input is connected the clock signal as &lt;code&gt;CLK&lt;/code&gt; on pin &lt;code&gt;P6&lt;/code&gt;, the pin for this is taken directly from the schematic from the sellers &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git Repository&lt;/a&gt; and a number of key pin mappings are provided in the top level README.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;P6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;IOBUF&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PORT&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IO_TYPE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LVCMOS33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[0]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[1]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;P7&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[2]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[3]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[4]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[5]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[6]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[7]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The commands for building the FPGA image, first up is &lt;a class=&#34;link&#34; href=&#34;https://github.com/YosysHQ/yosys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yosys&lt;/a&gt; for the RTL synthesis from our Verilog file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yosys -p &lt;span class=&#34;s1&#34;&gt;&amp;#39;synth_ecp5 -top blinky -json blinky.json&amp;#39;&lt;/span&gt; blinky.v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then &lt;a class=&#34;link&#34; href=&#34;https://github.com/YosysHQ/nextpnr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nextpnr&lt;/a&gt; for completing the job of Place and Route of our design onto the FPGA&amp;rsquo;s resources:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nextpnr-ecp5 --25k --package CABGA256 --json blinky.json --lpf icesugarpro.pcf --textcfg blinky.config --freq &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Packing up the image and transfering it to the fpga, the tool &lt;code&gt;ecppack&lt;/code&gt; is used to convert the config file into the format that will be loaded onto the FPGA. One key feature that I am using here is the &lt;code&gt;--compress&lt;/code&gt; flag, this compressed the bit file and dramatically reduces the programming time for the board. In this case it reduces it from  to less than 4 seconds&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecppack --compress --bit blinky.bin blinky.config
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap program --freq &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; blinky.bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Rather than just programming the FPGA directly, we can also upload the design to the on-board flash, so that when we power cycle the FPGA it still loads our design.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap flash unprotect 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap flash write --freq &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; blinky.bin 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The first line doesn&amp;rsquo;t aways need to be run, by default the flash should be unprotected, but I found sometimes it would fail to program, and with this quick simple command it works a lot more reliably.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/iCESugarpro-PModLed.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-PModLed.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Ice Sugar Pro with PMod LED Board&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Ice Sugar Pro with PMod LED Board&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A full copy of the code for this blink example can be downloaded from &lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/jjhorton/6b546071cedb00800551ad31aa7a9232&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github&lt;/a&gt;. My Next challenge with this board is to have a look at the RGB LED, and see if I can get a program together to show the full range of colors with it, before looking into building a custom host board to work with it.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Controlling Neopixels with iceBreaker FPGA </title>
         <link>https://jjhorton.co.uk/posts/neopixelfirmware/</link>
         <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>

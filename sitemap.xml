@@ -2,34 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jjhorton.co.uk/posts/neopixelfirmware/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
+    <loc>https://jjhorton.co.uk/tags/ecp5/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/icesugarpro/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/pcb/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/verilog/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/neopixelfirmware/</loc>
     <lastmod>2022-06-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/neopixel/</loc>
     <lastmod>2022-06-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/tags/pcb/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/verilog/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/ecp5/</loc>
-    <lastmod>2022-04-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/tags/electronics/</loc>
-    <lastmod>2022-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
     <lastmod>2022-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/next-pnr/</loc>

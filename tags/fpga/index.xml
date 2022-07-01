@@ -6,7 +6,16 @@
     <description>Recent content in FPGA on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/fpga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/fpga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Ice Sugar Pro </title>
+      <link>https://jjhorton.co.uk/posts/icesugarpro/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/icesugarpro/</guid>
+      <description>Having previously purchased a several FPGA development boards, this is the latest one for working with both Yosys and Next-pnr, an open source FPGA tool chain. I have brought 2 of these other boards which are both based around the color light modules, these boards are avalible as both the Lattice ECP5 FPGA Colorlight i5 Development Board and Lattice ECP5 FPGA Colorlight i9 Development Board. They include a breakout board that allows you to connect PMod Modules, HDMI (Which i&amp;rsquo;ve never used) and a USB-C port that allows the connection of a computer to do the programming and serial connections.</description>
+    </item>
+    
     <item>
       <title>Opensource FPGA tools for ECP5 Evaluation Board</title>
       <link>https://jjhorton.co.uk/posts/ecp5g-eval/</link>
