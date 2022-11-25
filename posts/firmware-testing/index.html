@@ -357,45 +357,45 @@ if (!doNotTrack) {
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;verilated.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">tick</span><span class="p">(</span><span class="kt">int</span> <span class="n">tickcount</span><span class="p">,</span> <span class="n">Vblinky</span> <span class="o">*</span><span class="n">tb</span><span class="p">,</span> <span class="n">VerilatedVcdC</span><span class="o">*</span> <span class="n">tfp</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">eval</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="nf">eval</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">tfp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="n">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="nf">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">CLK</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">eval</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="nf">eval</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">tfp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="n">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="nf">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">CLK</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">eval</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="nf">eval</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">tfp</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="n">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="n">flush</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="nf">dump</span><span class="p">(</span><span class="n">tickcount</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tfp</span><span class="o">-&gt;</span><span class="nf">flush</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="n">commandArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">commandArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">// Instantiate the design
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Vblinky</span> <span class="o">*</span><span class="n">tb</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vblinky</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="n">tickcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//generate a trace
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Verilated</span><span class="o">::</span><span class="n">debug</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="n">traceEverOn</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Verilated</span><span class="o">::</span><span class="nf">debug</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">traceEverOn</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">VerilatedVcdC</span><span class="o">*</span> <span class="n">tfp</span> <span class="o">=</span> <span class="n">new</span> <span class="n">VerilatedVcdC</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="n">mkdir</span><span class="p">(</span><span class="s">&#34;logs&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="n">trace</span><span class="p">(</span><span class="n">tfp</span><span class="p">,</span> <span class="mi">99</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">tfp</span><span class="o">-&gt;</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;trace.vcd&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">mkdir</span><span class="p">(</span><span class="s">&#34;logs&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="nf">trace</span><span class="p">(</span><span class="n">tfp</span><span class="p">,</span> <span class="mi">99</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tfp</span><span class="o">-&gt;</span><span class="nf">open</span><span class="p">(</span><span class="s">&#34;trace.vcd&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">3</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">		<span class="n">tick</span><span class="p">(</span><span class="o">++</span><span class="n">tickcount</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tfp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">tick</span><span class="p">(</span><span class="o">++</span><span class="n">tickcount</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tfp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//write the coverage data out
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">VerilatedCov</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="s">&#34;logs/coverage.dat&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">VerilatedCov</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;logs/coverage.dat&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>There are two functions here, a <code>tick</code> function and the <code>main</code> function, the <code>main</code> function is were all the intresting stuff happens. The main function can be split into the following core functionality:</p>
