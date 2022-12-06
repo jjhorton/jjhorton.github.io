@@ -6,7 +6,16 @@
     <description>Recent content in RP2040 on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 18 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a GPS PMod Board</title>
+      <link>https://jjhorton.co.uk/posts/gps_pmod_board/</link>
+      <pubDate>Tue, 06 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/gps_pmod_board/</guid>
+      <description>I have been looking to put together a GPS board for a while, as I had a few ideas for upgrading a project with realtime time information, and a few things that I could try out if I had location or time data, as well as an accurate timing pulse source. While there are actually plenty of options for just buying a pre-made PMod module, I decided I would be better of giving it a go myself as I wanted a few of them and that could make it cheaper to build my own if I needed a few.</description>
+    </item>
+    
     <item>
       <title>Getting started IKEA Vindriktning in Home Assistant with Pico W</title>
       <link>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</link>
