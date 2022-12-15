@@ -6,7 +6,16 @@
     <description>Recent content in RP2040 on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 06 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Upgrading the christmas countdown with GPS</title>
+      <link>https://jjhorton.co.uk/posts/chrismas_gps_countdown/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/chrismas_gps_countdown/</guid>
+      <description>The countdown timer that I created last year, which used my custom RP2040 Pmod board with the PMod Severn Segment Display I had also created, was in need of an upgrade. The main aim of this project was to replace the Raspberry Pi Zero that provided the time data to what was just a display made of my custom hardware, and turn it into something that can run automonously, by getting that time data from a GPS reveiver.</description>
+    </item>
+    
     <item>
       <title>Creating a GPS PMod Board</title>
       <link>https://jjhorton.co.uk/posts/gps_pmod_board/</link>

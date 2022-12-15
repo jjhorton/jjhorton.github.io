@@ -2,28 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jjhorton.co.uk/posts/gps_pmod_board/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/tags/gps/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/pmod/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/rp2040/</loc>
-    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/</loc>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/chrismas_gps_countdown/</loc>
+    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/gps_pmod_board/</loc>
     <lastmod>2022-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</loc>
