@@ -50,7 +50,7 @@ Getting the ECP5 Devboard setup As a Macbook Air user, with its M1 processor, so
       <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/infraredsensorneopixel/</guid>
-      <description>After perviously building a PMod Infrared Sensor board, that was perviously streaming data over the serial link from the RP2040 PMod board to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.
+      <description>After perviously building a PMod Infrared Sensor board, that was perviously streaming data ovesr the serial link from the RP2040 PMod board to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.
 The screen that I looked to use is a custom board based on using the Neopixel LED&amp;rsquo;s that I have previously used with the RP2040 board, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor.</description>
     </item>
     
@@ -70,7 +70,8 @@ Like many people, I seem to end up with more ideas than time and it took me a li
       <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jjhorton.co.uk/posts/infraredsensorpmod/</guid>
-      <description>Building a PMod Based board with an 8x8 Infrared Sensor</description>
+      <description>After seeing a post on twitter where someone was experimenting with the AMG8834 sensor, and I wanted to give it a go. This sensor can be purchased preassembled on breakout boards, ready to drop into a breadboard and build a system around.
+While I could build something around these breakout boards, I decided to take a different route and have a go at building one of my own boards. for the connector I wanted to use a PMod, as this would allow me to use the board with both my Raspberry Pi Pico Boards that I just made, as well as the iceBreaker FPGA board I already own, and maybe in the future I may have a go with getting it working with my Zynq based Cora Z7 board.</description>
     </item>
     
     <item>

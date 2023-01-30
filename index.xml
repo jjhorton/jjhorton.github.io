@@ -1867,7 +1867,7 @@ ser.close()
         
         <guid>https://jjhorton.co.uk/posts/infraredsensorneopixel/</guid>
         <description>&lt;img src="https://jjhorton.co.uk/img/Thermal_NeoPixel.jpg" alt="Featured image of post Infrared Sensors and Neopixel screen" /&gt;&lt;p&gt;After perviously building a &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PMod Infrared Sensor board&lt;/a&gt;, that was perviously streaming data over the serial link from the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PMod Infrared Sensor board&lt;/a&gt;, that was perviously streaming data ovesr the serial link from the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;RP2040 PMod board&lt;/a&gt; to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.&lt;/p&gt;
 &lt;p&gt;The screen that I looked to use is a custom board based on using the Neopixel LED&amp;rsquo;s that I have previously used with the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;RP2040 board&lt;/a&gt;, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor. The screens which I assembled last month, provide a great way to display the data, the first task is to look at connecting every together, then building a colour map to display the temperature values.&lt;/p&gt;
