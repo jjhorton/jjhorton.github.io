@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using a large LED Matrix over the HUB75 interface to display inferred sensor values'><title>Infrared Sensor with an LED Matrix</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/ir_hub75/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Infrared Sensor with an LED Matrix'>
+<meta property='og:description' content='Using a large LED Matrix over the HUB75 interface to display inferred sensor values'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/ir_hub75/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='PMod' /><meta property='article:tag' content='RP2040' /><meta property='article:tag' content='Pico' /><meta property='article:tag' content='hub75' /><meta property='article:tag' content='LED' /><meta property='article:published_time' content='2023-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/hub75_header.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Infrared Sensor with an LED Matrix">
+<meta name="twitter:description" content="Using a large LED Matrix over the HUB75 interface to display inferred sensor values"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/hub75_header.jpg' />
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-59185025-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://www.linkedin.com/in/jjhorton/'
+                            target="_blank"
+                            title="LinkedIn"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/ir_hub75/">
+                
+                    <img src="/img/hub75_header.jpg" loading="lazy" alt="Featured image of post Infrared Sensor with an LED Matrix" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/ir_hub75/">Infrared Sensor with an LED Matrix</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Using a large LED Matrix over the HUB75 interface to display inferred sensor values
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 31, 2023</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>Having picked up a couple of LED Matrix&rsquo;s from <a class="link" href="https://www.aliexpress.com/"  target="_blank" rel="noopener"
+    >aliexpress</a> that I thought should finally be put to some good use, having perviously made up some IR Thermal camera PMods I thought it would be a great idea to hook them up together, and have a nice big display with the array from these sensors scaled up.</p>
+<p>The hardware that is needed mostly relies on what I had already built, mainly the <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> and the <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorpmod/" >PMod IR Camera</a>, but there is the need for a board to interface between the HUB75 display and the RP2040 PMod board. While for initial testing it was not problem to drive the display directly, i decided to invest some time to make some proper interface boards.</p>
+<p>![Using the Raspberry Pi example with custom image](/img/hub75_textdispla   y.jpg)</p>
+<p>The proof of concept was to hook up the display directly to the <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> which was completed using some short wires and a HUB75 example from the Raspberry Pi Pico github Repository. This allows for using a static preprocessed image when directly attached up, but this is a hacky solution, so hence the need for a more permanent solution.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_Schematic.png" >
+		<img src="/img/hub75_Schematic.png"
+			
+			
+			
+			loading="lazy"
+			alt="PMod Hub75 Schematic">
+	</a>
+	
+	<figcaption>PMod Hub75 Schematic</figcaption>
+	
+</figure></p>
+<p>The design uses a SN74LVC8T245 which is an eight bit non-inverting bus transceiver, this is based loosely on a board design I saw used with the iceBreaker FPGA boards, but I use a larger variant of the chip because it is easier to solder and work with. The Schematic was designed with <a class="link" href="https://www.kicad.org/"  target="_blank" rel="noopener"
+    >KiCAD</a> as with my other recent PCB&rsquo;s.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_PCB_Layout.png" >
+		<img src="/img/hub75_PCB_Layout.png"
+			
+			
+			
+			loading="lazy"
+			alt="PMod Hub75 PCB Layout">
+	</a>
+	
+	<figcaption>PMod Hub75 PCB Layout</figcaption>
+	
+</figure></p>
+<p>The PCB&rsquo;s where then produced by <a class="link" href="https://jlcpcb.com/"  target="_blank" rel="noopener"
+    >JLCPCB</a> in the excellent purple colour, for the labels this time I made use of <a class="link" href="https://github.com/gregdavill/KiBuzzard"  target="_blank" rel="noopener"
+    >KiBuzzard</a> which allows me to generate the labels I use to show the signals on the hub75 connector.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_control_pcb.jpg" >
+		<img src="/img/hub75_control_pcb.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Purple PCB&rsquo;s from JLCPCB">
+	</a>
+	
+	<figcaption>Purple PCB’s from JLCPCB</figcaption>
+	
+</figure></p>
+<p>The PCB&rsquo;s were assembled by hand using a solder stencil from <a class="link" href="https://jlcpcb.com/"  target="_blank" rel="noopener"
+    >JLCPCB</a> that I used with my <a class="link" href="https://www.aliexpress.com/"  target="_blank" rel="noopener"
+    >aliexpress</a> hot plate, the results are pretty good and I managed to get all five examples I built fully working.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_pmod_controller.jpg" >
+		<img src="/img/hub75_pmod_controller.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Assesmbed PMod Hub75 Boards">
+	</a>
+	
+	<figcaption>Assesmbed PMod Hub75 Boards</figcaption>
+	
+</figure></p>
+<p>With that completed and the previous attempts having creating an example that displays the values on a <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorneopixel/" >8x8 neopixel display</a>,  which has many of the key features, but now I just needed to scale up the image.</p>
+<p>The first attempt to scale up the image to fit on the 64 by 64 LED matrix, worked by splitting up the pixels into an 8x8 grid, where each square controlled by the single values from the IR grid array. Each square has 8x8 indervidual RGB LED&rsquo;s, that are controlled, this is simple to implement in <code>c</code> and can be completed by just a few loops.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//upscale in 8x8 blocks of color
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span><span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="p">((</span><span class="n">i</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The result is an image that fills the LED matrix, and help make it easy to see the image, but there are some limitations of this mainly how easy it is to interpret the image. The blocky nature of the image limits how useful it is, and is essentially just a scaled up version on the <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorneopixel/" >Neopixel example</a>.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_scaled_img.png" >
+		<img src="/img/hub75_scaled_img.png"
+			
+			
+			
+			loading="lazy"
+			alt="Initial image displayed on the screen">
+	</a>
+	
+	<figcaption>Initial image displayed on the screen</figcaption>
+	
+</figure></p>
+<p>The next attempt I wanted to look at was smoothing the image, to make it appear as though the image has a much higher resolution. This removes the blocky values that I created before and attempts to guess the values in between the points, creating a smooth line between them, the 2d linear interpolation is often referred to Bilinear interpolation</p>
+<p>For this I use a simple two step process:</p>
+<ol>
+<li>taking each row of 8, and then upscaling them to a row of 64.</li>
+<li>Then use the values from the expanded row to do the same for each column.</li>
+</ol>
+<p>The first step can be summaries with a simple formula, where for each pair of values we got from the sensor we just need to create 7 steps, which are done with the formula:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">x0</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Where <code>x0</code> and <code>x1</code> are the points either side of the position we want to add in, and the <code>n</code> is the point that we want to add which in this case is <code>n/8</code> steps, moving along the line for each value of <code>n</code> up to 8. The only variation of this formula is on the last run where we use a slightly shorter edge so that line including the actual measurements is included on this display. The main complication for implementation in C for running on the Pico is that we need to deal with the array the data is saved in only being 2D, and no where to find our 3D values correctly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">7</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//first cell is the actual value from the sensor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="p">((</span><span class="n">i</span><span class="o">*</span><span class="mi">9</span><span class="p">))]</span> <span class="o">=</span> <span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//calculate inter factor between each of the pixelsa
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">float</span> <span class="n">i_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">-</span> <span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">             <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="n">i_diff</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="p">((</span><span class="n">i</span><span class="o">*</span><span class="mi">9</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="p">(((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">my_temps</span><span class="p">[(</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Completing the columns is just a simple case of applying the same principles from the rows to our freshly expanded array which is 64x8, so that it will become 64x64. We just need to deal with the special case of the end pixels again where the gap is different:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="kt">float</span> <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="kt">float</span> <span class="n">ref_start</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">                    <span class="kt">float</span> <span class="n">ref_end</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="mi">7</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">//end pixels
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">ref_start</span> <span class="o">=</span> <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">ref_end</span> <span class="o">=</span> <span class="n">upscaled_temps</span><span class="p">[((((</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">ref_end</span><span class="o">-</span><span class="n">ref_start</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">//middle pixels
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">ref_start</span> <span class="o">=</span> <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">ref_end</span> <span class="o">=</span> <span class="n">upscaled_temps</span><span class="p">[((((</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">))</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">ref_end</span> <span class="o">-</span><span class="n">ref_start</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">b</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="n">diff</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">upscaled_temps</span><span class="p">[(((</span><span class="n">j</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref_start</span> <span class="o">+</span> <span class="n">step</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><p>With that completed we can now send the image we h=have generated to the display, as the sensor only provides an image at a maximum rate of 10 frames per second there isn&rsquo;t much of a need to optimize this in this example.</p>
+<p><figure 
+	>
+	<a href="/img/hub75_complete.png" >
+		<img src="/img/hub75_complete.png"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>I may in the future have a look at finding a way to implement <a class="link" href="https://en.wikipedia.org/wiki/Bicubic_interpolation"  target="_blank" rel="noopener"
+    >bicubic interpolation</a>, as that would improve the image that is produced, but also I would like to mount the camera and RP2040 onto the back of the screen with a single power supply so only a single power supply is needed, but all that is a task for another day.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pmod/">PMod</a>
+        
+            <a href="/tags/rp2040/">RP2040</a>
+        
+            <a href="/tags/pico/">Pico</a>
+        
+            <a href="/tags/hub75/">hub75</a>
+        
+            <a href="/tags/led/">LED</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/posts/rp2040_pmod/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/rp2040pmod_blankpcb.jpg" loading="lazy" data-key="" data-hash="/img/rp2040pmod_blankpcb.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RP2040 PMod PCB</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/chrismas_gps_countdown/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/countdown_gps_running.png" loading="lazy" data-key="" data-hash="/img/countdown_gps_running.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Upgrading the christmas countdown with GPS</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/gps_pmod_board/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/Pmod-GPS_Purple.jpg" loading="lazy" data-key="" data-hash="/img/Pmod-GPS_Purple.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Creating a GPS PMod Board</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/ikea-air_quality-sensor/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022-Ikea_Pico_w.jpg" loading="lazy" data-key="" data-hash="/img/2022-Ikea_Pico_w.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Getting started IKEA Vindriktning in Home Assistant with Pico W</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/christmascountdown/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/ChristmasCountdown_OpenSCAD.jpg" loading="lazy" data-key="" data-hash="/img/ChristmasCountdown_OpenSCAD.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Christmas Countdown</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2023 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
