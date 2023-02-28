@@ -6,7 +6,17 @@
     <description>Recent content in Posts on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding a second channel to the Pluto SDR</title>
+      <link>https://jjhorton.co.uk/posts/plutosdr2channel/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/plutosdr2channel/</guid>
+      <description>The Pluto SDR is available from a number of suppliers, I got this one from mouser, and the stock was recent enough to be one of the current version, which allows access to a great extra feature, a second Receive and Transmit Chain. All that is required is a few modifications that can be done at home to allow physical access and then enable the ports.
+The first step for me was adding in the physical place for the SMA connectors that will take the signal out of the case, for this I drilled two holes to drop the panel mount connectors.</description>
+    </item>
+    
     <item>
       <title>Infrared Sensor with an LED Matrix</title>
       <link>https://jjhorton.co.uk/posts/ir_hub75/</link>
