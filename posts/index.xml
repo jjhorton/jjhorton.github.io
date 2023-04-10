@@ -6,7 +6,18 @@
     <description>Recent content in Posts on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a SigMF file from a PlutoSDR Capture</title>
+      <link>https://jjhorton.co.uk/posts/plutosdrsigmfcapture/</link>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/plutosdrsigmfcapture/</guid>
+      <description>In this post I am going to document using the modified 2 channel Pluto SDR Radio and saving the data to a SigMF file, which includes both the original data and the meta data describing the capture that has taken place.
+The first task is to install the tools that are required for the capture and saving the file to the disk.
+import sys !{sys.executable} -m pip install pyadi-iio !{sys.executable} -m pip install sigmf The common tools that I will need for carrying out the processing I plan to do, numpy is for working with the number, while matlibplot is used for plotting the samples we capture and datetime is used to get the current time and date from the system</description>
+    </item>
+    
     <item>
       <title>Adding a second channel to the Pluto SDR</title>
       <link>https://jjhorton.co.uk/posts/plutosdr2channel/</link>
