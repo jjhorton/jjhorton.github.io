@@ -6,7 +6,74 @@
         <description>Recent content on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Mon, 10 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
+        <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
+        <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/kicad-github-panels/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg" alt="Featured image of post Automatically panellization of Kicad PCB&#39;s with github Actions" /&gt;&lt;p&gt;As part of my PCB design workflow I use kibot to process my PCB&amp;rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&amp;rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.&lt;/p&gt;
+&lt;p&gt;For generating the Git short sha, from within the github action, we create a varrible to store the current github short sha, which checks if &lt;code&gt;github.event.pull_request.head.sha&lt;/code&gt; is avalible and use it, if it is not avalible use &lt;code&gt;git rev-parse --short HEAD&lt;/code&gt; to populate the variable &lt;code&gt;sha_short&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    # Do a string replacement in the PCB file to set the git HASH
+    - name: Set outputs
+      id: vars
+      run: |
+        if [${{ github.event.pull_request.head.sha }} == &amp;#34;&amp;#34;]; then
+          echo &amp;#34;::set-output name=sha_short::$(git rev-parse --short HEAD)&amp;#34;
+        else
+          echo &amp;#34;::set-output name=sha_short::$(git rev-parse --short ${{ github.event.pull_request.head.sha }})&amp;#34;
+        fi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I need to create a reference to replace in the Kicad PCB, the KICAD pcb file is essentially a text file so I can take some text that is otherwise not in the file, and for my PCB i am using &lt;code&gt;%%GITHASH%%&lt;/code&gt;. This is placed on the back silkscreen of the PCB, where I want the short SHA to be placed.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_mini_pcb_bottom.png&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_pcb_bottom.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			&gt;
+	&lt;/a&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Using this variable and the &lt;code&gt;%%GITHASH%%&lt;/code&gt; reference on the board we use a find and replace operation in the github action to complete the replacement.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    - name: Set PCB version
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        include: &amp;#34;Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb&amp;#34;
+        find: &amp;#34;%%GITHASH%%&amp;#34;
+        replace: ${{ steps.vars.outputs.sha_short }}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the Github SHA replacement completed on the board, the next task is to create the panels of the board using &lt;code&gt;kikit&lt;/code&gt;, I have used this a lot in the past, but by using within the github action we can ensure that the same board is always generated. As part of this github action, I also take the opportunity to ensure the &lt;code&gt;JLC&lt;/code&gt; part number is added added on the panels frame as well as other automatically generated information such as the same SHA Hash and the date that the PCb was generated.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    - name: Make a panel 
+      run: |
+        kikit panelize \
+          --layout &amp;#39;grid; rows: 3; cols: 2; space: 2mm&amp;#39; \
+          --tabs &amp;#39;fixed; width: 5mm; vcount: 2; hcount: 0&amp;#39; \
+          --cuts &amp;#39;mousebites; drill: 0.5mm; spacing: 1mm; offset: -0.2mm; prolong: 0.7mm&amp;#39; \
+          --framing &amp;#39;railstb; width: 5mm; space: 3mm;&amp;#39; \
+          --post &amp;#39;millradius: 1mm&amp;#39; \
+          --text &amp;#39;simple; text: JLCJLCJLCJLC; anchor: mt; voffset: 2.5mm; hjustify: center; vjustify: center;&amp;#39; \
+          --text2 &amp;#39;simple; text: Created {date}    Git Version ${{ steps.vars.outputs.sha_short }}; anchor: mb; voffset: -2.5mm; hjustify: center; vjustify: center;&amp;#39; \
+          Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb Hardware/RP2040_Mini_PMod/panel.kicad_pcb
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The complete github action for generating the PCB&amp;rsquo;s can be found &lt;a class=&#34;link&#34; href=&#34;https://raw.githubusercontent.com/jjhorton/Pico_Pmod/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt; as part of the RP2040 mini PMod I have been building.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Completed PCB panels with github SHA and Date generated&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Completed PCB panels with github SHA and Date generated&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Creating a SigMF file from a PlutoSDR Capture</title>
         <link>https://jjhorton.co.uk/posts/plutosdrsigmfcapture/</link>
         <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>

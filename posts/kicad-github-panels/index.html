@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s'><title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/kicad-github-panels/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Automatically panellization of Kicad PCB&#39;s with github Actions'>
+<meta property='og:description' content='Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/kicad-github-panels/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Raspberry Pi' /><meta property='article:tag' content='Pico' /><meta property='article:tag' content='RP2040' /><meta property='article:tag' content='Kicad' /><meta property='article:tag' content='JLCPCB' /><meta property='article:tag' content='Github' /><meta property='article:published_time' content='2023-05-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Automatically panellization of Kicad PCB&#39;s with github Actions">
+<meta name="twitter:description" content="Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-59185025-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">James Horton</a></h1>
+        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/jjhorton'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://www.linkedin.com/in/jjhorton/'
+                            target="_blank"
+                            title="LinkedIn"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com/JamesjHorton'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/kicad-github-panels/">
+                
+                    <img src="/img/RP2040_PCB_Panels.jpg" loading="lazy" alt="Featured image of post Automatically panellization of Kicad PCB&#39;s with github Actions" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/kicad-github-panels/">Automatically panellization of Kicad PCB&#39;s with github Actions</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 10, 2023</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>As part of my PCB design workflow I use kibot to process my PCB&rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</p>
+<p>For generating the Git short sha, from within the github action, we create a varrible to store the current github short sha, which checks if <code>github.event.pull_request.head.sha</code> is avalible and use it, if it is not avalible use <code>git rev-parse --short HEAD</code> to populate the variable <code>sha_short</code>.</p>
+<pre tabindex="0"><code>    # Do a string replacement in the PCB file to set the git HASH
+    - name: Set outputs
+      id: vars
+      run: |
+        if [${{ github.event.pull_request.head.sha }} == &#34;&#34;]; then
+          echo &#34;::set-output name=sha_short::$(git rev-parse --short HEAD)&#34;
+        else
+          echo &#34;::set-output name=sha_short::$(git rev-parse --short ${{ github.event.pull_request.head.sha }})&#34;
+        fi
+</code></pre><p>I need to create a reference to replace in the Kicad PCB, the KICAD pcb file is essentially a text file so I can take some text that is otherwise not in the file, and for my PCB i am using <code>%%GITHASH%%</code>. This is placed on the back silkscreen of the PCB, where I want the short SHA to be placed.</p>
+<p><figure 
+	>
+	<a href="/img/RP2040_mini_pcb_bottom.png" >
+		<img src="/img/RP2040_mini_pcb_bottom.png"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>Using this variable and the <code>%%GITHASH%%</code> reference on the board we use a find and replace operation in the github action to complete the replacement.</p>
+<pre tabindex="0"><code>    - name: Set PCB version
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        include: &#34;Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb&#34;
+        find: &#34;%%GITHASH%%&#34;
+        replace: ${{ steps.vars.outputs.sha_short }}
+</code></pre><p>With the Github SHA replacement completed on the board, the next task is to create the panels of the board using <code>kikit</code>, I have used this a lot in the past, but by using within the github action we can ensure that the same board is always generated. As part of this github action, I also take the opportunity to ensure the <code>JLC</code> part number is added added on the panels frame as well as other automatically generated information such as the same SHA Hash and the date that the PCb was generated.</p>
+<pre tabindex="0"><code>    - name: Make a panel 
+      run: |
+        kikit panelize \
+          --layout &#39;grid; rows: 3; cols: 2; space: 2mm&#39; \
+          --tabs &#39;fixed; width: 5mm; vcount: 2; hcount: 0&#39; \
+          --cuts &#39;mousebites; drill: 0.5mm; spacing: 1mm; offset: -0.2mm; prolong: 0.7mm&#39; \
+          --framing &#39;railstb; width: 5mm; space: 3mm;&#39; \
+          --post &#39;millradius: 1mm&#39; \
+          --text &#39;simple; text: JLCJLCJLCJLC; anchor: mt; voffset: 2.5mm; hjustify: center; vjustify: center;&#39; \
+          --text2 &#39;simple; text: Created {date}    Git Version ${{ steps.vars.outputs.sha_short }}; anchor: mb; voffset: -2.5mm; hjustify: center; vjustify: center;&#39; \
+          Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb Hardware/RP2040_Mini_PMod/panel.kicad_pcb
+</code></pre><p>The complete github action for generating the PCB&rsquo;s can be found <a class="link" href="https://raw.githubusercontent.com/jjhorton/Pico_Pmod/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml"  target="_blank" rel="noopener"
+    >here</a> as part of the RP2040 mini PMod I have been building.</p>
+<p><figure 
+	>
+	<a href="/img/RP2040_PCB_Panels.jpg" >
+		<img src="/img/RP2040_PCB_Panels.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Completed PCB panels with github SHA and Date generated">
+	</a>
+	
+	<figcaption>Completed PCB panels with github SHA and Date generated</figcaption>
+	
+</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/raspberry-pi/">Raspberry Pi</a>
+        
+            <a href="/tags/pico/">Pico</a>
+        
+            <a href="/tags/rp2040/">RP2040</a>
+        
+            <a href="/tags/kicad/">Kicad</a>
+        
+            <a href="/tags/jlcpcb/">JLCPCB</a>
+        
+            <a href="/tags/github/">Github</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/posts/ikea-air_quality-sensor/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022-Ikea_Pico_w.jpg" loading="lazy" data-key="" data-hash="/img/2022-Ikea_Pico_w.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Getting started IKEA Vindriktning in Home Assistant with Pico W</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/rp2040_pmod/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/rp2040pmod_blankpcb.jpg" loading="lazy" data-key="" data-hash="/img/rp2040pmod_blankpcb.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RP2040 PMod PCB</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/ir_hub75/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/hub75_header.jpg" loading="lazy" data-key="" data-hash="/img/hub75_header.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Infrared Sensor with an LED Matrix</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/chrismas_gps_countdown/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/countdown_gps_running.png" loading="lazy" data-key="" data-hash="/img/countdown_gps_running.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Upgrading the christmas countdown with GPS</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/posts/gps_pmod_board/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/Pmod-GPS_Purple.jpg" loading="lazy" data-key="" data-hash="/img/Pmod-GPS_Purple.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Creating a GPS PMod Board</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2023 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
