@@ -6,7 +6,16 @@
     <description>Recent content in Posts on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Mon, 10 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
+      <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
+      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/kicad-github-panels/</guid>
+      <description>As part of my PCB design workflow I use kibot to process my PCB&amp;rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&amp;rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</description>
+    </item>
+    
     <item>
       <title>Creating a SigMF file from a PlutoSDR Capture</title>
       <link>https://jjhorton.co.uk/posts/plutosdrsigmfcapture/</link>

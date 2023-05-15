@@ -9,7 +9,7 @@
 <meta property='og:description' content='Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/kicad-github-panels/'>
 <meta property='og:site_name' content='James Horton'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Raspberry Pi' /><meta property='article:tag' content='Pico' /><meta property='article:tag' content='RP2040' /><meta property='article:tag' content='Kicad' /><meta property='article:tag' content='JLCPCB' /><meta property='article:tag' content='Github' /><meta property='article:published_time' content='2023-05-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Raspberry Pi' /><meta property='article:tag' content='Pico' /><meta property='article:tag' content='RP2040' /><meta property='article:tag' content='Kicad' /><meta property='article:tag' content='JLCPCB' /><meta property='article:tag' content='Github' /><meta property='article:published_time' content='2023-05-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
 <meta name="twitter:site" content="@JamesjHorton">
     <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Automatically panellization of Kicad PCB&#39;s with github Actions">
 <meta name="twitter:description" content="Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s"><meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 10, 2023</time>
+                <time class="article-time--published">May 15, 2023</time>
             </div>
         
 
@@ -287,7 +287,8 @@ if (!doNotTrack) {
 </header>
 
     <section class="article-content">
-    <p>As part of my PCB design workflow I use kibot to process my PCB&rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</p>
+    <p>As part of my PCB design workflow I use <a class="link" href="https://github.com/INTI-CMNB/KiBot"  target="_blank" rel="noopener"
+    >kibot</a> to process my PCB&rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</p>
 <p>For generating the Git short sha, from within the github action, we create a varrible to store the current github short sha, which checks if <code>github.event.pull_request.head.sha</code> is avalible and use it, if it is not avalible use <code>git rev-parse --short HEAD</code> to populate the variable <code>sha_short</code>.</p>
 <pre tabindex="0"><code>    # Do a string replacement in the PCB file to set the git HASH
     - name: Set outputs
