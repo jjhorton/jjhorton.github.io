@@ -6,7 +6,175 @@
         <description>Recent content on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Mon, 15 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RP2040 Mini PMod</title>
+        <link>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</link>
+        <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/RP2040_mini_complete.jpg" alt="Featured image of post RP2040 Mini PMod" /&gt;&lt;p&gt;My pervious &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod board&lt;/a&gt; included 3 PMod Connectors and a USB-C, this has been a great little board for development and testing but there are a couple of issues with this board. The first problem is the size, I would prefer something a bit smaller, with only a single PMod connector. The second is the lack of some additional storage, for logging data to such as GPS positions, and then finally is the cost with the expensive USB-C connector used on my original design being a particular problem, costing more than the RP2040 Micro Controller.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_Mini_SdCard_Schematic.png&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Mini_SdCard_Schematic.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;SD Card KiCAD Schematic&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;SD Card KiCAD Schematic&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The micro SD card slot is mainly for projects where being able to log data is useful, rather than sending it to a connected PC to be stored on there. I have found this could be useful for a number of of the PMod boards I have, where currently I would just send data over onto a PC to save the data, just logging the data locally provides some better options. I did look at making myself a few little PMod breakout boards, but I soon realized that this wouldn&amp;rsquo;t work well with the RP2040 boards I use them with a lot at the moment, so hence why this board the Micro SD directly on the back of the board.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_Mini_USB_Schematic.png&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Mini_USB_Schematic.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;USB-C connector&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;USB-C connector&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;On my &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; and several other boards I have made with a USB connection I have used a &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/Amphenol-Commercial-Products/12401610E42A?qs=EgDjlb95zqAWvChv41w5lg%3D%3D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;USB-C Connector&lt;/a&gt;, USB-C is great,  even though I am only making use of the USB 2.0 functionality, and none of the high speed or high power options, using USB-C has proved a reliable way to connector my development boards up to a PC or Power Supply. The USB-C is now often the only port available on my laptops and the option reduce the number of adapters and cables I need to carry it is always a great reason to standardize the boards I personally make around these.&lt;/p&gt;
+&lt;p&gt;The main disadvantage with USB-C is the cost of the connectors, on the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; the USB-C connector costs as much as the RP2040 Micro Controller, making it at the time i made my second batch of boards, the most expensive part on the board. So as a way of reducing this cost, I looked at alternatives to using these expensive connector, and one of the best ones I came across was using the &lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PCB as the connector&lt;/a&gt;, this removes the part and allows the PCB to do the task in its place, although this isn&amp;rsquo;t without its problems.&lt;/p&gt;
+&lt;p&gt;While I could have spent some time creating a footprint for this part I was able to use the KIcad footprint that someone else had already created, the &lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;KiCAD footprint&lt;/a&gt; could just be imported and used in place of the old footprint that I previously used. As these are board edge connectors, it is important to consider placement of the connector and allowing space for the cable around the connector.&lt;/p&gt;
+&lt;p&gt;As the PCB and it&amp;rsquo;s pads are making up the connector and it will need to slot directly into USB-C cable, we need to considered the PCB thickness, based on the recommendations of a hackaday &lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;post&lt;/a&gt;, it appeared that using 0.8mm would be fine from &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt; even though the size is a little large with the tolerances that USB-C cables allow for, it mates with a cable without any issues.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_mini_barepcb.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_barepcb.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			&gt;
+	&lt;/a&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Prototyping 3D Printing models to test out the functional elements of the design, and comparing with the actual PCB&amp;rsquo;s. Using the exported models from the kicad and using Cura and my Ender3 3D printer to produce models for testing that the USB connector would be able to fit into the connector, confirming if the PCB thickness was suitable and if I had allowed enough space for most the cables I have at home to be able to fit.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_mini_3D_Model.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_3D_Model.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;3D Printed testing prototype&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;3D Printed testing prototype&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The PCB&amp;rsquo;s can be assembled individually or in complete panels, but generally I work on complete panels, these boards use many common components on the larger RP2040 PMod board. While even the most simple design changes can give me problems sometimes, as a respin was required to correct an error with the RGB LED&amp;rsquo;s, that I had wired the wrong way round.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_mini_assemble.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_assemble.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Assembling the PCB&amp;rsquo;s&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Assembling the PCB’s&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The PCB files are produced automatically using an &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod/blob/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github action&lt;/a&gt; which I write up in my post about &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/kicad-github-panels/&#34; &gt;Kicad PCB Panels&lt;/a&gt; including adding the githash to the board help to keep track of the versions of the board.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;The panels of PCB&amp;rsquo;s generated using github actions&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;The panels of PCB’s generated using github actions&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;I now have a collection of RP2040 board, all with the same Micro Controller and PMod connector. The mini model is much smaller, which still allowing plenty of compatibility with the standard PMod modules. I hoping the addition SD Card on the back will allow me to play with a few more logging  type examples, as well as make some more practical examples with the &lt;a class=&#34;link&#34; href=&#34;InfraredSensorPMod.md&#34; &gt;Thermal Camera&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;gps_pmod_board.md&#34; &gt;PMod GPS Board&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://jjhorton.co.uk/img/RP2040_Collection.jpg&#34; &gt;
+		&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Collection.jpg&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right) &#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right)&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Useful Links and references that I found while creating these boards are in the table below:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Reference&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;R1&lt;/td&gt;
+&lt;td&gt;flexible PCB example&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R2&lt;/td&gt;
+&lt;td&gt;usb type c on pcb&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R3&lt;/td&gt;
+&lt;td&gt;with repo:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R4&lt;/td&gt;
+&lt;td&gt;different types:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R5&lt;/td&gt;
+&lt;td&gt;project source of the connector used:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/wiki/PCBA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/joric/nrfmicro/wiki/PCBA&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R6&lt;/td&gt;
+&lt;td&gt;location of the files from github:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
         <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
         <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
         <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>

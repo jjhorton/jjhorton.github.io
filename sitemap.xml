@@ -2,34 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jjhorton.co.uk/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/kicad/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/pico/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/pmod/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/rp2040/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jjhorton.co.uk/posts/kicad-github-panels/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/github/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/tags/jlcpcb/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/kicad/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/pico/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/rp2040/</loc>
-    <lastmod>2023-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/plutosdrsigmfcapture/</loc>
@@ -57,9 +63,6 @@
     <lastmod>2023-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/led/</loc>
-    <lastmod>2023-01-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/pmod/</loc>
     <lastmod>2023-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/gps/</loc>

@@ -6,7 +6,16 @@
     <description>Recent content in RP2040 on James Horton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Mon, 15 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RP2040 Mini PMod</title>
+      <link>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</guid>
+      <description>My pervious RP2040 PMod board included 3 PMod Connectors and a USB-C, this has been a great little board for development and testing but there are a couple of issues with this board. The first problem is the size, I would prefer something a bit smaller, with only a single PMod connector. The second is the lack of some additional storage, for logging data to such as GPS positions, and then finally is the cost with the expensive USB-C connector used on my original design being a particular problem, costing more than the RP2040 Micro Controller.</description>
+    </item>
+    
     <item>
       <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
       <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
