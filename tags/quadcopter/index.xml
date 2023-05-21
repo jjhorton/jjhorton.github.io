@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Quadcopter on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/quadcopter/</link>
-    <description>Recent content in Quadcopter on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/quadcopter/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Low Cost Quad Rotor Design and Implementation Report</title>
-      <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
-      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
-      <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
-Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Quadcopter on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/quadcopter/</link>
+        <description>Recent content in Quadcopter on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/quadcopter/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Low Cost Quad Rotor Design and Implementation Report</title>
+        <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
+        <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Low Cost Quad Rotor Design and Implementation Report" /&gt;&lt;p&gt;Now that the project is long finished and my marks for the year have
+been given I thought I would share the final report for the project.&lt;/p&gt;
+&lt;p&gt;Although the project was not completed, with me unable to finish tuning
+the PID control loops to a standard were it would be able to fly, I was
+successfully able to get the quad rotor to be able to balance most of
+the time on its test jig. Hopefully at some point in the future I will
+be able to finish the project, but at the moment there is just too much
+to do and not enough time.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://jjhorton.co.uk/wp-content/uploads/2012/11/FinalProjectReport.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Low Cost Quad Rotor Design and Implementation Final
+Report&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

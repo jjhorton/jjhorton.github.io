@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-uk">
+<html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Creating PCB filters using MATLAB RF PCB Toolbox'><title>Designing PCB Filters using MATLAB</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Creating PCB filters using MATLAB RF PCB Toolbox'>
+<title>Designing PCB Filters using MATLAB</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/matlabpcbfilters/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Designing PCB Filters using MATLAB'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Designing PCB Filters using MATLAB'>
 <meta property='og:description' content='Creating PCB filters using MATLAB RF PCB Toolbox'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/matlabpcbfilters/'>
 <meta property='og:site_name' content='James Horton'>
@@ -27,8 +28,8 @@ if (!doNotTrack) {
 
     </head>
     <body class="
-    article-page 
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -51,23 +52,18 @@ if (!doNotTrack) {
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        on-phone--column extended
-    
-">
-    
-        <aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <header class="site-info">
+    <header>
         
             
             <figure class="site-avatar">
+                <a href="/">
                 
                     
                     
@@ -77,43 +73,48 @@ if (!doNotTrack) {
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
-
+                </a>
                 
             </figure>
             
         
         
-        <h1 class="site-name"><a href="/">James Horton</a></h1>
-        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
-                
-                    <li>
-                        <a 
-                            href='https://github.com/jjhorton'
-                            target="_blank"
-                            title="GitHub"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://www.linkedin.com/in/jjhorton/'
-                            target="_blank"
-                            title="LinkedIn"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <rect x="4" y="4" width="16" height="16" rx="2" />
   <line x1="8" y1="11" x2="8" y2="16" />
@@ -121,32 +122,31 @@ if (!doNotTrack) {
   <line x1="12" y1="16" x2="12" y2="11" />
   <path d="M16 16v-3a2 2 0 0 0 -4 0" />
 </svg>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://twitter.com/JamesjHorton'
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-            </ol></header>
-
-    <ol class="menu" id="main-menu">
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
         
         
         
@@ -212,9 +212,11 @@ if (!doNotTrack) {
         </li>
         
 
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -222,7 +224,7 @@ if (!doNotTrack) {
 
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -230,14 +232,16 @@ if (!doNotTrack) {
 
 
 
-                <span>Dark Mode</span>
-            </li>
-        
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
     </ol>
 </aside>
 
     
-<main class="main full-width">
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
@@ -252,16 +256,21 @@ if (!doNotTrack) {
     <div class="article-details">
     
 
-    <h2 class="article-title">
-        <a href="/posts/matlabpcbfilters/">Designing PCB Filters using MATLAB</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/matlabpcbfilters/">Designing PCB Filters using MATLAB</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Creating PCB filters using MATLAB RF PCB Toolbox
+        </h3>
+        
+    </div>
 
     
-    <h3 class="article-subtitle">
-        Creating PCB filters using MATLAB RF PCB Toolbox
-    </h3>
     
-
+    
     
     <footer class="article-time">
         
@@ -282,10 +291,15 @@ if (!doNotTrack) {
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <p><a class="link" href="https://mathworks.com"  target="_blank" rel="noopener"
     >Mathworks</a> released the RF PCB Toolbox with the <a class="link" href="https://uk.mathworks.com/help/rfpcb/release-notes.html"  target="_blank" rel="noopener"
     >latest release</a> of MATLAB, R2021B, this toolbox allows the creation and visualisation of &ldquo;Transmission lines, Couplers, Splitters, Filters, and More&rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I&rsquo;ve always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.</p>
@@ -309,54 +323,42 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="n">filter</span><span class="p">.</span><span class="n">Height</span> <span class="p">=</span> <span class="n">Height</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">filter</span> <span class="p">=</span> <span class="n">design</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span><span class="mf">2440e6</span><span class="p">,</span><span class="s">&#39;FBW&#39;</span><span class="p">,</span><span class="n">BandWidth</span><span class="p">,</span><span class="s">&#39;RippleFactor&#39;</span><span class="p">,</span><span class="n">Ripple</span><span class="p">);</span>
 </span></span></code></pre></div><p>With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the <code>show(filter);</code> command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Design_Matlab.png" >
-		<img src="/img/MatlabFilter_Design_Matlab.png"
-			
-			
-			
-			loading="lazy"
-			alt="Matlab Filter design plot">
-	</a>
+<p><img src="/img/MatlabFilter_Design_Matlab.png"
 	
-	<figcaption>Matlab Filter design plot</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Matlab Filter design plot"
+	
+	
+></p>
 <p>The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">spar</span> <span class="p">=</span> <span class="n">sparameters</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span><span class="n">f</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">figure</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="n">rfplot</span><span class="p">(</span><span class="n">spar</span><span class="p">);</span>
 </span></span></code></pre></div><p>This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable <code>f</code>, but this helps to produce a graph which is shown bellow with our simulated performance.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Frequency_response_2440_3.png" >
-		<img src="/img/MatlabFilter_Frequency_response_2440_3.png"
-			
-			
-			
-			loading="lazy"
-			alt="Simulated Frequency Response">
-	</a>
+<p><img src="/img/MatlabFilter_Frequency_response_2440_3.png"
 	
-	<figcaption>Simulated Frequency Response</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Simulated Frequency Response"
+	
+	
+></p>
 <p>The next plot is the Current Distribution, i&rsquo;m not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Current.png" >
-		<img src="/img/MatlabFilter_Current.png"
-			
-			
-			
-			loading="lazy"
-			alt="Current Plots">
-	</a>
+<p><img src="/img/MatlabFilter_Current.png"
 	
-	<figcaption>Current Plots</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Current Plots"
+	
+	
+></p>
 <p>With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn&rsquo;t find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.</p>
 <p>My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="n">p</span> <span class="p">=</span> <span class="n">pcbComponent</span><span class="p">(</span><span class="n">filter</span><span class="p">);</span>
@@ -374,96 +376,72 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">g</span><span class="p">]</span> <span class="p">=</span> <span class="n">gerberWrite</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">W</span><span class="p">,{</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">})</span>
 </span></span></code></pre></div><p>It actually took me a long time to work out how to add the connectors, and I&rsquo;m not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed the only way I could work out how to add them. The N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the <code>ExtendBoardProfile</code> as this kept producing boards with area&rsquo;s of the PCB Filter missing with the connectors floating away from the PCB in the resulting Plots and gerber files. I had to add in a port line length to and from the filter with <code>filter.PortLineLength = 0.006;</code> to force the designed filter to put the connectors where i wanted and stop MATLAB from placing the SMA&rsquo;s ground connection within the filter. The issues like this all seemed to be a bit buggy, typical early release problems, but given this is the first release they will hopefully improve with time.</p>
 <p>With the output files generated I then opened loaded the Gerber files into KiCad&rsquo;s Gerber Viewer and imported the layer into PcbNew, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don&rsquo;t think should have been added.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_PCBs.jpg" >
-		<img src="/img/MatlabFilter_PCBs.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Red PCB&rsquo;s from JLCPCB">
-	</a>
+<p><img src="/img/MatlabFilter_PCBs.jpg"
 	
-	<figcaption>Red PCB’s from JLCPCB</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Red PCB&rsquo;s from JLCPCB"
+	
+	
+></p>
 <p>With all that sorted, I added my designs to my filters GitHub repo and ordered the PCB using the Gerber files that were generated by KiCAD. Once the PCB&rsquo;s had arrived from JLCPCB about a month after I had ordered, it was time to add some SMA connectors and give them a test.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilterSoldering.jpg" >
-		<img src="/img/MatlabFilterSoldering.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Soldering the SMA Connectors">
-	</a>
+<p><img src="/img/MatlabFilterSoldering.jpg"
 	
-	<figcaption>Soldering the SMA Connectors</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Soldering the SMA Connectors"
+	
+	
+></p>
 <p>I&rsquo;m using a NanoVNA to test them out, while not as good as a proper Network Analyser, but given the Nano VNA cost £60 it provides a great way of being able to get a good idea of there performance of these little filters at home.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Testing.jpg" >
-		<img src="/img/MatlabFilter_Testing.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Testing with Nano VNA">
-	</a>
+<p><img src="/img/MatlabFilter_Testing.jpg"
 	
-	<figcaption>Testing with Nano VNA</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Testing with Nano VNA"
+	
+	
+></p>
 <p>The NanoVNA can be used with PC based software, such as i&rsquo;m using bellow, which is much easier to interact with rather than the tiny screen, though this interface I can also calibrate the results, and use the s-parameter menu, to take measurements of each of the filters, which can be stored to S-parameter files that can be imported into MATLAB for analysis.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_nanoVNA_plot_2440_3.png" >
-		<img src="/img/MatlabFilter_nanoVNA_plot_2440_3.png"
-			
-			
-			
-			loading="lazy"
-			alt="VNA View showing the measurements from 3rd order filter">
-	</a>
+<p><img src="/img/MatlabFilter_nanoVNA_plot_2440_3.png"
 	
-	<figcaption>VNA View showing the measurements from 3rd order filter</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="VNA View showing the measurements from 3rd order filter"
+	
+	
+></p>
 <p>The main test here is if the filters that I have make actually match the simulation, so the best way to assses them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Frequency_response_measured_2440_3.png" >
-		<img src="/img/MatlabFilter_Frequency_response_measured_2440_3.png"
-			
-			
-			
-			loading="lazy"
-			alt="Measured Filter response">
-	</a>
+<p><img src="/img/MatlabFilter_Frequency_response_measured_2440_3.png"
 	
-	<figcaption>Measured Filter response</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Measured Filter response"
+	
+	
+></p>
 <p>The 3rd order filter is almost close to what is expected, but with the pass band pushed to a lower frequency, and a wider pass band, the attenuation of the filter at frequencies above the designed pass band is actually similar to what is expected. With it producing a similar ammount of attenuation, with a similar roll of to the simulation.</p>
 <p>We can also look at the results for the 5th Order Filter, which also shows a lot of similar characteristics, with the roll of at both high and low frequencies appearing to match the simulation, with the exception of the pass band being shifted to lower frequencies.</p>
-<p><figure 
-	>
-	<a href="/img/MatlabFilter_Frequency_response_measured_2440_5.png" >
-		<img src="/img/MatlabFilter_Frequency_response_measured_2440_5.png"
-			
-			
-			
-			loading="lazy"
-			alt="5th Order filter results compared with simulated">
-	</a>
+<p><img src="/img/MatlabFilter_Frequency_response_measured_2440_5.png"
 	
-	<figcaption>5th Order filter results compared with simulated</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="5th Order filter results compared with simulated"
+	
+	
+></p>
 <p>The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB&rsquo;s are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB&rsquo;s themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as <a class="link" href="https://jlcpcb.com/capabilities/Capabilities"  target="_blank" rel="noopener"
     >4.5 for a double sided PCB</a>, which is typically a useful number to use but unfortunately this <a class="link" href="https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs"  target="_blank" rel="noopener"
     >value actually varies with frequency</a> which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.</p>
@@ -495,14 +473,14 @@ if (!doNotTrack) {
 
     
 
-    <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">Related contents</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/filtertesting/">
         
@@ -519,10 +497,10 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -541,7 +519,7 @@ if (!doNotTrack) {
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -610,27 +588,25 @@ if (!doNotTrack) {
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

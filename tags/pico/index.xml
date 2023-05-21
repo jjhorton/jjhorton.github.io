@@ -1,116 +1,1296 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pico on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/pico/</link>
-    <description>Recent content in Pico on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pico/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>RP2040 Mini PMod</title>
-      <link>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</link>
-      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</guid>
-      <description>My pervious RP2040 PMod board included 3 PMod Connectors and a USB-C, this has been a great little board for development and testing but there are a couple of issues with this board. The first problem is the size, I would prefer something a bit smaller, with only a single PMod connector. The second is the lack of some additional storage, for logging data to such as GPS positions, and then finally is the cost with the expensive USB-C connector used on my original design being a particular problem, costing more than the RP2040 Micro Controller.</description>
-    </item>
-    
-    <item>
-      <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
-      <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
-      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/kicad-github-panels/</guid>
-      <description>As part of my PCB design workflow I use kibot to process my PCB&amp;rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&amp;rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</description>
-    </item>
-    
-    <item>
-      <title>Infrared Sensor with an LED Matrix</title>
-      <link>https://jjhorton.co.uk/posts/ir_hub75/</link>
-      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/ir_hub75/</guid>
-      <description>Having picked up a couple of LED Matrix&amp;rsquo;s from aliexpress that I thought should finally be put to some good use, having perviously made up some IR Thermal camera PMods I thought it would be a great idea to hook them up together, and have a nice big display with the array from these sensors scaled up.
-The hardware that is needed mostly relies on what I had already built, mainly the RP2040 PMod Board and the PMod IR Camera, but there is the need for a board to interface between the HUB75 display and the RP2040 PMod board.</description>
-    </item>
-    
-    <item>
-      <title>Getting started IKEA Vindriktning in Home Assistant with Pico W</title>
-      <link>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</guid>
-      <description>The IKEA Vindriktning is an air quality sensor sold for just £13, that makes use of a PM1006 sensor inside to detect particle matter in the air. Normally the readins from the sensor are displayed on one of 3 LED&amp;rsquo;s on the front of the unit, but here we are looking to collect this data and add it into Home Assistant .
-There are a large number of posts and instructions avalible online for modifying the IKEA Vindriktning or removing the PM1006 sensor and building a Home Assistant integrated sensor using an ECP32 module.</description>
-    </item>
-    
-    <item>
-      <title>Neopixel Drinks Coaster</title>
-      <link>https://jjhorton.co.uk/posts/rp2040_coaster/</link>
-      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/rp2040_coaster/</guid>
-      <description>This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from Marks and Spencer&amp;rsquo;s, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&amp;rsquo;s.</description>
-    </item>
-    
-    <item>
-      <title>Christmas Countdown</title>
-      <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
-      <description>Christmas Countdown on the Whiteboard Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
-    </item>
-    
-    <item>
-      <title>Seven Segment Display PMod Board</title>
-      <link>https://jjhorton.co.uk/posts/sevensegmentdisp/</link>
-      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
-      <description>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in the movies.
-The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all.</description>
-    </item>
-    
-    <item>
-      <title>Infrared Sensors and Neopixel screen</title>
-      <link>https://jjhorton.co.uk/posts/infraredsensorneopixel/</link>
-      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/infraredsensorneopixel/</guid>
-      <description>After perviously building a PMod Infrared Sensor board, that was perviously streaming data ovesr the serial link from the RP2040 PMod board to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.
-The screen that I looked to use is a custom board based on using the Neopixel LED&amp;rsquo;s that I have previously used with the RP2040 board, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor.</description>
-    </item>
-    
-    <item>
-      <title>RP2040 PMod PCB</title>
-      <link>https://jjhorton.co.uk/posts/rp2040_pmod/</link>
-      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/rp2040_pmod/</guid>
-      <description>Having perviously built myself a Pico PMod Board around the Raspberry Pi Pico, I wanted to take this to the next level, and build myself a few boards from scratch. So once the orders went live for the RP2040 microcontroller a few months ago, I ordered some, and then did nothing with them for a while.
-Like many people, I seem to end up with more ideas than time and it took me a little while to get around to this one.</description>
-    </item>
-    
-    <item>
-      <title>PMod 8x8 Infrared Sensor</title>
-      <link>https://jjhorton.co.uk/posts/infraredsensorpmod/</link>
-      <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/infraredsensorpmod/</guid>
-      <description>After seeing a post on twitter where someone was experimenting with the AMG8834 sensor, and I wanted to give it a go. This sensor can be purchased preassembled on breakout boards, ready to drop into a breadboard and build a system around.
-While I could build something around these breakout boards, I decided to take a different route and have a go at building one of my own boards. for the connector I wanted to use a PMod, as this would allow me to use the board with both my Raspberry Pi Pico Boards that I just made, as well as the iceBreaker FPGA board I already own, and maybe in the future I may have a go with getting it working with my Zynq based Cora Z7 board.</description>
-    </item>
-    
-    <item>
-      <title>Pico PMod breakout PCB</title>
-      <link>https://jjhorton.co.uk/posts/picopmod/</link>
-      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/picopmod/</guid>
-      <description>Pico on a Breadboard After picking up a few Raspberry Pi Pico&amp;rsquo;s, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple 8 DIP switch and a 7 segment display.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Pico on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/pico/</link>
+        <description>Recent content in Pico on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pico/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RP2040 Mini PMod</title>
+        <link>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</link>
+        <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/RP2040_mini_complete.jpg" alt="Featured image of post RP2040 Mini PMod" /&gt;&lt;p&gt;My pervious &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod board&lt;/a&gt; included 3 PMod Connectors and a USB-C, this has been a great little board for development and testing but there are a couple of issues with this board. The first problem is the size, I would prefer something a bit smaller, with only a single PMod connector. The second is the lack of some additional storage, for logging data to such as GPS positions, and then finally is the cost with the expensive USB-C connector used on my original design being a particular problem, costing more than the RP2040 Micro Controller.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Mini_SdCard_Schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;SD Card KiCAD Schematic&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The micro SD card slot is mainly for projects where being able to log data is useful, rather than sending it to a connected PC to be stored on there. I have found this could be useful for a number of of the PMod boards I have, where currently I would just send data over onto a PC to save the data, just logging the data locally provides some better options. I did look at making myself a few little PMod breakout boards, but I soon realized that this wouldn&amp;rsquo;t work well with the RP2040 boards I use them with a lot at the moment, so hence why this board the Micro SD directly on the back of the board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Mini_USB_Schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;USB-C connector&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On my &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; and several other boards I have made with a USB connection I have used a &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/Amphenol-Commercial-Products/12401610E42A?qs=EgDjlb95zqAWvChv41w5lg%3D%3D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;USB-C Connector&lt;/a&gt;, USB-C is great,  even though I am only making use of the USB 2.0 functionality, and none of the high speed or high power options, using USB-C has proved a reliable way to connector my development boards up to a PC or Power Supply. The USB-C is now often the only port available on my laptops and the option reduce the number of adapters and cables I need to carry it is always a great reason to standardize the boards I personally make around these.&lt;/p&gt;
+&lt;p&gt;The main disadvantage with USB-C is the cost of the connectors, on the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; the USB-C connector costs as much as the RP2040 Micro Controller, making it at the time i made my second batch of boards, the most expensive part on the board. So as a way of reducing this cost, I looked at alternatives to using these expensive connector, and one of the best ones I came across was using the &lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PCB as the connector&lt;/a&gt;, this removes the part and allows the PCB to do the task in its place, although this isn&amp;rsquo;t without its problems.&lt;/p&gt;
+&lt;p&gt;While I could have spent some time creating a footprint for this part I was able to use the KIcad footprint that someone else had already created, the &lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;KiCAD footprint&lt;/a&gt; could just be imported and used in place of the old footprint that I previously used. As these are board edge connectors, it is important to consider placement of the connector and allowing space for the cable around the connector.&lt;/p&gt;
+&lt;p&gt;As the PCB and it&amp;rsquo;s pads are making up the connector and it will need to slot directly into USB-C cable, we need to considered the PCB thickness, based on the recommendations of a hackaday &lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;post&lt;/a&gt;, it appeared that using 0.8mm would be fine from &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt; even though the size is a little large with the tolerances that USB-C cables allow for, it mates with a cable without any issues.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_barepcb.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Prototyping 3D Printing models to test out the functional elements of the design, and comparing with the actual PCB&amp;rsquo;s. Using the exported models from the kicad and using Cura and my Ender3 3D printer to produce models for testing that the USB connector would be able to fit into the connector, confirming if the PCB thickness was suitable and if I had allowed enough space for most the cables I have at home to be able to fit.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_3D_Model.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3D Printed testing prototype&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The PCB&amp;rsquo;s can be assembled individually or in complete panels, but generally I work on complete panels, these boards use many common components on the larger RP2040 PMod board. While even the most simple design changes can give me problems sometimes, as a respin was required to correct an error with the RGB LED&amp;rsquo;s, that I had wired the wrong way round.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_assemble.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Assembling the PCB&amp;rsquo;s&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The PCB files are produced automatically using an &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod/blob/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github action&lt;/a&gt; which I write up in my post about &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/kicad-github-panels/&#34; &gt;Kicad PCB Panels&lt;/a&gt; including adding the githash to the board help to keep track of the versions of the board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The panels of PCB&amp;rsquo;s generated using github actions&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I now have a collection of RP2040 board, all with the same Micro Controller and PMod connector. The mini model is much smaller, which still allowing plenty of compatibility with the standard PMod modules. I hoping the addition SD Card on the back will allow me to play with a few more logging  type examples, as well as make some more practical examples with the &lt;a class=&#34;link&#34; href=&#34;InfraredSensorPMod.md&#34; &gt;Thermal Camera&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;gps_pmod_board.md&#34; &gt;PMod GPS Board&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_Collection.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right) &#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Useful Links and references that I found while creating these boards are in the table below:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Reference&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;R1&lt;/td&gt;
+&lt;td&gt;flexible PCB example&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R2&lt;/td&gt;
+&lt;td&gt;usb type c on pcb&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R3&lt;/td&gt;
+&lt;td&gt;with repo:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R4&lt;/td&gt;
+&lt;td&gt;different types:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R5&lt;/td&gt;
+&lt;td&gt;project source of the connector used:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/wiki/PCBA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/joric/nrfmicro/wiki/PCBA&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R6&lt;/td&gt;
+&lt;td&gt;location of the files from github:&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
+        <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
+        <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/kicad-github-panels/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg" alt="Featured image of post Automatically panellization of Kicad PCB&#39;s with github Actions" /&gt;&lt;p&gt;As part of my PCB design workflow I use &lt;a class=&#34;link&#34; href=&#34;https://github.com/INTI-CMNB/KiBot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;kibot&lt;/a&gt; to process my PCB&amp;rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&amp;rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.&lt;/p&gt;
+&lt;p&gt;For generating the Git short sha, from within the github action, we create a varrible to store the current github short sha, which checks if &lt;code&gt;github.event.pull_request.head.sha&lt;/code&gt; is avalible and use it, if it is not avalible use &lt;code&gt;git rev-parse --short HEAD&lt;/code&gt; to populate the variable &lt;code&gt;sha_short&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    # Do a string replacement in the PCB file to set the git HASH
+    - name: Set outputs
+      id: vars
+      run: |
+        if [${{ github.event.pull_request.head.sha }} == &amp;#34;&amp;#34;]; then
+          echo &amp;#34;::set-output name=sha_short::$(git rev-parse --short HEAD)&amp;#34;
+        else
+          echo &amp;#34;::set-output name=sha_short::$(git rev-parse --short ${{ github.event.pull_request.head.sha }})&amp;#34;
+        fi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I need to create a reference to replace in the Kicad PCB, the KICAD pcb file is essentially a text file so I can take some text that is otherwise not in the file, and for my PCB i am using &lt;code&gt;%%GITHASH%%&lt;/code&gt;. This is placed on the back silkscreen of the PCB, where I want the short SHA to be placed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_mini_pcb_bottom.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Using this variable and the &lt;code&gt;%%GITHASH%%&lt;/code&gt; reference on the board we use a find and replace operation in the github action to complete the replacement.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    - name: Set PCB version
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        include: &amp;#34;Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb&amp;#34;
+        find: &amp;#34;%%GITHASH%%&amp;#34;
+        replace: ${{ steps.vars.outputs.sha_short }}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the Github SHA replacement completed on the board, the next task is to create the panels of the board using &lt;code&gt;kikit&lt;/code&gt;, I have used this a lot in the past, but by using within the github action we can ensure that the same board is always generated. As part of this github action, I also take the opportunity to ensure the &lt;code&gt;JLC&lt;/code&gt; part number is added added on the panels frame as well as other automatically generated information such as the same SHA Hash and the date that the PCb was generated.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    - name: Make a panel 
+      run: |
+        kikit panelize \
+          --layout &amp;#39;grid; rows: 3; cols: 2; space: 2mm&amp;#39; \
+          --tabs &amp;#39;fixed; width: 5mm; vcount: 2; hcount: 0&amp;#39; \
+          --cuts &amp;#39;mousebites; drill: 0.5mm; spacing: 1mm; offset: -0.2mm; prolong: 0.7mm&amp;#39; \
+          --framing &amp;#39;railstb; width: 5mm; space: 3mm;&amp;#39; \
+          --post &amp;#39;millradius: 1mm&amp;#39; \
+          --text &amp;#39;simple; text: JLCJLCJLCJLC; anchor: mt; voffset: 2.5mm; hjustify: center; vjustify: center;&amp;#39; \
+          --text2 &amp;#39;simple; text: Created {date}    Git Version ${{ steps.vars.outputs.sha_short }}; anchor: mb; voffset: -2.5mm; hjustify: center; vjustify: center;&amp;#39; \
+          Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb Hardware/RP2040_Mini_PMod/panel.kicad_pcb
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The complete github action for generating the PCB&amp;rsquo;s can be found &lt;a class=&#34;link&#34; href=&#34;https://raw.githubusercontent.com/jjhorton/Pico_Pmod/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt; as part of the RP2040 mini PMod I have been building.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Completed PCB panels with github SHA and Date generated&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Infrared Sensor with an LED Matrix</title>
+        <link>https://jjhorton.co.uk/posts/ir_hub75/</link>
+        <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/ir_hub75/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/hub75_header.jpg" alt="Featured image of post Infrared Sensor with an LED Matrix" /&gt;&lt;p&gt;Having picked up a couple of LED Matrix&amp;rsquo;s from &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aliexpress&lt;/a&gt; that I thought should finally be put to some good use, having perviously made up some IR Thermal camera PMods I thought it would be a great idea to hook them up together, and have a nice big display with the array from these sensors scaled up.&lt;/p&gt;
+&lt;p&gt;The hardware that is needed mostly relies on what I had already built, mainly the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; and the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/infraredsensorpmod/&#34; &gt;PMod IR Camera&lt;/a&gt;, but there is the need for a board to interface between the HUB75 display and the RP2040 PMod board. While for initial testing it was not problem to drive the display directly, i decided to invest some time to make some proper interface boards.&lt;/p&gt;
+&lt;p&gt;![Using the Raspberry Pi example with custom image](/img/hub75_textdispla   y.jpg)&lt;/p&gt;
+&lt;p&gt;The proof of concept was to hook up the display directly to the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod Board&lt;/a&gt; which was completed using some short wires and a HUB75 example from the Raspberry Pi Pico github Repository. This allows for using a static preprocessed image when directly attached up, but this is a hacky solution, so hence the need for a more permanent solution.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_Schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PMod Hub75 Schematic&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The design uses a SN74LVC8T245 which is an eight bit non-inverting bus transceiver, this is based loosely on a board design I saw used with the iceBreaker FPGA boards, but I use a larger variant of the chip because it is easier to solder and work with. The Schematic was designed with &lt;a class=&#34;link&#34; href=&#34;https://www.kicad.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;KiCAD&lt;/a&gt; as with my other recent PCB&amp;rsquo;s.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_PCB_Layout.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PMod Hub75 PCB Layout&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The PCB&amp;rsquo;s where then produced by &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt; in the excellent purple colour, for the labels this time I made use of &lt;a class=&#34;link&#34; href=&#34;https://github.com/gregdavill/KiBuzzard&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;KiBuzzard&lt;/a&gt; which allows me to generate the labels I use to show the signals on the hub75 connector.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_control_pcb.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Purple PCB&amp;rsquo;s from JLCPCB&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The PCB&amp;rsquo;s were assembled by hand using a solder stencil from &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt; that I used with my &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aliexpress&lt;/a&gt; hot plate, the results are pretty good and I managed to get all five examples I built fully working.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_pmod_controller.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Assesmbed PMod Hub75 Boards&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With that completed and the previous attempts having creating an example that displays the values on a &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/infraredsensorneopixel/&#34; &gt;8x8 neopixel display&lt;/a&gt;,  which has many of the key features, but now I just needed to scale up the image.&lt;/p&gt;
+&lt;p&gt;The first attempt to scale up the image to fit on the 64 by 64 LED matrix, worked by splitting up the pixels into an 8x8 grid, where each square controlled by the single values from the IR grid array. Each square has 8x8 indervidual RGB LED&amp;rsquo;s, that are controlled, this is simple to implement in &lt;code&gt;c&lt;/code&gt; and can be completed by just a few loops.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//upscale in 8x8 blocks of color
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The result is an image that fills the LED matrix, and help make it easy to see the image, but there are some limitations of this mainly how easy it is to interpret the image. The blocky nature of the image limits how useful it is, and is essentially just a scaled up version on the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/infraredsensorneopixel/&#34; &gt;Neopixel example&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_scaled_img.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Initial image displayed on the screen&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next attempt I wanted to look at was smoothing the image, to make it appear as though the image has a much higher resolution. This removes the blocky values that I created before and attempts to guess the values in between the points, creating a smooth line between them, the 2d linear interpolation is often referred to Bilinear interpolation&lt;/p&gt;
+&lt;p&gt;For this I use a simple two step process:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;taking each row of 8, and then upscaling them to a row of 64.&lt;/li&gt;
+&lt;li&gt;Then use the values from the expanded row to do the same for each column.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The first step can be summaries with a simple formula, where for each pair of values we got from the sensor we just need to create 7 steps, which are done with the formula:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;nf&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where &lt;code&gt;x0&lt;/code&gt; and &lt;code&gt;x1&lt;/code&gt; are the points either side of the position we want to add in, and the &lt;code&gt;n&lt;/code&gt; is the point that we want to add which in this case is &lt;code&gt;n/8&lt;/code&gt; steps, moving along the line for each value of &lt;code&gt;n&lt;/code&gt; up to 8. The only variation of this formula is on the last run where we use a slightly shorter edge so that line including the actual measurements is included on this display. The main complication for implementation in C for running on the Pico is that we need to deal with the array the data is saved in only being 2D, and no where to find our 3D values correctly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//first cell is the actual value from the sensor
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//calculate inter factor between each of the pixelsa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_diff&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_diff&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Completing the columns is just a simple case of applying the same principles from the rows to our freshly expanded array which is 64x8, so that it will become 64x64. We just need to deal with the special case of the end pixels again where the gap is different:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;diff&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ref_end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;c1&#34;&gt;//end pixels
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                        &lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;ref_end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[((((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;diff&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ref_end&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;c1&#34;&gt;//middle pixels
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                        &lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;ref_end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[((((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;diff&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ref_end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;diff&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;upscaled_temps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[(((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ref_start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With that completed we can now send the image we h=have generated to the display, as the sensor only provides an image at a maximum rate of 10 frames per second there isn&amp;rsquo;t much of a need to optimize this in this example.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/hub75_complete.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I may in the future have a look at finding a way to implement &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Bicubic_interpolation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bicubic interpolation&lt;/a&gt;, as that would improve the image that is produced, but also I would like to mount the camera and RP2040 onto the back of the screen with a single power supply so only a single power supply is needed, but all that is a task for another day.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Getting started IKEA Vindriktning in Home Assistant with Pico W</title>
+        <link>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</link>
+        <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/ikea-air_quality-sensor/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/2022-Ikea_Pico_w.jpg" alt="Featured image of post Getting started IKEA Vindriktning in Home Assistant with Pico W" /&gt;&lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IKEA Vindriktning&lt;/a&gt; is an air quality sensor sold for just &lt;a class=&#34;link&#34; href=&#34;https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;£13&lt;/a&gt;, that makes use of a &lt;a class=&#34;link&#34; href=&#34;https://esphome.io/components/sensor/pm1006.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PM1006&lt;/a&gt; sensor inside to detect particle matter in the air. Normally the readins from the sensor are displayed on one of 3 LED&amp;rsquo;s on the front of the unit, but here we are looking to collect this data and add it into &lt;a class=&#34;link&#34; href=&#34;https://www.home-assistant.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Home Assistant&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;There are a large number of &lt;a class=&#34;link&#34; href=&#34;https://community.home-assistant.io/t/ikea-vindriktning-air-quality-sensor/324599&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;posts&lt;/a&gt; and instructions &lt;a class=&#34;link&#34; href=&#34;https://www.instructables.com/Connecting-a-IKEA-Vindriktning-to-Home-Assistant-U/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;avalible&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://style.oversubstance.net/2021/08/diy-use-an-ikea-vindriktning-air-quality-sensor-in-home-assistant-with-esphome/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;online&lt;/a&gt; for modifying the &lt;a class=&#34;link&#34; href=&#34;https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IKEA Vindriktning&lt;/a&gt; or removing the PM1006 sensor and building a Home Assistant integrated sensor using an ECP32 module. While I could have followed one of these, i actually had a spare &lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/products/raspberry-pi-pico-w&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pico W&lt;/a&gt; that I brought at release and had never used, so my task was use this after seeing a video on &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=dFDGtlSi9Eg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YouTube&lt;/a&gt; where the RP2040 was used to monitor a garage door.&lt;/p&gt;
+&lt;p&gt;The first task is a matter of getting the sensor apart so that we can connect the sensor up to the Raspberry Pi Pico W. The back of the sensor is just secured with 4 screws, and with those removed it simply pulls apart, and we can see the sensor and the controller PCB inside.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea_sensor_empty.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;IKEA Vindriktning opened&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;There are a number of options as to how I could have made use of the sensor, I chose to make use of the simplest which leaves the original electronics intact. The reason for me choosing this method is that I wanted to keep the functionality of the sensor the same that it was before, so that the front LED remains the same and the power USB-C plug still powers the whole device. This is the easiest method, requiring the attaching of 3 wires to some exposed pads on the PCB, for serial, power and ground. The wires on the &lt;a class=&#34;link&#34; href=&#34;https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IKEA Vindriktning&lt;/a&gt; just need to be connected to the &lt;code&gt;5V&lt;/code&gt;, &lt;code&gt;GND&lt;/code&gt; and &lt;code&gt;REST&lt;/code&gt; pins on the PCB.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea_sensor_wires.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;IKEA Vindriktning with serial and power wires&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the wires attached to the sensor&amp;rsquo;s PCB, we now need to hook them up to the &lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/products/raspberry-pi-pico-w&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico W&lt;/a&gt;, we need to attach the Power and GND to appropriate pins and then the serial need to be attached to an appropriately capable pin, I selected the following:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Ikea Vindriktning&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Raspberry Pi Pico W&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;5V&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;VSYS&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;GND&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;GND&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;REST&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;GPIO1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Now with the modification complete we just need to flash the software onto the &lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/products/raspberry-pi-pico-w&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pico W&lt;/a&gt;, before we seel the unit up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea_Pico_w_Installed.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pico W installed within the IKEA Vindriktning&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For the next step we need to use &lt;a class=&#34;link&#34; href=&#34;https://esphome.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ECP home&lt;/a&gt; from within &lt;a class=&#34;link&#34; href=&#34;https://www.home-assistant.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Home Assistant&lt;/a&gt; which in my case all runs on a Raspberry Pi 4, I&amp;rsquo;m running the development version of &lt;a class=&#34;link&#34; href=&#34;https://esphome.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ECP Home&lt;/a&gt;, as this has support for the Pico W, which should be available in the standard version soon.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea-ecphome-add.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Add a Pico W in ECP Home&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;To build the setup I&amp;rsquo;m using the following configuration YAML file, this is made up a a few copy and pastes from a few locations on github that I failed to note down, but essentially it is using the &lt;code&gt;rp2040&lt;/code&gt; platform on the &lt;code&gt;rpipiow&lt;/code&gt; board, with enabling of the over the air updates (&lt;code&gt;OTA&lt;/code&gt;) and the Home assistant API enabled. The most import settings to note as the &lt;code&gt;UART&lt;/code&gt; and the &lt;code&gt;sensor&lt;/code&gt; definition, which makes use of the same definitions that would have been used on the ECP32 boards, while setting the serial port to the &lt;code&gt;GPIO&lt;/code&gt; pin we soldered the connector to.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-YAML&#34; data-lang=&#34;YAML&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;esphome&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ikea-sensor&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;rp2040&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;board&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;rpipicow&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;framework&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Required until https://github.com/platformio/platform-raspberrypi/pull/36 is merged&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;platform_version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com/maxgerhardt/platform-raspberrypi.git&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Enable logging&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Enable Home Assistant API&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;encryption&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Key here&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ota&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Password Here&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;wifi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ssid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;!&lt;span class=&#34;l&#34;&gt;secret wifi_ssid&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;!&lt;span class=&#34;l&#34;&gt;secret wifi_password&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# Enable fallback hotspot in case wifi connection fails&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ssid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Ikea-Sensor Fallback Hotspot&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;e3kxZDktrp64&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;uart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;rx_pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GPIO1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;baud_rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;9600&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;sensor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;platform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;pm1006&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;pm_2_5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Particulate Matter 2.5µm Concentration&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We just need to build the required image from within ECPHome using the Clean build option in the menu, then downloading from home assistant and onto the Pico W board using the &lt;code&gt;.u2f&lt;/code&gt; file that just needs to be copied to the Pico W using its built in Micro USB port, using the &lt;code&gt;bootsel&lt;/code&gt; option.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea-ecphome-build.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Add a Pico W in ECP Home&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It is worth noting that on my Raspberry Pi 4 which hosts my &lt;a class=&#34;link&#34; href=&#34;https://www.home-assistant.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Home Assistant&lt;/a&gt; instance it took a good 10 minutes to build the image for the Pico as it needed to download all the required tools to build it first.&lt;/p&gt;
+&lt;p&gt;With that all complete, it was then just a case of being able to squeeze the Pico W into the top of the &lt;a class=&#34;link&#34; href=&#34;https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IKEA Vindriktning&lt;/a&gt; and attach the USB-C cable to provide power, within a couple of minutes it was showing in Home Assistant and I was able to add it to my dashboard.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2022-Ikea-ha.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Data from IKEA Vindriktning in Home Assistant&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The data doesn&amp;rsquo;t look to bad and is updating frequently, I&amp;rsquo;m planning to set up a notification to warn me if the sensor is giving some consistent high readings so that I can do something about it. I will wait a week to two to build up enough background data to be able to add some reasonable limits.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Neopixel Drinks Coaster</title>
+        <link>https://jjhorton.co.uk/posts/rp2040_coaster/</link>
+        <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/rp2040_coaster/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/NeopixelCoaster_PCB.jpg" alt="Featured image of post Neopixel Drinks Coaster" /&gt;&lt;p&gt;This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from &lt;a class=&#34;link&#34; href=&#34;https://www.marksandspencer.com/ie/c/food/not-just-any-food/food-news/christmas-gin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marks and Spencer&amp;rsquo;s&lt;/a&gt;, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&amp;rsquo;s.&lt;/p&gt;
+&lt;p&gt;The design was to be simple, a drinks coaster made from a 10cm square PCB, which could be powered by one of the many USB-C chargers that we have round the house, with a number of RGB LED&amp;rsquo;s on the top, which could light up any bottle or glass when placed on top of it. To detect when a drink was placed on, I planned on using small switches on each corner, that a micro-controller on board, could then be triggered by to set the RGB colors of.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_sch.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;kiCad Schematic for Rp2040 Coaster&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The design is a simple one that uses the parts I had readily available, given the on-going parts shortage, as a result the microcontroller is a RP2040, which seems massively overpowered but I have many at home and you have to use what is avalible today, but who needs a Duel Core processor to just drive a couple of LED&amp;rsquo;s? The LED&amp;rsquo;s are essentially Neopixels, the WS2812B LEDs, which I had a reel I purchased earlier in the year from Aliexpress, when I was building some little displays I used with the &lt;a class=&#34;link&#34; href=&#34;http://www.jjhorton.co.uk/posts/infraredsensorneopixel/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thermal Sensor&lt;/a&gt;. Much of the rest of the design is based on the RP2040 &lt;a class=&#34;link&#34; href=&#34;https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Reference design&lt;/a&gt;, so was quick to pull together using KiCad, and before you know it the PCB is off to be manufactured.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Render.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Render of the Rp2040 Coaster PCB&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the PCB order, the next job was to add some sort of case or cover for the board, and protect it from the contents of the bottle which wuld be placed on top. For this I used OpenSCAD to produce a tight fitting cover which could be 3D printed. The Case makes use of a few simple shapes, producing a square with the shape of the PCB cut away, and by matching the dimensions closely I&amp;rsquo;m able to get a case the pushes onto the board.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-OpenSCAD&#34; data-lang=&#34;OpenSCAD&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;difference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;difference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;95&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;95&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;86&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;91&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;91&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;41.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;47.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;46.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenSCAD is great when you just want to assemble a few simple shapes pragmatically, but I found it difficult to use in this context building a more complex piece with elements that need to fit together. I might look at trying something like FreeCAD next time, as it might be better suited to my needs especially as the PCB can be easily imported into freecad to see how the shapes interact. Even with these issues, having a 3D printer at home means that even an error such as this can be quickly corrected and solved, although it seems wasteful taking 4 attempts to get a part to fit together well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Bodge.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB with problems&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The first revision of the PCB, was a bit of a fail, as after making a few late changes to the PCB, a power rail was added that went though the ground plane on the back of the PCB. I was able to bodge this, with a bit of thin wire and some careful cutting with a scalpel, to test the design, before making some quick corrections and then getting a fresh PCB made up. One advantage of this was it let me work on a case, and getting it to fit with the board I had made up which would have the same dimensions as the final board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Neopixel_WithCase.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Asseembled PCB with the 3D printed cover &#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The code for controlling the board is just based on the examples provided with the Pico Board, which provides the functionality to send a stream of RGB values, to the interface and select the LED to be turned on. The decision on if to turn the coaster on is based on the number of the switches that are not high, the Pin Numbers for the switches are stored in &lt;code&gt;BUTTON_PINS&lt;/code&gt;, and the first loop checks if they are high or low, the color that is then set is driven by the counter &lt;code&gt;my_test&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;180&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;gpio_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUTTON_PINS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//Set the center LED&amp;#39;s
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		     &lt;span class=&#34;nf&#34;&gt;setcenter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;179&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			 &lt;span class=&#34;nf&#34;&gt;setcenter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nf&#34;&gt;set_colour&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;49&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the case where at least 3 of the buttons have triggered, the color is set from an array of values in &lt;code&gt;RGB_LOOKUP&lt;/code&gt;, this contains the 180 RGB values that create the smooth color transitions, with the next value in the lookup table being selected after each loop, before resetting once all values have been used.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Complete.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The completed RP2040 powered coaster&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the code completed, the PCB and case assembled we can bring it all together, and see what we have. I&amp;rsquo;m happy with the results, and the code, PCB and case can all be found on Github if you want to have a look. &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Rp2040_Coaster&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gihub.com/jjhorton/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometimes you think your Gin bottle needs RGB lights, and you end up building something unnecessary like this &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/q5HyRK8X9F&#34;&gt;pic.twitter.com/q5HyRK8X9F&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1488206830568419331?ref_src=twsrc%5Etfw&#34;&gt;January 31, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The changing colors work well on the textured glass of this bottle very well, the next task is to work out how I could make it battery powered&amp;hellip;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Christmas Countdown</title>
+        <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
+        <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/ChristmasCountdown_OpenSCAD.jpg" alt="Featured image of post Christmas Countdown" /&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_Initial.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Christmas Countdown on the Whiteboard&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PMod Display&lt;/a&gt; that I had around, and then run from one of the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 boards&lt;/a&gt; that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.&lt;/p&gt;
+&lt;p&gt;The code that runs on the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.com/products/rp2040/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040&lt;/a&gt; relies on a serial link as there is no real time clock on the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 boards&lt;/a&gt;. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;#34;pico/stdlib.h&amp;#34;
+#include &amp;#34;pico/stdio_usb.h&amp;#34;
+
+// Custom 7 Segment Display
+#include &amp;#34;My7Seg.h&amp;#34;
+
+int main() {
+	//initalise the display
+	My7Seg Display(0,2);
+	Display.enable();
+
+	int seconds_left = 0;
+	char buffer[8];
+	char countdown_str [8];
+
+	stdio_init_all();
+	printf(&amp;#34;Countdown Clock starting!\n&amp;#34;);
+	Display.setValue(double(99999999), 0);
+
+	while(1){
+		buffer[0] = getchar_timeout_us(0);
+
+		if (buffer[0] != 0){
+			if (buffer[0] == &amp;#39;a&amp;#39;){
+
+				for(int i = 0; i&amp;lt;8; i++){
+					buffer[i] = getchar_timeout_us(0);
+				}
+				seconds_left = strtof(buffer, NULL);
+			}
+		}
+		Display.setValue(double(seconds_left), 0);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The actually calculation of the number of seconds takes place on a &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.com/products/raspberry-pi-zero-w/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Zero&lt;/a&gt;, this takes the current time which it gets from its Wifi Network connection, and then calculates the difference between the current time and the number of seconds until Christmas day, and sends it over the serial link to the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 Board&lt;/a&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import serial
+import io
+from datetime import *
+
+# /dev/tty.usbmodem1101 115200
+
+ser = serial.Serial(&amp;#39;/dev/tty.usbmodem1101&amp;#39;)  # open serial port
+sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
+
+while(1):
+	now = datetime.now()
+	thisyear = now.year
+	xmas = datetime(thisyear,12,25)
+
+	if now &amp;lt; xmas:
+		delta = int((xmas - now).total_seconds())
+	else:
+		delta = 0
+
+	my_str = str(&amp;#39;a&amp;#39;+ str(delta))
+	my_str.ljust(9, &amp;#34;.&amp;#34;)
+
+	sio.write(my_str)
+	sio.flush()
+
+ser.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_OpenSCAD.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;OpenSCAD Case design&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the main coding element taken care of the next task is building the case for the PCB&amp;rsquo;s, I wanted to be able to mount the two boards together, and be able to attach the whole setup to my whiteboard, for the I created a simple case, which has holes in the back for placing some small magnets, and then holes in the front for mounting the PCB&amp;rsquo;s on the front.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_CaseBack.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Case Mounting magnets&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This simple case provides an effective way of being mounted up on the Whiteboard, although now I am finally getting round to writing this all up, it is several days past Christmas so until next December it will have to wait until then, unless I can find a new date to countdown until.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_Zero.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Counter hits Zero&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The code used to create this board, and the code for the case will be available &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/RP2040_Countdown&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Seven Segment Display PMod Board</title>
+        <link>https://jjhorton.co.uk/posts/sevensegmentdisp/</link>
+        <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/SevenSegment_complete.jpg" alt="Featured image of post Seven Segment Display PMod Board" /&gt;&lt;p&gt;Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in &lt;a class=&#34;link&#34; href=&#34;https://www.thelegendofq.co.uk/encoder.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the movies&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iceBreaker FPGA&lt;/a&gt; which has two digits, and removes the decimal point to allow multiplexing between the two displays.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.&lt;/p&gt;
+&lt;p&gt;&amp;lt;img src=&amp;ldquo;images/GN_Semic_GN1640.png&amp;rdquo; width=&amp;ldquo;350 &amp;gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Devices such as the &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GN Semic GN1640&lt;/a&gt; which is the chip I decided to tag onto an order I was already placing at &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LCSC Components&lt;/a&gt;, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The circuit for these &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GN1640&lt;/a&gt; chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mouser&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The boards were laid out so that they would fit within the maximum 10x10cm limits of the &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLC PCB&lt;/a&gt; 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;With the PCB&amp;rsquo;s made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 PMod boards&lt;/a&gt; that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void enable()
+{
+			//command to turn on the display
+			int command1[] = {1,1,1,1,0,0,0,1};
+			//initallisation
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,0);
+			sleep_ms(0.2);
+			//send the bits
+			for(int i=0; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,command1[i]);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+			//end the transmission
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,1);
+			sleep_ms(0.2);
+			gpio_put(pin_data,1);
+
+			sleep_ms(10);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the display enabled I was then able to start sending data, this follows a similar design pattern with a function taking in the address and data, to trigger a series of short delays followed by setting the clock and data pins either high or low to transmit the data.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void txData(uint8_t pos, uint8_t data)
+{
+			uint8_t addr = 0b11000000 + pos;
+
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,0);
+			sleep_ms(0.2);
+
+			for(int i=0; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,(addr &amp;gt;&amp;gt; i) &amp;amp; 1U);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+
+			for(int i=0 ; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,(data &amp;gt;&amp;gt; i) &amp;amp; 1U);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,1);
+			sleep_ms(0.2);
+			gpio_put(pin_data,1);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The next challenge now I&amp;rsquo;m able to send data to the display using simple functions, is to look at turning the control functions into a C++ object, and then look at putting the display to a practical use. Another route to look at is setting up the PIO state machine to work with the display and possibly build a simple example that can also work with my &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ice Breaker FPGA&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Infrared Sensors and Neopixel screen</title>
+        <link>https://jjhorton.co.uk/posts/infraredsensorneopixel/</link>
+        <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/infraredsensorneopixel/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/Thermal_NeoPixel.jpg" alt="Featured image of post Infrared Sensors and Neopixel screen" /&gt;&lt;p&gt;After perviously building a &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PMod Infrared Sensor board&lt;/a&gt;, that was perviously streaming data ovesr the serial link from the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 PMod board&lt;/a&gt; to a PC which was using Python to display the data. The next step is to look at using a screen to display the data from the infrared Sensor.&lt;/p&gt;
+&lt;p&gt;The screen that I looked to use is a custom board based on using the Neopixel LED&amp;rsquo;s that I have previously used with the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 board&lt;/a&gt;, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor. The screens which I assembled last month, provide a great way to display the data, the first task is to look at connecting every together, then building a colour map to display the temperature values.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometime you can&amp;#39;t beat an evening spent playing with LEDs making patterns &lt;a href=&#34;https://twitter.com/hashtag/leds?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#leds&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/kchJTo22p3&#34;&gt;pic.twitter.com/kchJTo22p3&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1432432328370962435?ref_src=twsrc%5Etfw&#34;&gt;August 30, 2021&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The screen is essentially a string of 64 WS2821B LED&amp;rsquo;s, in an 8 by 8 grid, which by sending RGB values over a serial link between the LED&amp;rsquo;s we can build up a 2D picture. The data is transmitted to the LED&amp;rsquo;s using the PIO state machine from the Raspberry Pi Pico example. This linked in well with the serial data stream that comes from the 8x8 Thermal Sensor, to provide an image that updates quickly.&lt;/p&gt;
+&lt;p&gt;The code for reading the values from the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PMod thermal camera&lt;/a&gt; is the same as before, but rather than writing the data to the serial link, we now store the tempurate readings in a 64 value array, which we will then write to the NeoPixels.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Write the values to the Neopixel Array
+for (int i = 0; i &amp;lt; (64); i++) {
+	int value = 90 - (result[POS_LOOKUP[i]]*0.25);
+	put_pixel(urgb_u32(RGB_LOOKUP[value][0]/BRIGHTNESS,RGB_LOOKUP[value][1]/BRIGHTNESS,RGB_LOOKUP[value][2]/BRIGHTNESS));
+}
+sleep_ms(100); //required delay at TX sequence
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Two important points here, is that we reduce the brightness, which divides each of the RGB values by the same number, keeping the colour the same but reducing the brightness of the LED&amp;rsquo;s overall, another element that also has to be correct for is rotating the input data so that it is displayed in the same position on the screen relative to the Sensor. to do this I use a array, &lt;code&gt;POS_LOOKUP&lt;/code&gt; which returns the thermal sensor value, for each of the LED positions.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// position lookup table to map the positions rotated 90 degrees
+const int POS_LOOKUP[] = {0, 8,16,24,32,40,48,56,
+						1, 9,17,25,33,41,49,57,
+						2,10,18,26,34,42,50,58,
+						3,11,19,27,35,43,51,59,
+						4,12,20,28,36,44,52,60,
+						5,13,21,29,37,45,53,61,
+						6,14,22,30,38,46,54,62,
+						7,15,23,31,39,47,55,63};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The values for the image we create, are based on a static colour-map that is included in the main file, with the value input returning the appropriate colour for that temperature.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Lookup table the colourmap
+const int RGB_LOOKUP[][3] = {{255,14,240},{255,13,240},{255,12,240},{255,11,240},
+							{255,10,240},{255,9,240},{255,8,240},{255,7,240},
+							{255,6,240},{255,5,240},{255,4,240},{255,3,240},
+							{255,2,240},{255,1,240},{255,0,240},{255,0,224},
+							{255,0,208},{255,0,192},{255,0,176},{255,0,160},
+							{255,0,144},{255,0,128},{255,0,112},{255,0,96 },
+							{255,0,80 },{255,0,64 },{255,0,48 },{255,0,32 },
+							{255,0,16 },{255,0,0  },{255,10,0 },{255,20,0 },
+							{255,30,0 },{255,40,0 },{255,50,0 },{255,60,0 },
+							{255,70,0 },{255,80,0 },{255,90,0 },{255,100,0},
+							{255,110,0},{255,120,0},{255,130,0},{255,140,0},
+							{255,150,0},{255,160,0},{255,170,0},{255,180,0},
+							{255,190,0},{255,200,0},{255,210,0},{255,220,0},
+							{255,230,0},{255,240,0},{255,250,0},{253,255,0},
+							{215,255,0},{176,255,0},{138,255,0},{101,255,0},
+							{62,255,0 },{23,255,0 },{0,255,16 },{0,255,54 },
+							{0,255,92 },{0,255,131},{0,255,168},{0,255,208},
+							{0,255,244},{0,228,255},{0,212,255},{0,196,255},
+							{0,180,255},{0,164,255},{0,148,255},{0,132,255},
+							{0,116,255},{0,100,255},{0,84,255 },{0,68,255 },
+							{0,50,255 },{0,34,255 },{0,18,255 },{0,2,255  },
+							{0,0,255  },{1,0,255  },{2,0,255  },{3,0,255  },
+							{4,0,255  },{5,0,255 }};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With this colour map we can now start creating images on the NeoPixel based screen from the thermal sensor, which are easy to understand.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Thermal_NeoPixel.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next stage is to look at getting my head around implementing a similar thing on the my FPGA boards, on either the &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;colorlite i5&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iceBreaker&lt;/a&gt; boards.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>RP2040 PMod PCB</title>
+        <link>https://jjhorton.co.uk/posts/rp2040_pmod/</link>
+        <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/rp2040_pmod/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/rp2040pmod_blankpcb.jpg" alt="Featured image of post RP2040 PMod PCB" /&gt;&lt;p&gt;Having perviously built myself a &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pico PMod Board&lt;/a&gt; around the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.org/products/raspberry-pi-pico/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico&lt;/a&gt;, I wanted to take this to the next level, and build myself a few boards from scratch. So once the orders went live for the RP2040 microcontroller a few months ago, I ordered some, and then did nothing with them for a while.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/rp2040pmod_chips.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Like many people, I seem to end up with more ideas than time and it took me a little while to get around to this one. What I was looking to create was a simple board with a USB-C connector for my PC and 3 PMod Ports based around the RP2040, I settled on a form factor similar to the &lt;a class=&#34;link&#34; href=&#34;https://1bitsquared.com/products/icebreaker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IceBreaker FPGA&lt;/a&gt; board I have used in the past. This wasn&amp;rsquo;t for any particular project in mind, but I had enjoyed playing with my Pico PMod Boards so was looking to take it to the next level and improve my PCB building ability along the way.&lt;/p&gt;
+&lt;p&gt;The boards themselves pretty much follow the &lt;a class=&#34;link&#34; href=&#34;https://datasheets.raspberrypi.org/rp2040/hardware-design-with-rp2040.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hardware guidelines&lt;/a&gt;, from the &lt;a class=&#34;link&#34; href=&#34;https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 Datasheet&lt;/a&gt; and the supporting documents, using the recommended parts. One thing I did decide that I wanted, was both a Run and Boot select button, as I found these very useful for working with the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pico PMod Board&lt;/a&gt; over USB. The boards were designed using KiCAD and I had them made by &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/rp2040pmod_solderpaste.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;RP2040 PMod Board ready for componts to be hand placed&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The first set of boards arrived in a couple of weeks, but after building up my first one I hit a few problems, the first was I was missing a few resistor values, so I had to bodge my way around those. I then hit an issue with the USB connection, with my computer not being able to see it. This took me a while to work out what I had done, but it transpired that I had mislabelled my USB connection and had connected the positive and negative data lines the wrong way round, so the USB wasn&amp;rsquo;t going to work.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/rp2040pmod_componentsonpcb.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;RP2040 PMod Board with components in place ready to be soldered&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;At that moment, I was expecting to have to throw away the boards, but then I thought I would have a go with the debug pins, I had broken these out at the last minute to a connector when designing the PCB. So I thought I should give the debugging interface a try before a scrap them. Having not used the debug interface before, I needed to get the build environment set up on a spare Raspberry Pi 4, and hook up the board, after a few tried working on the correct pins I was able to get a simple &amp;ldquo;Hello World&amp;rdquo; example running, flashing the on-board LED using the couple of debug interface.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/rp2040pmod_testing.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Testing the RP2040 PMod Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;With the good news that the board seemed to all be working, except the USB issue, I corrected the error, and had a few more PCB&amp;rsquo;s made by &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLCPCB&lt;/a&gt;. Having had these ordered they soon arrived, and I was able to build a few more of the boards. One issue I did find is that I am struggling to get consistent results with surface mount soldering on my hot plate. The boards I&amp;rsquo;m building now are some of the smallest and most complex I&amp;rsquo;ve tried to build at home so there is always going to be a fair amount of trial and error. Of the second lot of 5 PCB&amp;rsquo;s ordered 4 were delivered as one was damaged by the PCB manufacturer, I then haven&amp;rsquo;t been able to get one working, and then two work perfectly after a couple of fixes, while one has a single IO pins which doesn&amp;rsquo;t seem to be functioning.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;The next plan is to start getting some of the PMod Boards I have already purchased and made, hooked up, and get some more working examples with the RP2040 PMod Boards, as well as order a few more boards so I can attempt to improve my surface mount soldering.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>PMod 8x8 Infrared Sensor</title>
+        <link>https://jjhorton.co.uk/posts/infraredsensorpmod/</link>
+        <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/infraredsensorpmod/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/PModinfrerred_running.png" alt="Featured image of post PMod 8x8 Infrared Sensor" /&gt;&lt;p&gt;After seeing a post on twitter where someone was experimenting with the AMG8834 sensor, and I wanted to give it a go. This sensor can be purchased preassembled on &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/wholesale?&amp;amp;SearchText=amg8833&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;breakout boards&lt;/a&gt;, ready to drop into a breadboard and build a system around.&lt;/p&gt;
+&lt;p&gt;While I could build something around these breakout boards, I decided to take a different route and have a go at building one of my own boards. for the connector I wanted to use a PMod, as this would allow me to use the board with both my &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.org/products/raspberry-pi-pico/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Boards&lt;/a&gt; that I just made, as well as the &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iceBreaker&lt;/a&gt; FPGA board I already own, and maybe in the future I may have a go with getting it working with my &lt;a class=&#34;link&#34; href=&#34;https://store.digilentinc.com/cora-z7-zynq-7000-single-core-and-dual-core-options-for-arm-fpga-soc-development/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zynq based Cora Z7 board&lt;/a&gt;. This makes the PMod connector an excellent solution for my small prototypes, to be able to move between these types of boards.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PModInfrared_schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For building my breakout board, I use KiCAD, and the process of building this board is as simple as copying the design as given in the sensors datasheet, the circuit required is very simple and helps minimise any potential errors. the main effort was ensuring that the i2c interface pins match up with the available i2c pins on the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pico-pmod-breakout-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico PMod board&lt;/a&gt;  connector. Once that is done its just a case of order the PCB and waiting for it to turn up in the post.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PModinfrerred_pcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The sensor output is an 8x8 array of values, which refresh at a maximum rate of 10Hz, so my initial solution to test this sensor out is to stream it over the Raspberry Pi&amp;rsquo;s serial interface Back to my Computer where I will plot the result.&lt;/p&gt;
+&lt;p&gt;To get started I took some of the code from the Raspberry Pico C/C++ examples, and used that to work out how to get the pins setup to work with i2c on the pins that I needed. I really like using the PIO, as it gives you a lot of flexibility, although it is taking a bit of getting used to.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;stdio_init_all();
+// This example will use I2C1 on the SDA and SCL pins (2, 3 on a Pico)
+i2c_init(i2c1, 1000000);
+
+//Setup the I2C pins
+gpio_set_function(2, GPIO_FUNC_I2C);
+gpio_set_function(3, GPIO_FUNC_I2C);
+gpio_pull_up(2);
+gpio_pull_up(3);
+
+// Make the I2C pins available to picotool
+bi_decl(bi_2pins_with_func(2, 3, GPIO_FUNC_I2C));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The reading of the pixel values turned out to be more simple than I was expecting, with the addr of the sensor being set with the hardware configuration &lt;code&gt;int addr = 0b01101000;&lt;/code&gt;. For getting the values, we just write position of the first value, and then just keep reading the two bytes, which contain the 14 bit values for the pixel, 64 times. Each time we have read a value, we convert it to a floating point value and scale it using the value 0.25, which was given in the datasheet for the sensor.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;//read the pixel values
+val = 0x80;
+i2c_write_blocking(i2c1, addr, &amp;amp;val, 1, true);
+
+for(int i = 0; i&amp;lt;63;++i){
+	ret = i2c_read_blocking(i2c1, addr, &amp;amp;rxdata[0], 2, true);
+	if(i%8 == 0){
+		printf(&amp;#34;\n&amp;#34;);
+	}
+	float result  = (int16_t)((((uint16_t)rxdata[1] &amp;lt;&amp;lt; 8) | ((uint16_t)rxdata[0]))&amp;lt;&amp;lt; 4) &amp;gt;&amp;gt; 4;
+	printf(&amp;#34;%6.2f, &amp;#34;, 0.25*result);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The printf function is then just printing to the serial interface, where we will be picking them up on the PC that is connected to it.&lt;/p&gt;
+&lt;p&gt;For plotting the values from the Pico we are using a simple python script running on a PC, for that we have a number of dependancies, which we will first import.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import numpy as np
+import matplotlib.pyplot as plt
+from scipy import interpolate
+import serial
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We then need to setup the serial link, so that we can receive the output from the Raspberry Pi Pico on my MacBook, at this point we also initialise the &lt;code&gt;my_results&lt;/code&gt; array where we will be storing the values, along with a counter.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ser = serial.Serial(&amp;#39;/dev/tty.usbmodem1101&amp;#39;, 115200 ,timeout=1)
+my_result = np.zeros([8,8],dtype=np.float32)
+my_counter = 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next up we need to setup the figure that we will plot the results in, for this we are using matplotlib, we are going to set the colourbar range to be from 0 to 40 degrees with &lt;code&gt;vmin=0, vmax=40&lt;/code&gt; , as this the range I&amp;rsquo;m expecting to see when testing it out.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fg = plt.figure()
+ax = fg.gca()
+h = ax.imshow(my_result, vmin=0, vmax=40,cmap=plt.get_cmap(&amp;#39;inferno&amp;#39;))
+plt.colorbar(h)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we are ready to enter our main program loop, so that this runs indefinitely i&amp;rsquo;m using a &lt;code&gt;while(1)&lt;/code&gt; statement to keep it looping round. This is then followed by the &lt;code&gt;ser.readline()&lt;/code&gt; command, which should hopefully get us an string containing 8 comma seperated values from the Raspberry Pi Pico. To check it is likley the values we are expecting we check the length, if its long enough to be our values, we seperate the values using &lt;code&gt;split(&amp;quot;,&amp;quot;)&lt;/code&gt; function, and convert the values to be a &lt;code&gt;np.float32&lt;/code&gt; datatype.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;while(1):
+	my_data = ser.readline()
+
+  if len(my_data) &amp;gt; 20:
+		my_string = str(my_data)[3:-7]
+
+		my_result[my_counter,0:8] = np.asarray(my_string.split(&amp;#34;,&amp;#34;),dtype=np.float32)
+		my_counter = my_counter + 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we have a line of numbers, once we have 8 of them we now have all the image. This mean we need to update the plot that we created earlier with the values received from the sensor, before reseting our counter back to zero.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;	if my_counter &amp;gt; 7:
+		h.set_data(np.fliplr(np.flip(my_result)))
+		plt.draw(), plt.pause(1e-4)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PModinfrerred_running.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This then allows us to see what the sensor is seeing, which I was really happy with when I checked out that my solution actually worked the morning after writing the code.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;With that now completed, my next task is to look at getting an identical example in HDL which uses either the Icebreaker Board or the Colorlite i5, this will be a bit more of a challenge, but it will be a great little project for improving my HDL coding skills.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Pico PMod breakout PCB</title>
+        <link>https://jjhorton.co.uk/posts/picopmod/</link>
+        <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/picopmod/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/PicoPmod-JLC_PCB.jpg" alt="Featured image of post Pico PMod breakout PCB" /&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-Breadboard.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pico on a Breadboard&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;After picking up a few &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.org/products/raspberry-pi-pico/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico&amp;rsquo;s&lt;/a&gt;, I was looking for a use for them and I decided to hook up a few of the PMod boards I have from playing around with FPGA. This PMod boards all use the same pinout, of 12 pins, which consists of 8 I/O pins, two 3.3V, and two GND connections on a two row 2.54mm header. I have a few kicking around from a more complex ones, down to a simple &lt;a class=&#34;link&#34; href=&#34;https://1bitsquared.com/collections/fpga/products/pmod-dip-switch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;8 DIP switch&lt;/a&gt; and a &lt;a class=&#34;link&#34; href=&#34;https://1bitsquared.com/products/pmod-7-segment-display&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;7 segment display&lt;/a&gt;. These are great little boards for connecting to boards like the Raspberry PI Pico when experimenting but the interface with the Pico requires a breadboard to hook them up, so I was looking for a better way to get these PMod&amp;rsquo;s hooked up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.raspberrypi.org/app/uploads/2021/01/Raspberry-Pi-Pico-at-an-angle-900x643.png%22&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Raspberry pi pico, image from raspberrypi.org&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Why bother experimenting with the Raspberry Pi Pico? Well the things that interested me with the Raspberry Pi Pico was not only the low price but also the Programable I/O or PIO on the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.org/documentation/rp2040/getting-started/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040&lt;/a&gt; device. This allows you to build small limited sate machines you can set up on some of the outputs, alongside some more traditional Hard IP (SPI/UART/I2C) on the device with a duel core ARM that supports running at a clock rate of over 100MHz. This make it interesting to play with, much as I have been playing around with on FPGA&amp;rsquo;s in the past few months, without having to get your head around writing lots of HDL such as Verilog or VHDL.&lt;/p&gt;
+&lt;h1 id=&#34;designing-a-pcb-with-kicad&#34;&gt;Designing a PCB with KiCAD&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-Schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;KiCad Schematic&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once I had decided to build a PMod Board, I needed to decide the requirements of the board, I decided that I wanted to be able to use the extended PMoD setup, that is used on the &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;colorlite I5 expansion board&lt;/a&gt; that I owned, which would allow me to have both a duel PMod connection, and a few extra I/O pins as well as 5V access. I also decided that I would want to be able to connect PMod&amp;rsquo;s as a host device, as well as connect into an FPGA board like the &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;colorlite I5&lt;/a&gt; . To do this I decided I would break out the 5V pin and 3v3 pin, so we can connect headers when I need to power PMod devices from the Picos power supply, or disconnect them when I want to use the USB connection.&lt;/p&gt;
+&lt;p&gt;Other pins I looked to break out to headers was the analog inputs, and the 3v3 enable pin. This gives me more flexibility when choosing how to power the Pico when it is connected up as a client device to one of the FPGA boards. Another popular feature I added was connecting up the Run pin to a button which pulls it to ground, allowing the Pico to be safely reset, when I want to upload a new program.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-Layout.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;KiCad PCB Layout&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-3D_Layout.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;KiCad 3d Render&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once all the requirements were captured in the schematic, it was a quick task to layout the board. Thankfully, a footprint and schematic symbol that match the Pico requirements were available in a library which could be loaded into KiCAD that someone has made available on &lt;a class=&#34;link&#34; href=&#34;https://github.com/HeadBoffin/RP_Silicon_KiCad&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github&lt;/a&gt;, which greatly speed up getting these boards made up. With the simple boards made up&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-JLC_PCB.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB&amp;rsquo;s as they arrived&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;building-a-counter-example&#34;&gt;Building a counter example&lt;/h1&gt;
+&lt;p&gt;With the boards made and tested, I was now ready to start hooking up a simple PMod, and getting my head round writing C/C++ again, as it has been a while.&lt;/p&gt;
+&lt;p&gt;The process for compiling c/c++ for the Raspberry Pi Pico is really well documented, and the Raspberry Pi Website is a great resource in getting everything set up on matter on what you are using to compile the software. I did find the examples repo, a bit intimidating when wanting to build something from scratch for the cmake files but there were plenty of back to basics examples avalible from a quick google search.&lt;/p&gt;
+&lt;p&gt;The first example that I wanted used the PMod &lt;a class=&#34;link&#34; href=&#34;https://1bitsquared.com/products/pmod-7-segment-display&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;7 segment display&lt;/a&gt;, and I wanted to display a counter that increments once per second. The first set was getting a suitable cmake file setup, this includes all the information the Pico SDK needs to build my project, this is a simple project with no real external dependancies other the the &lt;code&gt;pico_stdlib&lt;/code&gt; library and the code will be in my file &lt;code&gt;main.c&lt;/code&gt;, which keeps this file nice and simple.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;make_minimum_required(VERSION 3.12)
+
+# include(pico_sdk_import.cmake)
+include($ENV{PICO_SDK_PATH}/pico_sdk_init.cmake)
+
+# Change your executable name to something creative!
+set(NAME pico-pmod)
+
+project(${NAME} C CXX ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+
+# Initialize the SDK
+pico_sdk_init()
+
+# Add your source files
+add_executable(${NAME}
+    main.c
+)
+
+# Don&amp;#39;t forget to link the libraries you need!
+target_link_libraries(${NAME}
+	 pico_stdlib
+)
+
+# create map/bin/hex file etc.
+pico_add_extra_outputs(${NAME})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The next task is building up our program, first up is importing the standard library&amp;rsquo;s, and at this point we will also set up some variables that we will need. One of the main once here are the &lt;code&gt;SEVEN_SEGMENT_PINS&lt;/code&gt; array of constants, these list of pins can be swapped by changing the LCD_DISPLAY value which is the same as the PMod output connector of the custom PCB.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;#34;pico/stdlib.h&amp;#34;
+
+#define LCD_DISPLAY 1
+#define LOOKUP_TABLE_LENGTH 50
+
+#if (LCD_DISPLAY==0)
+	//if plugged into pmod1
+	const uint SEVEN_SEGMENT_PINS[] = {9,11,13,15,8,10,12,14};
+#else
+	//if plugged into pmod0
+	const uint SEVEN_SEGMENT_PINS[] = {21,19,17,3,20,18,16,2};
+#endif
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The first function we define is a nice simple one, this is used to setup the output pins, initialising them as GPIO (General Purpose Input Output) Pins, setting the direction for each of them as outputs and setting them each as a low value. This function is called as part of the setup process, and is only used once.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int setup_display(){
+	for(int x = 0; x&amp;lt;8; x++) {
+			gpio_init(SEVEN_SEGMENT_PINS[x]);
+			gpio_set_dir(SEVEN_SEGMENT_PINS[x], GPIO_OUT);
+			gpio_put(SEVEN_SEGMENT_PINS[x],0);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The function is to display the values on the seven segment display, to do this we create an array with each row corresponding to the pins that we need to turn on to display the corresponding number, this array is &lt;code&gt;characters[]&lt;/code&gt; array, with the first value of the &lt;code&gt;unit8&lt;/code&gt; always set to zero and ignored the rest define each of the segments on the seven segment display.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int set_display(uint num1, uint num2){
+
+	// the table used to set the charcter to be on
+	uint8_t characters[] = {0b01000000,	// 0
+							0b01111001,	// 1
+							0b00100100,	// 2
+							0b00110000,	// 3
+							0b00011001,	// 4
+							0b00010010,	// 5
+							0b00000010,	// 6
+							0b01111000,	// 7
+							0b00000000,	// 8
+							0b00011000,	// 9
+							0b00001000,	// A
+							0b00000011,	// B
+							0b01000110,	// C
+							0b00100001,	// D
+							0b00000110,	// E
+							0b00001110};// F
+
+
+	// set the display values
+	//for the first digit
+	for(int x = 0; x&amp;lt;7; x++) {
+		gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num1] &amp;gt;&amp;gt; x) &amp;amp; 1U);
+	}
+
+	gpio_put(SEVEN_SEGMENT_PINS[7], 1);
+	sleep_ms(10);
+
+	//for the second digit
+	for(int x = 0; x&amp;lt;7; x++) {
+		gpio_put(SEVEN_SEGMENT_PINS[x], (characters[num2] &amp;gt;&amp;gt; x) &amp;amp; 1U);
+	}
+
+	gpio_put(SEVEN_SEGMENT_PINS[7], 0);
+	sleep_ms(10);
+
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The two displays are multiplexed together, so the output pins for this loop are set using the &lt;code&gt;gpioput()&lt;/code&gt; function, cycling through the elements of the character with the &lt;code&gt;x&lt;/code&gt; variable and writing the binary values to the pins from the characters array using the command &lt;code&gt;(characters[num1] &amp;gt;&amp;gt; x) &amp;amp; 1U)&lt;/code&gt;. We then let this display remain on for a few milliseconds using the function &lt;code&gt;sleep_ms(10);&lt;/code&gt; before then setting the pin for the multiplexer &lt;code&gt;	gpio_put(SEVEN_SEGMENT_PINS[7], 0);&lt;/code&gt; and repeating the process for the other character with the &lt;code&gt;num2&lt;/code&gt; value.&lt;/p&gt;
+&lt;p&gt;The main function then pulls these two functions together, setting up the display and the counters that we will display. the counters are all initialised to zero, after we have called out &lt;code&gt;setup_display();&lt;/code&gt; function. The main &lt;code&gt;counter&lt;/code&gt; then cycles around 50 times, before we then increment &lt;code&gt;counter1&lt;/code&gt;, once counter 1 has reached 15 (displayed on the screen as e), we then increment the 2nd digit. This results in the counter incrementing approximately once per second.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int main() {
+
+		// setup the outputs for the display
+		setup_display();
+
+		//initalise the counters used to count up on the display
+
+		uint counter = 0;
+		uint counter1 = 0;
+		uint counter2 = 0;
+
+		// main loop for updating the display and updating the counter
+		while (true) {
+			set_display(counter1, counter2);
+			counter++;
+
+			if(counter&amp;gt;PAUSE_LENGTH){ counter = 0; counter1++;}
+			if(counter1&amp;gt;15){ counter1=0; counter2++;}
+			if(counter2&amp;gt;15){ counter2=0;}
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The next set is building the code i have written, this is a standard process which is well documented in the SDK documentation. As I tend to stick to the terminal when working on my Macbook, I just type the commands in which is a simple as:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; export PICO_SDK_PATH=../pico-sdk
+ mkdir build
+ cd build
+ cmake ..
+ make -j4
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the code build successfully, we can then copy  it onto the Pico, with the PMod Board this is now easier and doesn&amp;rsquo;t require unplugging the Pico. Instead we can hold down the run button, then press the Boot button. the releasing the Run followed by Boot button and the Pico appears on as a removable drive ready for us to drop the &lt;code&gt;pico-pmod.uf2&lt;/code&gt; file onto it, at which point it begins running our program.&lt;/p&gt;
+&lt;h1 id=&#34;what-next&#34;&gt;What next&lt;/h1&gt;
+&lt;p&gt;The next challenge will be building some examples with PIO, working with a few more PMod type devices. One error that needs fixing, 5v and GND pin wrong way round, in order to match the Colorlite i5 FPGA Dev Board that I have. I&amp;rsquo;m planning on building a few custom PMod boards so I can develop and test both FPGA based examples and Pico Based examples, to improve my coding ability for coding on both.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

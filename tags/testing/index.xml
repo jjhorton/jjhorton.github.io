@@ -1,21 +1,365 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Testing on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/testing/</link>
-    <description>Recent content in Testing on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/testing/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Nvidia Jetson Nano 2Gb Testing</title>
-      <link>https://jjhorton.co.uk/posts/jetsontesting/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/jetsontesting/</guid>
-      <description>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.
-This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Testing on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/testing/</link>
+        <description>Recent content in Testing on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/testing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Nvidia Jetson Nano 2Gb Testing</title>
+        <link>https://jjhorton.co.uk/posts/jetsontesting/</link>
+        <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/jetsontesting/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/Jetson_case_box.png" alt="Featured image of post Nvidia Jetson Nano 2Gb Testing" /&gt;&lt;p&gt;Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.&lt;/p&gt;
+&lt;p&gt;This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Image from &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Monte_Carlo_integration#/media/File:MonteCarloIntegrationCircle.svg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;By selecting two random numbers with are evenly distributed between a min and max, to be the x and Y coordinates, we can then calculate the distance from the centre of the circle using pythagorus theorem.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;a%5e2&amp;#43;b%5e2=c%5e2&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Where our distance from the centre from the cicrle is c, and our randomly selected x and y co-ordinates a and b. This means that our distance from the centre of the circle is given by:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&amp;#43;y%5e2%7d&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next step is to see if this point falls within the circle, or in the area outside the circle. this is completed by comparing this distance from the centre of the circle with the radius of the circle. If this distance is less than the circle radius, then it is within the circle, and we count up how many times we get a value that falls inside the circle.&lt;/p&gt;
+&lt;p&gt;We can the use the ratio of the number of points that we have found within the circle and the total number of test completed to approximate the value of pi. The area of the circle is defined as:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The area of the square is twice the radius of the circle, for each the x and y axis we have used for generating all our points is, therefor the area is&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We can therefore calculate that the ratio in the area between the circle and the square is:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This can be simplified to:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Assuming that we have a sufficiently large number of points we can assume that the number of points which fall inside the circle is proportional to the total area of the square, so after rearranging we can then replace the areas with the number of points that fall within each:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://latex.codecogs.com/svg.latex?%5cLarge&amp;amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This formula, with is relatively simple can allow us to compute the value of pi, which can be realised with python using numpy. The implementation, generates a random number between a width, and then calculates the distance from the centre, that this point is from the centre of the circle. This is then compared to the circles radius, and if it falls within the circle the total is implemented. The final value of Pi is then calculated when the main loop is finished.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import numpy as np
+import time
+
+iterations = int(1e6)
+
+totalIn = 0.0
+width = np.power(2,15)
+
+start = time.time()
+
+for iter in range(iterations):
+  x = np.random.random_integers(-width,width)
+  y = np.random.random_integers(-width,width)
+
+  dist = np.sqrt(np.power(x,2)+np.power(y,2))
+
+  if dist&amp;lt;width:
+    totalIn += 1
+
+
+my_pi = 4 * np.divide(totalIn,iterations)
+runtime = time.time() - start
+print(&amp;#34;Pi is calculated as : %.10f&amp;#34; % my_pi)
+print(runtime)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Iterations&lt;/th&gt;
+&lt;th&gt;Pi Calculated&lt;/th&gt;
+&lt;th&gt;Run Time(s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;3.0000000000&lt;/td&gt;
+&lt;td&gt;0.077&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1,000&lt;/td&gt;
+&lt;td&gt;3.0760000000&lt;/td&gt;
+&lt;td&gt;0.692&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10,000&lt;/td&gt;
+&lt;td&gt;3.1360000000&lt;/td&gt;
+&lt;td&gt;7.14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100,000&lt;/td&gt;
+&lt;td&gt;3.1518800000&lt;/td&gt;
+&lt;td&gt;69.6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1,000,000&lt;/td&gt;
+&lt;td&gt;3.1409400000&lt;/td&gt;
+&lt;td&gt;686&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The main thing we have control of is the number of iterations, and we can attempt to complete more iterations by optimising our code, the problem is the more iterations we do the longer is takes to complete, with 1,000,000 iterations taking 10 minutes we need to improve the execution time if we want to carry out more iterations.&lt;/p&gt;
+&lt;p&gt;In Python Loops are relatively slow compared to other languages such as &amp;lsquo;c&amp;rsquo; and &amp;lsquo;c++&amp;rsquo;, this is due to the dynamically typed nature of python. Vectorising the calculation of the values, using Numpy helps to remove or limit the number of loops that need to be completed, and operations on vectors are generally more efficient in dynamically typed languages, and by avoiding context switching large efficiency gains can be found.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import numpy as np
+import time
+
+test_points = int(1e9)
+sample_size = int(1e6)
+iterations = int(test_points/sample_size)*sample_size
+
+count = np.array(0,dtype=np.float64)
+width = np.power(2,15)
+
+start = time.time()
+
+max_value = np.array(width*width,dtype=np.float32)
+
+for iter in range(int(iterations/sample_size)):
+  x = np.random.random_integers(-width,width,sample_size)
+  y = np.random.random_integers(-width,width,sample_size)
+
+  result = np.less(np.add(x*x,y*y),max_value)
+  count = count + np.sum(result)
+
+pi_2 = 4.0 * np.divide(count,iterations)
+runtime = time.time() - start
+
+print(&amp;#34;Pi is calculated as : %.10f&amp;#34; % pi_2)
+print(&amp;#34;Runs: %i&amp;#34; % iterations)
+print(runtime)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Iterations&lt;/th&gt;
+&lt;th&gt;Pi value&lt;/th&gt;
+&lt;th&gt;Run Time (s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1,000,000&lt;/td&gt;
+&lt;td&gt;3.1449280000&lt;/td&gt;
+&lt;td&gt;0.28814268112182617&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10,000,000&lt;/td&gt;
+&lt;td&gt;3.1422772000&lt;/td&gt;
+&lt;td&gt;2.569852352142334&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100,000,000&lt;/td&gt;
+&lt;td&gt;3.1415957200&lt;/td&gt;
+&lt;td&gt;26.24626588821411&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Now making use of the unique of the Nvidia Jetson boards which is the GPU along with the 128 CUDA cores. Taking advantage of these features involves switching from Numpy which executes on arm core to using CUPY. The CUPY library is designed to be compatible with numpy, using the same syntax and function names but to be used to execute the commands on the GPU.&lt;/p&gt;
+&lt;p&gt;While the syntax is almost identical between Numpy and CUPY, for the functions themselves, we actually need to deal with where the variables are located for the GPU version. Typically on a traditional Desktop PC the memory for the CPU and GPU are separate, and each time a variable needs to go between the two it has to be transferred over what is typically a PCIe link. This transfer takes time, but in the Jetson Boards the memory is shared between the CPU and the GPU, which means transfers are no longer a real issue but we still have the map the variables as ones that are able to be processed by the GPU as shown by the &amp;lsquo;cp.array()&amp;rsquo; commands, and then make that data available to Numpy and the CPU with commands such as &amp;lsquo;cp.asnumpy()&amp;rsquo;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import numpy as np
+import cupy as cp
+import time
+
+test_points = int(1e9)
+sample_size = int(1e6)
+iterations = int(test_points/sample_size)*sample_size
+
+count = cp.array(0,dtype=cp.float64)
+width = cp.power(2,15)
+
+start = time.time()
+
+max_value = cp.array(width*width,dtype=cp.float32)
+
+for iter in range(int(iterations/sample_size)):
+  x = cp.random.random_integers(-width,width,sample_size)
+  y = cp.random.random_integers(-width,width,sample_size)
+
+  result = cp.less(cp.add(x*x,y*y),max_value)
+  count = count + cp.sum(result)
+
+pi_2 = cp.asnumpy(4.0 * cp.divide(count,iterations))
+runtime = time.time() - start
+
+print(&amp;#34;Pi is calculated as : %.10f&amp;#34; % pi_2)
+print(&amp;#34;Runs: %i&amp;#34; % iterations)
+print(runtime)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Iterations&lt;/th&gt;
+&lt;th&gt;Pi value&lt;/th&gt;
+&lt;th&gt;Run Time (s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1,000,000&lt;/td&gt;
+&lt;td&gt;3.1428120000&lt;/td&gt;
+&lt;td&gt;0.536&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10,000,000&lt;/td&gt;
+&lt;td&gt;3.1412428000&lt;/td&gt;
+&lt;td&gt;0.952&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100,000,000&lt;/td&gt;
+&lt;td&gt;3.1414888800&lt;/td&gt;
+&lt;td&gt;5.70&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1,000,000,000&lt;/td&gt;
+&lt;td&gt;3.1414574560&lt;/td&gt;
+&lt;td&gt;48.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These large improvements in speed, have allowed us to complete far more iterations in a shorter amount of time, and in terms of out algorithm we can see the improvements in the accuracy of Pi we are estimating. By the time we are calculating 1e9 values, we are getting pi correct to 4 significant figures. The question is are there any more options to improve the speed of our algorithm?&lt;/p&gt;
+&lt;p&gt;One element that we skipped over is the size of the vectors that we are working with, for the above testing they were fixed at 1e6, without any real justification. This number was picked as an integer divide of the number of points was planning to test with, but could this be optimised, lets test a few Vector lengths with a fixed number of iterations at 1e8.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vector Length&lt;/th&gt;
+&lt;th&gt;CPU Run Time (s)&lt;/th&gt;
+&lt;th&gt;GPU Run Time&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1e3&lt;/td&gt;
+&lt;td&gt;32.9&lt;/td&gt;
+&lt;td&gt;846&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2e3&lt;/td&gt;
+&lt;td&gt;21.3&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5e3&lt;/td&gt;
+&lt;td&gt;14.4&lt;/td&gt;
+&lt;td&gt;176&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1e4&lt;/td&gt;
+&lt;td&gt;12.0&lt;/td&gt;
+&lt;td&gt;82.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2e4&lt;/td&gt;
+&lt;td&gt;11.7&lt;/td&gt;
+&lt;td&gt;44.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5e4&lt;/td&gt;
+&lt;td&gt;12.2&lt;/td&gt;
+&lt;td&gt;19.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1e5&lt;/td&gt;
+&lt;td&gt;12.0&lt;/td&gt;
+&lt;td&gt;10.9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2e5&lt;/td&gt;
+&lt;td&gt;11.5&lt;/td&gt;
+&lt;td&gt;6.90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5e5&lt;/td&gt;
+&lt;td&gt;10.7&lt;/td&gt;
+&lt;td&gt;5.60&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1e6&lt;/td&gt;
+&lt;td&gt;10.4&lt;/td&gt;
+&lt;td&gt;5.18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2e6&lt;/td&gt;
+&lt;td&gt;10.2&lt;/td&gt;
+&lt;td&gt;5.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5e6&lt;/td&gt;
+&lt;td&gt;10.8&lt;/td&gt;
+&lt;td&gt;4.94&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1e7&lt;/td&gt;
+&lt;td&gt;10.6&lt;/td&gt;
+&lt;td&gt;5.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2e7&lt;/td&gt;
+&lt;td&gt;10.6&lt;/td&gt;
+&lt;td&gt;5.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.5e7&lt;/td&gt;
+&lt;td&gt;10.6&lt;/td&gt;
+&lt;td&gt;6.62&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).&lt;/p&gt;
+&lt;p&gt;This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

@@ -1,97 +1,601 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Electronics on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/electronics/</link>
-    <description>Recent content in Electronics on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Opensource FPGA tools for ECP5 Evaluation Board</title>
-      <link>https://jjhorton.co.uk/posts/ecp5g-eval/</link>
-      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/ecp5g-eval/</guid>
-      <description>In this post I am recording how I got my first design onto the ECP5 Development board that I recently purchased. This devboard makes use of the LFE5UM5G FPGA, on a pcb, with lots of IO broken out including the SERDES Pins. For this example, I am using the on-board 8 LED&amp;rsquo;s, and an example that I originally used with my icebreaker board and an LED PMod.
-Getting the ECP5 Devboard setup As a Macbook Air user, with its M1 processor, sometimes means getting the right tools can be a challenge.</description>
-    </item>
-    
-    <item>
-      <title>Neopixel Drinks Coaster</title>
-      <link>https://jjhorton.co.uk/posts/rp2040_coaster/</link>
-      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/rp2040_coaster/</guid>
-      <description>This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from Marks and Spencer&amp;rsquo;s, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&amp;rsquo;s.</description>
-    </item>
-    
-    <item>
-      <title>Low Cost Quad Rotor Design and Implementation Report</title>
-      <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
-      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
-      <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
-Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
-    </item>
-    
-    <item>
-      <title>Serial Communication and MATLAB</title>
-      <link>https://jjhorton.co.uk/posts/serial-control-and-matlab/</link>
-      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/serial-control-and-matlab/</guid>
-      <description>For producing the Quad Rotor&amp;rsquo;s GUI I needed to be able to implement the serial communication in MATLAB. This it seemed would be a simple task as on windows machines it is a simple task of opening the comms port, send the data, and closing the port. All seemed so simple, but as it turns out this was not the case on the Mac which I was using from my project with MATLAB R2008a</description>
-    </item>
-    
-    <item>
-      <title>Communication Control</title>
-      <link>https://jjhorton.co.uk/posts/communication-control/</link>
-      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/communication-control/</guid>
-      <description>For the Quad rotor to work I need some control over it, I have got my communications link all set up, but I need to sort out what I&amp;rsquo;m going to send over it. Previously I had just been sending gyroscope or accelerometer readings, but now this needs to become a two way system and for that I need to write some code at both ends that is up to the task.</description>
-    </item>
-    
-    <item>
-      <title>Getting the Rotors Running</title>
-      <link>https://jjhorton.co.uk/posts/getting-the-rotors-running/</link>
-      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/getting-the-rotors-running/</guid>
-      <description>After several weeks off nothing happening, then hitting problems with the filtering i&amp;rsquo;ve finally found sometime to get some work done on my project. This week I have been getting the rotors running, which is surprisingly simple no that I know how it all works.
-With my project being based on an Arduino Nano processor I was able to use the Servo Library, although this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.</description>
-    </item>
-    
-    <item>
-      <title>Communication</title>
-      <link>https://jjhorton.co.uk/posts/communication/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/communication/</guid>
-      <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
-The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
-    </item>
-    
-    <item>
-      <title>Processing Power</title>
-      <link>https://jjhorton.co.uk/posts/processing-power/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
-      <description>To get everything talking together I’m going to need something to sit in the middle, and provide all the processing power. On the recommendation of my supervisor I had a look at the arduino boards. The arduino boards are based on Atmel processors in the middle with a boot loader per-installed to allow the uploading of programs straight onto the board from USB.
-Arduino Nano Board There are many variants of the processor available, all with more than enough programming power for what I will be doing, the important thing for me to consider was which input and output interfaces I’d need for my quad rotor.</description>
-    </item>
-    
-    <item>
-      <title>Quad Rotor Project, Introduction</title>
-      <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
-      <description>Well one day after looking though pictures of these magical 4 rotor helicopter type things hovering, I was sold it was a good idea… that was over a year ago, and now I’m building one for my 3^rd^ year project at university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going the in the opposite direction. The forces can be shown on a simple wire frame model</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Electronics on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/electronics/</link>
+        <description>Recent content in Electronics on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/electronics/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Opensource FPGA tools for ECP5 Evaluation Board</title>
+        <link>https://jjhorton.co.uk/posts/ecp5g-eval/</link>
+        <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/ecp5g-eval/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/lfe5um5g.jpg" alt="Featured image of post Opensource FPGA tools for ECP5 Evaluation Board" /&gt;&lt;p&gt;In this post I am recording how I got my first design onto the &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/new/lattice-semiconductor/lattice-ecp5-evaluation-board/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ECP5 Development board&lt;/a&gt; that I recently purchased. This devboard makes use of the &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/Lattice/LFE5UM5G-85F-8BG381I?qs=QJVrD4wLTyONFR%2FnXgE2xQ%3D%3D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LFE5UM5G FPGA&lt;/a&gt;, on a pcb, with lots of IO broken out including the SERDES Pins. For this example, I am using the on-board 8 LED&amp;rsquo;s, and an example that I originally used with my icebreaker board and an LED PMod.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ecp5_devboard.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Getting the ECP5 Devboard setup&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As a Macbook Air user, with its &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Apple_M1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;M1&lt;/a&gt; processor, sometimes means getting the right tools can be a challenge. Thankfully unlike the main vendor tools where using a Macbook for development is a none starter, the open source tools can be installed with only a few commands. I&amp;rsquo;m using the tools from homebrew that are available on &lt;a class=&#34;link&#34; href=&#34;https://github.com/ktemkin/homebrew-oss-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github&lt;/a&gt; which makes installing with &lt;a class=&#34;link&#34; href=&#34;https://brew.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;homebrew&lt;/a&gt; really easy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew tap ktemkin/oss-fpga
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install --HEAD project-trellis yosys nextpnr-trellis
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The actual code I&amp;rsquo;m going to use to get started is a few simple lines of Verilog, with a clock divider that aims to trigger roughly once a second, before shifting the output LED one to the left in the line of LED&amp;rsquo;s. The only input is CLK and the only output is the array of 8 LED&amp;rsquo;s.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;no&#34;&gt;`default_nettype&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;none&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blinky&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;input&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 			&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;output&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;parameter&lt;/span&gt; 	&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;c1&#34;&gt;// When the counter reaches top value shift the LEd accross one
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b10000000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;assign&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;endmodule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the example outlined in Verilog the first job is complying the design using Yosys, this tools takes the Verilog design and converts it into a json design in elements that can be placed onto the FPGA. The &lt;code&gt;synth_ecp5&lt;/code&gt; script is used for compiling the design, outputting the resulting design in the &lt;code&gt;blink.json&lt;/code&gt; file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yosys -p &lt;span class=&#34;s1&#34;&gt;&amp;#39;synth_ecp5 -top blinky -json blink.json&amp;#39;&lt;/span&gt; blinky.v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we have our design compiled into elements that can be placed onto an FPGA, I need a file to tell what the designs input and outputs needs to be physicially connected to. This file is an &lt;code&gt;.lpf&lt;/code&gt; file, which contains the Pin names and the sites that they need to be connected to on the FPGA package&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;A10&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;IOBUF&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PORT&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IO_TYPE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LVCMOS33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[0]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;A13&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[1]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;A12&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[2]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;B19&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[3]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;A18&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[4]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;B18&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[5]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[6]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;A17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[7]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;B17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With our pin definition file &lt;code&gt;ecp5sum-eval.lpf&lt;/code&gt;, we can then feed this in with the design json file&lt;code&gt;blink.json&lt;/code&gt;, to build our bit stream. For this we need to specify the device &lt;code&gt;--um5g-85k&lt;/code&gt; and it&amp;rsquo;s package &lt;code&gt;--package CABGA381&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nextpnr-ecp5 --um5g-85k --package CABGA381 --json blink.json --lpf ecp5sum-eval.lpf --textcfg blink.config
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the design is compiled, I can use &lt;code&gt;ecppack&lt;/code&gt; to build the bitstream file, in this example I use the &lt;code&gt;--compact&lt;/code&gt; flag, which reduces the bitstream size with compression and helps make it quick to upload to our board.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecppack --compress --bit blink.bit blink.config
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For loading the design onto the development board i&amp;rsquo;m using the &lt;a class=&#34;link&#34; href=&#34;https://github.com/trabucayre/openFPGALoader&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Open FPGA Loader&lt;/a&gt; my main reason for using this is that it is simple to install on my M1 Mac with a single line&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install openfpgaloader
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the software installed and the Devboard hooked up to the USB port, I can then check that the ecp5 development board is detected, using the detect command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;openfpgaloader --detect
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Jtag frequency : requested 6.00MHz   -&amp;gt; real 6.00MHz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;index 0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        idcode 0x1113043
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        manufacturer lattice
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        family ECP5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        model  LFE5U-85
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        irlength &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we know that that the board is connected, and that it can see the correct device that we are expecting, we just need to send the design over onto the board. There are two methods we can do this, the first is loading into SRAM. Loading into SRAM is quicker, but it is volatile, so will disappear once the power is disconnected:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;openfpgaloader -b ecp5_evn blink.bit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The second option is writing to flash, which is non-volatile, this takes a bit longer but will be loaded each from the flash each time the power is applied to the board:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;openfpgaloader -b ecp5_evn -f blink.bit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the design all loaded in, that completes this post, next up is getting a few simple designs hooked upto the PMOD connect on the board. Then at some point I will be hopefully taking a look at the SERDES options on this board, as i&amp;rsquo;ve got a few ideas I would like to have a play around with.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Neopixel Drinks Coaster</title>
+        <link>https://jjhorton.co.uk/posts/rp2040_coaster/</link>
+        <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/rp2040_coaster/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/NeopixelCoaster_PCB.jpg" alt="Featured image of post Neopixel Drinks Coaster" /&gt;&lt;p&gt;This little project involved building something unnecessarily complex when there are many much cheaper options that would have done the job just fine. The reason for this was that my girlfriend likes the light up gin bottles from &lt;a class=&#34;link&#34; href=&#34;https://www.marksandspencer.com/ie/c/food/not-just-any-food/food-news/christmas-gin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marks and Spencer&amp;rsquo;s&lt;/a&gt;, and I though there could be a better way to create my own, and if your going to have a Light up bottle, it is always going to be improved by having programable RGB LED&amp;rsquo;s.&lt;/p&gt;
+&lt;p&gt;The design was to be simple, a drinks coaster made from a 10cm square PCB, which could be powered by one of the many USB-C chargers that we have round the house, with a number of RGB LED&amp;rsquo;s on the top, which could light up any bottle or glass when placed on top of it. To detect when a drink was placed on, I planned on using small switches on each corner, that a micro-controller on board, could then be triggered by to set the RGB colors of.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_sch.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;kiCad Schematic for Rp2040 Coaster&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The design is a simple one that uses the parts I had readily available, given the on-going parts shortage, as a result the microcontroller is a RP2040, which seems massively overpowered but I have many at home and you have to use what is avalible today, but who needs a Duel Core processor to just drive a couple of LED&amp;rsquo;s? The LED&amp;rsquo;s are essentially Neopixels, the WS2812B LEDs, which I had a reel I purchased earlier in the year from Aliexpress, when I was building some little displays I used with the &lt;a class=&#34;link&#34; href=&#34;http://www.jjhorton.co.uk/posts/infraredsensorneopixel/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thermal Sensor&lt;/a&gt;. Much of the rest of the design is based on the RP2040 &lt;a class=&#34;link&#34; href=&#34;https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Reference design&lt;/a&gt;, so was quick to pull together using KiCad, and before you know it the PCB is off to be manufactured.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Render.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Render of the Rp2040 Coaster PCB&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the PCB order, the next job was to add some sort of case or cover for the board, and protect it from the contents of the bottle which wuld be placed on top. For this I used OpenSCAD to produce a tight fitting cover which could be 3D printed. The Case makes use of a few simple shapes, producing a square with the shape of the PCB cut away, and by matching the dimensions closely I&amp;rsquo;m able to get a case the pushes onto the board.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-OpenSCAD&#34; data-lang=&#34;OpenSCAD&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;difference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;difference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;95&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;95&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;86&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;91&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;91&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;41.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;47.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;46.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;nb&#34;&gt;translate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;6.61&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;cube&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenSCAD is great when you just want to assemble a few simple shapes pragmatically, but I found it difficult to use in this context building a more complex piece with elements that need to fit together. I might look at trying something like FreeCAD next time, as it might be better suited to my needs especially as the PCB can be easily imported into freecad to see how the shapes interact. Even with these issues, having a 3D printer at home means that even an error such as this can be quickly corrected and solved, although it seems wasteful taking 4 attempts to get a part to fit together well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Bodge.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB with problems&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The first revision of the PCB, was a bit of a fail, as after making a few late changes to the PCB, a power rail was added that went though the ground plane on the back of the PCB. I was able to bodge this, with a bit of thin wire and some careful cutting with a scalpel, to test the design, before making some quick corrections and then getting a fresh PCB made up. One advantage of this was it let me work on a case, and getting it to fit with the board I had made up which would have the same dimensions as the final board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Neopixel_WithCase.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Asseembled PCB with the 3D printed cover &#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The code for controlling the board is just based on the examples provided with the Pico Board, which provides the functionality to send a stream of RGB values, to the interface and select the LED to be turned on. The decision on if to turn the coaster on is based on the number of the switches that are not high, the Pin Numbers for the switches are stored in &lt;code&gt;BUTTON_PINS&lt;/code&gt;, and the first loop checks if they are high or low, the color that is then set is driven by the counter &lt;code&gt;my_test&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;180&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;gpio_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BUTTON_PINS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//Set the center LED&amp;#39;s
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_test&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		     &lt;span class=&#34;nf&#34;&gt;setcenter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	     &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;179&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			 &lt;span class=&#34;nf&#34;&gt;setcenter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RGB_LOOKUP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nf&#34;&gt;set_colour&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;49&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the case where at least 3 of the buttons have triggered, the color is set from an array of values in &lt;code&gt;RGB_LOOKUP&lt;/code&gt;, this contains the 180 RGB values that create the smooth color transitions, with the next value in the lookup table being selected after each loop, before resetting once all values have been used.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/NeopixelCoaster_Complete.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The completed RP2040 powered coaster&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the code completed, the PCB and case assembled we can bring it all together, and see what we have. I&amp;rsquo;m happy with the results, and the code, PCB and case can all be found on Github if you want to have a look. &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Rp2040_Coaster&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gihub.com/jjhorton/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometimes you think your Gin bottle needs RGB lights, and you end up building something unnecessary like this &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/q5HyRK8X9F&#34;&gt;pic.twitter.com/q5HyRK8X9F&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1488206830568419331?ref_src=twsrc%5Etfw&#34;&gt;January 31, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The changing colors work well on the textured glass of this bottle very well, the next task is to work out how I could make it battery powered&amp;hellip;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Low Cost Quad Rotor Design and Implementation Report</title>
+        <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
+        <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Low Cost Quad Rotor Design and Implementation Report" /&gt;&lt;p&gt;Now that the project is long finished and my marks for the year have
+been given I thought I would share the final report for the project.&lt;/p&gt;
+&lt;p&gt;Although the project was not completed, with me unable to finish tuning
+the PID control loops to a standard were it would be able to fly, I was
+successfully able to get the quad rotor to be able to balance most of
+the time on its test jig. Hopefully at some point in the future I will
+be able to finish the project, but at the moment there is just too much
+to do and not enough time.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://jjhorton.co.uk/wp-content/uploads/2012/11/FinalProjectReport.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Low Cost Quad Rotor Design and Implementation Final
+Report&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Serial Communication and MATLAB</title>
+        <link>https://jjhorton.co.uk/posts/serial-control-and-matlab/</link>
+        <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/serial-control-and-matlab/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Serial Communication and MATLAB" /&gt;&lt;p&gt;For producing the Quad Rotor&amp;rsquo;s GUI I needed to be able to implement the
+serial communication in MATLAB. This it seemed would be a simple task as
+on windows machines it is a simple task of opening the comms port, send
+the data, and closing the port. All seemed so simple, but as it turns
+out this was not the case on the Mac which I was using from my project
+with MATLAB R2008a&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;s = serial(&amp;#39;/dev/tty.usbserial-FT4KIQ90&amp;#39;);
+fopen(s);
+fprintf(s, &amp;#39;a&amp;#39;);
+fclose(s);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I found that the serial interface on this version of MATLAB was not
+fully implemented, as a result every time that you tried to close the
+serial port you would need to restart the computer, which is far from
+ideal. Luckily for me my university had just made available the latest
+version of MATLAB (R2011a) which supported the serial communication
+commands that I needed.&lt;/p&gt;
+&lt;p&gt;So how does the serial communication work? Well it all starts when the
+user request the software to connect to the Quad Rotor, this checks to
+see if the serial port is open or not, then if it is not it opens up the
+serial link. This series of events first starts when the GUI is opened
+up, at this point the serial object is created, with the parameters set
+at this stage it allows the program to access it at any point though a
+common interface. For the purpose of testing I am using a USB serial
+connection in place of the bluetooth link, to prevent problems that
+could be caused in the case of a communication failure. At this point
+the BaudRate is set for the link, which is 115200, the same as used in
+pervious tests, apart from this I user the standard settings for the
+port.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;handles.s = serial(&amp;#39;/dev/tty.usbserial-11BP0140&amp;#39;);
+handles.s.BaudRate = 115200;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Opening the connection, with the object no created it is possible to
+connect to the Quad Rotor. This is done when the user selects the
+Connect Button, which is names cmdConnect, and calls the function
+bellow.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;% --- Executes on button press in cmdConnect.
+function cmdConnect_Callback(hObject, eventdata, handles)
+% hObject handle to cmdConnect (see GCBO)
+% eventdata reserved - to be defined in a future version of MATLAB
+% handles structure with handles and user data (see GUIDATA)
+
+%check if the serial port is avalible to connect to
+if isa(handles.s,&amp;#39;serial&amp;#39;) &amp;amp;&amp;amp; isvalid(handles.s)
+if strcmpi(get(handles.s,&amp;#39;Status&amp;#39;),&amp;#39;open&amp;#39;)
+addstr = cellstr(&amp;#39;Already Connected to Quadrotor&amp;#39;);
+else
+fopen(handles.s);
+addstr = cellstr(&amp;#39;Connected to Quadrotor&amp;#39;);
+pause(2);
+end
+commsStats = &amp;#39;Connected to Quadrotor&amp;#39;;
+%set the enabled buttons
+set(handles.cmdDisconnect, &amp;#39;Enable&amp;#39;, &amp;#39;on&amp;#39;);
+set(handles.cmdConnect, &amp;#39;Enable , &amp;#39;off&amp;#39;);
+
+else
+addstr = cellstr(&amp;#39;Failed to connect to quadrotor&amp;#39;);
+commsStats = &amp;#39;Disconnected from Quadrotor&amp;#39;;
+end
+
+%add the log update to the gui
+oldstr = cellstr(get(handles.lbDataveiw, &amp;#39;String&amp;#39;));
+set(handles.lbDataveiw, &amp;#39;str&amp;#39;, { addstr{:} ,oldstr{:} });
+%set(handles.tbComms, &amp;#39;str&amp;#39;, commsStats);
+set( handles.tbComms, &amp;#39;String&amp;#39;, commsStats );
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This function carries out a few simple error checks to ensure that the
+program only calls the function that opens the COM port at the right
+time, otherwise MATLAB and GUI could crash. It first checks that the
+serial port object has been created, and if it is valid. This allows the
+confirmation of if the serial port exists, as the Quad Rotor may not
+have power, be disconnected from the setup, or the port is in use by
+another program, in this case it reports to the user about the failure,
+by adding a new cell to the text reporting system in the GUI.&lt;/p&gt;
+&lt;p&gt;Now that it confirmed that the port exists it checks if the port is
+actually open or not, using the following code, which comes back with a
+true or false statement which is used as part of an If statement.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;strcmpi(get(handles.s,&amp;#39;Status&amp;#39;),&amp;#39;open&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the port is already open it again reports this to the user, but if
+all the details are correct then it is able to open the connection to
+the Aurdino Microcontroller on board the quad rotor.&lt;/p&gt;
+&lt;p&gt;The next stage in the system is sending data to the Aurdino
+Microcontroller, and receiving it back. This is relatively straight
+forward, to send the data, For example to request a communication link
+test:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fprintf(handles.s, &amp;#39;t&amp;#39;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then to receive the data that is send back we use:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;testresult = fscanf(handles.s);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The next stage on the process, is now to close the serial port. This is
+important to free it us for use with other programs, and ensure we are
+able to connect to it again when the program is next started up. The
+port can simply closed using the following command, which closes the
+connection:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fclose(handles.s);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In my case this is called when we click on the Disconnect button in the
+GUI. Next thing to do on the project now is automating the process of
+sending an receiving this data.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Communication Control</title>
+        <link>https://jjhorton.co.uk/posts/communication-control/</link>
+        <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/communication-control/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/GUIWithData.jpg" alt="Featured image of post Communication Control" /&gt;&lt;p&gt;For the Quad rotor to work I need some control over it, I have got my
+&lt;a class=&#34;link&#34; href=&#34;http://jjhorton.co.uk/archives/67&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;communications link&lt;/a&gt; all set up, but
+I need to sort out what I&amp;rsquo;m going to send over it. Previously I had just
+been sending gyroscope or accelerometer readings, but now this needs to
+become a two way system and for that I need to write some code at both
+ends that is up to the task.&lt;/p&gt;
+&lt;p&gt;For the computer side of things I&amp;rsquo;m going to be using MATLAB, there are
+2 reasons I have chosen MATLAB for this task, the first of which is that
+I have done similar control stuff in MATLAB before, and the second being
+that there is lots of support out there for this kind of task for
+MATLAB. With MATLAB having many of the functions that I will need built
+in all I need to do is join up the dots.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/GUIWithData.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The above shows GUI that I developed to do the task, bellow I&amp;rsquo;ll talk
+you though its main functions. The user interface was created using the
+GUIDE (Graphical User Interface Development Environment) that is
+supplied with MATLAB, which made placing all the parts in place simple
+case of drop and drag, but then came the part of making them do
+something. The GUI is made up of the following core components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic 3D Graphical display of the Quad Rotors orientation&lt;/li&gt;
+&lt;li&gt;A plot of the 3 gyroscopes readings over the last 30 seconds&lt;/li&gt;
+&lt;li&gt;A plot of the 3 accelerometers readings over the last 30 seconds&lt;/li&gt;
+&lt;li&gt;A text display of the data sent and received from the Quad Rotor&lt;/li&gt;
+&lt;li&gt;Button down the right hand side to control the quad rotor with&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Getting the Rotors Running</title>
+        <link>https://jjhorton.co.uk/posts/getting-the-rotors-running/</link>
+        <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/getting-the-rotors-running/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/Quadcopter_rotortest.jpg" alt="Featured image of post Getting the Rotors Running" /&gt;&lt;p&gt;After several weeks off nothing happening, then hitting problems with
+the filtering i&amp;rsquo;ve finally found sometime to get some work done on my
+project. This week I have been getting the rotors running, which is
+surprisingly simple no that I know how it all works.&lt;/p&gt;
+&lt;p&gt;With my project being based on an Arduino Nano processor I was able to
+use the &lt;a class=&#34;link&#34; href=&#34;http://arduino.cc/en/Reference/Servo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Servo Library&lt;/a&gt;, although
+this is mainly aimed at controlling servo&amp;rsquo;s it also works for ESC&amp;rsquo;s.
+This allows me to comunicate to the servo&amp;rsquo;s using a simplified
+interface, not having to worry about the interrupts, and timing cycles.
+This does come at the cost of code size ad run speed, but if this
+becomes a problem I can always go back and take another look at it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Quadcopter_rotortest.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The code I created uses 3 main functions, with another one for testing,
+these functions are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; initRotor - This function initiales the servos, and sets an initial
+value off zero.&lt;/li&gt;
+&lt;li&gt;rotorSet - This function takes the 4 integer values representing the
+rotor speeds and sets each off the rotors to them.&lt;/li&gt;
+&lt;li&gt;rotorStop - This is used to stop the rotors, I may remove this
+function but has been useful in testing when it all goes wrong.&lt;/li&gt;
+&lt;li&gt;rotorTest - This has been mainly used for testing, running each
+rotor up for a short period of time individually before starting the
+next, again this will probably be removed from the final code .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The code is shown here, although its very simple&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//the code to control the rotor speeds
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; 	&lt;span class=&#34;cpf&#34;&gt;Servo.h;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Servo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rotor1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Servo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rotor2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Servo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rotor3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Servo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rotor4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;initRotor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//attach the servos, to stop them from beeping
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;rotor1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;attach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;attach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;attach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;attach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//This will then set all the rotors to zero rotorSet(0, 0, 0, 0);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rotorSet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;speed1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;speed2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;speed3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;speed4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//speed values must be given as 0-1000, to update power
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;rotor1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;speed1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;speed2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;speed3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;speed4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rotorStop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//this function stops al the rotors
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;rotor1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;700&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;700&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;700&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;rotor4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;writeMicroseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;700&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The code is mainly driven by the writeMicroseconds operation off the
+servo object, this allows for the updating off the servo pulse width,
+which is normally defined as between 1000 and 2000 Micro Seconds,
+representing the minimum and maximum output respectively from the ESC
+that they will drive. The reason that the stop function uses the lower
+value off 700, is to ensure that it falls outside the tolerances off the
+ESC timing preventing any movement from the rotors.&lt;/p&gt;
+&lt;p&gt;These 4 functions provide all the required functionality that my quad
+rotor will need for this project. The big tasks that I hope to get done
+in the next week include the filtering, and the PID control so I should
+soon have this quad rotor off the ground.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Communication</title>
+        <link>https://jjhorton.co.uk/posts/communication/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/communication/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/BluetoothPcb.png" alt="Featured image of post Communication" /&gt;&lt;p&gt;For the communication system, there are many choices available from the
+traditional route of model building and control. The main issue with
+these systems is that they are very expensive, so for my project I have
+chosen to use a Bluetooth module.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothPcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The module that I have chosen is the Spark fun Bluetooth Mate Silver
+from &lt;a class=&#34;link&#34; href=&#34;http://proto-pic.co.uk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;proto-pic.co.uk&lt;/a&gt;, this simply attaches to
+the RX and TX lines on the arduino processor that I’m using, this makes
+the communication very simple, helping to reduce the development time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothHelloWorld.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The Bluetooth module is mounted on the same main board as my processor,
+and only required a few quick solder connections to start getting some
+response on my computer. To start with a found that I wasn’t getting
+anything that I expected out of the board, but looking though the
+datasheets as well as a few useful posts on the
+&lt;a class=&#34;link&#34; href=&#34;http://sparkfun.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sparkfun.com&lt;/a&gt; website, I found that the default
+baud rate for the Bluetooth module was 115200 not 9600, I had been
+trying to use. This quick fix meant that in no time at all I was able to
+send data to my computer, and also with a little bit of code be able to
+flash an LED.&lt;/p&gt;
+&lt;p&gt;Now to stop turning on and off LED’s and turn this into a quad rotor.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Processing Power</title>
+        <link>https://jjhorton.co.uk/posts/processing-power/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Processing Power" /&gt;&lt;p&gt;To get everything talking together I’m going to need something to sit in
+the middle, and provide all the processing power. On the recommendation
+of my supervisor I had a look at the arduino boards. The arduino boards
+are based on Atmel processors in the middle with a boot loader
+per-installed to allow the uploading of programs straight onto the board
+from USB.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/nano.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Arduino Nano Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;There are many variants of the processor available, all with more than
+enough programming power for what I will be doing, the important thing
+for me to consider was which input and output interfaces I’d need for my
+quad rotor. The key one that I decided I’d need where,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Serial&lt;/strong&gt; – to provide my communication link to the computer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I2C&lt;/strong&gt; – this would provide all the communications between my main
+board and any sensors that would be required&lt;/li&gt;
+&lt;li&gt;4 x &lt;strong&gt;PWM outputs&lt;/strong&gt; – these would be used to control each of the
+motors that will be on board the Quad Rotor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After considering all these factors, the next thing to consider is ease
+of integration and the size and weight limitations. I made the decision
+to purchase an &lt;a class=&#34;link&#34; href=&#34;http://arduino.cc/en/Main/ArduinoBoardNano&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arduino Nano
+board&lt;/a&gt;, this provides all
+the I/O pins that I require in a very small package. This board also has
+the voltage regulators that I’ll require for my circuit, reducing the
+component count on the main board.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Quad Rotor Project, Introduction</title>
+        <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Quad Rotor Project, Introduction" /&gt;&lt;p&gt;Well one day after looking though pictures of these magical 4 rotor
+helicopter type things hovering, I was sold it was a good idea… that was
+over a year ago, and now I’m building one for my 3^rd^ year project at
+university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going
+the in the opposite direction. The forces can be shown on a simple wire
+frame model&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterWireFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For my project as an electronic engineer I am concentrating on the
+electronic systems that control the quad rotor rather than the frame and
+structure itself, as a result I have purchased a frame, which comes with
+the motors and propellers. This leaves me to focus on building the
+electronic system, and control software for my quad rotor, the frame was
+purchased from uavshop.com.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On my Blog I will post updates of how the project progresses, as I do
+each stage of the project.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

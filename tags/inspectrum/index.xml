@@ -1,21 +1,105 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Inspectrum on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/inspectrum/</link>
-    <description>Recent content in Inspectrum on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/inspectrum/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Inspectrum with SigMF Files</title>
-      <link>https://jjhorton.co.uk/posts/inspectrumsigmf/</link>
-      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/inspectrumsigmf/</guid>
-      <description>This post is as much a note to myself, for the next time that I hit this issue, which is installing Inspectrum with SigMF support.
-The tool I&amp;rsquo;m installing is Inspectrum which is for analysing captured files of sampled data, primarily from Software Defined Radios. This allows for looking at signals, and analysing what is in the capture. I was looking to use this tool with some SigMF files, the Signal Meta data files are made up of a Binary File containing the sample data, and a JSON companion file, which contains details about the capture.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Inspectrum on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/inspectrum/</link>
+        <description>Recent content in Inspectrum on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/inspectrum/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Inspectrum with SigMF Files</title>
+        <link>https://jjhorton.co.uk/posts/inspectrumsigmf/</link>
+        <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/inspectrumsigmf/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/Inspectrum_WithAnnotations.png" alt="Featured image of post Inspectrum with SigMF Files" /&gt;&lt;p&gt;This post is as much a note to myself, for the next time that I hit this issue, which is installing &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt; with SigMF support.&lt;/p&gt;
+&lt;p&gt;The tool I&amp;rsquo;m installing is &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt; which is for analysing captured files of sampled data, primarily from Software Defined Radios. This allows for looking at signals, and analysing what is in the capture. I was looking to use this tool with some &lt;a class=&#34;link&#34; href=&#34;https://github.com/gnuradio/SigMF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SigMF&lt;/a&gt; files, the Signal Meta data files are made up of a Binary File containing the sample data, and a JSON companion file, which contains details about the capture. This file with details about the capture can also include annotations, which is what I am interested in today. The SigMF Repository contains all the details on what the standard supports: &lt;a class=&#34;link&#34; href=&#34;https://github.com/gnuradio/SigMF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github.com/gnuradio/SigMF&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Github repo for &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt; includes details on how to get it built, which is a simple case of running a few commands on my Ubuntu PC:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install qtbase5-dev libfftw3-dev cmake pkg-config libliquid-dev
+sudo apt-get install build-essential git
+git clone https://github.com/miek/inspectrum.git
+cd inspectrum/
+mkdir build
+cd build/
+cmake ..
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The cmake command behaves as expected but it does not find &lt;code&gt;libsigmf&lt;/code&gt; which is probably expected as I haven&amp;rsquo;t installed it as part of installing the dependancies in the first two commands:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version &amp;#34;0.29.1&amp;#34;)
+-- Found FFTW: /usr/lib/x86_64-linux-gnu/libfftw3f.so  
+-- Found LIQUID: /usr/lib/x86_64-linux-gnu/libliquid.so  
+-- libsigmf not found. Disabling SigMF support
+-- Configuring done
+-- Generating done
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This means that I won&amp;rsquo;t be able to open sigmf files in &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt;, as &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt; will now throw an error even when you attempt to open just the binary &lt;code&gt;.sigmf-data&lt;/code&gt; files, in the newer versions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Inspectrum_SigMF_Error.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Inspectrum Error opening Sigmf File&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The issue I found next was that there were no clear instructions on how to install this &lt;a class=&#34;link&#34; href=&#34;https://github.com/deepsig/libsigmf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;libsigmf&lt;/a&gt; within its git repository, this seemed to be some assumed knowledge which I was clearly lacking. After a hunt around the repo, and looking though the github workflow files it was possible to work out the steps I seemed, by building and installing the &lt;a class=&#34;link&#34; href=&#34;https://github.com/deepsig/libsigmf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;libsigmf&lt;/a&gt; examples, which seemed to get the missing &lt;a class=&#34;link&#34; href=&#34;https://github.com/deepsig/libsigmf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;libsigmf&lt;/a&gt; library installed:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/deepsig/libsigmf.git
+cd libsigmf
+cmake -B build
+cmake --build build
+sudo -H cmake --install build
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The one step I then discovered I had missed is that I also need to install the dependancies for the &lt;a class=&#34;link&#34; href=&#34;https://github.com/deepsig/libsigmf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;libsigmf&lt;/a&gt; package on my Ubuntu PC, thankfully these are just available using apt on Ubuntu 20 LTS.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install libflatbuffers-dev nlohmann-json3-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we are able to remove the build folder from the &lt;a class=&#34;link&#34; href=&#34;https://github.com/miek/inspectrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inspectrum&lt;/a&gt; repositry we created earlier, and have a go at building again. Now we get a Much better looking message from the cmake command including &lt;code&gt;Enabling SigMF support&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- The CXX compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version &amp;#34;0.29.1&amp;#34;)
+-- Found FFTW: /usr/lib/x86_64-linux-gnu/libfftw3f.so  
+-- Found LIQUID: /usr/lib/x86_64-linux-gnu/libliquid.so  
+-- libsigmf found. Enabling SigMF support
+-- Configuring done
+-- Generating done
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;From here is just a case of completing the build, running &lt;code&gt;instpectrum&lt;/code&gt; and opening up a sigmf file.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Inspectrum_WithAnnotations.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Sigmf File with annotations&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This means that I can now have a good look at some of the data files complete with the annotations that I have downloaded and wanted to explore. The files I am taking a look at are downloaded from &lt;a class=&#34;link&#34; href=&#34;https://deepsig.ai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeepSig&lt;/a&gt; for a competition being run at &lt;a class=&#34;link&#34; href=&#34;https://www.spawc2021.com/data-competition/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IEEE International Workshop on Signal Processing Advances in Wireless Communications&lt;/a&gt;, with this synthetic dataset of over 100Gb of RF data making up the &lt;a class=&#34;link&#34; href=&#34;https://eval.ai/web/challenges/challenge-page/1057/overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Wideband Signal Recognition challenge&lt;/a&gt;. The dataset is currently available for anyone to download if they follow the challenge links and provide an email address, although it may take a while to download given its size. Now I&amp;rsquo;ve seen the data it is tempting to have a go and see what I can do, having played around with Modulation Recognition using machine Learning in the past it looks like a tempting challenge to have a go at, although it looks like a big challenge and I&amp;rsquo;m not sure how far I would get as a one man band over just a couple of months.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

@@ -1,50 +1,156 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Quadrotor on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/quadrotor/</link>
-    <description>Recent content in Quadrotor on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/quadrotor/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Low Cost Quad Rotor Design and Implementation Report</title>
-      <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
-      <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
-      <description>Now that the project is long finished and my marks for the year have been given I thought I would share the final report for the project.
-Although the project was not completed, with me unable to finish tuning the PID control loops to a standard were it would be able to fly, I was successfully able to get the quad rotor to be able to balance most of the time on its test jig.</description>
-    </item>
-    
-    <item>
-      <title>Communication</title>
-      <link>https://jjhorton.co.uk/posts/communication/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/communication/</guid>
-      <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
-The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
-    </item>
-    
-    <item>
-      <title>Processing Power</title>
-      <link>https://jjhorton.co.uk/posts/processing-power/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
-      <description>To get everything talking together I’m going to need something to sit in the middle, and provide all the processing power. On the recommendation of my supervisor I had a look at the arduino boards. The arduino boards are based on Atmel processors in the middle with a boot loader per-installed to allow the uploading of programs straight onto the board from USB.
-Arduino Nano Board There are many variants of the processor available, all with more than enough programming power for what I will be doing, the important thing for me to consider was which input and output interfaces I’d need for my quad rotor.</description>
-    </item>
-    
-    <item>
-      <title>Quad Rotor Project, Introduction</title>
-      <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
-      <description>Well one day after looking though pictures of these magical 4 rotor helicopter type things hovering, I was sold it was a good idea… that was over a year ago, and now I’m building one for my 3^rd^ year project at university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going the in the opposite direction. The forces can be shown on a simple wire frame model</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Quadrotor on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/quadrotor/</link>
+        <description>Recent content in Quadrotor on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Sun, 09 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/quadrotor/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Low Cost Quad Rotor Design and Implementation Report</title>
+        <link>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</link>
+        <pubDate>Sun, 09 Sep 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/low-cost-quad-rotor-design-and-implementation-report/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Low Cost Quad Rotor Design and Implementation Report" /&gt;&lt;p&gt;Now that the project is long finished and my marks for the year have
+been given I thought I would share the final report for the project.&lt;/p&gt;
+&lt;p&gt;Although the project was not completed, with me unable to finish tuning
+the PID control loops to a standard were it would be able to fly, I was
+successfully able to get the quad rotor to be able to balance most of
+the time on its test jig. Hopefully at some point in the future I will
+be able to finish the project, but at the moment there is just too much
+to do and not enough time.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://jjhorton.co.uk/wp-content/uploads/2012/11/FinalProjectReport.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Low Cost Quad Rotor Design and Implementation Final
+Report&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Communication</title>
+        <link>https://jjhorton.co.uk/posts/communication/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/communication/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/BluetoothPcb.png" alt="Featured image of post Communication" /&gt;&lt;p&gt;For the communication system, there are many choices available from the
+traditional route of model building and control. The main issue with
+these systems is that they are very expensive, so for my project I have
+chosen to use a Bluetooth module.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothPcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The module that I have chosen is the Spark fun Bluetooth Mate Silver
+from &lt;a class=&#34;link&#34; href=&#34;http://proto-pic.co.uk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;proto-pic.co.uk&lt;/a&gt;, this simply attaches to
+the RX and TX lines on the arduino processor that I’m using, this makes
+the communication very simple, helping to reduce the development time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothHelloWorld.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The Bluetooth module is mounted on the same main board as my processor,
+and only required a few quick solder connections to start getting some
+response on my computer. To start with a found that I wasn’t getting
+anything that I expected out of the board, but looking though the
+datasheets as well as a few useful posts on the
+&lt;a class=&#34;link&#34; href=&#34;http://sparkfun.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sparkfun.com&lt;/a&gt; website, I found that the default
+baud rate for the Bluetooth module was 115200 not 9600, I had been
+trying to use. This quick fix meant that in no time at all I was able to
+send data to my computer, and also with a little bit of code be able to
+flash an LED.&lt;/p&gt;
+&lt;p&gt;Now to stop turning on and off LED’s and turn this into a quad rotor.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Processing Power</title>
+        <link>https://jjhorton.co.uk/posts/processing-power/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/processing-power/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Processing Power" /&gt;&lt;p&gt;To get everything talking together I’m going to need something to sit in
+the middle, and provide all the processing power. On the recommendation
+of my supervisor I had a look at the arduino boards. The arduino boards
+are based on Atmel processors in the middle with a boot loader
+per-installed to allow the uploading of programs straight onto the board
+from USB.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/nano.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Arduino Nano Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;There are many variants of the processor available, all with more than
+enough programming power for what I will be doing, the important thing
+for me to consider was which input and output interfaces I’d need for my
+quad rotor. The key one that I decided I’d need where,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Serial&lt;/strong&gt; – to provide my communication link to the computer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I2C&lt;/strong&gt; – this would provide all the communications between my main
+board and any sensors that would be required&lt;/li&gt;
+&lt;li&gt;4 x &lt;strong&gt;PWM outputs&lt;/strong&gt; – these would be used to control each of the
+motors that will be on board the Quad Rotor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After considering all these factors, the next thing to consider is ease
+of integration and the size and weight limitations. I made the decision
+to purchase an &lt;a class=&#34;link&#34; href=&#34;http://arduino.cc/en/Main/ArduinoBoardNano&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arduino Nano
+board&lt;/a&gt;, this provides all
+the I/O pins that I require in a very small package. This board also has
+the voltage regulators that I’ll require for my circuit, reducing the
+component count on the main board.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Quad Rotor Project, Introduction</title>
+        <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Quad Rotor Project, Introduction" /&gt;&lt;p&gt;Well one day after looking though pictures of these magical 4 rotor
+helicopter type things hovering, I was sold it was a good idea… that was
+over a year ago, and now I’m building one for my 3^rd^ year project at
+university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going
+the in the opposite direction. The forces can be shown on a simple wire
+frame model&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterWireFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For my project as an electronic engineer I am concentrating on the
+electronic systems that control the quad rotor rather than the frame and
+structure itself, as a result I have purchased a frame, which comes with
+the motors and propellers. This leaves me to focus on building the
+electronic system, and control software for my quad rotor, the frame was
+purchased from uavshop.com.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On my Blog I will post updates of how the project progresses, as I do
+each stage of the project.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

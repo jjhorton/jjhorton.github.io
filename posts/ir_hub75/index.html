@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-uk">
+<html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using a large LED Matrix over the HUB75 interface to display inferred sensor values'><title>Infrared Sensor with an LED Matrix</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Using a large LED Matrix over the HUB75 interface to display inferred sensor values'>
+<title>Infrared Sensor with an LED Matrix</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/ir_hub75/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Infrared Sensor with an LED Matrix'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Infrared Sensor with an LED Matrix'>
 <meta property='og:description' content='Using a large LED Matrix over the HUB75 interface to display inferred sensor values'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/ir_hub75/'>
 <meta property='og:site_name' content='James Horton'>
@@ -27,8 +28,8 @@ if (!doNotTrack) {
 
     </head>
     <body class="
-    article-page 
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -51,23 +52,18 @@ if (!doNotTrack) {
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        on-phone--column extended
-    
-">
-    
-        <aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <header class="site-info">
+    <header>
         
             
             <figure class="site-avatar">
+                <a href="/">
                 
                     
                     
@@ -77,43 +73,48 @@ if (!doNotTrack) {
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
-
+                </a>
                 
             </figure>
             
         
         
-        <h1 class="site-name"><a href="/">James Horton</a></h1>
-        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
-                
-                    <li>
-                        <a 
-                            href='https://github.com/jjhorton'
-                            target="_blank"
-                            title="GitHub"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://www.linkedin.com/in/jjhorton/'
-                            target="_blank"
-                            title="LinkedIn"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <rect x="4" y="4" width="16" height="16" rx="2" />
   <line x1="8" y1="11" x2="8" y2="16" />
@@ -121,32 +122,31 @@ if (!doNotTrack) {
   <line x1="12" y1="16" x2="12" y2="11" />
   <path d="M16 16v-3a2 2 0 0 0 -4 0" />
 </svg>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://twitter.com/JamesjHorton'
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-            </ol></header>
-
-    <ol class="menu" id="main-menu">
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
         
         
         
@@ -212,9 +212,11 @@ if (!doNotTrack) {
         </li>
         
 
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -222,7 +224,7 @@ if (!doNotTrack) {
 
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -230,14 +232,16 @@ if (!doNotTrack) {
 
 
 
-                <span>Dark Mode</span>
-            </li>
-        
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
     </ol>
 </aside>
 
     
-<main class="main full-width">
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
@@ -252,16 +256,21 @@ if (!doNotTrack) {
     <div class="article-details">
     
 
-    <h2 class="article-title">
-        <a href="/posts/ir_hub75/">Infrared Sensor with an LED Matrix</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/ir_hub75/">Infrared Sensor with an LED Matrix</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Using a large LED Matrix over the HUB75 interface to display inferred sensor values
+        </h3>
+        
+    </div>
 
     
-    <h3 class="article-subtitle">
-        Using a large LED Matrix over the HUB75 interface to display inferred sensor values
-    </h3>
     
-
+    
     
     <footer class="article-time">
         
@@ -282,79 +291,68 @@ if (!doNotTrack) {
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <p>Having picked up a couple of LED Matrix&rsquo;s from <a class="link" href="https://www.aliexpress.com/"  target="_blank" rel="noopener"
     >aliexpress</a> that I thought should finally be put to some good use, having perviously made up some IR Thermal camera PMods I thought it would be a great idea to hook them up together, and have a nice big display with the array from these sensors scaled up.</p>
 <p>The hardware that is needed mostly relies on what I had already built, mainly the <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> and the <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorpmod/" >PMod IR Camera</a>, but there is the need for a board to interface between the HUB75 display and the RP2040 PMod board. While for initial testing it was not problem to drive the display directly, i decided to invest some time to make some proper interface boards.</p>
 <p>![Using the Raspberry Pi example with custom image](/img/hub75_textdispla   y.jpg)</p>
 <p>The proof of concept was to hook up the display directly to the <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> which was completed using some short wires and a HUB75 example from the Raspberry Pi Pico github Repository. This allows for using a static preprocessed image when directly attached up, but this is a hacky solution, so hence the need for a more permanent solution.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_Schematic.png" >
-		<img src="/img/hub75_Schematic.png"
-			
-			
-			
-			loading="lazy"
-			alt="PMod Hub75 Schematic">
-	</a>
+<p><img src="/img/hub75_Schematic.png"
 	
-	<figcaption>PMod Hub75 Schematic</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="PMod Hub75 Schematic"
+	
+	
+></p>
 <p>The design uses a SN74LVC8T245 which is an eight bit non-inverting bus transceiver, this is based loosely on a board design I saw used with the iceBreaker FPGA boards, but I use a larger variant of the chip because it is easier to solder and work with. The Schematic was designed with <a class="link" href="https://www.kicad.org/"  target="_blank" rel="noopener"
     >KiCAD</a> as with my other recent PCB&rsquo;s.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_PCB_Layout.png" >
-		<img src="/img/hub75_PCB_Layout.png"
-			
-			
-			
-			loading="lazy"
-			alt="PMod Hub75 PCB Layout">
-	</a>
+<p><img src="/img/hub75_PCB_Layout.png"
 	
-	<figcaption>PMod Hub75 PCB Layout</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="PMod Hub75 PCB Layout"
+	
+	
+></p>
 <p>The PCB&rsquo;s where then produced by <a class="link" href="https://jlcpcb.com/"  target="_blank" rel="noopener"
     >JLCPCB</a> in the excellent purple colour, for the labels this time I made use of <a class="link" href="https://github.com/gregdavill/KiBuzzard"  target="_blank" rel="noopener"
     >KiBuzzard</a> which allows me to generate the labels I use to show the signals on the hub75 connector.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_control_pcb.jpg" >
-		<img src="/img/hub75_control_pcb.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Purple PCB&rsquo;s from JLCPCB">
-	</a>
+<p><img src="/img/hub75_control_pcb.jpg"
 	
-	<figcaption>Purple PCB’s from JLCPCB</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Purple PCB&rsquo;s from JLCPCB"
+	
+	
+></p>
 <p>The PCB&rsquo;s were assembled by hand using a solder stencil from <a class="link" href="https://jlcpcb.com/"  target="_blank" rel="noopener"
     >JLCPCB</a> that I used with my <a class="link" href="https://www.aliexpress.com/"  target="_blank" rel="noopener"
     >aliexpress</a> hot plate, the results are pretty good and I managed to get all five examples I built fully working.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_pmod_controller.jpg" >
-		<img src="/img/hub75_pmod_controller.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Assesmbed PMod Hub75 Boards">
-	</a>
+<p><img src="/img/hub75_pmod_controller.jpg"
 	
-	<figcaption>Assesmbed PMod Hub75 Boards</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Assesmbed PMod Hub75 Boards"
+	
+	
+></p>
 <p>With that completed and the previous attempts having creating an example that displays the values on a <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorneopixel/" >8x8 neopixel display</a>,  which has many of the key features, but now I just needed to scale up the image.</p>
 <p>The first attempt to scale up the image to fit on the 64 by 64 LED matrix, worked by splitting up the pixels into an 8x8 grid, where each square controlled by the single values from the IR grid array. Each square has 8x8 indervidual RGB LED&rsquo;s, that are controlled, this is simple to implement in <code>c</code> and can be completed by just a few loops.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//upscale in 8x8 blocks of color
@@ -368,20 +366,16 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>The result is an image that fills the LED matrix, and help make it easy to see the image, but there are some limitations of this mainly how easy it is to interpret the image. The blocky nature of the image limits how useful it is, and is essentially just a scaled up version on the <a class="link" href="https://jjhorton.co.uk/posts/infraredsensorneopixel/" >Neopixel example</a>.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_scaled_img.png" >
-		<img src="/img/hub75_scaled_img.png"
-			
-			
-			
-			loading="lazy"
-			alt="Initial image displayed on the screen">
-	</a>
+<p><img src="/img/hub75_scaled_img.png"
 	
-	<figcaption>Initial image displayed on the screen</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Initial image displayed on the screen"
+	
+	
+></p>
 <p>The next attempt I wanted to look at was smoothing the image, to make it appear as though the image has a much higher resolution. This removes the blocky values that I created before and attempts to guess the values in between the points, creating a smooth line between them, the 2d linear interpolation is often referred to Bilinear interpolation</p>
 <p>For this I use a simple two step process:</p>
 <ol>
@@ -438,18 +432,14 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span></code></pre></div><p>With that completed we can now send the image we h=have generated to the display, as the sensor only provides an image at a maximum rate of 10 frames per second there isn&rsquo;t much of a need to optimize this in this example.</p>
-<p><figure 
-	>
-	<a href="/img/hub75_complete.png" >
-		<img src="/img/hub75_complete.png"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="/img/hub75_complete.png"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>I may in the future have a look at finding a way to implement <a class="link" href="https://en.wikipedia.org/wiki/Bicubic_interpolation"  target="_blank" rel="noopener"
     >bicubic interpolation</a>, as that would improve the image that is produced, but also I would like to mount the camera and RP2040 onto the back of the screen with a single power supply so only a single power supply is needed, but all that is a task for another day.</p>
 
@@ -481,14 +471,14 @@ if (!doNotTrack) {
 
     
 
-    <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">Related contents</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/rp2040_mini_pmod/">
         
@@ -505,8 +495,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/rp2040_pmod/">
         
@@ -523,8 +514,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/kicad-github-panels/">
         
@@ -541,8 +533,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/chrismas_gps_countdown/">
         
@@ -559,8 +552,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/gps_pmod_board/">
         
@@ -577,10 +571,10 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -599,7 +593,7 @@ if (!doNotTrack) {
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -668,27 +662,25 @@ if (!doNotTrack) {
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

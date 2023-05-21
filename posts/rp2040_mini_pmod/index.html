@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-uk">
+<html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Building a Mini version of the RP2040 PMod Based board, Adding a Micro SD Card slot and using a PCB edge USB-C connector'><title>RP2040 Mini PMod</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Building a Mini version of the RP2040 PMod Based board, Adding a Micro SD Card slot and using a PCB edge USB-C connector'>
+<title>RP2040 Mini PMod</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/rp2040_mini_pmod/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='RP2040 Mini PMod'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='RP2040 Mini PMod'>
 <meta property='og:description' content='Building a Mini version of the RP2040 PMod Based board, Adding a Micro SD Card slot and using a PCB edge USB-C connector'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/rp2040_mini_pmod/'>
 <meta property='og:site_name' content='James Horton'>
@@ -27,8 +28,8 @@ if (!doNotTrack) {
 
     </head>
     <body class="
-    article-page 
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -51,23 +52,18 @@ if (!doNotTrack) {
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        on-phone--column extended
-    
-">
-    
-        <aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <header class="site-info">
+    <header>
         
             
             <figure class="site-avatar">
+                <a href="/">
                 
                     
                     
@@ -77,43 +73,48 @@ if (!doNotTrack) {
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
-
+                </a>
                 
             </figure>
             
         
         
-        <h1 class="site-name"><a href="/">James Horton</a></h1>
-        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
-                
-                    <li>
-                        <a 
-                            href='https://github.com/jjhorton'
-                            target="_blank"
-                            title="GitHub"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://www.linkedin.com/in/jjhorton/'
-                            target="_blank"
-                            title="LinkedIn"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <rect x="4" y="4" width="16" height="16" rx="2" />
   <line x1="8" y1="11" x2="8" y2="16" />
@@ -121,32 +122,31 @@ if (!doNotTrack) {
   <line x1="12" y1="16" x2="12" y2="11" />
   <path d="M16 16v-3a2 2 0 0 0 -4 0" />
 </svg>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://twitter.com/JamesjHorton'
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-            </ol></header>
-
-    <ol class="menu" id="main-menu">
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
         
         
         
@@ -212,9 +212,11 @@ if (!doNotTrack) {
         </li>
         
 
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -222,7 +224,7 @@ if (!doNotTrack) {
 
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -230,14 +232,16 @@ if (!doNotTrack) {
 
 
 
-                <span>Dark Mode</span>
-            </li>
-        
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
     </ol>
 </aside>
 
     
-<main class="main full-width">
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
@@ -252,16 +256,21 @@ if (!doNotTrack) {
     <div class="article-details">
     
 
-    <h2 class="article-title">
-        <a href="/posts/rp2040_mini_pmod/">RP2040 Mini PMod</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/rp2040_mini_pmod/">RP2040 Mini PMod</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Building a Mini version of the RP2040 PMod Based board, Adding a Micro SD Card slot and using a PCB edge USB-C connector
+        </h3>
+        
+    </div>
 
     
-    <h3 class="article-subtitle">
-        Building a Mini version of the RP2040 PMod Based board, Adding a Micro SD Card slot and using a PCB edge USB-C connector
-    </h3>
     
-
+    
     
     <footer class="article-time">
         
@@ -282,40 +291,37 @@ if (!doNotTrack) {
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <p>My pervious <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod board</a> included 3 PMod Connectors and a USB-C, this has been a great little board for development and testing but there are a couple of issues with this board. The first problem is the size, I would prefer something a bit smaller, with only a single PMod connector. The second is the lack of some additional storage, for logging data to such as GPS positions, and then finally is the cost with the expensive USB-C connector used on my original design being a particular problem, costing more than the RP2040 Micro Controller.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_Mini_SdCard_Schematic.png" >
-		<img src="/img/RP2040_Mini_SdCard_Schematic.png"
-			
-			
-			
-			loading="lazy"
-			alt="SD Card KiCAD Schematic">
-	</a>
+<p><img src="/img/RP2040_Mini_SdCard_Schematic.png"
 	
-	<figcaption>SD Card KiCAD Schematic</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="SD Card KiCAD Schematic"
+	
+	
+></p>
 <p>The micro SD card slot is mainly for projects where being able to log data is useful, rather than sending it to a connected PC to be stored on there. I have found this could be useful for a number of of the PMod boards I have, where currently I would just send data over onto a PC to save the data, just logging the data locally provides some better options. I did look at making myself a few little PMod breakout boards, but I soon realized that this wouldn&rsquo;t work well with the RP2040 boards I use them with a lot at the moment, so hence why this board the Micro SD directly on the back of the board.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_Mini_USB_Schematic.png" >
-		<img src="/img/RP2040_Mini_USB_Schematic.png"
-			
-			
-			
-			loading="lazy"
-			alt="USB-C connector">
-	</a>
+<p><img src="/img/RP2040_Mini_USB_Schematic.png"
 	
-	<figcaption>USB-C connector</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="USB-C connector"
+	
+	
+></p>
 <p>On my <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> and several other boards I have made with a USB connection I have used a <a class="link" href="https://www.mouser.co.uk/ProductDetail/Amphenol-Commercial-Products/12401610E42A?qs=EgDjlb95zqAWvChv41w5lg%3D%3D"  target="_blank" rel="noopener"
     >USB-C Connector</a>, USB-C is great,  even though I am only making use of the USB 2.0 functionality, and none of the high speed or high power options, using USB-C has proved a reliable way to connector my development boards up to a PC or Power Supply. The USB-C is now often the only port available on my laptops and the option reduce the number of adapters and cables I need to carry it is always a great reason to standardize the boards I personally make around these.</p>
 <p>The main disadvantage with USB-C is the cost of the connectors, on the <a class="link" href="https://jjhorton.co.uk/posts/rp2040_pmod/" >RP2040 PMod Board</a> the USB-C connector costs as much as the RP2040 Micro Controller, making it at the time i made my second batch of boards, the most expensive part on the board. So as a way of reducing this cost, I looked at alternatives to using these expensive connector, and one of the best ones I came across was using the <a class="link" href="https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c"  target="_blank" rel="noopener"
@@ -325,81 +331,61 @@ if (!doNotTrack) {
 <p>As the PCB and it&rsquo;s pads are making up the connector and it will need to slot directly into USB-C cable, we need to considered the PCB thickness, based on the recommendations of a hackaday <a class="link" href="https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c"  target="_blank" rel="noopener"
     >post</a>, it appeared that using 0.8mm would be fine from <a class="link" href="https://jlcpcb.com"  target="_blank" rel="noopener"
     >JLCPCB</a> even though the size is a little large with the tolerances that USB-C cables allow for, it mates with a cable without any issues.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_mini_barepcb.jpg" >
-		<img src="/img/RP2040_mini_barepcb.jpg"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="/img/RP2040_mini_barepcb.jpg"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>Prototyping 3D Printing models to test out the functional elements of the design, and comparing with the actual PCB&rsquo;s. Using the exported models from the kicad and using Cura and my Ender3 3D printer to produce models for testing that the USB connector would be able to fit into the connector, confirming if the PCB thickness was suitable and if I had allowed enough space for most the cables I have at home to be able to fit.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_mini_3D_Model.jpg" >
-		<img src="/img/RP2040_mini_3D_Model.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="3D Printed testing prototype">
-	</a>
+<p><img src="/img/RP2040_mini_3D_Model.jpg"
 	
-	<figcaption>3D Printed testing prototype</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="3D Printed testing prototype"
+	
+	
+></p>
 <p>The PCB&rsquo;s can be assembled individually or in complete panels, but generally I work on complete panels, these boards use many common components on the larger RP2040 PMod board. While even the most simple design changes can give me problems sometimes, as a respin was required to correct an error with the RGB LED&rsquo;s, that I had wired the wrong way round.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_mini_assemble.jpg" >
-		<img src="/img/RP2040_mini_assemble.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Assembling the PCB&rsquo;s">
-	</a>
+<p><img src="/img/RP2040_mini_assemble.jpg"
 	
-	<figcaption>Assembling the PCB’s</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Assembling the PCB&rsquo;s"
+	
+	
+></p>
 <p>The PCB files are produced automatically using an <a class="link" href="https://github.com/jjhorton/Pico_Pmod/blob/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml"  target="_blank" rel="noopener"
     >github action</a> which I write up in my post about <a class="link" href="https://jjhorton.co.uk/posts/kicad-github-panels/" >Kicad PCB Panels</a> including adding the githash to the board help to keep track of the versions of the board.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_PCB_Panels.jpg" >
-		<img src="/img/RP2040_PCB_Panels.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="The panels of PCB&rsquo;s generated using github actions">
-	</a>
+<p><img src="/img/RP2040_PCB_Panels.jpg"
 	
-	<figcaption>The panels of PCB’s generated using github actions</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="The panels of PCB&rsquo;s generated using github actions"
+	
+	
+></p>
 <p>I now have a collection of RP2040 board, all with the same Micro Controller and PMod connector. The mini model is much smaller, which still allowing plenty of compatibility with the standard PMod modules. I hoping the addition SD Card on the back will allow me to play with a few more logging  type examples, as well as make some more practical examples with the <a class="link" href="InfraredSensorPMod.md" >Thermal Camera</a> and <a class="link" href="gps_pmod_board.md" >PMod GPS Board</a>.</p>
-<p><figure 
-	>
-	<a href="/img/RP2040_Collection.jpg" >
-		<img src="/img/RP2040_Collection.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right) ">
-	</a>
+<p><img src="/img/RP2040_Collection.jpg"
 	
-	<figcaption>The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right)</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="The RP2040 PMod (Left), Pico PMod (Center), and RP2040 Mini PMod (Right) "
+	
+	
+></p>
 <p>Useful Links and references that I found while creating these boards are in the table below:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Reference</th>
@@ -445,7 +431,7 @@ if (!doNotTrack) {
     >https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty</a></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 </section>
 
@@ -475,14 +461,14 @@ if (!doNotTrack) {
 
     
 
-    <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">Related contents</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/kicad-github-panels/">
         
@@ -499,8 +485,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/rp2040_pmod/">
         
@@ -517,8 +504,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/ir_hub75/">
         
@@ -535,8 +523,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/chrismas_gps_countdown/">
         
@@ -553,8 +542,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/gps_pmod_board/">
         
@@ -571,10 +561,10 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -593,7 +583,7 @@ if (!doNotTrack) {
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -662,27 +652,25 @@ if (!doNotTrack) {
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

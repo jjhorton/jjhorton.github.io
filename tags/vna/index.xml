@@ -1,21 +1,134 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>VNA on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/vna/</link>
-    <description>Recent content in VNA on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Fri, 30 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/vna/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Filter Testing</title>
-      <link>https://jjhorton.co.uk/posts/filtertesting/</link>
-      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/filtertesting/</guid>
-      <description>This post is going to take a look at some Filters that I have &amp;ldquo;made at home&amp;rdquo;, for when I am experimenting with my Software Defined Radio&amp;rsquo;s. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.
-For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>VNA on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/vna/</link>
+        <description>Recent content in VNA on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Fri, 30 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/vna/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Filter Testing</title>
+        <link>https://jjhorton.co.uk/posts/filtertesting/</link>
+        <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/filtertesting/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/Filter_Test_Lots_of_PCBs.png" alt="Featured image of post Filter Testing" /&gt;&lt;p&gt;This post is going to take a look at some Filters that I have &amp;ldquo;made at home&amp;rdquo;, for when I am experimenting with my Software Defined Radio&amp;rsquo;s. The filters are for use in the 433MHz band, and I wanted to create some bandpass filters to improve the IQ Recordings I was making, as I was getting a lot of out of band interference on my Pluto SDR.&lt;/p&gt;
+&lt;p&gt;For a 433MHz Filter I could have just purchased some pre-made boards, complete with some simple filters on ebay, there were plenty of options but they all seemed a little expensive, so what harm is there in just having a look at trying to build something myself. I once studied the RF module when I was at university, although I soon realised that it was going to be a bad idea to try and create something from scratch, as I how much of a dark art RF design was. A couple of days later I came across a &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=TnRn3Kn_aXg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;video&lt;/a&gt; on RF design on &lt;a class=&#34;link&#34; href=&#34;https://hackaday.com/2016/03/23/michael-ossmann-makes-you-an-rf-design-hero/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hackaday&lt;/a&gt; I realised that by just using a website like mouser I could get the hard part of filter design done for me, I would just need to put the right bits on a PCB in a form a could use.&lt;/p&gt;
+&lt;p&gt;I quick search on mouser gave me a suitable &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.com/ProductDetail/RF360/B39431B3710U410?qs=%2Fha2pyFadugWu8BeNk2dKak5L2iKxbiW3IfNS5oXT%252BC8aOQqzmASyC1Xu7pW6gQv&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Filter Part&lt;/a&gt;, The &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;datasheet&lt;/a&gt; confirmed that would give me the out of band signal rejection I needed, all ready matched to 50 ohms and just needed to be attached to a couple of SMA connectors so I could hook it up in-between my SDR and my antenna.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_PCB_Schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB Scematic&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_PCB_Layout.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB Layout&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once you have selected the parts it only the matter of quickly dropping the parts into a KiCAD schematic, laying out the PCB and before you know it, there is a small pile of PCB&amp;rsquo;s arriving.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_Lots_of_PCBs.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;PCB&amp;rsquo;s Arrived&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As it the way when ordering these types of PCB&amp;rsquo;s from (JLC PCB)[https://jlcpcb.com], shipping is the biggest expense, even when selecting the cheapest option so I always seem to end up with a lot more PCB than I actually need.&lt;/p&gt;
+&lt;p&gt;For soldering the board I made us of a Hot Plate that I had recently &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/4000887663480.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;purchased&lt;/a&gt; for the purpose of being able to some small PCB at home in a more controlled way. The Hot plate has a temperature control so I can properly preheat my PCB&amp;rsquo;s before then increasing the temperate all the way up to ~200 degrees to briefly melt the solder, which made making a larger number of these PCB&amp;rsquo;s much easier and hopeful with more consistent results.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_Soldering.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Filter soldering&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next stage once I had a few of these Filters made up was to test there performance, for which I used the NanoVNA which I purchased last year. The Nano VNA is a Vector Network Analyser, which allows me to get a better understanding of the filters characteristics, and see if its performance is what I am expecting. While the NanoVNA&amp;rsquo;s performance is never going to beat the performance of the VNA&amp;rsquo;s you will find in commercial labs, it&amp;rsquo;s a great tool for testing out little filters like this that i&amp;rsquo;m making a home, you can find it on &lt;a class=&#34;link&#34; href=&#34;https://www.tindie.com/products/hcxqsgroup/nanovna-v2-plus/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tindie&lt;/a&gt;, although a newer model has since been released with an improved frequency range.&lt;/p&gt;
+&lt;p&gt;For testing my filters, I hooked up the NanoVNA to my PC and used it with the software &lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NanoVNA QT GUI&lt;/a&gt; which allows me to use the NanoVNA from my PC instead of having to use the tiny touchscreen.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_NanoVNA.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;NanoVNA Testing&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The software along with the NanoVNA allows me to clearly see the insertion loss of the filter across the range of frequencies i wanted to measure, as can be shown bellow along with the smith chart showing the measurements.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_NanoVNA_ScreenShot.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Nano VNA PC Software&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;One thing I was interested in looking into was how consistent all the results were between all the filters that I had built. To measure this between the different filters, I needed to export the results from the NanoVNA for this I attached each of the filters and made use of the ability of the software to measure and then export the S-Parameters in touchstone files for each of the filters.&lt;/p&gt;
+&lt;p&gt;For analysing and comparing the results of all the different filters I turned to MATLAB, I use MATLAB at work in my day job a lot and have had to have a look at some s-parameter files before at work. I am lucky in that my &lt;a class=&#34;link&#34; href=&#34;https://uk.leonardocompany.com/en/people-careers&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;employer&lt;/a&gt; provides me with a Home Use version of MATLAB to install on my home desktop computer, but as I was looking at the data from my laptop I fired up &lt;a class=&#34;link&#34; href=&#34;https://uk.mathworks.com/products/matlab-online.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MATLAB Online&lt;/a&gt;. MATLAB online allows me to upload my files to &amp;ldquo;The cloud&amp;rdquo;, and work from the MATLAB standard IDE from a web browser, without needing to work out how to get it installed on my Macbook with it &lt;a class=&#34;link&#34; href=&#34;https://www.apple.com/uk/mac/m1/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;M1 Processor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_Matlab_online.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Using Matlab online to process the results&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The first step I wanted to do was comparing a set of measurements with the filters specifications, this would allow me to check not only that the filters performance was being dramatically being reduced by any of my bad PCB design and that I was able to plot the results in a meaningful way.&lt;/p&gt;
+&lt;p&gt;The first step was to load the s-parameter files into MATLAB, and get the magnitude values out from them to be able to plot, this turned out to be possible in only a handful of commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;measured_data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sparameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;433&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_filter1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s2p&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;gains&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;log10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;measured_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;powergain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;measured_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Frequencies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1e6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ylabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Filter Gain (dB)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xlabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Frequencey (MHz)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ylim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;70&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;grid&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For the S-Parameters function, you do need to have the correct MATLAB toolbox to load the files, but once there loaded with &lt;code&gt;sparameters()&lt;/code&gt; function you get the measured_data object in my case, which provides access to the power gains variable that I wanted to be able to plot, along with the frequencies they were measured at.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/Filter_Test_Single_433MHz.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Filter gain plotted in MATLAB&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For the plot above I&amp;rsquo;ve added the red lines which show the performance as quoted in the filter &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.com/datasheet/2/842/B3710-1092478.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;datasheet&lt;/a&gt;, with the blue being the values being the values as measured on one of the filters, generated in MATLAB from the S-parameter touchstone file. It shows that mounting on the PCB&amp;rsquo;s has not resulted in the performance of the filter reducing from the specification. Now I wanted to look at the consistency between all the filters I made, which MATLAB is a great place to look at these variance in the filters gain, and that will be my next step once i&amp;rsquo;ve measured them all with the NanoVNA.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

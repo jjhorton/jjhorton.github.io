@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-uk">
+<html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'><title>Nvidia Jetson Nano 2Gb Testing</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'>
+<title>Nvidia Jetson Nano 2Gb Testing</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/jetsontesting/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Nvidia Jetson Nano 2Gb Testing'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Nvidia Jetson Nano 2Gb Testing'>
 <meta property='og:description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/jetsontesting/'>
 <meta property='og:site_name' content='James Horton'>
@@ -27,8 +28,8 @@ if (!doNotTrack) {
 
     </head>
     <body class="
-    article-page 
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -51,23 +52,18 @@ if (!doNotTrack) {
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        on-phone--column extended
-    
-">
-    
-        <aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <header class="site-info">
+    <header>
         
             
             <figure class="site-avatar">
+                <a href="/">
                 
                     
                     
@@ -77,43 +73,48 @@ if (!doNotTrack) {
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
-
+                </a>
                 
             </figure>
             
         
         
-        <h1 class="site-name"><a href="/">James Horton</a></h1>
-        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
-                
-                    <li>
-                        <a 
-                            href='https://github.com/jjhorton'
-                            target="_blank"
-                            title="GitHub"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://www.linkedin.com/in/jjhorton/'
-                            target="_blank"
-                            title="LinkedIn"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <rect x="4" y="4" width="16" height="16" rx="2" />
   <line x1="8" y1="11" x2="8" y2="16" />
@@ -121,32 +122,31 @@ if (!doNotTrack) {
   <line x1="12" y1="16" x2="12" y2="11" />
   <path d="M16 16v-3a2 2 0 0 0 -4 0" />
 </svg>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://twitter.com/JamesjHorton'
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-            </ol></header>
-
-    <ol class="menu" id="main-menu">
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
         
         
         
@@ -212,9 +212,11 @@ if (!doNotTrack) {
         </li>
         
 
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -222,7 +224,7 @@ if (!doNotTrack) {
 
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -230,14 +232,16 @@ if (!doNotTrack) {
 
 
 
-                <span>Dark Mode</span>
-            </li>
-        
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
     </ol>
 </aside>
 
     
-<main class="main full-width">
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
@@ -252,16 +256,21 @@ if (!doNotTrack) {
     <div class="article-details">
     
 
-    <h2 class="article-title">
-        <a href="/posts/jetsontesting/">Nvidia Jetson Nano 2Gb Testing</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/jetsontesting/">Nvidia Jetson Nano 2Gb Testing</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing
+        </h3>
+        
+    </div>
 
     
-    <h3 class="article-subtitle">
-        Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing
-    </h3>
     
-
+    
     
     <footer class="article-time">
         
@@ -282,118 +291,91 @@ if (!doNotTrack) {
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <p>Now that I have the Jetson Nano all setup in a case, I wanted to test out a how well the GPU works on some simple problems. This post looks at my first test which looks at a simple method of calculating Pi, and looks at how quickly is can carry out those calculations.</p>
 <p>This method of calculating Pi is oftern refered to as the dart board method. This method relies on placing random number onto a square and then determining if that random number falls within a circle with a diameter that is the same size as the box or in the area outside of the circle.</p>
-<p><figure 
-	>
-	<a href="https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg" >
-		<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/MonteCarloIntegrationCircle.svg"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>Image from <a class="link" href="https://en.wikipedia.org/wiki/Monte_Carlo_integration#/media/File:MonteCarloIntegrationCircle.svg"  target="_blank" rel="noopener"
     >wikipedia</a></p>
 <p>By selecting two random numbers with are evenly distributed between a min and max, to be the x and Y coordinates, we can then calculate the distance from the centre of the circle using pythagorus theorem.</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a%5e2&#43;b%5e2=c%5e2" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a%5e2&#43;b%5e2=c%5e2"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a%5e2&#43;b%5e2=c%5e2"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>Where our distance from the centre from the cicrle is c, and our randomly selected x and y co-ordinates a and b. This means that our distance from the centre of the circle is given by:</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&#43;y%5e2%7d" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&#43;y%5e2%7d"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7bdistance%7d=%5csqrt%7bx%5e2&#43;y%5e2%7d"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>The next step is to see if this point falls within the circle, or in the area outside the circle. this is completed by comparing this distance from the centre of the circle with the radius of the circle. If this distance is less than the circle radius, then it is within the circle, and we count up how many times we get a value that falls inside the circle.</p>
 <p>We can the use the ratio of the number of points that we have found within the circle and the total number of test completed to approximate the value of pi. The area of the circle is defined as:</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;a_%7bcircle%7d=%7b%5cpi%7dr%5e2"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>The area of the square is twice the radius of the circle, for each the x and y axis we have used for generating all our points is, therefor the area is</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7ba_%7bsquare%7d%7d=%7b%282r%29%7d%5e2"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>We can therefore calculate that the ratio in the area between the circle and the square is:</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%7b%5cpi%7dr%5e2%7d%7b%7b%282r%29%7d%5e2%7d"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>This can be simplified to:</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d=%5cfrac%7b%5cpi%7d%7b4%7d"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>Assuming that we have a sufficiently large number of points we can assume that the number of points which fall inside the circle is proportional to the total area of the square, so after rearranging we can then replace the areas with the number of points that fall within each:</p>
-<p><figure 
-	>
-	<a href="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d" >
-		<img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d"
-			
-			
-			
-			loading="lazy"
-			>
-	</a>
+<p><img src="https://latex.codecogs.com/svg.latex?%5cLarge&amp;space;%7b%5cpi%7d=4%5cfrac%7ba_%7bcircle%7d%7d%7ba_%7bsquare%7d%7d"
 	
-</figure></p>
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>This formula, with is relatively simple can allow us to compute the value of pi, which can be realised with python using numpy. The implementation, generates a random number between a width, and then calculates the distance from the centre, that this point is from the centre of the circle. This is then compared to the circles radius, and if it falls within the circle the total is implemented. The final value of Pi is then calculated when the main loop is finished.</p>
 <pre tabindex="0"><code>import numpy as np
 import time
@@ -420,7 +402,7 @@ runtime = time.time() - start
 print(&#34;Pi is calculated as : %.10f&#34; % my_pi)
 print(runtime)
 </code></pre><p>The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Iterations</th>
@@ -455,7 +437,7 @@ print(runtime)
 <td>686</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The main thing we have control of is the number of iterations, and we can attempt to complete more iterations by optimising our code, the problem is the more iterations we do the longer is takes to complete, with 1,000,000 iterations taking 10 minutes we need to improve the execution time if we want to carry out more iterations.</p>
 <p>In Python Loops are relatively slow compared to other languages such as &lsquo;c&rsquo; and &lsquo;c++&rsquo;, this is due to the dynamically typed nature of python. Vectorising the calculation of the values, using Numpy helps to remove or limit the number of loops that need to be completed, and operations on vectors are generally more efficient in dynamically typed languages, and by avoiding context switching large efficiency gains can be found.</p>
 <pre tabindex="0"><code>import numpy as np
@@ -486,7 +468,7 @@ print(&#34;Pi is calculated as : %.10f&#34; % pi_2)
 print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
 </code></pre><p>This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Iterations</th>
@@ -511,7 +493,7 @@ print(runtime)
 <td>26.24626588821411</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Now making use of the unique of the Nvidia Jetson boards which is the GPU along with the 128 CUDA cores. Taking advantage of these features involves switching from Numpy which executes on arm core to using CUPY. The CUPY library is designed to be compatible with numpy, using the same syntax and function names but to be used to execute the commands on the GPU.</p>
 <p>While the syntax is almost identical between Numpy and CUPY, for the functions themselves, we actually need to deal with where the variables are located for the GPU version. Typically on a traditional Desktop PC the memory for the CPU and GPU are separate, and each time a variable needs to go between the two it has to be transferred over what is typically a PCIe link. This transfer takes time, but in the Jetson Boards the memory is shared between the CPU and the GPU, which means transfers are no longer a real issue but we still have the map the variables as ones that are able to be processed by the GPU as shown by the &lsquo;cp.array()&rsquo; commands, and then make that data available to Numpy and the CPU with commands such as &lsquo;cp.asnumpy()&rsquo;.</p>
 <pre tabindex="0"><code>import numpy as np
@@ -543,7 +525,7 @@ print(&#34;Pi is calculated as : %.10f&#34; % pi_2)
 print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
 </code></pre><p>Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Iterations</th>
@@ -573,10 +555,10 @@ print(runtime)
 <td>48.8</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>These large improvements in speed, have allowed us to complete far more iterations in a shorter amount of time, and in terms of out algorithm we can see the improvements in the accuracy of Pi we are estimating. By the time we are calculating 1e9 values, we are getting pi correct to 4 significant figures. The question is are there any more options to improve the speed of our algorithm?</p>
 <p>One element that we skipped over is the size of the vectors that we are working with, for the above testing they were fixed at 1e6, without any real justification. This number was picked as an integer divide of the number of points was planning to test with, but could this be optimised, lets test a few Vector lengths with a fixed number of iterations at 1e8.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Vector Length</th>
@@ -661,7 +643,7 @@ print(runtime)
 <td>6.62</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).</p>
 <p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>
 
@@ -691,10 +673,7 @@ print(runtime)
 
     
 
-    <aside class="related-contents--wrapper">
     
-    
-</aside>
 
      
     
@@ -712,7 +691,7 @@ print(runtime)
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -781,27 +760,25 @@ print(runtime)
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

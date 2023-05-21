@@ -1,38 +1,431 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PCB on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/pcb/</link>
-    <description>Recent content in PCB on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pcb/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Getting started with Ice Sugar Pro </title>
-      <link>https://jjhorton.co.uk/posts/icesugarpro/</link>
-      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/icesugarpro/</guid>
-      <description>Having previously purchased a several FPGA development boards, this is the latest one for working with both Yosys and Next-pnr, an open source FPGA tool chain. I have brought 2 of these other boards which are both based around the color light modules, these boards are avalible as both the Lattice ECP5 FPGA Colorlight i5 Development Board and Lattice ECP5 FPGA Colorlight i9 Development Board. They include a breakout board that allows you to connect PMod Modules, HDMI (Which i&amp;rsquo;ve never used) and a USB-C port that allows the connection of a computer to do the programming and serial connections.</description>
-    </item>
-    
-    <item>
-      <title>Controlling Neopixels with iceBreaker FPGA </title>
-      <link>https://jjhorton.co.uk/posts/neopixelfirmware/</link>
-      <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/neopixelfirmware/</guid>
-      <description>Having perviously got my Neopixel PCB working with my RP2040 Board, i&amp;rsquo;ve be wanting to spend some time building up a FPGA example, that has some of the same functionality. For this I wanted to build an example in Verilog that could be deployed to my icebreaker FPGA devboard, with its ice40 FPGA which as 5K LUTs is a great match for this task with it serial over USB link and PMod Connectors.</description>
-    </item>
-    
-    <item>
-      <title>Designing PCB Filters using MATLAB</title>
-      <link>https://jjhorton.co.uk/posts/matlabpcbfilters/</link>
-      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/matlabpcbfilters/</guid>
-      <description>Mathworks released the RF PCB Toolbox with the latest release of MATLAB, R2021B, this toolbox allows the creation and visualisation of &amp;ldquo;Transmission lines, Couplers, Splitters, Filters, and More&amp;rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>PCB on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/pcb/</link>
+        <description>Recent content in PCB on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/pcb/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Getting started with Ice Sugar Pro </title>
+        <link>https://jjhorton.co.uk/posts/icesugarpro/</link>
+        <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/icesugarpro/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/iCESugarpro-devboard.jpg" alt="Featured image of post Getting started with Ice Sugar Pro " /&gt;&lt;p&gt;Having previously purchased a several FPGA development boards, this is the latest one for working with both Yosys and Next-pnr, an open source FPGA tool chain. I have brought 2 of these other boards which are both based around the color light modules, these boards are avalible as both the &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lattice ECP5 FPGA Colorlight i5 Development Board&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005003832457085.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lattice ECP5 FPGA Colorlight i9 Development Board&lt;/a&gt;. They include a breakout board that allows you to connect PMod Modules, HDMI (Which i&amp;rsquo;ve never used) and a USB-C port that allows the connection of a computer to do the programming and serial connections. The breakout board is important for these versions, as it includes everything you need to program the FPGA boards, which can&amp;rsquo;t be done when they aren&amp;rsquo;t in the breakout board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-colorlight.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Other Boards from the same seller&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005002270742248.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ice Sugar Pro&lt;/a&gt; is a variation of these boards, it makes use of the same breakout board with the PMod breakouts, but uses a custom FPGA board rather than the modules that are designed for driving the LED Matrix Boards. This means it has some extra features that are specifically designed to make working with it a bit easier, the main one for me is the USB-C port on the FPGA module itself, which provides the debug/programming interface as well as a serial port directly on the FPGA board. Where as my other board don&amp;rsquo;t have the direct programmability, only reprogrammable with the breakout board. This means it should make life easier when I start thinking about building and designing my own custom breakout board.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-compare.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Ice Sugar Pro Development Board (Right) Along with Colorlight i9 (Left) and i5 (Center)&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The pin out &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro/blob/master/doc/iCESugar-pro-pinmap.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iCE Sugar Pro&lt;/a&gt; host board which is available from the sellers &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git Repository&lt;/a&gt; is shown bellow, while I do sometimes fid it tricky to map the pins out using this diagram, it is much easier than using the schematic.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-pinmap.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Ice Sugar Pro Pinout from Sellers Git Repo&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Unfortunately the connections are different to the other Colorlight &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005001686186007.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;i5&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.aliexpress.com/item/1005003832457085.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;i9&lt;/a&gt; modules, as the FPGA is in a different package.&lt;/p&gt;
+&lt;p&gt;Getting a simple FPGA example up and running, displaying a simple pattern on an &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/PMod/tree/master/PMod_LED&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LED PMod board&lt;/a&gt;. The code for this is taken from another project, but is just a case of displaying an LED that is bit shifted across the 8 LED&amp;rsquo;s&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;no&#34;&gt;`default_nettype&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;none&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blinky&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;input&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 		&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;output&lt;/span&gt; 	&lt;span class=&#34;kt&#34;&gt;wire&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;parameter&lt;/span&gt; 	&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;reg&lt;/span&gt; 	&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;c1&#34;&gt;// When the counter reaches top value shift the LEd accross one
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;			&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b10000000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b00000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;assign&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LED&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;endmodule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The pinout for the FPGA needs to be mapped to the output pins which the port that the PMod board is connected to, these are stored in our &lt;code&gt;icesugarpro.pcf&lt;/code&gt; file. This not only tells the FPGA where the LED&amp;rsquo;s are connected to, but also where our only input is connected the clock signal as &lt;code&gt;CLK&lt;/code&gt; on pin &lt;code&gt;P6&lt;/code&gt;, the pin for this is taken directly from the schematic from the sellers &lt;a class=&#34;link&#34; href=&#34;https://github.com/wuxx/icesugar-pro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git Repository&lt;/a&gt; and a number of key pin mappings are provided in the top level README.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;P6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;IOBUF&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PORT&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CLK&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IO_TYPE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LVCMOS33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[0]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[1]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;P7&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[2]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[3]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[4]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[5]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[6]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;R3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LOCATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;COMP&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;LED[7]&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SITE&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;T3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The commands for building the FPGA image, first up is &lt;a class=&#34;link&#34; href=&#34;https://github.com/YosysHQ/yosys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yosys&lt;/a&gt; for the RTL synthesis from our Verilog file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yosys -p &lt;span class=&#34;s1&#34;&gt;&amp;#39;synth_ecp5 -top blinky -json blinky.json&amp;#39;&lt;/span&gt; blinky.v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then &lt;a class=&#34;link&#34; href=&#34;https://github.com/YosysHQ/nextpnr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nextpnr&lt;/a&gt; for completing the job of Place and Route of our design onto the FPGA&amp;rsquo;s resources:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nextpnr-ecp5 --25k --package CABGA256 --json blinky.json --lpf icesugarpro.pcf --textcfg blinky.config --freq &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Packing up the image and transfering it to the fpga, the tool &lt;code&gt;ecppack&lt;/code&gt; is used to convert the config file into the format that will be loaded onto the FPGA. One key feature that I am using here is the &lt;code&gt;--compress&lt;/code&gt; flag, this compressed the bit file and dramatically reduces the programming time for the board. In this case it reduces it from  to less than 4 seconds&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecppack --compress --bit blinky.bin blinky.config
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap program --freq &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; blinky.bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Rather than just programming the FPGA directly, we can also upload the design to the on-board flash, so that when we power cycle the FPGA it still loads our design.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap flash unprotect 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ecpdap flash write --freq &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; blinky.bin 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The first line doesn&amp;rsquo;t aways need to be run, by default the flash should be unprotected, but I found sometimes it would fail to program, and with this quick simple command it works a lot more reliably.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iCESugarpro-PModLed.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Ice Sugar Pro with PMod LED Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;A full copy of the code for this blink example can be downloaded from &lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/jjhorton/6b546071cedb00800551ad31aa7a9232&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github&lt;/a&gt;. My Next challenge with this board is to have a look at the RGB LED, and see if I can get a program together to show the full range of colors with it, before looking into building a custom host board to work with it.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Controlling Neopixels with iceBreaker FPGA </title>
+        <link>https://jjhorton.co.uk/posts/neopixelfirmware/</link>
+        <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/neopixelfirmware/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/iceNeopixel_on.jpg" alt="Featured image of post Controlling Neopixels with iceBreaker FPGA " /&gt;&lt;p&gt;Having perviously got my Neopixel PCB working with my &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/infraredsensorneopixel/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 Board&lt;/a&gt;, i&amp;rsquo;ve be wanting to spend some time building up a FPGA example, that has some of the same functionality. For this I wanted to build an example in Verilog that could be deployed to my icebreaker FPGA devboard, with its ice40 FPGA which as 5K LUTs is a great match for this task with it serial over USB link and PMod Connectors.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iceNeopixel_off.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;icebreaker FPGA and Neopixel PMod Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The data for the WS2812B LED&amp;rsquo;s, are sent over a single serial wire, the data is transmitted in a series of pulses, where the pulse length indicates if the bit is a One or zero. The length of the pulse is defined in the datasheet, and can be plotted bellow, where the length of the pulse is used to encode the bits:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%20%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now to transmit the bits from our FPGA ideally we would recreate the waveform exactly as in the Datasheet, but this would require a high level or precision. If we look closely at the Datasheet we can find that the WS2812B actually has a reasonable tolarance to timing errors for the length of the pulses:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27......Z..Y%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27.........X..V%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%2C%20%27Z%2BY%20%2B%2F-150ns%27%2C%20%27X%2BV%20%2B%2F-150ns%27%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This means we can make an approximation of the pulse, as long as it is within these tolarances, so we can use a simple clock divider, to generate the pulses. Creating the clock that is suitable to run the state machine to control the LED&amp;rsquo;s is a simple case of, reducing the clock rate from 12 MHz:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// clock rate for calculating the clock divider
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;parameter&lt;/span&gt; 	&lt;span class=&#34;n&#34;&gt;clk_divider_count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clk_in_rate_hz&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;clk_pixel_rate_hz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//clock divider for setting the rate that the state can change
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clk_divider_count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;pixel_clk&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pixel_clk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This means we can then start to think about building a state machine for generating the waveform using the icebreakers 12MHz clock and this clock divider which with a clock divider producing our clock, We can look to breakdown the waveform into 4 states based on the period of this clock:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Always high.&lt;/li&gt;
+&lt;li&gt;High if binary 1, low if binary 0.&lt;/li&gt;
+&lt;li&gt;High if binary 1, low if binary 0.&lt;/li&gt;
+&lt;li&gt;Always Low.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We can then start to build a picture of how this will work with &lt;a class=&#34;link&#34; href=&#34;https://wavedrom.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;wavedrom&lt;/a&gt;:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27In%20Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.................................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Pixel%20Clk%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27xH.l.H.l.H.l.H.l.H.l.H.l.H.l.H.l.H%27%2C%20%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Stage%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x3...4...5...6...3...4...5...6...x%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%20Out%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27lH...X...X...L...H...X...X...L...H%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;These 4 states can then be used in the statemachine, which includes an &amp;lsquo;IDLE&amp;rsquo; state when a bit is not being transmitted. There are then the for states shown in the diagram 1-4, with &lt;code&gt;my_value&lt;/code&gt; storing all the RGB values in the order they will be transmitted.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//state machine for sending each value
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pixel_clk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nl&#34;&gt;IDLE:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data_ready&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STATE1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nl&#34;&gt;STATE1:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;c1&#34;&gt;//first part, always high
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;				&lt;span class=&#34;n&#34;&gt;data_out&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STATE2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nl&#34;&gt;STATE2:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;c1&#34;&gt;// high for a 1, low for 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;				&lt;span class=&#34;n&#34;&gt;data_out&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STATE3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nl&#34;&gt;STATE3:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;c1&#34;&gt;// high for a 1, low for 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;				&lt;span class=&#34;n&#34;&gt;data_out&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STATE4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nl&#34;&gt;STATE4:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;c1&#34;&gt;// always low
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;				&lt;span class=&#34;n&#34;&gt;data_out&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count_bit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IDLE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STATE1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;endcase&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can then string a series of these bits one after another to start building up the 3 bytes, that made up the command that is sen to the WS2812B LED. There is one byte to represent the Red, green and Blue values that we are setting the individual LED&amp;rsquo;s to.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.........................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3Dx%27%2C%20%0A%20%20%20%20%20%20%20%27data%27%3A%20%27R%5B0%5D%20R%5B1%5D%20R%5B2%5D%20R%5B3%5D%20R%5B4%5D%20R%5B5%5D%20R%5B6%5D%20R%5B7%5D%20G%5B0%5D%20G%5B1%5D%20G%5B2%5D%20G%5B3%5D%20G%5B4%5D%20G%5B5%5D%20G%5B6%5D%20G%5B7%5D%20B%5B0%5D%20B%5B1%5D%20B%5B2%5D%20B%5B3%5D%20B%5B4%5D%20B%5B5%5D%20B%5B6%5D%20B%5B7%5D%27%2C%20%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27normal%27%7D%20%0A%7D&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The functionality for all the writing to pixels is self contained in the writepixel function, this allows me to define separate strings of WS2812B LED&amp;rsquo;s that are connected to my FPGA. in my case these are on custom build PMod Boards, and the icebreaker board can support 3 of them.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Verilog&#34; data-lang=&#34;Verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;writepixel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;writepixel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;valid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;r_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//Red
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;g_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//Green
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;b_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;//Blue
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;n&#34;&gt;pmod1a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;busy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As the code wrapped in this block only writes the values to a single LED, we need to control both writing to a series of LED&amp;rsquo;s and then the pause to reset the first LED. This is needed because the first LED takes and keeps the first RGB values, and then passes all the following bytes to the next LED. This is all handled in my top level design file, where we have a state machine that feeds the values in:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-verilog&#34; data-lang=&#34;verilog&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;always&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;@(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;posedge&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CLK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WIDTH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;busy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;valid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;valid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					&lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pixel_count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;busy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;busy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;valid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mb&#34;&gt;&amp;#39;b0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This function handles the process of setting the &lt;code&gt;pixel_count&lt;/code&gt; sequentially, until reaching the end of the array, and then resetting. Rather than having a set delay, I&amp;rsquo;m using a counter, that when the first bit is &lt;code&gt;1&lt;/code&gt; it then works though the output values before being reset after all 10 RGB have been transmitted.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/iceNeopixel_on.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Neopixel controlled with iceBreaker&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;These RGB values are static values for now, hard coded when we program the FPGA. Building this code for the FPGA, which is using the open source tools to deploy to the FPGA, is completed with Yoysy and Next-PNR, there is also some testing with is carried out using Verilator, I will do a separate write up on extending the testing using Verilator to generate some coverage statistics and allow the LED&amp;rsquo;s RGB values to be set using a serial connection to a PC.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Designing PCB Filters using MATLAB</title>
+        <link>https://jjhorton.co.uk/posts/matlabpcbfilters/</link>
+        <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/matlabpcbfilters/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/MatlabFilter_Assembled.jpg" alt="Featured image of post Designing PCB Filters using MATLAB" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mathworks.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mathworks&lt;/a&gt; released the RF PCB Toolbox with the &lt;a class=&#34;link&#34; href=&#34;https://uk.mathworks.com/help/rfpcb/release-notes.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;latest release&lt;/a&gt; of MATLAB, R2021B, this toolbox allows the creation and visualisation of &amp;ldquo;Transmission lines, Couplers, Splitters, Filters, and More&amp;rdquo;, this was something that I wanted to a go at particularly the design of the filters. These filters that are just made of PCB traces have always fascinated me and given the tools that should allow me to design them, I decided to give it a go. I&amp;rsquo;ve always though of RF design as a bit of a dark art, and as someone who spends a lot of time around Software Defined Radios in my day job, I find the more I know the less I truly understand, so being able to create some filters with just a few lines of code seemed like a great idea.&lt;/p&gt;
+&lt;p&gt;The filter I decided to have a go at is one to work in the 2.4GHz ISM band, centred at 2440MHz, with a pass band of 80MHz, then as much stop band attenuation as possible. After having a look though the documentation I decided to have a go at the Hairpin filter.&lt;/p&gt;
+&lt;p&gt;From the examples in the documentation for the toolbox which walk you though building the filter, I built myself a script with all the user configurable user configurable variables at the start. We begin by defining these parameters that we are going to use in our filter implementation, this includes variables such as our filter order &lt;code&gt;n&lt;/code&gt; and then specific properties such as the substrate and conductor that will make up our filter. In my case here as i&amp;rsquo;m looking to build the filter on a standard standard PCB, we are setting these variables based on there spec sheet, for FR4 and copper rather then more expensive options they default to.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Ripple&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;BandWidth&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Z0&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1500e6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;3000e6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;601&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;EpsilonR&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Height&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.6e-3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dielectric&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;FR4&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EpsilonR&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EpsilonR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;metal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Copper&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With all these high level variables defined, I can then look to start building up my filter object with them, and then calling the filter design function. The filter design will generate a filter that matches my design requirements, and output it to the filter object.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filterHairpin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FilterOrder&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Substrate&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Conductor&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Height&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Height&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;design&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2440e6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;FBW&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BandWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;RippleFactor&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Ripple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With this filter object we can now start to explore the filter design that has been created, in my case the first thing I wanted to see was what the filter actually looked like, to do this you just simply use the &lt;code&gt;show(filter);&lt;/code&gt; command, which generates a plot with a 3D visulisation of the filter which has been designed, as shown bellow.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Design_Matlab.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Matlab Filter design plot&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next big question is how well is this filter actually going to work, for that I wanted to look at the gain of the filter at different frequencies, for this we need to generate the s-parameters for this design, and the plot the result.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;spar&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sparameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;rfplot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command take a while to run, as I have set this up with it running are 601 different frequency points to produce a high resolution plot, with the test points stored in the variable &lt;code&gt;f&lt;/code&gt;, but this helps to produce a graph which is shown bellow with our simulated performance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Frequency_response_2440_3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Simulated Frequency Response&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The next plot is the Current Distribution, i&amp;rsquo;m not really sure how you interpret this plot, but it does look cool, and one day I might look back at this post and actually undersatnd what it is actually telling me.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Current.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Current Plots&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With this 3rd order Hairpin filter designed in MATLAB, the next stage is where you export it, they way of doing this which is given in the documentation is to export to gerbers. this seemed like a great option at first look but I soon came up with some issues with it, the first is this is designed to generate Gerber files and send them straight of for manufacture, and thats not what I wanted to do, the second issue I found was I couldn&amp;rsquo;t find a way to export the filter design in a way that I could import it into KiCAD as a component footprint I could use on a PCB design.&lt;/p&gt;
+&lt;p&gt;My way round this was to export the gerbers, and then import the Gerbers into kiCAD and edit them there in PCBNew, to export the filter it is just the case of running a couple of simple lines of code in MATLAB&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pcbComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PCBServices&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PCBWayWriter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Filename&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Filter_2440MHz_3&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PCBConnectors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SMAEdge_Samtec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C2&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PCBConnectors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SMAEdge_Samtec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EdgeLocation&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;west&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExtendBoardProfile&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EdgeLocation&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;east&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExtendBoardProfile&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gerberWrite&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;C1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;C2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It actually took me a long time to work out how to add the connectors, and I&amp;rsquo;m not sure if it the correct way of adding the SMA connectors, but as I wanted an SMA on each side of the board this seemed the only way I could work out how to add them. The N-Type connectors worked as expected but I generally work with SMA at home. I had to disable the &lt;code&gt;ExtendBoardProfile&lt;/code&gt; as this kept producing boards with area&amp;rsquo;s of the PCB Filter missing with the connectors floating away from the PCB in the resulting Plots and gerber files. I had to add in a port line length to and from the filter with &lt;code&gt;filter.PortLineLength = 0.006;&lt;/code&gt; to force the designed filter to put the connectors where i wanted and stop MATLAB from placing the SMA&amp;rsquo;s ground connection within the filter. The issues like this all seemed to be a bit buggy, typical early release problems, but given this is the first release they will hopefully improve with time.&lt;/p&gt;
+&lt;p&gt;With the output files generated I then opened loaded the Gerber files into KiCad&amp;rsquo;s Gerber Viewer and imported the layer into PcbNew, this allowed me to add my own custom description text and logos onto the board, getting it ready to be sent of to be manufactured. one problem I did find at this stage, is that some random copper blocks appeared over the SMA connectors, which I removed, which I don&amp;rsquo;t think should have been added.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_PCBs.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Red PCB&amp;rsquo;s from JLCPCB&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With all that sorted, I added my designs to my filters GitHub repo and ordered the PCB using the Gerber files that were generated by KiCAD. Once the PCB&amp;rsquo;s had arrived from JLCPCB about a month after I had ordered, it was time to add some SMA connectors and give them a test.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilterSoldering.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Soldering the SMA Connectors&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m using a NanoVNA to test them out, while not as good as a proper Network Analyser, but given the Nano VNA cost £60 it provides a great way of being able to get a good idea of there performance of these little filters at home.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Testing.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Testing with Nano VNA&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The NanoVNA can be used with PC based software, such as i&amp;rsquo;m using bellow, which is much easier to interact with rather than the tiny screen, though this interface I can also calibrate the results, and use the s-parameter menu, to take measurements of each of the filters, which can be stored to S-parameter files that can be imported into MATLAB for analysis.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_nanoVNA_plot_2440_3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;VNA View showing the measurements from 3rd order filter&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The main test here is if the filters that I have make actually match the simulation, so the best way to assses them is to compare the filter gain from 3 of the real thing and the Matlab Simulation to see if they match, and well there is a bit of a difference, as we can see bellow for the 3rd order filter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Frequency_response_measured_2440_3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Measured Filter response&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The 3rd order filter is almost close to what is expected, but with the pass band pushed to a lower frequency, and a wider pass band, the attenuation of the filter at frequencies above the designed pass band is actually similar to what is expected. With it producing a similar ammount of attenuation, with a similar roll of to the simulation.&lt;/p&gt;
+&lt;p&gt;We can also look at the results for the 5th Order Filter, which also shows a lot of similar characteristics, with the roll of at both high and low frequencies appearing to match the simulation, with the exception of the pass band being shifted to lower frequencies.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/MatlabFilter_Frequency_response_measured_2440_5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;5th Order filter results compared with simulated&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The fact the the results are both consistent between each of the types of filter and example of the filters produces similar results, make me think the is a systematic problem here. I think the issue point to there being a design error, and there are a couple of possible causes, the first of which is the PCB manufacturing. The PCB&amp;rsquo;s are low cost models costing just $2, and at that price accuracy is limited and this comes in more forms than one. The first is in terms of the accuracy of the PCB traces themselves, and then of the material used in the PCB&amp;rsquo;s themselves. One key parameter used in the PCB manufacture and filter design, this is the dielectric constant, which JLCPCB gives as &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com/capabilities/Capabilities&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;4.5 for a double sided PCB&lt;/a&gt;, which is typically a useful number to use but unfortunately this &lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/158175-measuring-the-effective-permittivity-of-pcbs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;value actually varies with frequency&lt;/a&gt; which makes it more challenging to pick what to use when just working with standard FR4, this is not a problem if you are using a higher quality material, but when working on a budget there are limitations.&lt;/p&gt;
+&lt;p&gt;The next stage is experiment with simulating the filters that were originally created, and to see if by changing the dielectric constant I can match up the simulation with the measured results. this would mean that I could have a go at re-creating the filters with a corrected value for dielectric constant at 2.45GHz, when having a second attempt at building some filters.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

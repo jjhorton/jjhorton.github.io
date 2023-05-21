@@ -1,30 +1,94 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Level 3 on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/level-3/</link>
-    <description>Recent content in Level 3 on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Fri, 17 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/level-3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Communication</title>
-      <link>https://jjhorton.co.uk/posts/communication/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/communication/</guid>
-      <description>For the communication system, there are many choices available from the traditional route of model building and control. The main issue with these systems is that they are very expensive, so for my project I have chosen to use a Bluetooth module.
-The module that I have chosen is the Spark fun Bluetooth Mate Silver from proto-pic.co.uk, this simply attaches to the RX and TX lines on the arduino processor that I’m using, this makes the communication very simple, helping to reduce the development time.</description>
-    </item>
-    
-    <item>
-      <title>Quad Rotor Project, Introduction</title>
-      <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
-      <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
-      <description>Well one day after looking though pictures of these magical 4 rotor helicopter type things hovering, I was sold it was a good idea… that was over a year ago, and now I’m building one for my 3^rd^ year project at university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going the in the opposite direction. The forces can be shown on a simple wire frame model</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Level 3 on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/level-3/</link>
+        <description>Recent content in Level 3 on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Fri, 17 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/level-3/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Communication</title>
+        <link>https://jjhorton.co.uk/posts/communication/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/communication/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/BluetoothPcb.png" alt="Featured image of post Communication" /&gt;&lt;p&gt;For the communication system, there are many choices available from the
+traditional route of model building and control. The main issue with
+these systems is that they are very expensive, so for my project I have
+chosen to use a Bluetooth module.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothPcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The module that I have chosen is the Spark fun Bluetooth Mate Silver
+from &lt;a class=&#34;link&#34; href=&#34;http://proto-pic.co.uk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;proto-pic.co.uk&lt;/a&gt;, this simply attaches to
+the RX and TX lines on the arduino processor that I’m using, this makes
+the communication very simple, helping to reduce the development time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/BluetoothHelloWorld.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The Bluetooth module is mounted on the same main board as my processor,
+and only required a few quick solder connections to start getting some
+response on my computer. To start with a found that I wasn’t getting
+anything that I expected out of the board, but looking though the
+datasheets as well as a few useful posts on the
+&lt;a class=&#34;link&#34; href=&#34;http://sparkfun.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sparkfun.com&lt;/a&gt; website, I found that the default
+baud rate for the Bluetooth module was 115200 not 9600, I had been
+trying to use. This quick fix meant that in no time at all I was able to
+send data to my computer, and also with a little bit of code be able to
+flash an LED.&lt;/p&gt;
+&lt;p&gt;Now to stop turning on and off LED’s and turn this into a quad rotor.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Quad Rotor Project, Introduction</title>
+        <link>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</link>
+        <pubDate>Fri, 17 Feb 2012 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/quad-rotor-project-introduction/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/QuadcopterFrame.png" alt="Featured image of post Quad Rotor Project, Introduction" /&gt;&lt;p&gt;Well one day after looking though pictures of these magical 4 rotor
+helicopter type things hovering, I was sold it was a good idea… that was
+over a year ago, and now I’m building one for my 3^rd^ year project at
+university. The quad rotor uses 4 rotors, 2 rotating one way and 2 going
+the in the opposite direction. The forces can be shown on a simple wire
+frame model&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterWireFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For my project as an electronic engineer I am concentrating on the
+electronic systems that control the quad rotor rather than the frame and
+structure itself, as a result I have purchased a frame, which comes with
+the motors and propellers. This leaves me to focus on building the
+electronic system, and control software for my quad rotor, the frame was
+purchased from uavshop.com.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/QuadcopterFrame.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On my Blog I will post updates of how the project progresses, as I do
+each stage of the project.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

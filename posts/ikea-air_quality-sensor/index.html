@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-uk">
+<html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant'><title>Getting started IKEA Vindriktning in Home Assistant with Pico W</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant'>
+<title>Getting started IKEA Vindriktning in Home Assistant with Pico W</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/ikea-air_quality-sensor/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Getting started IKEA Vindriktning in Home Assistant with Pico W'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Getting started IKEA Vindriktning in Home Assistant with Pico W'>
 <meta property='og:description' content='Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant'>
 <meta property='og:url' content='https://jjhorton.co.uk/posts/ikea-air_quality-sensor/'>
 <meta property='og:site_name' content='James Horton'>
@@ -27,8 +28,8 @@ if (!doNotTrack) {
 
     </head>
     <body class="
-    article-page 
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -51,23 +52,18 @@ if (!doNotTrack) {
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        on-phone--column extended
-    
-">
-    
-        <aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <header class="site-info">
+    <header>
         
             
             <figure class="site-avatar">
+                <a href="/">
                 
                     
                     
@@ -77,43 +73,48 @@ if (!doNotTrack) {
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
-
+                </a>
                 
             </figure>
             
         
         
-        <h1 class="site-name"><a href="/">James Horton</a></h1>
-        <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2><ol class="social-menu">
-                
-                    <li>
-                        <a 
-                            href='https://github.com/jjhorton'
-                            target="_blank"
-                            title="GitHub"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://www.linkedin.com/in/jjhorton/'
-                            target="_blank"
-                            title="LinkedIn"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <rect x="4" y="4" width="16" height="16" rx="2" />
   <line x1="8" y1="11" x2="8" y2="16" />
@@ -121,32 +122,31 @@ if (!doNotTrack) {
   <line x1="12" y1="16" x2="12" y2="11" />
   <path d="M16 16v-3a2 2 0 0 0 -4 0" />
 </svg>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a 
-                            href='https://twitter.com/JamesjHorton'
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            
-                            
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
 </svg>
 
 
 
-                            
-                        </a>
-                    </li>
-                
-            </ol></header>
-
-    <ol class="menu" id="main-menu">
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
         
         
         
@@ -212,9 +212,11 @@ if (!doNotTrack) {
         </li>
         
 
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -222,7 +224,7 @@ if (!doNotTrack) {
 
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -230,14 +232,16 @@ if (!doNotTrack) {
 
 
 
-                <span>Dark Mode</span>
-            </li>
-        
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
     </ol>
 </aside>
 
     
-<main class="main full-width">
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
@@ -252,16 +256,21 @@ if (!doNotTrack) {
     <div class="article-details">
     
 
-    <h2 class="article-title">
-        <a href="/posts/ikea-air_quality-sensor/">Getting started IKEA Vindriktning in Home Assistant with Pico W</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/ikea-air_quality-sensor/">Getting started IKEA Vindriktning in Home Assistant with Pico W</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant
+        </h3>
+        
+    </div>
 
     
-    <h3 class="article-subtitle">
-        Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant
-    </h3>
     
-
+    
     
     <footer class="article-time">
         
@@ -282,10 +291,15 @@ if (!doNotTrack) {
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <p>The <a class="link" href="https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/"  target="_blank" rel="noopener"
     >IKEA Vindriktning</a> is an air quality sensor sold for just <a class="link" href="https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/"  target="_blank" rel="noopener"
     >£13</a>, that makes use of a <a class="link" href="https://esphome.io/components/sensor/pm1006.html"  target="_blank" rel="noopener"
@@ -299,39 +313,31 @@ if (!doNotTrack) {
     >Pico W</a> that I brought at release and had never used, so my task was use this after seeing a video on <a class="link" href="https://www.youtube.com/watch?v=dFDGtlSi9Eg"  target="_blank" rel="noopener"
     >YouTube</a> where the RP2040 was used to monitor a garage door.</p>
 <p>The first task is a matter of getting the sensor apart so that we can connect the sensor up to the Raspberry Pi Pico W. The back of the sensor is just secured with 4 screws, and with those removed it simply pulls apart, and we can see the sensor and the controller PCB inside.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea_sensor_empty.jpg" >
-		<img src="/img/2022-Ikea_sensor_empty.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="IKEA Vindriktning opened">
-	</a>
+<p><img src="/img/2022-Ikea_sensor_empty.jpg"
 	
-	<figcaption>IKEA Vindriktning opened</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="IKEA Vindriktning opened"
+	
+	
+></p>
 <p>There are a number of options as to how I could have made use of the sensor, I chose to make use of the simplest which leaves the original electronics intact. The reason for me choosing this method is that I wanted to keep the functionality of the sensor the same that it was before, so that the front LED remains the same and the power USB-C plug still powers the whole device. This is the easiest method, requiring the attaching of 3 wires to some exposed pads on the PCB, for serial, power and ground. The wires on the <a class="link" href="https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/"  target="_blank" rel="noopener"
     >IKEA Vindriktning</a> just need to be connected to the <code>5V</code>, <code>GND</code> and <code>REST</code> pins on the PCB.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea_sensor_wires.jpg" >
-		<img src="/img/2022-Ikea_sensor_wires.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="IKEA Vindriktning with serial and power wires">
-	</a>
+<p><img src="/img/2022-Ikea_sensor_wires.jpg"
 	
-	<figcaption>IKEA Vindriktning with serial and power wires</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="IKEA Vindriktning with serial and power wires"
+	
+	
+></p>
 <p>With the wires attached to the sensor&rsquo;s PCB, we now need to hook them up to the <a class="link" href="https://thepihut.com/products/raspberry-pi-pico-w"  target="_blank" rel="noopener"
     >Raspberry Pi Pico W</a>, we need to attach the Power and GND to appropriate pins and then the serial need to be attached to an appropriately capable pin, I selected the following:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th style="text-align:center">Ikea Vindriktning</th>
@@ -352,41 +358,33 @@ if (!doNotTrack) {
 <td style="text-align:center"><code>GPIO1</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Now with the modification complete we just need to flash the software onto the <a class="link" href="https://thepihut.com/products/raspberry-pi-pico-w"  target="_blank" rel="noopener"
     >Pico W</a>, before we seel the unit up.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea_Pico_w_Installed.jpg" >
-		<img src="/img/2022-Ikea_Pico_w_Installed.jpg"
-			
-			
-			
-			loading="lazy"
-			alt="Pico W installed within the IKEA Vindriktning">
-	</a>
+<p><img src="/img/2022-Ikea_Pico_w_Installed.jpg"
 	
-	<figcaption>Pico W installed within the IKEA Vindriktning</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Pico W installed within the IKEA Vindriktning"
+	
+	
+></p>
 <p>For the next step we need to use <a class="link" href="https://esphome.io/"  target="_blank" rel="noopener"
     >ECP home</a> from within <a class="link" href="https://www.home-assistant.io/"  target="_blank" rel="noopener"
     >Home Assistant</a> which in my case all runs on a Raspberry Pi 4, I&rsquo;m running the development version of <a class="link" href="https://esphome.io/"  target="_blank" rel="noopener"
     >ECP Home</a>, as this has support for the Pico W, which should be available in the standard version soon.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea-ecphome-add.png" >
-		<img src="/img/2022-Ikea-ecphome-add.png"
-			
-			
-			
-			loading="lazy"
-			alt="Add a Pico W in ECP Home">
-	</a>
+<p><img src="/img/2022-Ikea-ecphome-add.png"
 	
-	<figcaption>Add a Pico W in ECP Home</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Add a Pico W in ECP Home"
+	
+	
+></p>
 <p>To build the setup I&rsquo;m using the following configuration YAML file, this is made up a a few copy and pastes from a few locations on github that I failed to note down, but essentially it is using the <code>rp2040</code> platform on the <code>rpipiow</code> board, with enabling of the over the air updates (<code>OTA</code>) and the Home assistant API enabled. The most import settings to note as the <code>UART</code> and the <code>sensor</code> definition, which makes use of the same definitions that would have been used on the ECP32 boards, while setting the serial port to the <code>GPIO</code> pin we soldered the connector to.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">esphome</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ikea-sensor</span><span class="w">
@@ -426,38 +424,30 @@ if (!doNotTrack) {
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">pm_2_5</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Particulate Matter 2.5µm Concentration&#34;</span><span class="w">
 </span></span></span></code></pre></div><p>We just need to build the required image from within ECPHome using the Clean build option in the menu, then downloading from home assistant and onto the Pico W board using the <code>.u2f</code> file that just needs to be copied to the Pico W using its built in Micro USB port, using the <code>bootsel</code> option.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea-ecphome-build.png" >
-		<img src="/img/2022-Ikea-ecphome-build.png"
-			
-			
-			
-			loading="lazy"
-			alt="Add a Pico W in ECP Home">
-	</a>
+<p><img src="/img/2022-Ikea-ecphome-build.png"
 	
-	<figcaption>Add a Pico W in ECP Home</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Add a Pico W in ECP Home"
+	
+	
+></p>
 <p>It is worth noting that on my Raspberry Pi 4 which hosts my <a class="link" href="https://www.home-assistant.io/"  target="_blank" rel="noopener"
     >Home Assistant</a> instance it took a good 10 minutes to build the image for the Pico as it needed to download all the required tools to build it first.</p>
 <p>With that all complete, it was then just a case of being able to squeeze the Pico W into the top of the <a class="link" href="https://www.ikea.com/gb/en/p/vindriktning-air-quality-sensor-80515910/"  target="_blank" rel="noopener"
     >IKEA Vindriktning</a> and attach the USB-C cable to provide power, within a couple of minutes it was showing in Home Assistant and I was able to add it to my dashboard.</p>
-<p><figure 
-	>
-	<a href="/img/2022-Ikea-ha.png" >
-		<img src="/img/2022-Ikea-ha.png"
-			
-			
-			
-			loading="lazy"
-			alt="Data from IKEA Vindriktning in Home Assistant">
-	</a>
+<p><img src="/img/2022-Ikea-ha.png"
 	
-	<figcaption>Data from IKEA Vindriktning in Home Assistant</figcaption>
 	
-</figure></p>
+	
+	loading="lazy"
+	
+		alt="Data from IKEA Vindriktning in Home Assistant"
+	
+	
+></p>
 <p>The data doesn&rsquo;t look to bad and is updating frequently, I&rsquo;m planning to set up a notification to warn me if the sensor is giving some consistent high readings so that I can do something about it. I will wait a week to two to build up enough background data to be able to add some reasonable limits.</p>
 
 </section>
@@ -486,14 +476,14 @@ if (!doNotTrack) {
 
     
 
-    <aside class="related-contents--wrapper">
     
-    
-        <h2 class="section-title">Related contents</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/rp2040_mini_pmod/">
         
@@ -510,8 +500,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/kicad-github-panels/">
         
@@ -528,8 +519,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/rp2040_pmod/">
         
@@ -546,8 +538,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/ir_hub75/">
         
@@ -564,8 +557,9 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="has-image">
     <a href="/posts/chrismas_gps_countdown/">
         
@@ -582,10 +576,10 @@ if (!doNotTrack) {
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -604,7 +598,7 @@ if (!doNotTrack) {
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -673,27 +667,25 @@ if (!doNotTrack) {
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

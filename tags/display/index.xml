@@ -1,30 +1,227 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Display on James Horton</title>
-    <link>https://jjhorton.co.uk/tags/display/</link>
-    <description>Recent content in Display on James Horton</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/display/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Christmas Countdown</title>
-      <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
-      <description>Christmas Countdown on the Whiteboard Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the PMod Display that I had around, and then run from one of the RP2040 boards that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.</description>
-    </item>
-    
-    <item>
-      <title>Seven Segment Display PMod Board</title>
-      <link>https://jjhorton.co.uk/posts/sevensegmentdisp/</link>
-      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
-      <description>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in the movies.
-The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Display on James Horton</title>
+        <link>https://jjhorton.co.uk/tags/display/</link>
+        <description>Recent content in Display on James Horton</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/display/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Christmas Countdown</title>
+        <link>https://jjhorton.co.uk/posts/christmascountdown/</link>
+        <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/christmascountdown/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/ChristmasCountdown_OpenSCAD.jpg" alt="Featured image of post Christmas Countdown" /&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_Initial.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Christmas Countdown on the Whiteboard&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Using my 7 segment display I wanted to build a Christmas countdown, this was just going to use the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/seven-segment-display-pmod-board.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PMod Display&lt;/a&gt; that I had around, and then run from one of the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 boards&lt;/a&gt; that I built earlier this year. As I wanted a count down that is frequently updating, I chose to use the countdown in seconds, as this for the month of December easily fits within the seven segments available.&lt;/p&gt;
+&lt;p&gt;The code that runs on the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.com/products/rp2040/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040&lt;/a&gt; relies on a serial link as there is no real time clock on the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 boards&lt;/a&gt;. We can also reuse some of the libraries that I use to drive the seven segment display, this means the main function is relatively simple, to run on the RP2040, which takes the count down calculated on a main computer and takes it from the serial link and puts it onto the display.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;#34;pico/stdlib.h&amp;#34;
+#include &amp;#34;pico/stdio_usb.h&amp;#34;
+
+// Custom 7 Segment Display
+#include &amp;#34;My7Seg.h&amp;#34;
+
+int main() {
+	//initalise the display
+	My7Seg Display(0,2);
+	Display.enable();
+
+	int seconds_left = 0;
+	char buffer[8];
+	char countdown_str [8];
+
+	stdio_init_all();
+	printf(&amp;#34;Countdown Clock starting!\n&amp;#34;);
+	Display.setValue(double(99999999), 0);
+
+	while(1){
+		buffer[0] = getchar_timeout_us(0);
+
+		if (buffer[0] != 0){
+			if (buffer[0] == &amp;#39;a&amp;#39;){
+
+				for(int i = 0; i&amp;lt;8; i++){
+					buffer[i] = getchar_timeout_us(0);
+				}
+				seconds_left = strtof(buffer, NULL);
+			}
+		}
+		Display.setValue(double(seconds_left), 0);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The actually calculation of the number of seconds takes place on a &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.com/products/raspberry-pi-zero-w/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Zero&lt;/a&gt;, this takes the current time which it gets from its Wifi Network connection, and then calculates the difference between the current time and the number of seconds until Christmas day, and sends it over the serial link to the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/Pico_Pmod&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 Board&lt;/a&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import serial
+import io
+from datetime import *
+
+# /dev/tty.usbmodem1101 115200
+
+ser = serial.Serial(&amp;#39;/dev/tty.usbmodem1101&amp;#39;)  # open serial port
+sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
+
+while(1):
+	now = datetime.now()
+	thisyear = now.year
+	xmas = datetime(thisyear,12,25)
+
+	if now &amp;lt; xmas:
+		delta = int((xmas - now).total_seconds())
+	else:
+		delta = 0
+
+	my_str = str(&amp;#39;a&amp;#39;+ str(delta))
+	my_str.ljust(9, &amp;#34;.&amp;#34;)
+
+	sio.write(my_str)
+	sio.flush()
+
+ser.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_OpenSCAD.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;OpenSCAD Case design&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the main coding element taken care of the next task is building the case for the PCB&amp;rsquo;s, I wanted to be able to mount the two boards together, and be able to attach the whole setup to my whiteboard, for the I created a simple case, which has holes in the back for placing some small magnets, and then holes in the front for mounting the PCB&amp;rsquo;s on the front.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_CaseBack.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Case Mounting magnets&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This simple case provides an effective way of being mounted up on the Whiteboard, although now I am finally getting round to writing this all up, it is several days past Christmas so until next December it will have to wait until then, unless I can find a new date to countdown until.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/ChristmasCountdown_Zero.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Counter hits Zero&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The code used to create this board, and the code for the case will be available &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/RP2040_Countdown&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Seven Segment Display PMod Board</title>
+        <link>https://jjhorton.co.uk/posts/sevensegmentdisp/</link>
+        <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/SevenSegment_complete.jpg" alt="Featured image of post Seven Segment Display PMod Board" /&gt;&lt;p&gt;Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in &lt;a class=&#34;link&#34; href=&#34;https://www.thelegendofq.co.uk/encoder.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the movies&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;iceBreaker FPGA&lt;/a&gt; which has two digits, and removes the decimal point to allow multiplexing between the two displays.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.&lt;/p&gt;
+&lt;p&gt;&amp;lt;img src=&amp;ldquo;images/GN_Semic_GN1640.png&amp;rdquo; width=&amp;ldquo;350 &amp;gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Devices such as the &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GN Semic GN1640&lt;/a&gt; which is the chip I decided to tag onto an order I was already placing at &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LCSC Components&lt;/a&gt;, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The circuit for these &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GN1640&lt;/a&gt; chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mouser&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The boards were laid out so that they would fit within the maximum 10x10cm limits of the &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JLC PCB&lt;/a&gt; 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;With the PCB&amp;rsquo;s made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RP2040 PMod boards&lt;/a&gt; that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void enable()
+{
+			//command to turn on the display
+			int command1[] = {1,1,1,1,0,0,0,1};
+			//initallisation
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,0);
+			sleep_ms(0.2);
+			//send the bits
+			for(int i=0; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,command1[i]);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+			//end the transmission
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,1);
+			sleep_ms(0.2);
+			gpio_put(pin_data,1);
+
+			sleep_ms(10);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the display enabled I was then able to start sending data, this follows a similar design pattern with a function taking in the address and data, to trigger a series of short delays followed by setting the clock and data pins either high or low to transmit the data.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void txData(uint8_t pos, uint8_t data)
+{
+			uint8_t addr = 0b11000000 + pos;
+
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,0);
+			sleep_ms(0.2);
+
+			for(int i=0; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,(addr &amp;gt;&amp;gt; i) &amp;amp; 1U);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+
+			for(int i=0 ; i &amp;lt; 8; ++i ){
+				gpio_put(pin_data,(data &amp;gt;&amp;gt; i) &amp;amp; 1U);
+				sleep_ms(0.2);
+				gpio_put(pin_clk,1);
+				sleep_ms(0.4);
+				gpio_put(pin_clk,0);
+				sleep_ms(0.2);
+			}
+			gpio_put(pin_data,0);
+			sleep_ms(0.2);
+			gpio_put(pin_clk,1);
+			sleep_ms(0.2);
+			gpio_put(pin_data,1);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The next challenge now I&amp;rsquo;m able to send data to the display using simple functions, is to look at turning the control functions into a C++ object, and then look at putting the display to a practical use. Another route to look at is setting up the PIO state machine to work with the display and possibly build a simple example that can also work with my &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ice Breaker FPGA&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
