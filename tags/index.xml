@@ -6,7 +6,31 @@
         <description>Recent content in Tags on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C</title>
+        <link>https://jjhorton.co.uk/tags/c/</link>
+        <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/c/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FPGA</title>
+        <link>https://jjhorton.co.uk/tags/fpga/</link>
+        <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/fpga/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Programming</title>
+        <link>https://jjhorton.co.uk/tags/programming/</link>
+        <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/programming/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Kicad</title>
         <link>https://jjhorton.co.uk/tags/kicad/</link>
         <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
@@ -132,14 +156,6 @@
         <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
         
         <guid>https://jjhorton.co.uk/tags/ecp5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>FPGA</title>
-        <link>https://jjhorton.co.uk/tags/fpga/</link>
-        <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://jjhorton.co.uk/tags/fpga/</guid>
         <description></description>
         </item>
         <item>

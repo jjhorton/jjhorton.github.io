@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jjhorton.co.uk/tags/c/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/led-test-1cg/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jjhorton.co.uk/</loc>
-    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/programming/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/</loc>
+    <lastmod>2023-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/kicad/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
@@ -14,9 +32,6 @@
     <loc>https://jjhorton.co.uk/tags/pmod/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/posts/</loc>
-    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -24,9 +39,6 @@
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</loc>
-    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/kicad-github-panels/</loc>
@@ -81,9 +93,6 @@
     <lastmod>2022-11-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/ecp5/</loc>
-    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
     <lastmod>2022-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/icesugarpro/</loc>
