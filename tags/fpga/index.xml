@@ -5,7 +5,7 @@
         <link>https://jjhorton.co.uk/tags/fpga/</link>
         <description>Recent content in FPGA on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-uk</language>
+        <language>en</language>
         <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/fpga/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Controlling RGB LED on the Avnet 1CG Development Board</title>
         <link>https://jjhorton.co.uk/posts/led-test-1cg/</link>
