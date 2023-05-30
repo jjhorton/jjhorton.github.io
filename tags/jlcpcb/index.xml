@@ -5,7 +5,7 @@
         <link>https://jjhorton.co.uk/tags/jlcpcb/</link>
         <description>Recent content in JLCPCB on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
+        <language>en-uk</language>
         <lastBuildDate>Mon, 15 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/jlcpcb/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
         <link>https://jjhorton.co.uk/posts/kicad-github-panels/</link>
