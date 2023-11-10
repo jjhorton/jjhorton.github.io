@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-uk" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Controlling an Array of LED&#39;s using an FPGA Development Board'>
+<title>PMod LED Array using with an FPGA </title>
+
+<link rel='canonical' href='https://jjhorton.co.uk/posts/led_array_fpga/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='PMod LED Array using with an FPGA '>
+<meta property='og:description' content='Controlling an Array of LED&#39;s using an FPGA Development Board'>
+<meta property='og:url' content='https://jjhorton.co.uk/posts/led_array_fpga/'>
+<meta property='og:site_name' content='James Horton'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='FPGA' /><meta property='article:tag' content='Verilog' /><meta property='article:tag' content='LED' /><meta property='article:tag' content='Yosys' /><meta property='article:published_time' content='2023-10-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-10-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/LED_Array_FPGA_Complete.jpg' />
+<meta name="twitter:site" content="@JamesjHorton">
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="PMod LED Array using with an FPGA ">
+<meta name="twitter:description" content="Controlling an Array of LED&#39;s using an FPGA Development Board"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/LED_Array_FPGA_Complete.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-HS5DDLL3E1', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/myavatar_hu1a63ebca8992f7e52bef7b2eba41d0ac_58941_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">James Horton</a></h1>
+            <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jjhorton'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/jjhorton/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/JamesjHorton'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/led_array_fpga/">
+                
+                    <img src="/img/LED_Array_FPGA_Complete.jpg" loading="lazy" alt="Featured image of post PMod LED Array using with an FPGA " />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/led_array_fpga/">PMod LED Array using with an FPGA </a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Controlling an Array of LED&#39;s using an FPGA Development Board
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 25, 2023</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>After finally finishing of the <a class="link" href="https://jjhorton.co.uk/posts/led_array/" >LED Array PMod Board example</a>, it was also long over due getting an example up and running with the FPGA Development Board. For the FPGA I was aiming to create a design that can be controlled over serial rather than running locally like the software based design.</p>
+<p><img src="/img/LED_Array_Board_Only.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Assembled LED Array PMod Board"
+	
+	
+></p>
+<p>The first thing to consider is the sub system that controls sending the data, for this to work as intended we need a system clock which is derived from the FPGA Clock, this is used to control the rate at which data is sent out to the <a class="link" href="https://github.com/jjhorton/PMod/blob/master/PMod_LEDArray/Docs/TM1640.pdf"  target="_blank" rel="noopener"
+    >GN1640</a> chip that controlls the LED&rsquo;s</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">    <span class="c1">// clock rate for calculating the clock divider
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">parameter</span> 	<span class="n">clk_in_rate_hz</span> <span class="o">=</span> <span class="mh">12</span><span class="n">_000_000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">parameter</span>	<span class="n">clk_pixel_rate_hz</span> <span class="o">=</span> <span class="mh">1</span><span class="n">_000_000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">parameter</span> 	<span class="n">clk_divider_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">clk_in_rate_hz</span><span class="o">/</span><span class="n">clk_pixel_rate_hz</span><span class="p">)</span><span class="o">/</span><span class="mh">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">parameter</span>   <span class="n">clk_count</span> <span class="o">=</span> <span class="n">clk_divider_count</span><span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//clock divider for setting the rate that the state can change
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">clk</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="n">clk_count</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">((</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			        <span class="n">sys_clk</span> <span class="o">&lt;=</span> <span class="o">~</span><span class="n">sys_clk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">counter</span> <span class="o">&lt;=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">end</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">			    <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			    <span class="n">sys_clk</span> <span class="o">&lt;=</span> <span class="o">~</span><span class="n">sys_clk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">end</span>
+</span></span><span class="line"><span class="cl">	<span class="k">end</span>
+</span></span></code></pre></div><p>Using this <code>sys_clk</code> we can start building up the control for sending the data is based on a simple state machine that works though sending the data to the PMod board from the values that have been passed in.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">	<span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">sys_clk</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nl">IDLE:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">//idle is both clk and data high
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">//change to start tx if data avalible
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span> <span class="p">(</span><span class="n">data_ready</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">START_1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">START_1:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">START_2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">// set data and clk to indicate the start
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">//initalise the bit counter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">START_2:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">// set data and clk to indicate the start
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">//initalise the bit counter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span><span class="p">(</span> <span class="n">my_value</span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b11111111</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nl">DATA_1:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">bit_counter</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">DATA_2:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">bit_counter</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">DATA_3:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">bit_counter</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">DATA_4:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">bit_counter</span> <span class="o">&lt;</span> <span class="mh">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_1</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="n">bit_counter</span> <span class="o">+</span> <span class="mh">1</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">bit_counter</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nl">FINISH_1:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">FINISH_2:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">fin_count</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nl">FINISH_3:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">                    <span class="n">fin_count</span> <span class="o">&lt;=</span> <span class="n">fin_count</span> <span class="o">+</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">fin_count</span> <span class="o">&lt;</span> <span class="mh">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">IDLE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="k">endcase</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span></code></pre></div><p>This state machine is what forms the backbone of the design, which is captured in the <code>writepixels.v</code> file, segregating the design from the rest of the design. At the top level we have a <code>top.v</code> file which connects the designs other components together, including the serial link which is a design I have used before. The top level provides the state machine that feeds the the values to the pixelwriter. The 16 lines are set one after another, before then being triggered by the <code>pps</code> signal which would normally trigger the display update once per second.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">    <span class="c1">// state Machine for setting display
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// State Machine States
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">parameter</span> 	<span class="n">IDLE</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">parameter</span> 	<span class="n">INITDISPLAY</span>	<span class="o">=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">parameter</span> 	<span class="n">PAUSE</span>	    <span class="o">=</span> <span class="mh">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">parameter</span> 	<span class="n">SETDISPLAY</span>	<span class="o">=</span> <span class="mh">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">CLK</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span><span class="p">(</span><span class="n">system_state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nl">IDLE:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pps</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">INITDISPLAY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nl">INITDISPLAY:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// if the display is not busy set the input
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">value</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b10001001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">PAUSE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">byte_count</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pos</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b11111111</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">pause_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nl">PAUSE:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pause_counter</span> <span class="o">&lt;=</span> <span class="n">pause_counter</span> <span class="o">+</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pause_counter</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">clk_in_rate_hz</span><span class="o">/</span><span class="mh">1000</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">PAUSE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">SETDISPLAY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nl">SETDISPLAY:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span> 
+</span></span><span class="line"><span class="cl">                <span class="c1">// if the display is not busy set the input
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="cm">/* verilator lint_off WIDTH */</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pos</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b11000000</span> <span class="o">+</span> <span class="n">byte_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="cm">/* verilator lint_on WIDTH */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">tx_value</span><span class="p">[</span><span class="n">byte_count</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">byte_count</span><span class="o">&lt;</span><span class="mh">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">SETDISPLAY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">byte_count</span> <span class="o">&lt;=</span> <span class="n">byte_count</span> <span class="o">+</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">system_state</span> <span class="o">&lt;=</span> <span class="n">IDLE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">        <span class="k">endcase</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span></code></pre></div><p>With the state machines controlling the output to the LED array from the <code>tx_value</code> array, the only missing stage is setting the values from the serial insterface. As the display is being updated slowly i&rsquo;m only using a single display buffer, so the values that are read in over the serial link are ready into this, the readin of data is triggered based on the character <code>A</code> which triggers the start of reading 16 8 bit characters which are put into the <code>tx_value</code>. which is completed with a simple state machine.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl"><span class="c1">//uart statemachine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">parameter</span> 	<span class="n">WAIT</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">parameter</span>   <span class="n">START_CHAR</span>  <span class="o">=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">parameter</span> 	<span class="n">RECEIVING</span>	<span class="o">=</span> <span class="mh">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">CLK</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//check if there is valid serial data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
+</span></span><span class="line"><span class="cl">    <span class="k">case</span><span class="p">(</span><span class="n">data_state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">WAIT:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">START_CHAR</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uart_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nl">START_CHAR:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">uart_valid</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">uart_value</span> <span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b01000001</span><span class="p">)</span> <span class="c1">//check for &#39;a&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">RECEIVING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">START_CHAR</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nl">RECEIVING:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">uart_valid</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="n">uart_counter</span> <span class="o">&lt;=</span> <span class="n">uart_counter</span> <span class="o">+</span> <span class="mh">1</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">                <span class="n">tx_value</span><span class="p">[</span><span class="n">uart_counter</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">uart_value</span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">uart_counter</span> <span class="o">&lt;</span> <span class="mh">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">RECEIVING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">WAIT</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">end</span>
+</span></span><span class="line"><span class="cl">            <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">endcase</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>With the details of how to get data sent over, to start with for testing a simple bit of python which can send over some values to display on the LED Array, this uses the serial package to send the values out. This can be acheived in just a few lines of code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">serial</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">io</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/tty.usbmodem1102&#39;</span><span class="p">,</span> <span class="mi">115200</span> <span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><p>While the setting of the values using a generic static values proves that the FPGA design works, I wanted to demonstrate something that is more dynamic. For this I use the audio input on my laptop and generate a frequency response on the screen which updates as data is received.</p>
+<p>For collecting the audio values, I make use of <code>pyaudio</code> to collect one channel audio from the laptops microphone and read back a chunk.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pyaudio</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CHUNK</span> <span class="o">=</span> <span class="mi">1024</span>
+</span></span><span class="line"><span class="cl"><span class="n">FORMAT</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">paInt16</span>
+</span></span><span class="line"><span class="cl"><span class="n">CHANNELS</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">RATE</span> <span class="o">=</span> <span class="mi">44100</span>
+</span></span><span class="line"><span class="cl"><span class="n">RECORD_SECONDS</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">stream</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">channels</span><span class="o">=</span><span class="n">CHANNELS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rate</span><span class="o">=</span><span class="n">RATE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">frames_per_buffer</span><span class="o">=</span><span class="n">CHUNK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">CHUNK</span><span class="p">)</span>
+</span></span></code></pre></div><p>The values that come from the audio stream need to be converted into something which can be displayed on the LED Array, for this simple example we use as <code>FFT</code> to do a conversion to the Frequency domain, then carry out a logorithum and scale to fit the normal range within the 8 pixel hight of the display.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">values</span> <span class="o">=</span> <span class="n">values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">largest</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">freq_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">values</span><span class="p">,</span><span class="mi">32</span><span class="p">))))[</span><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">upscale</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">in_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">freq_amp</span><span class="o">*</span><span class="n">upscale</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">tx_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">in_scaled</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)))</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">tx_amp</span><span class="p">))</span>
+</span></span></code></pre></div><p>The final part of the example then uses the same serial commands as before to send the values to the display, which can be run in a loop to display the changing audio levels received.</p>
+<p><img src="/img/LED_Array_FPGA_Complete.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Frequency Response displayed on the LED Array"
+	
+	
+></p>
+<p>The complete code example is stored in the <a class="link" href="https://github.com/jjhorton/PMod/tree/master/PMod_LEDArray/Firmware"  target="_blank" rel="noopener"
+    >GitHub repo</a> which includes the completed code and make scripts for building and programming the FPGA.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/fpga/">FPGA</a>
+        
+            <a href="/tags/verilog/">Verilog</a>
+        
+            <a href="/tags/led/">LED</a>
+        
+            <a href="/tags/yosys/">Yosys</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/posts/icesugarpro/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/iCESugarpro-devboard.jpg" loading="lazy" data-key="" data-hash="/img/iCESugarpro-devboard.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Getting started with Ice Sugar Pro </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/ecp5g-eval/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/lfe5um5g.jpg" loading="lazy" data-key="" data-hash="/img/lfe5um5g.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Opensource FPGA tools for ECP5 Evaluation Board</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/fpga-build-stats/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/colorlitei5.jpg" loading="lazy" data-key="" data-hash="/img/colorlitei5.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Adding FPGA build stats to Github Pull requests</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/firmware-testing/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/icebreaker.jpg" loading="lazy" data-key="" data-hash="/img/icebreaker.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Continuous Integration for Firmware testing using Verilator</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2006 - 
+        
+        2023 James Horton
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

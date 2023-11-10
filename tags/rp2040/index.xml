@@ -6,7 +6,92 @@
         <description>Recent content in RP2040 on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 20 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/rp2040/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>PMod LED Array using with an RP2040 </title>
+        <link>https://jjhorton.co.uk/posts/led_array/</link>
+        <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/led_array/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/LED_Array_RP2040.jpg" alt="Featured image of post PMod LED Array using with an RP2040 " /&gt;&lt;p&gt;The PMod LED array was inspired by a post I spotted on twitter a long time ago, while i have used &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/ir_hub75/&#34; &gt;big colour displays&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/sevensegmentdisp/&#34; &gt;7 segment displays&lt;/a&gt; it is always nice to make something relativilily simple. I this case an array of 128 LEDs, arranged to make a simple scrolling display.&lt;/p&gt;
+&lt;p&gt;Like all my boards, the schematic and PCB design was created using &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;KiCAD&lt;/a&gt;, using the &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/PMod/blob/master/PMod_LEDArray/Docs/TM1640.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GN1640&lt;/a&gt; chip which I purchased from LSCS a while back when building my 7 segement displays. The advantage of reusing this chip is that it allows me to make use of the code that I have already writen and used to control these displays.&lt;/p&gt;
+&lt;p&gt;Hand assembling these boards was relativity simple, although time consuming, takinga long time to fit all those LED&amp;rsquo;s one at a time. The first version of the board also had a footprint error for the GN1640, which while a simple fix was fustrating to discover after placing all those LED&amp;rsquo;s.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/LED_Array_Board_Only.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Assembled LED Array PMod Board&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the boards assembled the next task is the software, thankfully using the same parts of in the 7 segement display saved a lot of the hand work here as the commands for controlling the array all wrapped up in a class that is designed to run on the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_pmod/&#34; &gt;RP2040 PMod&lt;/a&gt; Boards. For this example I&amp;rsquo;m using the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/rp2040_mini_pmod/&#34; &gt;PMod Mini Board&lt;/a&gt;, which has a single PMod Connector and is ideal for testing this board.&lt;/p&gt;
+&lt;p&gt;For building up the scroling example I make use of the C++ object I created for the &lt;a class=&#34;link&#34; href=&#34;https://jjhorton.co.uk/posts/sevensegmentdisp/&#34; &gt;7 segment displays&lt;/a&gt; which provides the setup functionality as well as the ability to set the display using the &lt;code&gt;txData&lt;/code&gt; function, but the other 7 Segement specific functions aren&amp;rsquo;t used.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class MyLedDisp
+{
+	private:
+		uint8_t pin_clk;
+		uint8_t pin_data;
+  public:
+    MyLedDisp(int data_pin , int clk_pin);
+
+		void enable();
+		void txData(uint8_t pos, uint8_t data);
+		void setDisplay(uint8_t data[16]);
+		void setValue(double value, uint8_t decimal);
+		void setValue2(double value1, double value2, uint8_t decimal);
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Because i&amp;rsquo;m using the txData function to directly drive the LED values, I need a library of characters that can be displayed, for this I created a quick library of characters, with 8 bit values for each line of the display then a way of looking up the character created.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Charcater E
+character_value[4] = &amp;#39;E&amp;#39;;
+character_len[4] = 3;
+character_store[4][0] = 0b11111111;
+character_store[4][1] = 0b10010001;
+character_store[4][2] = 0b10010001;
+character_store[4][3] = 0b00000000;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Using this library of characters and associtated LED positions, I can specify a string which in the example here is &lt;code&gt;MERRY CHRISTMAS&lt;/code&gt; and work though the characters to fill up our display buffer &lt;code&gt;display_buff&lt;/code&gt; that has all these characters and spaces assigned to them.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int counter = 15;
+
+char my_str[20] = &amp;#34;MERRY CHRISTMAS&amp;#34;;
+
+for(int my_char=0; my_char&amp;lt;15; my_char++){
+    for(int i=0; i&amp;lt;26; i++){
+    	if (my_str[my_char] == character_value[i]){
+	    	for(int j=0; j&amp;lt;character_len[i]; j++){
+		    	display_buff[counter] = character_store[i][j];
+    			counter++;
+	    	}
+	    	display_buff[counter] = 0;
+	    	counter++;
+    	}
+    }
+	if (32 == my_str[my_char]){
+		 counter = counter +4;
+	 }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the character all turned into one giant array int8&amp;rsquo;s which we can then send them onto the display. By moving our reference point every 100ms we can create the appearance of the message sloly scrolling across the disaply, with a blank period at both the start and end we can then wrap round to the start of the message here as well.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;while(1){
+
+	uint8_t my_disp[16];
+
+	for(uint8_t pos = 0; pos&amp;lt;16; pos++){
+		my_disp[pos] = 0b00000000;
+	}
+
+	for(uint8_t main_pos = 0; main_pos&amp;lt;(total_len); main_pos++){
+
+		for(uint8_t pos = 0; pos&amp;lt;16; pos++){
+			my_disp[pos] = display_buff[main_pos+pos];
+		}
+		Display2.setDisplay(my_disp);
+		sleep_ms(100);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This creates a scrolling message on the display, which can be specified at compile time. This example shows just one way in which a display line this can be used, but it also allows a more graphical display than the 7 Segment Displays that I have perviously used, allowing for more creataivity in the use of these displays.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>RP2040 Mini PMod</title>
         <link>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</link>
         <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
