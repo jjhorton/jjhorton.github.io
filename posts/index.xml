@@ -2426,6 +2426,7 @@ on:
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometimes you think your Gin bottle needs RGB lights, and you end up building something unnecessary like this &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/q5HyRK8X9F&#34;&gt;pic.twitter.com/q5HyRK8X9F&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1488206830568419331?ref_src=twsrc%5Etfw&#34;&gt;January 31, 2022&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
+
 &lt;p&gt;The changing colors work well on the textured glass of this bottle very well, the next task is to work out how I could make it battery powered&amp;hellip;&lt;/p&gt;
 </description>
         </item>
@@ -2812,6 +2813,7 @@ ser.close()
     &gt;RP2040 board&lt;/a&gt;, this allows a simple way to display the data, the screen which is also a 8x8 grid the same resolution as the sensor. The screens which I assembled last month, provide a great way to display the data, the first task is to look at connecting every together, then building a colour map to display the temperature values.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometime you can&amp;#39;t beat an evening spent playing with LEDs making patterns &lt;a href=&#34;https://twitter.com/hashtag/leds?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#leds&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/kchJTo22p3&#34;&gt;pic.twitter.com/kchJTo22p3&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1432432328370962435?ref_src=twsrc%5Etfw&#34;&gt;August 30, 2021&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 
 &lt;p&gt;The screen is essentially a string of 64 WS2821B LED&amp;rsquo;s, in an 8 by 8 grid, which by sending RGB values over a serial link between the LED&amp;rsquo;s we can build up a 2D picture. The data is transmitted to the LED&amp;rsquo;s using the PIO state machine from the Raspberry Pi Pico example. This linked in well with the serial data stream that comes from the 8x8 Thermal Sensor, to provide an image that updates quickly.&lt;/p&gt;
 &lt;p&gt;The code for reading the values from the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/pmod-8x8-infrared-sensor.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -4019,6 +4021,7 @@ print(runtime)
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Testing out some new GNU Octave code on my Raspberry pi cluster &lt;a href=&#34;https://twitter.com/hashtag/RaspberryPi?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#RaspberryPi&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/Cluster?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Cluster&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/GNUOctave?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#GNUOctave&lt;/a&gt; &lt;a href=&#34;https://t.co/c9OT9g9Ijb&#34;&gt;pic.twitter.com/c9OT9g9Ijb&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/715274998190116864?ref_src=twsrc%5Etfw&#34;&gt;March 30, 2016&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
+
 &lt;p&gt;After a couple of years on off experimenting with the raspberry Pi&amp;rsquo;s, when we ,moved to our new flat they ended up sat on the home network, and being used for odd jobs, one even had a old external hard drive attached to provide some Network Attached Storage when I need to move files around. After a reorganisation of the home office they need to find a new home, but having never been put in any sort of case they were not very portable, held together by some velcro.&lt;/p&gt;
 &lt;p&gt;Having recently purchased an Ender3 3D printer at the start of the year, it seemed like a good use for the printer to build something a bit more rugged for the Raspberry Pi&amp;rsquo;s to live in. Having a quick look on &lt;a class=&#34;link&#34; href=&#34;https://www.thingiverse.com/thing:2084736&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Thingevers&lt;/a&gt;, I came across the Six Inch Library, these cases are all designed to fit into a &lt;a class=&#34;link&#34; href=&#34;https://github.com/KronBjorn/SixInchRack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -4219,6 +4222,7 @@ night, and rain forecast it was looking like a good shout.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Packing up all my gear ready for &lt;a href=&#34;https://twitter.com/hashtag/kayaking?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#kayaking&lt;/a&gt; in dartmoor &lt;a href=&#34;https://twitter.com/hashtag/ReadyForTheWeekend?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ReadyForTheWeekend&lt;/a&gt; &lt;a href=&#34;https://t.co/CmxfZ74zGm&#34;&gt;https://t.co/CmxfZ74zGm&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/423926717179510784?ref_src=twsrc%5Etfw&#34;&gt;January 16, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
+
 &lt;p&gt;On the Saturday morning every meet in the little chef next door for some
 breakfast and Wifi signal so we could check the gauges and hut out a
 river. Unfortunately there hadn’t been as much rain as was hoped, and
@@ -4245,12 +4249,14 @@ look this evening.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Lots of water for &lt;a href=&#34;https://twitter.com/hashtag/kayaking?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#kayaking&lt;/a&gt; in dartmoor this weekend &lt;a href=&#34;https://twitter.com/hashtag/winning?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#winning&lt;/a&gt; &lt;a href=&#34;https://t.co/f6iGnmflEs&#34;&gt;https://t.co/f6iGnmflEs&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/424616078971764736?ref_src=twsrc%5Etfw&#34;&gt;January 18, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
+
 &lt;p&gt;After heading back to our accommodation, we spent an hour consulting
 which pub to visit for food asking the opinions of many including
 google, and some locals only to decide to spend the evening at the pub
 over the road.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Is de-icing the inside of the windscreen normal? &lt;a href=&#34;https://twitter.com/hashtag/cold?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#cold&lt;/a&gt; &lt;a href=&#34;http://t.co/ActeWWkmCd&#34;&gt;pic.twitter.com/ActeWWkmCd&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/424833896237514752?ref_src=twsrc%5Etfw&#34;&gt;January 19, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 
 &lt;p&gt;Again over night there hadn’t been much rain, and by the time we got up
 on Sunday morning everything was covered in frost. With little rain
@@ -4265,6 +4271,7 @@ few of the rapids felling particularly rocky. All in all it was a good
 run, that we completed quickly as it was only a few km long.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;The question is after paddling the Plym this morning should we now paddle Pots or go to the pub &lt;a href=&#34;https://twitter.com/hashtag/fb?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#fb&lt;/a&gt; &lt;a href=&#34;http://t.co/kdnpwyfPKJ&#34;&gt;pic.twitter.com/kdnpwyfPKJ&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/424921542665846784?ref_src=twsrc%5Etfw&#34;&gt;January 19, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 
 &lt;p&gt;After we decided to Pots Weir in Exeter to have a look at the play
 feature there, but we bravely decided to head into the pub there, as the
@@ -4284,6 +4291,7 @@ the window all excited were the kayakers…&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I think the ford maybe a bit to deep today, time to find another way around &lt;a href=&#34;https://twitter.com/hashtag/flood?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#flood&lt;/a&gt; &lt;a href=&#34;http://t.co/FylGGkijTS&#34;&gt;pic.twitter.com/FylGGkijTS&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/418769624868859904?ref_src=twsrc%5Etfw&#34;&gt;January 2, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
+
 &lt;p&gt;Unfortunately unable to get out paddling until after the new year we hit
 the road on the Friday after new year to meet up in Swansea ready for a
 bit of paddling. Despite the huge amount of water that seemed to be
@@ -4292,6 +4300,7 @@ river levels on Saturday morning seemed disappointingly low. Despite
 this we headed of out of Swansea to the River Tawe.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;A good day &lt;a href=&#34;https://twitter.com/hashtag/kayaking?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#kayaking&lt;/a&gt; today in South Wales, managed to find some water for once! &lt;a href=&#34;http://t.co/EDCg4JCZL7&#34;&gt;pic.twitter.com/EDCg4JCZL7&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/419518659380273153?ref_src=twsrc%5Etfw&#34;&gt;January 4, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 
 &lt;p&gt;The river could have done with a bit more water, we meet another group
 at the get on, who had decided it was too low for them and were heading
@@ -4305,6 +4314,7 @@ stuck across the majority of the river and it being in need of some more
 water it wasn’t going to be happening this weekend.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Not sure where we are but it has 3G signal &lt;a href=&#34;https://twitter.com/hashtag/lost?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#lost&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/wales?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#wales&lt;/a&gt; &lt;a href=&#34;http://t.co/b0xUPIqwlI&#34;&gt;pic.twitter.com/b0xUPIqwlI&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/419488264731373568?ref_src=twsrc%5Etfw&#34;&gt;January 4, 2014&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 
 &lt;p&gt;After all this we retired back to Swansea for some Champaign out of
 mugs, before heading of down to our natural habitat… the pub.&lt;/p&gt;
