@@ -213,6 +213,25 @@ if (!doNotTrack) {
         
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://jjhorton.co.uk/" selected></option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -313,11 +332,11 @@ if (!doNotTrack) {
 	
 ></p>
 <p>The data for the WS2812B LED&rsquo;s, are sent over a single serial wire, the data is transmitted in a series of pulses, where the pulse length indicates if the bit is a One or zero. The length of the pulse is defined in the datasheet, and can be plotted bellow, where the length of the pulse is used to encode the bits:</p>
-<figure><img src="https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%20%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A"/>
+<figure><img src="https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%20%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A">
 </figure>
 
 <p>Now to transmit the bits from our FPGA ideally we would recreate the waveform exactly as in the Datasheet, but this would require a high level or precision. If we look closely at the Datasheet we can find that the WS2812B actually has a reasonable tolarance to timing errors for the length of the pulses:</p>
-<figure><img src="https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27......Z..Y%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27.........X..V%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%2C%20%27Z%2BY%20%2B%2F-150ns%27%2C%20%27X%2BV%20%2B%2F-150ns%27%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A"/>
+<figure><img src="https://svg.wavedrom.com/%7B%20%22signal%22%20%3A%20%5B%0A%20%20%7Bnode%3A%20%27......Z..Y%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..A....B%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%22name%22%3A%20%22One%22%2C%20%22wave%22%3A%20%22l.h....l.......h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27.......C.......D%27%2C%20%20phase%3A0.25%7D%2C%0A%20%20%7B%7D%2C%0A%20%20%7Bnode%3A%20%27.........X..V%27%2C%20phase%3A0.5%7D%2C%0A%20%20%7Bnode%3A%20%27..E.......F%27%2C%20phase%3A0.25%7D%2C%0A%20%20%7B%20%22name%22%3A%20%22Zero%22%2C%20%22wave%22%3A%22l.h.......l....h..%22%7D%2C%0A%20%20%7Bnode%3A%20%27..........G....H%27%2C%20phase%3A0.25%7D%2C%0A%0A%20%20%5D%2C%0A%20%20%0A%20%20edge%3A%20%5B%0A%20%20%27A%2BB%200.4%20us%27%2C%27C%2BD%200.85%20us%27%2C%27E%2BF%200.8%20us%27%2C%27G%2BH%200.45%20us%27%2C%20%27Z%2BY%20%2B%2F-150ns%27%2C%20%27X%2BV%20%2B%2F-150ns%27%20%0A%09%5D%2C%0A%20%0A%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D%0A%0A">
 </figure>
 
 <p>This means we can make an approximation of the pulse, as long as it is within these tolarances, so we can use a simple clock divider, to generate the pulses. Creating the clock that is suitable to run the state machine to control the LED&rsquo;s is a simple case of, reducing the clock rate from 12 MHz:</p>
@@ -343,7 +362,7 @@ if (!doNotTrack) {
 </ol>
 <p>We can then start to build a picture of how this will work with <a class="link" href="https://wavedrom.com/"  target="_blank" rel="noopener"
     >wavedrom</a>:</p>
-<figure><img src="https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27In%20Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.................................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Pixel%20Clk%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27xH.l.H.l.H.l.H.l.H.l.H.l.H.l.H.l.H%27%2C%20%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Stage%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x3...4...5...6...3...4...5...6...x%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%20Out%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27lH...X...X...L...H...X...X...L...H%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D"/>
+<figure><img src="https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27In%20Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.................................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Pixel%20Clk%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27xH.l.H.l.H.l.H.l.H.l.H.l.H.l.H.l.H%27%2C%20%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Stage%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x3...4...5...6...3...4...5...6...x%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%20Out%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27lH...X...X...L...H...X...X...L...H%27%2C%0A%20%20%20%20%20%20%20%27data%27%3A%20%270%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%200%201%202%203%20%27%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27narrow%27%7D%20%0A%7D">
 </figure>
 
 <p>These 4 states can then be used in the statemachine, which includes an &lsquo;IDLE&rsquo; state when a bit is not being transmitted. There are then the for states shown in the diagram 1-4, with <code>my_value</code> storing all the RGB values in the order they will be transmitted.</p>
@@ -388,7 +407,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">			<span class="k">end</span>
 </span></span><span class="line"><span class="cl">		<span class="k">endcase</span>
 </span></span></code></pre></div><p>We can then string a series of these bits one after another to start building up the 3 bytes, that made up the command that is sen to the WS2812B LED. There is one byte to represent the Red, green and Blue values that we are setting the individual LED&rsquo;s to.</p>
-<figure><img src="https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.........................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3Dx%27%2C%20%0A%20%20%20%20%20%20%20%27data%27%3A%20%27R%5B0%5D%20R%5B1%5D%20R%5B2%5D%20R%5B3%5D%20R%5B4%5D%20R%5B5%5D%20R%5B6%5D%20R%5B7%5D%20G%5B0%5D%20G%5B1%5D%20G%5B2%5D%20G%5B3%5D%20G%5B4%5D%20G%5B5%5D%20G%5B6%5D%20G%5B7%5D%20B%5B0%5D%20B%5B1%5D%20B%5B2%5D%20B%5B3%5D%20B%5B4%5D%20B%5B5%5D%20B%5B6%5D%20B%5B7%5D%27%2C%20%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27normal%27%7D%20%0A%7D"/>
+<figure><img src="https://svg.wavedrom.com/%7B%20%0A%20%27signal%27%3A%20%0A%20%20%5B%7B%20%20%20%0A%20%20%20%20%20%27name%27%3A%20%27Clk%27%20%20%20%20%2C%20%0A%20%20%20%20%20%27wave%27%3A%20%27P.........................%27%20%7D%2C%0A%20%20%20%20%20%7B%7D%2C%20%20%0A%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%27name%27%3A%20%27Data%27%2C%20%0A%20%20%20%20%20%20%20%27wave%27%3A%20%27x%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3Dx%27%2C%20%0A%20%20%20%20%20%20%20%27data%27%3A%20%27R%5B0%5D%20R%5B1%5D%20R%5B2%5D%20R%5B3%5D%20R%5B4%5D%20R%5B5%5D%20R%5B6%5D%20R%5B7%5D%20G%5B0%5D%20G%5B1%5D%20G%5B2%5D%20G%5B3%5D%20G%5B4%5D%20G%5B5%5D%20G%5B6%5D%20G%5B7%5D%20B%5B0%5D%20B%5B1%5D%20B%5B2%5D%20B%5B3%5D%20B%5B4%5D%20B%5B5%5D%20B%5B6%5D%20B%5B7%5D%27%2C%20%0A%20%20%20%20%20%7D%2C%20%0A%20%20%5D%2C%0A%20%20%20config%3A%7Bskin%3A%27normal%27%7D%20%0A%7D">
 </figure>
 
 <p>The functionality for all the writing to pixels is self contained in the writepixel function, this allows me to define separate strings of WS2812B LED&rsquo;s that are connected to my FPGA. in my case these are on custom build PMod Boards, and the icebreaker board can support 3 of them.</p>
