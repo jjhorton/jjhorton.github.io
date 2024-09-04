@@ -15,8 +15,6 @@
     <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Controlling RGB LED on the Avnet 1CG Development Board">
 <meta name="twitter:description" content="Setting up the Avnet 1CG Board and controlling the LED&#39;s from a simple program running in Linux"><meta name="twitter:card" content="summary">
     <meta name="twitter:image" content='https://jjhorton.co.uk/img/Avnet_CG1.jpg' />
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
@@ -31,10 +29,6 @@
           gtag('config', 'G-HS5DDLL3E1');
         }
       </script>
-    
-  
-
-
     </head>
     <body class="
     article-page
@@ -365,25 +359,25 @@
 ></p>
 <p>From this we can work out that the following RGB LED&rsquo;s are connected at the axi memory locations.</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">LED</th>
-<th style="text-align:center">GPIO</th>
-<th style="text-align:center">Address</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">LED[x]</td>
-<td style="text-align:center">GPIO 0</td>
-<td style="text-align:center">0x00A0000000</td>
-</tr>
-<tr>
-<td style="text-align:center">LED[x]</td>
-<td style="text-align:center">GPIO 0</td>
-<td style="text-align:center">0x00A0010000</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">LED</th>
+          <th style="text-align: center">GPIO</th>
+          <th style="text-align: center">Address</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">LED[x]</td>
+          <td style="text-align: center">GPIO 0</td>
+          <td style="text-align: center">0x00A0000000</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">LED[x]</td>
+          <td style="text-align: center">GPIO 0</td>
+          <td style="text-align: center">0x00A0010000</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>The LED&rsquo;s are on the GPIO bus, and can be controlled directly from devmem set <code>D5</code> to RED, by setting the value to <code>001</code>, using hex in the command line with the <code>devmem</code> command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devmem 0x00a0010000 <span class="m">32</span> 0x00000001

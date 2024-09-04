@@ -15,8 +15,6 @@
     <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Nvidia Jetson Nano 2Gb Testing">
 <meta name="twitter:description" content="Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing"><meta name="twitter:card" content="summary">
     <meta name="twitter:image" content='https://jjhorton.co.uk/img/Jetson_case_box.png' />
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
@@ -31,10 +29,6 @@
           gtag('config', 'G-HS5DDLL3E1');
         }
       </script>
-    
-  
-
-
     </head>
     <body class="
     article-page
@@ -431,40 +425,40 @@ print(&#34;Pi is calculated as : %.10f&#34; % my_pi)
 print(runtime)
 </code></pre><p>The accuracy of the value of Pi is highly linked to the number of iterations that are completed, as well as the number of bits used to calculate the final value. By varying the number of points we calculate with we can see the error reducing, the table bellow is for the code above, run on a Jetson Nano 2Gb.</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Iterations</th>
-<th>Pi Calculated</th>
-<th>Run Time(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>3.0000000000</td>
-<td>0.077</td>
-</tr>
-<tr>
-<td>1,000</td>
-<td>3.0760000000</td>
-<td>0.692</td>
-</tr>
-<tr>
-<td>10,000</td>
-<td>3.1360000000</td>
-<td>7.14</td>
-</tr>
-<tr>
-<td>100,000</td>
-<td>3.1518800000</td>
-<td>69.6</td>
-</tr>
-<tr>
-<td>1,000,000</td>
-<td>3.1409400000</td>
-<td>686</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Iterations</th>
+          <th style="text-align: left">Pi Calculated</th>
+          <th style="text-align: left">Run Time(s)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">100</td>
+          <td style="text-align: left">3.0000000000</td>
+          <td style="text-align: left">0.077</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1,000</td>
+          <td style="text-align: left">3.0760000000</td>
+          <td style="text-align: left">0.692</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10,000</td>
+          <td style="text-align: left">3.1360000000</td>
+          <td style="text-align: left">7.14</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">100,000</td>
+          <td style="text-align: left">3.1518800000</td>
+          <td style="text-align: left">69.6</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1,000,000</td>
+          <td style="text-align: left">3.1409400000</td>
+          <td style="text-align: left">686</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>The main thing we have control of is the number of iterations, and we can attempt to complete more iterations by optimising our code, the problem is the more iterations we do the longer is takes to complete, with 1,000,000 iterations taking 10 minutes we need to improve the execution time if we want to carry out more iterations.</p>
 <p>In Python Loops are relatively slow compared to other languages such as &lsquo;c&rsquo; and &lsquo;c++&rsquo;, this is due to the dynamically typed nature of python. Vectorising the calculation of the values, using Numpy helps to remove or limit the number of loops that need to be completed, and operations on vectors are generally more efficient in dynamically typed languages, and by avoiding context switching large efficiency gains can be found.</p>
@@ -497,30 +491,30 @@ print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
 </code></pre><p>This approach gives a significant improvement, we are now able to do the number of calculations that took over 10 minutes, in less than a second.</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Iterations</th>
-<th>Pi value</th>
-<th>Run Time (s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1,000,000</td>
-<td>3.1449280000</td>
-<td>0.28814268112182617</td>
-</tr>
-<tr>
-<td>10,000,000</td>
-<td>3.1422772000</td>
-<td>2.569852352142334</td>
-</tr>
-<tr>
-<td>100,000,000</td>
-<td>3.1415957200</td>
-<td>26.24626588821411</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Iterations</th>
+          <th style="text-align: left">Pi value</th>
+          <th style="text-align: left">Run Time (s)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1,000,000</td>
+          <td style="text-align: left">3.1449280000</td>
+          <td style="text-align: left">0.28814268112182617</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10,000,000</td>
+          <td style="text-align: left">3.1422772000</td>
+          <td style="text-align: left">2.569852352142334</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">100,000,000</td>
+          <td style="text-align: left">3.1415957200</td>
+          <td style="text-align: left">26.24626588821411</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>Now making use of the unique of the Nvidia Jetson boards which is the GPU along with the 128 CUDA cores. Taking advantage of these features involves switching from Numpy which executes on arm core to using CUPY. The CUPY library is designed to be compatible with numpy, using the same syntax and function names but to be used to execute the commands on the GPU.</p>
 <p>While the syntax is almost identical between Numpy and CUPY, for the functions themselves, we actually need to deal with where the variables are located for the GPU version. Typically on a traditional Desktop PC the memory for the CPU and GPU are separate, and each time a variable needs to go between the two it has to be transferred over what is typically a PCIe link. This transfer takes time, but in the Jetson Boards the memory is shared between the CPU and the GPU, which means transfers are no longer a real issue but we still have the map the variables as ones that are able to be processed by the GPU as shown by the &lsquo;cp.array()&rsquo; commands, and then make that data available to Numpy and the CPU with commands such as &lsquo;cp.asnumpy()&rsquo;.</p>
@@ -554,123 +548,123 @@ print(&#34;Runs: %i&#34; % iterations)
 print(runtime)
 </code></pre><p>Apart from these memory management changes that code is broadly the same, so with these minor adjustment to make use of the GPU we can now get a roughly 5 times improvement in speed compared to the vectorised approach. The originally looped code took over 10 minutes to calculate one million iterations, which are now completed in just over half a second.</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Iterations</th>
-<th>Pi value</th>
-<th>Run Time (s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1,000,000</td>
-<td>3.1428120000</td>
-<td>0.536</td>
-</tr>
-<tr>
-<td>10,000,000</td>
-<td>3.1412428000</td>
-<td>0.952</td>
-</tr>
-<tr>
-<td>100,000,000</td>
-<td>3.1414888800</td>
-<td>5.70</td>
-</tr>
-<tr>
-<td>1,000,000,000</td>
-<td>3.1414574560</td>
-<td>48.8</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Iterations</th>
+          <th style="text-align: left">Pi value</th>
+          <th style="text-align: left">Run Time (s)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1,000,000</td>
+          <td style="text-align: left">3.1428120000</td>
+          <td style="text-align: left">0.536</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10,000,000</td>
+          <td style="text-align: left">3.1412428000</td>
+          <td style="text-align: left">0.952</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">100,000,000</td>
+          <td style="text-align: left">3.1414888800</td>
+          <td style="text-align: left">5.70</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1,000,000,000</td>
+          <td style="text-align: left">3.1414574560</td>
+          <td style="text-align: left">48.8</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>These large improvements in speed, have allowed us to complete far more iterations in a shorter amount of time, and in terms of out algorithm we can see the improvements in the accuracy of Pi we are estimating. By the time we are calculating 1e9 values, we are getting pi correct to 4 significant figures. The question is are there any more options to improve the speed of our algorithm?</p>
 <p>One element that we skipped over is the size of the vectors that we are working with, for the above testing they were fixed at 1e6, without any real justification. This number was picked as an integer divide of the number of points was planning to test with, but could this be optimised, lets test a few Vector lengths with a fixed number of iterations at 1e8.</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Vector Length</th>
-<th>CPU Run Time (s)</th>
-<th>GPU Run Time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1e3</td>
-<td>32.9</td>
-<td>846</td>
-</tr>
-<tr>
-<td>2e3</td>
-<td>21.3</td>
-<td>420</td>
-</tr>
-<tr>
-<td>5e3</td>
-<td>14.4</td>
-<td>176</td>
-</tr>
-<tr>
-<td>1e4</td>
-<td>12.0</td>
-<td>82.8</td>
-</tr>
-<tr>
-<td>2e4</td>
-<td>11.7</td>
-<td>44.2</td>
-</tr>
-<tr>
-<td>5e4</td>
-<td>12.2</td>
-<td>19.2</td>
-</tr>
-<tr>
-<td>1e5</td>
-<td>12.0</td>
-<td>10.9</td>
-</tr>
-<tr>
-<td>2e5</td>
-<td>11.5</td>
-<td>6.90</td>
-</tr>
-<tr>
-<td>5e5</td>
-<td>10.7</td>
-<td>5.60</td>
-</tr>
-<tr>
-<td>1e6</td>
-<td>10.4</td>
-<td>5.18</td>
-</tr>
-<tr>
-<td>2e6</td>
-<td>10.2</td>
-<td>5.01</td>
-</tr>
-<tr>
-<td>5e6</td>
-<td>10.8</td>
-<td>4.94</td>
-</tr>
-<tr>
-<td>1e7</td>
-<td>10.6</td>
-<td>5.04</td>
-</tr>
-<tr>
-<td>2e7</td>
-<td>10.6</td>
-<td>5.45</td>
-</tr>
-<tr>
-<td>2.5e7</td>
-<td>10.6</td>
-<td>6.62</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Vector Length</th>
+          <th style="text-align: left">CPU Run Time (s)</th>
+          <th style="text-align: left">GPU Run Time</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1e3</td>
+          <td style="text-align: left">32.9</td>
+          <td style="text-align: left">846</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2e3</td>
+          <td style="text-align: left">21.3</td>
+          <td style="text-align: left">420</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5e3</td>
+          <td style="text-align: left">14.4</td>
+          <td style="text-align: left">176</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1e4</td>
+          <td style="text-align: left">12.0</td>
+          <td style="text-align: left">82.8</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2e4</td>
+          <td style="text-align: left">11.7</td>
+          <td style="text-align: left">44.2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5e4</td>
+          <td style="text-align: left">12.2</td>
+          <td style="text-align: left">19.2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1e5</td>
+          <td style="text-align: left">12.0</td>
+          <td style="text-align: left">10.9</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2e5</td>
+          <td style="text-align: left">11.5</td>
+          <td style="text-align: left">6.90</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5e5</td>
+          <td style="text-align: left">10.7</td>
+          <td style="text-align: left">5.60</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1e6</td>
+          <td style="text-align: left">10.4</td>
+          <td style="text-align: left">5.18</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2e6</td>
+          <td style="text-align: left">10.2</td>
+          <td style="text-align: left">5.01</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5e6</td>
+          <td style="text-align: left">10.8</td>
+          <td style="text-align: left">4.94</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1e7</td>
+          <td style="text-align: left">10.6</td>
+          <td style="text-align: left">5.04</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2e7</td>
+          <td style="text-align: left">10.6</td>
+          <td style="text-align: left">5.45</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2.5e7</td>
+          <td style="text-align: left">10.6</td>
+          <td style="text-align: left">6.62</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>What we see is that the Run time for the CPU and GPU both hit plateau, with the GPU implementation twice as as the CPU for large vectors. In contrast we also find that for small vector sizes the CPU implementation is significantly fast than the GPU. The vector length of 2.5e7, was the largest size that could be fit in the memory of the Jetson (vectors bigger than this caused failed out of memory errors).</p>
 <p>This is shown that the Jetson Nano can extract some more performance, by making use of the CUPY library to leverage the GPU has given x2 speed up over the CPU vectorised code. The x10000 time speed up from the original looping code, shows that the structure of the algorithm needs to be optimised, before assessing the before on the hardware in question.</p>

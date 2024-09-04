@@ -15,8 +15,6 @@
     <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Getting started IKEA Vindriktning in Home Assistant with Pico W">
 <meta name="twitter:description" content="Modifying the IKEA Vindriktning with a Raspberry Pi Pico to integrate with Home Assistant"><meta name="twitter:card" content="summary">
     <meta name="twitter:image" content='https://jjhorton.co.uk/img/2022-Ikea_Pico_w.jpg' />
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
@@ -31,10 +29,6 @@
           gtag('config', 'G-HS5DDLL3E1');
         }
       </script>
-    
-  
-
-
     </head>
     <body class="
     article-page
@@ -366,26 +360,26 @@
 <p>With the wires attached to the sensor&rsquo;s PCB, we now need to hook them up to the <a class="link" href="https://thepihut.com/products/raspberry-pi-pico-w"  target="_blank" rel="noopener"
     >Raspberry Pi Pico W</a>, we need to attach the Power and GND to appropriate pins and then the serial need to be attached to an appropriately capable pin, I selected the following:</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Ikea Vindriktning</th>
-<th style="text-align:center">Raspberry Pi Pico W</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>5V</code></td>
-<td style="text-align:center"><code>VSYS</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>GND</code></td>
-<td style="text-align:center"><code>GND</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>REST</code></td>
-<td style="text-align:center"><code>GPIO1</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Ikea Vindriktning</th>
+          <th style="text-align: center">Raspberry Pi Pico W</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>5V</code></td>
+          <td style="text-align: center"><code>VSYS</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>GND</code></td>
+          <td style="text-align: center"><code>GND</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>REST</code></td>
+          <td style="text-align: center"><code>GPIO1</code></td>
+      </tr>
+  </tbody>
 </table></div>
 <p>Now with the modification complete we just need to flash the software onto the <a class="link" href="https://thepihut.com/products/raspberry-pi-pico-w"  target="_blank" rel="noopener"
     >Pico W</a>, before we seel the unit up.</p>
