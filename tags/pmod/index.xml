@@ -100,46 +100,46 @@
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Reference&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Description&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Link&lt;/th&gt;
+          &lt;th&gt;Reference&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+          &lt;th&gt;Link&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R1&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;flexible PCB example&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R1&lt;/td&gt;
+          &lt;td&gt;flexible PCB example&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R2&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;usb type c on pcb&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R2&lt;/td&gt;
+          &lt;td&gt;usb type c on pcb&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://hackaday.io/project/171381-fluff-m0/log/178674-version-13-and-usb-type-c&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R3&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;with repo:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R3&lt;/td&gt;
+          &lt;td&gt;with repo:&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/settinger/USB-C_PCB_experiments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/settinger/USB-C_PCB_experiments&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R4&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;different types:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R4&lt;/td&gt;
+          &lt;td&gt;different types:&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://hackaday.io/project/28516-business-card-gamepad/log/72175-pcb-connector-testing&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R5&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;project source of the connector used:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/wiki/PCBA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R5&lt;/td&gt;
+          &lt;td&gt;project source of the connector used:&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/wiki/PCBA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/joric/nrfmicro/wiki/PCBA&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;R6&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;location of the files from github:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+          &lt;td&gt;R6&lt;/td&gt;
+          &lt;td&gt;location of the files from github:&lt;/td&gt;
+          &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/joric/nrfmicro/tree/devel-1.4-pcb-connector/hardware/nrfmicro.pretty&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -1059,8 +1059,8 @@ plt.colorbar(h)
 &gt;&lt;/p&gt;
 &lt;p&gt;Why bother experimenting with the Raspberry Pi Pico? Well the things that interested me with the Raspberry Pi Pico was not only the low price but also the Programable I/O or PIO on the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.org/documentation/rp2040/getting-started/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;RP2040&lt;/a&gt; device. This allows you to build small limited sate machines you can set up on some of the outputs, alongside some more traditional Hard IP (SPI/UART/I2C) on the device with a duel core ARM that supports running at a clock rate of over 100MHz. This make it interesting to play with, much as I have been playing around with on FPGA&amp;rsquo;s in the past few months, without having to get your head around writing lots of HDL such as Verilog or VHDL.&lt;/p&gt;
-&lt;h1 id=&#34;designing-a-pcb-with-kicad&#34;&gt;Designing a PCB with KiCAD&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-Schematic.png&#34;
+&lt;h1 id=&#34;designing-a-pcb-with-kicad&#34;&gt;Designing a PCB with KiCAD
+&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/PicoPmod-Schematic.png&#34;
 	
 	
 	
@@ -1106,8 +1106,8 @@ plt.colorbar(h)
 	
 	
 &gt;&lt;/p&gt;
-&lt;h1 id=&#34;building-a-counter-example&#34;&gt;Building a counter example&lt;/h1&gt;
-&lt;p&gt;With the boards made and tested, I was now ready to start hooking up a simple PMod, and getting my head round writing C/C++ again, as it has been a while.&lt;/p&gt;
+&lt;h1 id=&#34;building-a-counter-example&#34;&gt;Building a counter example
+&lt;/h1&gt;&lt;p&gt;With the boards made and tested, I was now ready to start hooking up a simple PMod, and getting my head round writing C/C++ again, as it has been a while.&lt;/p&gt;
 &lt;p&gt;The process for compiling c/c++ for the Raspberry Pi Pico is really well documented, and the Raspberry Pi Website is a great resource in getting everything set up on matter on what you are using to compile the software. I did find the examples repo, a bit intimidating when wanting to build something from scratch for the cmake files but there were plenty of back to basics examples avalible from a quick google search.&lt;/p&gt;
 &lt;p&gt;The first example that I wanted used the PMod &lt;a class=&#34;link&#34; href=&#34;https://1bitsquared.com/products/pmod-7-segment-display&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;7 segment display&lt;/a&gt;, and I wanted to display a counter that increments once per second. The first set was getting a suitable cmake file setup, this includes all the information the Pico SDK needs to build my project, this is a simple project with no real external dependancies other the the &lt;code&gt;pico_stdlib&lt;/code&gt; library and the code will be in my file &lt;code&gt;main.c&lt;/code&gt;, which keeps this file nice and simple.&lt;/p&gt;
@@ -1230,8 +1230,8 @@ pico_add_extra_outputs(${NAME})
  cmake ..
  make -j4
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the code build successfully, we can then copy  it onto the Pico, with the PMod Board this is now easier and doesn&amp;rsquo;t require unplugging the Pico. Instead we can hold down the run button, then press the Boot button. the releasing the Run followed by Boot button and the Pico appears on as a removable drive ready for us to drop the &lt;code&gt;pico-pmod.uf2&lt;/code&gt; file onto it, at which point it begins running our program.&lt;/p&gt;
-&lt;h1 id=&#34;what-next&#34;&gt;What next&lt;/h1&gt;
-&lt;p&gt;The next challenge will be building some examples with PIO, working with a few more PMod type devices. One error that needs fixing, 5v and GND pin wrong way round, in order to match the Colorlite i5 FPGA Dev Board that I have. I&amp;rsquo;m planning on building a few custom PMod boards so I can develop and test both FPGA based examples and Pico Based examples, to improve my coding ability for coding on both.&lt;/p&gt;
+&lt;h1 id=&#34;what-next&#34;&gt;What next
+&lt;/h1&gt;&lt;p&gt;The next challenge will be building some examples with PIO, working with a few more PMod type devices. One error that needs fixing, 5v and GND pin wrong way round, in order to match the Colorlite i5 FPGA Dev Board that I have. I&amp;rsquo;m planning on building a few custom PMod boards so I can develop and test both FPGA based examples and Pico Based examples, to improve my coding ability for coding on both.&lt;/p&gt;
 </description>
         </item>
         

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing">
 <title>Nvidia Jetson Nano 2Gb Testing</title>
 
 <link rel='canonical' href='https://jjhorton.co.uk/posts/jetsontesting/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Nvidia Jetson Nano 2Gb Testing'>
-<meta property='og:description' content='Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Nvidia Jetson Nano 2Gb Testing">
+<meta property='og:description' content="Testing out the Nvidia Jetson Nano 2Gb Board with a simple calculating Pi Testing">
 <meta property='og:url' content='https://jjhorton.co.uk/posts/jetsontesting/'>
 <meta property='og:site_name' content='James Horton'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Nvidia' /><meta property='article:tag' content='GPU' /><meta property='article:tag' content='Jetson' /><meta property='article:tag' content='Testing' /><meta property='article:published_time' content='2021-02-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-02-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/Jetson_case_box.png' />
@@ -86,7 +86,7 @@
             <h1 class="site-name"><a href="/">James Horton</a></h1>
             <h2 class="site-description">A selection of posts about my random projects at home, covering topics from Electronics to Software Defined Radio, and anything else I can think of</h2>
         </div>
-    </header><ol class="social-menu">
+    </header><ol class="menu-social">
             
                 <li>
                     <a 
@@ -153,7 +153,6 @@
         
         
         
-
         <li >
             <a href='/' >
                 
@@ -174,7 +173,6 @@
         </li>
         
         
-
         <li >
             <a href='/pages/about/' >
                 
@@ -194,7 +192,6 @@
         </li>
         
         
-
         <li >
             <a href='/posts/' >
                 
@@ -214,31 +211,12 @@
             </a>
         </li>
         
+        <li class="menu-bottom-section">
+            <ol class="menu">
 
-        <div class="menu-bottom-section">
-                <li id="i18n-switch">  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        
-                            <option value="https://jjhorton.co.uk/" selected></option>
-                        
-                    </select>
-                </li>
-            
-            
-            
-                <li id="dark-mode-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -246,7 +224,7 @@
 
 
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -254,10 +232,11 @@
 
 
 
-                    <span>Dark Mode</span>
-                </li>
-            
-        </div>
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
     </ol>
 </aside>
 
@@ -427,36 +406,36 @@ print(runtime)
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">Iterations</th>
-          <th style="text-align: left">Pi Calculated</th>
-          <th style="text-align: left">Run Time(s)</th>
+          <th>Iterations</th>
+          <th>Pi Calculated</th>
+          <th>Run Time(s)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">100</td>
-          <td style="text-align: left">3.0000000000</td>
-          <td style="text-align: left">0.077</td>
+          <td>100</td>
+          <td>3.0000000000</td>
+          <td>0.077</td>
       </tr>
       <tr>
-          <td style="text-align: left">1,000</td>
-          <td style="text-align: left">3.0760000000</td>
-          <td style="text-align: left">0.692</td>
+          <td>1,000</td>
+          <td>3.0760000000</td>
+          <td>0.692</td>
       </tr>
       <tr>
-          <td style="text-align: left">10,000</td>
-          <td style="text-align: left">3.1360000000</td>
-          <td style="text-align: left">7.14</td>
+          <td>10,000</td>
+          <td>3.1360000000</td>
+          <td>7.14</td>
       </tr>
       <tr>
-          <td style="text-align: left">100,000</td>
-          <td style="text-align: left">3.1518800000</td>
-          <td style="text-align: left">69.6</td>
+          <td>100,000</td>
+          <td>3.1518800000</td>
+          <td>69.6</td>
       </tr>
       <tr>
-          <td style="text-align: left">1,000,000</td>
-          <td style="text-align: left">3.1409400000</td>
-          <td style="text-align: left">686</td>
+          <td>1,000,000</td>
+          <td>3.1409400000</td>
+          <td>686</td>
       </tr>
   </tbody>
 </table></div>
@@ -493,26 +472,26 @@ print(runtime)
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">Iterations</th>
-          <th style="text-align: left">Pi value</th>
-          <th style="text-align: left">Run Time (s)</th>
+          <th>Iterations</th>
+          <th>Pi value</th>
+          <th>Run Time (s)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">1,000,000</td>
-          <td style="text-align: left">3.1449280000</td>
-          <td style="text-align: left">0.28814268112182617</td>
+          <td>1,000,000</td>
+          <td>3.1449280000</td>
+          <td>0.28814268112182617</td>
       </tr>
       <tr>
-          <td style="text-align: left">10,000,000</td>
-          <td style="text-align: left">3.1422772000</td>
-          <td style="text-align: left">2.569852352142334</td>
+          <td>10,000,000</td>
+          <td>3.1422772000</td>
+          <td>2.569852352142334</td>
       </tr>
       <tr>
-          <td style="text-align: left">100,000,000</td>
-          <td style="text-align: left">3.1415957200</td>
-          <td style="text-align: left">26.24626588821411</td>
+          <td>100,000,000</td>
+          <td>3.1415957200</td>
+          <td>26.24626588821411</td>
       </tr>
   </tbody>
 </table></div>
@@ -550,31 +529,31 @@ print(runtime)
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">Iterations</th>
-          <th style="text-align: left">Pi value</th>
-          <th style="text-align: left">Run Time (s)</th>
+          <th>Iterations</th>
+          <th>Pi value</th>
+          <th>Run Time (s)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">1,000,000</td>
-          <td style="text-align: left">3.1428120000</td>
-          <td style="text-align: left">0.536</td>
+          <td>1,000,000</td>
+          <td>3.1428120000</td>
+          <td>0.536</td>
       </tr>
       <tr>
-          <td style="text-align: left">10,000,000</td>
-          <td style="text-align: left">3.1412428000</td>
-          <td style="text-align: left">0.952</td>
+          <td>10,000,000</td>
+          <td>3.1412428000</td>
+          <td>0.952</td>
       </tr>
       <tr>
-          <td style="text-align: left">100,000,000</td>
-          <td style="text-align: left">3.1414888800</td>
-          <td style="text-align: left">5.70</td>
+          <td>100,000,000</td>
+          <td>3.1414888800</td>
+          <td>5.70</td>
       </tr>
       <tr>
-          <td style="text-align: left">1,000,000,000</td>
-          <td style="text-align: left">3.1414574560</td>
-          <td style="text-align: left">48.8</td>
+          <td>1,000,000,000</td>
+          <td>3.1414574560</td>
+          <td>48.8</td>
       </tr>
   </tbody>
 </table></div>
@@ -583,86 +562,86 @@ print(runtime)
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">Vector Length</th>
-          <th style="text-align: left">CPU Run Time (s)</th>
-          <th style="text-align: left">GPU Run Time</th>
+          <th>Vector Length</th>
+          <th>CPU Run Time (s)</th>
+          <th>GPU Run Time</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">1e3</td>
-          <td style="text-align: left">32.9</td>
-          <td style="text-align: left">846</td>
+          <td>1e3</td>
+          <td>32.9</td>
+          <td>846</td>
       </tr>
       <tr>
-          <td style="text-align: left">2e3</td>
-          <td style="text-align: left">21.3</td>
-          <td style="text-align: left">420</td>
+          <td>2e3</td>
+          <td>21.3</td>
+          <td>420</td>
       </tr>
       <tr>
-          <td style="text-align: left">5e3</td>
-          <td style="text-align: left">14.4</td>
-          <td style="text-align: left">176</td>
+          <td>5e3</td>
+          <td>14.4</td>
+          <td>176</td>
       </tr>
       <tr>
-          <td style="text-align: left">1e4</td>
-          <td style="text-align: left">12.0</td>
-          <td style="text-align: left">82.8</td>
+          <td>1e4</td>
+          <td>12.0</td>
+          <td>82.8</td>
       </tr>
       <tr>
-          <td style="text-align: left">2e4</td>
-          <td style="text-align: left">11.7</td>
-          <td style="text-align: left">44.2</td>
+          <td>2e4</td>
+          <td>11.7</td>
+          <td>44.2</td>
       </tr>
       <tr>
-          <td style="text-align: left">5e4</td>
-          <td style="text-align: left">12.2</td>
-          <td style="text-align: left">19.2</td>
+          <td>5e4</td>
+          <td>12.2</td>
+          <td>19.2</td>
       </tr>
       <tr>
-          <td style="text-align: left">1e5</td>
-          <td style="text-align: left">12.0</td>
-          <td style="text-align: left">10.9</td>
+          <td>1e5</td>
+          <td>12.0</td>
+          <td>10.9</td>
       </tr>
       <tr>
-          <td style="text-align: left">2e5</td>
-          <td style="text-align: left">11.5</td>
-          <td style="text-align: left">6.90</td>
+          <td>2e5</td>
+          <td>11.5</td>
+          <td>6.90</td>
       </tr>
       <tr>
-          <td style="text-align: left">5e5</td>
-          <td style="text-align: left">10.7</td>
-          <td style="text-align: left">5.60</td>
+          <td>5e5</td>
+          <td>10.7</td>
+          <td>5.60</td>
       </tr>
       <tr>
-          <td style="text-align: left">1e6</td>
-          <td style="text-align: left">10.4</td>
-          <td style="text-align: left">5.18</td>
+          <td>1e6</td>
+          <td>10.4</td>
+          <td>5.18</td>
       </tr>
       <tr>
-          <td style="text-align: left">2e6</td>
-          <td style="text-align: left">10.2</td>
-          <td style="text-align: left">5.01</td>
+          <td>2e6</td>
+          <td>10.2</td>
+          <td>5.01</td>
       </tr>
       <tr>
-          <td style="text-align: left">5e6</td>
-          <td style="text-align: left">10.8</td>
-          <td style="text-align: left">4.94</td>
+          <td>5e6</td>
+          <td>10.8</td>
+          <td>4.94</td>
       </tr>
       <tr>
-          <td style="text-align: left">1e7</td>
-          <td style="text-align: left">10.6</td>
-          <td style="text-align: left">5.04</td>
+          <td>1e7</td>
+          <td>10.6</td>
+          <td>5.04</td>
       </tr>
       <tr>
-          <td style="text-align: left">2e7</td>
-          <td style="text-align: left">10.6</td>
-          <td style="text-align: left">5.45</td>
+          <td>2e7</td>
+          <td>10.6</td>
+          <td>5.45</td>
       </tr>
       <tr>
-          <td style="text-align: left">2.5e7</td>
-          <td style="text-align: left">10.6</td>
-          <td style="text-align: left">6.62</td>
+          <td>2.5e7</td>
+          <td>10.6</td>
+          <td>6.62</td>
       </tr>
   </tbody>
 </table></div>
@@ -713,7 +692,7 @@ print(runtime)
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
