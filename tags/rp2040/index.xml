@@ -154,7 +154,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Assembling the PCB&amp;rsquo;s&#34;
+		alt=&#34;Assembling the PCBs&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -166,7 +166,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;The panels of PCB&amp;rsquo;s generated using github actions&#34;
+		alt=&#34;The panels of PCBs generated using github actions&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -333,7 +333,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Purple PCB&amp;rsquo;s from JLCPCB&#34;
+		alt=&#34;Purple PCBs from JLCPCB&#34;
 	
 	
 &gt;&lt;/p&gt;
