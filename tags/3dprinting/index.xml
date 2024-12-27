@@ -177,7 +177,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Adding the python to the crontab to run at reboot, so the display come up when the cluster is powered on, and the code running in a loop to keep it updated it was job done.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My 3D printer has been busy the last couple of weeks, printing cases for my old Raspberry Pi 2B cluster that I&amp;#39;m bringing back to life &lt;a href=&#34;https://twitter.com/hashtag/raspberrypi?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#raspberrypi&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/cluster?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#cluster&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/3Dprinting?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#3Dprinting&lt;/a&gt; &lt;a href=&#34;https://t.co/xJ0SoTG4NS&#34;&gt;pic.twitter.com/xJ0SoTG4NS&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1235334229984243712?ref_src=twsrc%5Etfw&#34;&gt;March 4, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
 &lt;p&gt;Now that it is completely assembled as a single unit, I can hopefully move it around a bit easier,  I&amp;rsquo;m hoping to spend some time revisiting some of my old projects I once used the cluster for and see how much more performance I can get out of it now I understand what i&amp;rsquo;m doing with Python a bit more.&lt;/p&gt;
 </description>
         </item>

@@ -2715,26 +2715,89 @@ ser.close()
         <guid>https://jjhorton.co.uk/posts/sevensegmentdisp/</guid>
         <description>&lt;img src="https://jjhorton.co.uk/img/SevenSegment_complete.jpg" alt="Featured image of post Seven Segment Display PMod Board" /&gt;&lt;p&gt;Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in &lt;a class=&#34;link&#34; href=&#34;https://www.thelegendofq.co.uk/encoder.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;the movies&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/SevenSegment_bond_gps_encoder.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&amp;rsquo;t have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my &lt;a class=&#34;link&#34; href=&#34;https://www.crowdsupply.com/1bitsquared/icebreaker-fpga&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;iceBreaker FPGA&lt;/a&gt; which has two digits, and removes the decimal point to allow multiplexing between the two displays.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/icebreaker-pmod-7-segment.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.&lt;/p&gt;
-&lt;p&gt;&amp;lt;img src=&amp;ldquo;images/GN_Semic_GN1640.png&amp;rdquo; width=&amp;ldquo;350 &amp;gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/GN_Semic_GN1640.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;Devices such as the &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GN Semic GN1640&lt;/a&gt; which is the chip I decided to tag onto an order I was already placing at &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;LCSC Components&lt;/a&gt;, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/SevenSegment_schematic.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;The circuit for these &lt;a class=&#34;link&#34; href=&#34;https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GN1640&lt;/a&gt; chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from &lt;a class=&#34;link&#34; href=&#34;https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Mouser&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/SevenSegment_pcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;The boards were laid out so that they would fit within the maximum 10x10cm limits of the &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;JLC PCB&lt;/a&gt; 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/SevenSegment_complete.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;With the PCB&amp;rsquo;s made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the &lt;a class=&#34;link&#34; href=&#34;https://www.jjhorton.co.uk/rp2040-pmod-pcb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;RP2040 PMod boards&lt;/a&gt; that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/SevenSegment_TM1640-Timing.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Picture&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void enable()
 {
@@ -2929,10 +2992,16 @@ const int RGB_LOOKUP[][3] = {{255,14,240},{255,13,240},{255,12,240},{255,11,240}
 	
 	
 &gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;A productive couple of evenings this week building up a PCB based on the Raspberry Pi RP2040, just a few bodges needed to get it programmed and the LED flashing &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/madeathome?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#madeathome&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/raspberrypi?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#raspberrypi&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rp2040?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rp2040&lt;/a&gt; &lt;a href=&#34;https://t.co/7IbJCgmGQY&#34;&gt;pic.twitter.com/7IbJCgmGQY&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1423678980423569415?ref_src=twsrc%5Etfw&#34;&gt;August 6, 2021&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
 &lt;p&gt;With the good news that the board seemed to all be working, except the USB issue, I corrected the error, and had a few more PCB&amp;rsquo;s made by &lt;a class=&#34;link&#34; href=&#34;https://jlcpcb.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;JLCPCB&lt;/a&gt;. Having had these ordered they soon arrived, and I was able to build a few more of the boards. One issue I did find is that I am struggling to get consistent results with surface mount soldering on my hot plate. The boards I&amp;rsquo;m building now are some of the smallest and most complex I&amp;rsquo;ve tried to build at home so there is always going to be a fair amount of trial and error. Of the second lot of 5 PCB&amp;rsquo;s ordered 4 were delivered as one was damaged by the PCB manufacturer, I then haven&amp;rsquo;t been able to get one working, and then two work perfectly after a couple of fixes, while one has a single IO pins which doesn&amp;rsquo;t seem to be functioning.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Sometime you can&amp;#39;t beat an evening spent playing with LEDs making patterns &lt;a href=&#34;https://twitter.com/hashtag/leds?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#leds&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://t.co/kchJTo22p3&#34;&gt;pic.twitter.com/kchJTo22p3&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1432432328370962435?ref_src=twsrc%5Etfw&#34;&gt;August 30, 2021&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
 &lt;p&gt;The next plan is to start getting some of the PMod Boards I have already purchased and made, hooked up, and get some more working examples with the RP2040 PMod Boards, as well as order a few more boards so I can attempt to improve my surface mount soldering.&lt;/p&gt;
 </description>
         </item>
@@ -3031,7 +3100,10 @@ plt.colorbar(h)
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;This then allows us to see what the sensor is seeing, which I was really happy with when I checked out that my solution actually worked the morning after writing the code.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;A quick test this morning to confirm I did get my AMG8834 thermal sensor working with the Pico, although given the time the files were last edited last night I might need that energy drink soon &lt;a href=&#34;https://twitter.com/hashtag/electronics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#electronics&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rppico?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rppico&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rp2040?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rp2040&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/LateNight?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#LateNight&lt;/a&gt; &lt;a href=&#34;https://t.co/bSTmoAp1lP&#34;&gt;pic.twitter.com/bSTmoAp1lP&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1403252809064198147?ref_src=twsrc%5Etfw&#34;&gt;June 11, 2021&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
 &lt;p&gt;With that now completed, my next task is to look at getting an identical example in HDL which uses either the Icebreaker Board or the Colorlite i5, this will be a bit more of a challenge, but it will be a great little project for improving my HDL coding skills.&lt;/p&gt;
 </description>
         </item>
@@ -4072,7 +4144,10 @@ print(runtime)
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Adding the python to the crontab to run at reboot, so the display come up when the cluster is powered on, and the code running in a loop to keep it updated it was job done.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My 3D printer has been busy the last couple of weeks, printing cases for my old Raspberry Pi 2B cluster that I&amp;#39;m bringing back to life &lt;a href=&#34;https://twitter.com/hashtag/raspberrypi?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#raspberrypi&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/cluster?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#cluster&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/3Dprinting?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#3Dprinting&lt;/a&gt; &lt;a href=&#34;https://t.co/xJ0SoTG4NS&#34;&gt;pic.twitter.com/xJ0SoTG4NS&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Horton (@JamesjHorton) &lt;a href=&#34;https://twitter.com/JamesjHorton/status/1235334229984243712?ref_src=twsrc%5Etfw&#34;&gt;March 4, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
 &lt;p&gt;Now that it is completely assembled as a single unit, I can hopefully move it around a bit easier,  I&amp;rsquo;m hoping to spend some time revisiting some of my old projects I once used the cluster for and see how much more performance I can get out of it now I understand what i&amp;rsquo;m doing with Python a bit more.&lt;/p&gt;
 </description>
         </item>

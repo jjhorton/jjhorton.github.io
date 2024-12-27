@@ -303,26 +303,89 @@
     
     <p>Ive always wanted to build a severn segment display, there is something about the old school style displays that it is hard to beat to display random numerical data like in <a class="link" href="https://www.thelegendofq.co.uk/encoder.html"  target="_blank" rel="noopener"
     >the movies</a>.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/SevenSegment_bond_gps_encoder.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>The 7 Segment display that I decided to use, comes with 4 digits per display, and I was looking to combine two per PMod Board, with 8 LED per segment, we don&rsquo;t have enough pins to be able to control them all. An example of the maximum number of displays that can be controlled by a single PMod, is the display that I got with my <a class="link" href="https://www.crowdsupply.com/1bitsquared/icebreaker-fpga"  target="_blank" rel="noopener"
     >iceBreaker FPGA</a> which has two digits, and removes the decimal point to allow multiplexing between the two displays.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/icebreaker-pmod-7-segment.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>Thankfully there are a large number of solutions available to solve this problem, one of which are a range of dedicated chips controlled over a serial link to set seven segment displays.</p>
-<p>&lt;img src=&ldquo;images/GN_Semic_GN1640.png&rdquo; width=&ldquo;350 &gt;<!-- raw HTML omitted --></p>
+<p><img src="/img/GN_Semic_GN1640.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>Devices such as the <a class="link" href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html"  target="_blank" rel="noopener"
     >GN Semic GN1640</a> which is the chip I decided to tag onto an order I was already placing at <a class="link" href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html"  target="_blank" rel="noopener"
     >LCSC Components</a>, at just £0.30 it seemed worth giving it a go. From what I had seen online these components were listed as being very similar to a number of other devices which are listed by other manufactures with similar part numbers such as TM1640, which appears to have a identical datasheet but with the advantage of being available in English.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/SevenSegment_schematic.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>The circuit for these <a class="link" href="https://lcsc.com/product-detail/LED-Display-Drivers_GN-Semic-GN1640_C265478.html"  target="_blank" rel="noopener"
     >GN1640</a> chips is relatively simple, with just two input needing to come over the PMod connector, these are a clock signal and a data signal. The circuit for the Seven Segment displays is also relatively simple using a common cathode configuration, which matched my Seven Segment Displays I picked up from <a class="link" href="https://www.mouser.co.uk/ProductDetail/859-LTC-5723HR"  target="_blank" rel="noopener"
     >Mouser</a>.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/SevenSegment_pcb.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>The boards were laid out so that they would fit within the maximum 10x10cm limits of the <a class="link" href="https://jlcpcb.com"  target="_blank" rel="noopener"
     >JLC PCB</a> 2 Layer PCB offer, the issue with this is that each of the displays was 5cm long, taking up the whole length of the PCB, but with all the control pins for the displays being in the centre of each display it was simple to mount the PCB with an overhang at one end leaving room for the PMod connector. The rest of the PCB is a simple 2 layer board, that was designed in KiCad.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/SevenSegment_complete.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>With the PCB&rsquo;s made up, the next challenge was getting some software built up which allowed it to interface with one of my PMod Boards, to start with I used to the <a class="link" href="https://www.jjhorton.co.uk/rp2040-pmod-pcb.html"  target="_blank" rel="noopener"
     >RP2040 PMod boards</a> that I had already made. This helps to simplify building up a simple example, as I can use a bit bashing approach to get a simple example.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img src="/img/SevenSegment_TM1640-Timing.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Picture"
+	
+	
+></p>
 <p>The TM1640 Data Sheet provides a good description of the serial interface, so we can start to build up our functions to control the display, by setting the clk and serial pins either high or low, adding in the required delay as set out in the datasheets timing diagram.</p>
 <pre tabindex="0"><code>void enable()
 {
@@ -535,7 +598,7 @@
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -624,7 +687,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
