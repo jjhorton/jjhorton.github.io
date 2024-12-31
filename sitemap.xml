@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
-    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/fpga/</loc>
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/led/</loc>
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/led_array_fpga/</loc>
-    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/posts/</loc>
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/</loc>
