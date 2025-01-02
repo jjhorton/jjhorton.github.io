@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-uk" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Using Github actions to automatically add git sha and panel's of PCB's">
-<title>Automatically panellization of Kicad PCB&#39;s with github Actions</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Building the Christmas Let in Glow Advent Calendar from PiHut">
+<title>Pi Hut Let in Glow Advent Calendar</title>
 
-<link rel='canonical' href='https://jjhorton.co.uk/posts/kicad-github-panels/'>
+<link rel='canonical' href='https://jjhorton.co.uk/posts/2024adventpihut/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Automatically panellization of Kicad PCB's with github Actions">
-<meta property='og:description' content="Using Github actions to automatically add git sha and panel's of PCB's">
-<meta property='og:url' content='https://jjhorton.co.uk/posts/kicad-github-panels/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Pi Hut Let in Glow Advent Calendar">
+<meta property='og:description' content="Building the Christmas Let in Glow Advent Calendar from PiHut">
+<meta property='og:url' content='https://jjhorton.co.uk/posts/2024adventpihut/'>
 <meta property='og:site_name' content='James Horton'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Raspberry Pi' /><meta property='article:tag' content='Pico' /><meta property='article:tag' content='RP2040' /><meta property='article:tag' content='Kicad' /><meta property='article:tag' content='JLCPCB' /><meta property='article:tag' content='Github' /><meta property='article:published_time' content='2023-05-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Raspberry Pi' /><meta property='article:tag' content='RP2040' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://jjhorton.co.uk/img/2024Advent_Day02.jpg' />
 <meta name="twitter:site" content="@JamesjHorton">
-    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Automatically panellization of Kicad PCB's with github Actions">
-<meta name="twitter:description" content="Using Github actions to automatically add git sha and panel's of PCB's"><meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content='https://jjhorton.co.uk/img/RP2040_PCB_Panels.jpg' />
+    <meta name="twitter:creator" content="@JamesjHorton"><meta name="twitter:title" content="Pi Hut Let in Glow Advent Calendar">
+<meta name="twitter:description" content="Building the Christmas Let in Glow Advent Calendar from PiHut"><meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content='https://jjhorton.co.uk/img/2024Advent_Day02.jpg' />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
@@ -246,9 +246,9 @@
     <article class="main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/posts/kicad-github-panels/">
+            <a href="/posts/2024adventpihut/">
                 
-                    <img src="/img/RP2040_PCB_Panels.jpg" loading="lazy" alt="Featured image of post Automatically panellization of Kicad PCB&#39;s with github Actions" />
+                    <img src="/img/2024Advent_Day02.jpg" loading="lazy" alt="Featured image of post Pi Hut Let in Glow Advent Calendar" />
                 
             </a>
         </div>
@@ -259,12 +259,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/kicad-github-panels/">Automatically panellization of Kicad PCB&#39;s with github Actions</a>
+            <a href="/posts/2024adventpihut/">Pi Hut Let in Glow Advent Calendar</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            Using Github actions to automatically add git sha and panel&#39;s of PCB&#39;s
+            Building the Christmas Let in Glow Advent Calendar from PiHut
         </h3>
         
     </div>
@@ -285,7 +285,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 15, 2023</time>
+                <time class="article-time--published">Jan 02, 2025</time>
             </div>
         
 
@@ -301,58 +301,162 @@
     <section class="article-content">
     
     
-    <p>As part of my PCB design workflow I use <a class="link" href="https://github.com/INTI-CMNB/KiBot"  target="_blank" rel="noopener"
-    >kibot</a> to process my PCB&rsquo;s and generate the Gerber files I need for PCB manufacture, but sometimes to make better use of the of the PCB size I want to create panels that are the minimum size I need to pay for with JLCPCB who I frequently use to make these boards. Another problem I have found when doing respins of boards that have problems or errors, is keeping track of different versions, while i have tried in the past to keep up with a version on the board this hasn&rsquo;t always worked out, so for these boards I wanted to add reference to the git version used to generate the files.</p>
-<p>For generating the Git short sha, from within the github action, we create a varrible to store the current github short sha, which checks if <code>github.event.pull_request.head.sha</code> is avalible and use it, if it is not avalible use <code>git rev-parse --short HEAD</code> to populate the variable <code>sha_short</code>.</p>
-<pre tabindex="0"><code>    # Do a string replacement in the PCB file to set the git HASH
-    - name: Set outputs
-      id: vars
-      run: |
-        if [${{ github.event.pull_request.head.sha }} == &#34;&#34;]; then
-          echo &#34;::set-output name=sha_short::$(git rev-parse --short HEAD)&#34;
-        else
-          echo &#34;::set-output name=sha_short::$(git rev-parse --short ${{ github.event.pull_request.head.sha }})&#34;
-        fi
-</code></pre><p>I need to create a reference to replace in the Kicad PCB, the KICAD pcb file is essentially a text file so I can take some text that is otherwise not in the file, and for my PCB i am using <code>%%GITHASH%%</code>. This is placed on the back silkscreen of the PCB, where I want the short SHA to be placed.</p>
-<p><img src="/img/RP2040_mini_pcb_bottom.png"
+    <p><a class="link" href="https://thepihut.com/"  target="_blank" rel="noopener"
+    >The Pi Hut</a> <a class="link" href="https://thepihut.com/products/maker-advent-calendar-let-it-glow-inc-raspberry-pi-pico-h"  target="_blank" rel="noopener"
+    >Let it Glow Advent Calendar</a> I picked up back in 2023 never got built the year that I purchased it, but this year I set myself the goal of completing it. Each of the 12 days there are little boxes contains a few components and a companion website where you will find the instructions on how to get it all built.</p>
+<p>The building process starts with getting the <a class="link" href="https://www.raspberrypi.com/products/raspberry-pi-pico/"  target="_blank" rel="noopener"
+    >Raspberry Pi Pico</a> all setup, and then works though a full set of instructions including varrity of buttons, LED&rsquo;s, RGB Control and a simple LCD. While these little projects are not challenging for me, they were a great excuse to have a play around with <a class="link" href="https://micropython.org/"  target="_blank" rel="noopener"
+    >MicroPython</a> and <a class="link" href="https://thonny.org/"  target="_blank" rel="noopener"
+    >Thorny</a> which I hadn&rsquo;t used before.</p>
+<p>I added my code to <a class="link" href="https://github.com/jjhorton/PiHutAdventCalendar"  target="_blank" rel="noopener"
+    >Github</a> as I worked through and took daily pictures, as I way to track my progress, which although it took me past christmas to complete, it was all done by New Year&rsquo;s Eve (Just!)</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th style="text-align: center">2024</th>
+          <th style="text-align: center"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><img src="/img/2024Advent_Day01.jpg"
 	
 	
 	
 	loading="lazy"
 	
 	
-></p>
-<p>Using this variable and the <code>%%GITHASH%%</code> reference on the board we use a find and replace operation in the github action to complete the replacement.</p>
-<pre tabindex="0"><code>    - name: Set PCB version
-      uses: jacobtomlinson/gha-find-replace@master
-      with:
-        include: &#34;Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb&#34;
-        find: &#34;%%GITHASH%%&#34;
-        replace: ${{ steps.vars.outputs.sha_short }}
-</code></pre><p>With the Github SHA replacement completed on the board, the next task is to create the panels of the board using <code>kikit</code>, I have used this a lot in the past, but by using within the github action we can ensure that the same board is always generated. As part of this github action, I also take the opportunity to ensure the <code>JLC</code> part number is added added on the panels frame as well as other automatically generated information such as the same SHA Hash and the date that the PCb was generated.</p>
-<pre tabindex="0"><code>    - name: Make a panel 
-      run: |
-        kikit panelize \
-          --layout &#39;grid; rows: 3; cols: 2; space: 2mm&#39; \
-          --tabs &#39;fixed; width: 5mm; vcount: 2; hcount: 0&#39; \
-          --cuts &#39;mousebites; drill: 0.5mm; spacing: 1mm; offset: -0.2mm; prolong: 0.7mm&#39; \
-          --framing &#39;railstb; width: 5mm; space: 3mm;&#39; \
-          --post &#39;millradius: 1mm&#39; \
-          --text &#39;simple; text: JLCJLCJLCJLC; anchor: mt; voffset: 2.5mm; hjustify: center; vjustify: center;&#39; \
-          --text2 &#39;simple; text: Created {date}    Git Version ${{ steps.vars.outputs.sha_short }}; anchor: mb; voffset: -2.5mm; hjustify: center; vjustify: center;&#39; \
-          Hardware/RP2040_Mini_PMod/RP2040_Mini_PMod.kicad_pcb Hardware/RP2040_Mini_PMod/panel.kicad_pcb
-</code></pre><p>The complete github action for generating the PCB&rsquo;s can be found <a class="link" href="https://raw.githubusercontent.com/jjhorton/Pico_Pmod/master/.github/workflows/RP2040_Mini_PMod_Kicad.yml"  target="_blank" rel="noopener"
-    >here</a> as part of the RP2040 mini PMod I have been building.</p>
-<p><img src="/img/RP2040_PCB_Panels.jpg"
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day02.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="Completed PCB panels with github SHA and Date generated"
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day03.jpg"
 	
 	
-></p>
+	
+	loading="lazy"
+	
+	
+></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-advent-calendar-day-1-lets-get-started"  target="_blank" rel="noopener"
+    >Day 1</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-2-lighting-leds"  target="_blank" rel="noopener"
+    >Day 2</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-3-incredible-inputs"  target="_blank" rel="noopener"
+    >Day 3</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><img src="/img/2024Advent_Day04.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day05.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day06.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-4-brilliant-bar-graphs"  target="_blank" rel="noopener"
+    >Day 4</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-5-switch-the-dip"  target="_blank" rel="noopener"
+    >Day 5</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-6-see-the-rgb"  target="_blank" rel="noopener"
+    >Day 6</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><img src="/img/2024Advent_Day07.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day08.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day09.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-7-time-to-slide"  target="_blank" rel="noopener"
+    >Day 7</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-8-rainbow-ring"  target="_blank" rel="noopener"
+    >Day 8</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-9-ice-cold-coding"  target="_blank" rel="noopener"
+    >Day 9</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><img src="/img/2024Advent_Day10.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day11.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+          <td style="text-align: center"><img src="/img/2024Advent_Day12.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-10-ultra-blinky"  target="_blank" rel="noopener"
+    >Day 10</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-11-merry-membrane"  target="_blank" rel="noopener"
+    >Day 11</a></td>
+          <td style="text-align: center"><a class="link" href="https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-12-dazzling-displays"  target="_blank" rel="noopener"
+    >Day 12</a></td>
+      </tr>
+  </tbody>
+</table></div>
 
 </section>
 
@@ -363,15 +467,7 @@
         
             <a href="/tags/raspberry-pi/">Raspberry Pi</a>
         
-            <a href="/tags/pico/">Pico</a>
-        
             <a href="/tags/rp2040/">RP2040</a>
-        
-            <a href="/tags/kicad/">Kicad</a>
-        
-            <a href="/tags/jlcpcb/">JLCPCB</a>
-        
-            <a href="/tags/github/">Github</a>
         
     </section>
 
@@ -412,6 +508,63 @@
             
                 
 <article class="has-image">
+    <a href="/posts/kicad-github-panels/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/RP2040_PCB_Panels.jpg" loading="lazy" data-key="" data-hash="/img/RP2040_PCB_Panels.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Automatically panellization of Kicad PCB&#39;s with github Actions</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/chrismas_gps_countdown/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/countdown_gps_running.png" loading="lazy" data-key="" data-hash="/img/countdown_gps_running.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Upgrading the christmas countdown with GPS</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/posts/gps_pmod_board/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/Pmod-GPS_Purple.jpg" loading="lazy" data-key="" data-hash="/img/Pmod-GPS_Purple.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Creating a GPS PMod Board</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/posts/ikea-air_quality-sensor/">
         
         
@@ -424,63 +577,6 @@
 
         <div class="article-details">
             <h2 class="article-title">Getting started IKEA Vindriktning in Home Assistant with Pico W</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/posts/rp2040_pmod/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/img/rp2040pmod_blankpcb.jpg" loading="lazy" data-key="" data-hash="/img/rp2040pmod_blankpcb.jpg"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">RP2040 PMod PCB</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/posts/2024adventpihut/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/img/2024Advent_Day02.jpg" loading="lazy" data-key="" data-hash="/img/2024Advent_Day02.jpg"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Pi Hut Let in Glow Advent Calendar</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/posts/led_array/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/img/LED_Array_RP2040.jpg" loading="lazy" data-key="" data-hash="/img/LED_Array_RP2040.jpg"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">PMod LED Array using with an RP2040 </h2>
         </div>
     </a>
 </article>

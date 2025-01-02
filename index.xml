@@ -6,7 +6,171 @@
         <description>Recent content on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Wed, 25 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Pi Hut Let in Glow Advent Calendar</title>
+        <link>https://jjhorton.co.uk/posts/2024adventpihut/</link>
+        <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/2024adventpihut/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/2024Advent_Day02.jpg" alt="Featured image of post Pi Hut Let in Glow Advent Calendar" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Pi Hut&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/products/maker-advent-calendar-let-it-glow-inc-raspberry-pi-pico-h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Let it Glow Advent Calendar&lt;/a&gt; I picked up back in 2023 never got built the year that I purchased it, but this year I set myself the goal of completing it. Each of the 12 days there are little boxes contains a few components and a companion website where you will find the instructions on how to get it all built.&lt;/p&gt;
+&lt;p&gt;The building process starts with getting the &lt;a class=&#34;link&#34; href=&#34;https://www.raspberrypi.com/products/raspberry-pi-pico/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raspberry Pi Pico&lt;/a&gt; all setup, and then works though a full set of instructions including varrity of buttons, LED&amp;rsquo;s, RGB Control and a simple LCD. While these little projects are not challenging for me, they were a great excuse to have a play around with &lt;a class=&#34;link&#34; href=&#34;https://micropython.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MicroPython&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://thonny.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thorny&lt;/a&gt; which I hadn&amp;rsquo;t used before.&lt;/p&gt;
+&lt;p&gt;I added my code to &lt;a class=&#34;link&#34; href=&#34;https://github.com/jjhorton/PiHutAdventCalendar&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github&lt;/a&gt; as I worked through and took daily pictures, as I way to track my progress, which although it took me past christmas to complete, it was all done by New Year&amp;rsquo;s Eve (Just!)&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;2024&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day01.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day02.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day03.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-advent-calendar-day-1-lets-get-started&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 1&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-2-lighting-leds&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 2&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-3-incredible-inputs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 3&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day04.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day05.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day06.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-4-brilliant-bar-graphs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 4&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-5-switch-the-dip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 5&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-6-see-the-rgb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 6&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day07.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day08.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day09.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-7-time-to-slide&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 7&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-8-rainbow-ring&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 8&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-9-ice-cold-coding&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 9&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day10.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day11.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://jjhorton.co.uk/img/2024Advent_Day12.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-10-ultra-blinky&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 10&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-11-merry-membrane&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 11&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://thepihut.com/blogs/raspberry-pi-tutorials/let-it-glow-maker-advent-calendar-day-12-dazzling-displays&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Day 12&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
         <title>PMod LED Array using with an FPGA </title>
         <link>https://jjhorton.co.uk/posts/led_array_fpga/</link>
         <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>

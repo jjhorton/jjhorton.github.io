@@ -5,7 +5,19 @@
     <loc>https://jjhorton.co.uk/</loc>
     <lastmod>2025-01-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://jjhorton.co.uk/posts/2024adventpihut/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jjhorton.co.uk/posts/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/rp2040/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jjhorton.co.uk/tags/</loc>
     <lastmod>2025-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/fpga/</loc>
@@ -15,9 +27,6 @@
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/led_array_fpga/</loc>
-    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/</loc>
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/verilog/</loc>
@@ -38,9 +47,6 @@
     <loc>https://jjhorton.co.uk/posts/led_array/</loc>
     <lastmod>2023-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jjhorton.co.uk/tags/rp2040/</loc>
-    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jjhorton.co.uk/tags/c/</loc>
     <lastmod>2023-05-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -54,9 +60,6 @@
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/tags/pmod/</loc>
-    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jjhorton.co.uk/tags/raspberry-pi/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jjhorton.co.uk/posts/rp2040_mini_pmod/</loc>
