@@ -474,13 +474,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="sd">          sudo apt-get install zlibc zlib1g zlib1g-dev
 </span></span></span><span class="line"><span class="cl"><span class="sd">          sudo apt-get install lcov
 </span></span></span><span class="line"><span class="cl"><span class="sd">          wget https://github.com/sifive/verilator/releases/download/4.204-0sifive3/verilator_4.204-0sifive3_amd64.deb
-</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo dpkg -i verilator_4.204-0sifive3_amd64.deb</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo dpkg -i verilator_4.204-0sifive3_amd64.deb</span><span class="w">
 </span></span></span></code></pre></div><p>Running the coverage base testing is the same as above, we just need to set the <code>VINC</code> veriiable before we start up</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run coverage</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          export VINC=/usr/share/verilator/include
-</span></span></span><span class="line"><span class="cl"><span class="sd">          verilator -Wall -GWIDTH=3 --trace --build --coverage -cc --exe $(PROJ).v test.cpp</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          verilator -Wall -GWIDTH=3 --trace --build --coverage -cc --exe $(PROJ).v test.cpp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	        </span><span class="l">./obj_dir/Vblinky</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	        </span><span class="l">verilator_coverage logs/coverage.dat --annotate logs/annotated --write-info logs/coverage.info --write logs/results.txt --rank</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	        </span><span class="l">genhtml logs/coverage.info --output-directory logs/html</span><span class="w">
@@ -499,7 +499,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          sed -i &#39;/^$/d&#39; trace.vcd
-</span></span></span><span class="line"><span class="cl"><span class="sd">          python3 generate_wave.py</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          python3 generate_wave.py</span><span class="w">
 </span></span></span></code></pre></div><p>This json waveform that is output can then be piped directly into a comment from the github action using just a few lines, we also add the coverage data at this point from the text file we created earlier.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Extract the test data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">project/PMod_LED/Firmware</span><span class="w">
@@ -512,7 +512,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;Coverage Stats:&#39; &gt;&gt; test-results.txt
 </span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;```&#39;  &gt;&gt; test-results.txt
 </span></span></span><span class="line"><span class="cl"><span class="sd">          cat logs/coverage.txt &gt;&gt; test-results.txt
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;```&#39;  &gt;&gt; test-results.txt</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#39;```&#39;  &gt;&gt; test-results.txt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">comment test results in PR</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">github.event.schedule != &#39;0 8 * * 1&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">machine-learning-apps/pr-comment@master</span><span class="w">

@@ -352,7 +352,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-yosys
-</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -379,7 +379,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run the Serial Test</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          export VINC=/usr/share/verilator/include
-</span></span></span><span class="line"><span class="cl"><span class="sd">          make test-serial</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          make test-serial</span><span class="w">
 </span></span></span></code></pre></div><p>My next step for the these GitHub Actions, is to look at extracting some statistics from particularly the build process. I&rsquo;m  interested in monitoring the FPGA utilisation and frequency that the design can be run at, being able to see the effect of each pull request would be advantageous for keeping an eye on how well my design is coming together and the effect of different changes.</p>
 
 </section>
