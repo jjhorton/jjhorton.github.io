@@ -69,7 +69,7 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Assembling the PCBs&#34;
+		alt=&#34;Assembling the PCB’s&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -81,7 +81,7 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;The panels of PCBs generated using github actions&#34;
+		alt=&#34;The panels of PCB’s generated using github actions&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -188,7 +188,7 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Purple PCBs from JLCPCB&#34;
+		alt=&#34;Purple PCB’s from JLCPCB&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -1174,7 +1174,7 @@ plt.colorbar(h)
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;PCBs as they arrived&#34;
+		alt=&#34;PCB’s as they arrived&#34;
 	
 	
 &gt;&lt;/p&gt;

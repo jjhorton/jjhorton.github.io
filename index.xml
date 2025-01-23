@@ -809,7 +809,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Assembling the PCBs&#34;
+		alt=&#34;Assembling the PCB’s&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -821,7 +821,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;The panels of PCBs generated using github actions&#34;
+		alt=&#34;The panels of PCB’s generated using github actions&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -1181,7 +1181,7 @@ for(int my_char=0; my_char&amp;lt;15; my_char++){
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Purple PCBs from JLCPCB&#34;
+		alt=&#34;Purple PCB’s from JLCPCB&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -2805,7 +2805,7 @@ ser.close()
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Red PCBs from JLCPCB&#34;
+		alt=&#34;Red PCB’s from JLCPCB&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -3440,7 +3440,7 @@ sudo -H cmake --install build
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;PCBs as they arrived&#34;
+		alt=&#34;PCB’s as they arrived&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -3612,7 +3612,7 @@ pico_add_extra_outputs(${NAME})
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;PCBs Arrived&#34;
+		alt=&#34;PCB’s Arrived&#34;
 	
 	
 &gt;&lt;/p&gt;
