@@ -18,7 +18,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -323,7 +323,7 @@
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="p">[</span><span class="n">WIDTH</span><span class="o">-</span><span class="mh">1</span><span class="p">]</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">			<span class="c1">// When the counter reaches top value reset it
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">			<span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="k">end</span>
 </span></span><span class="line"><span class="cl">	<span class="k">end</span>
 </span></span><span class="line"><span class="cl">
@@ -350,7 +350,7 @@
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="p">[</span><span class="n">WIDTH</span><span class="o">-</span><span class="mh">1</span><span class="p">]</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">			<span class="c1">// When the counter reaches top value shift the LEd accross one
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">			<span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">display</span><span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b10000000</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">				<span class="n">display</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b00000001</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="k">else</span>
@@ -369,7 +369,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Vblinky.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;verilated_vcd_c.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;verilated.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">tick</span><span class="p">(</span><span class="kt">int</span> <span class="n">tickcount</span><span class="p">,</span> <span class="n">Vblinky</span> <span class="o">*</span><span class="n">tb</span><span class="p">,</span> <span class="n">VerilatedVcdC</span><span class="o">*</span> <span class="n">tfp</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">	<span class="n">tb</span><span class="o">-&gt;</span><span class="nf">eval</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
@@ -392,12 +392,12 @@
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">commandArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">// Instantiate the design
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Vblinky</span> <span class="o">*</span><span class="n">tb</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vblinky</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">Vblinky</span> <span class="o">*</span><span class="n">tb</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vblinky</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="n">tickcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//generate a trace
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Verilated</span><span class="o">::</span><span class="nf">debug</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">debug</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">traceEverOn</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">VerilatedVcdC</span><span class="o">*</span> <span class="n">tfp</span> <span class="o">=</span> <span class="n">new</span> <span class="n">VerilatedVcdC</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">Verilated</span><span class="o">::</span><span class="nf">mkdir</span><span class="p">(</span><span class="s">&#34;logs&#34;</span><span class="p">);</span>
@@ -409,7 +409,7 @@
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//write the coverage data out
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">VerilatedCov</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;logs/coverage.dat&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">VerilatedCov</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;logs/coverage.dat&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>There are two functions here, a <code>tick</code> function and the <code>main</code> function, the <code>main</code> function is were all the intresting stuff happens. The main function can be split into the following core functionality:</p>
@@ -446,7 +446,7 @@
     >Github action</a> for running these tests in very standard and I run on the ubuntu system.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;PMod LED&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0 8 * * 1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -455,7 +455,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;.github/workflows/Leds.yml&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;PMod_LED/Firmware/**&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">     
+</span></span></span><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">     
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Build-Firmware</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">

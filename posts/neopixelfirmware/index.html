@@ -18,7 +18,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -323,10 +323,10 @@
 
 <p>This means we can make an approximation of the pulse, as long as it is within these tolarances, so we can use a simple clock divider, to generate the pulses. Creating the clock that is suitable to run the state machine to control the LED&rsquo;s is a simple case of, reducing the clock rate from 12 MHz:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl"><span class="c1">// clock rate for calculating the clock divider
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">parameter</span> 	<span class="n">clk_divider_count</span> <span class="o">=</span> <span class="n">clk_in_rate_hz</span><span class="o">/</span><span class="n">clk_pixel_rate_hz</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">parameter</span> 	<span class="n">clk_divider_count</span> <span class="o">=</span> <span class="n">clk_in_rate_hz</span><span class="o">/</span><span class="n">clk_pixel_rate_hz</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//clock divider for setting the rate that the state can change
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">clk</span><span class="p">)</span> <span class="k">begin</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">clk</span><span class="p">)</span> <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">clk_divider_count</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">		<span class="n">counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
@@ -350,7 +350,7 @@
 <p>These 4 states can then be used in the statemachine, which includes an &lsquo;IDLE&rsquo; state when a bit is not being transmitted. There are then the for states shown in the diagram 1-4, with <code>my_value</code> storing all the RGB values in the order they will be transmitted.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//state machine for sending each value
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">pixel_clk</span><span class="p">)</span> <span class="k">begin</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">pixel_clk</span><span class="p">)</span> <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">	<span class="k">case</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="nl">IDLE:</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
@@ -361,26 +361,26 @@
 </span></span><span class="line"><span class="cl">		<span class="nl">STATE1:</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">				<span class="c1">//first part, always high
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">				<span class="n">state</span> <span class="o">&lt;=</span> <span class="n">STATE2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">				<span class="n">count_bit</span> <span class="o">&lt;=</span> <span class="n">count_bit</span> <span class="o">-</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="k">end</span>
 </span></span><span class="line"><span class="cl">		<span class="nl">STATE2:</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">				<span class="c1">// high for a 1, low for 0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">count_bit</span><span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">count_bit</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">				<span class="n">state</span> <span class="o">&lt;=</span> <span class="n">STATE3</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="k">end</span>
 </span></span><span class="line"><span class="cl">		<span class="nl">STATE3:</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">				<span class="c1">// high for a 1, low for 0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">count_bit</span><span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="n">my_value</span><span class="p">[</span><span class="n">count_bit</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">				<span class="n">state</span> <span class="o">&lt;=</span> <span class="n">STATE4</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="k">end</span>
 </span></span><span class="line"><span class="cl">		<span class="nl">STATE4:</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">				<span class="c1">// always low
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">				<span class="n">data_out</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">				<span class="k">if</span><span class="p">(</span><span class="n">count_bit</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">					<span class="n">state</span> <span class="o">&lt;=</span> <span class="n">IDLE</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -395,9 +395,9 @@
 <p>The functionality for all the writing to pixels is self contained in the writepixel function, this allows me to define separate strings of WS2812B LED&rsquo;s that are connected to my FPGA. in my case these are on custom build PMod Boards, and the icebreaker board can support 3 of them.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Verilog" data-lang="Verilog"><span class="line"><span class="cl"><span class="n">writepixel</span> <span class="n">writepixel</span><span class="p">(</span><span class="n">CLK</span> <span class="p">,</span><span class="n">valid</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">		<span class="n">r_value</span><span class="p">[</span><span class="n">pixel_count</span><span class="o">-</span><span class="mh">1</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">],</span>  <span class="c1">//Red
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">g_value</span><span class="p">[</span><span class="n">pixel_count</span><span class="o">-</span><span class="mh">1</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">],</span>  <span class="c1">//Green
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">b_value</span><span class="p">[</span><span class="n">pixel_count</span><span class="o">-</span><span class="mh">1</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">],</span>  <span class="c1">//Blue
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">pmod1a</span><span class="p">[</span><span class="mh">0</span><span class="p">],</span>
+</span></span></span><span class="line"><span class="cl">		<span class="n">g_value</span><span class="p">[</span><span class="n">pixel_count</span><span class="o">-</span><span class="mh">1</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">],</span>  <span class="c1">//Green
+</span></span></span><span class="line"><span class="cl">		<span class="n">b_value</span><span class="p">[</span><span class="n">pixel_count</span><span class="o">-</span><span class="mh">1</span><span class="p">][</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">],</span>  <span class="c1">//Blue
+</span></span></span><span class="line"><span class="cl">		<span class="n">pmod1a</span><span class="p">[</span><span class="mh">0</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">		<span class="n">busy</span><span class="p">);</span>
 </span></span></code></pre></div><p>As the code wrapped in this block only writes the values to a single LED, we need to control both writing to a series of LED&rsquo;s and then the pause to reset the first LED. This is needed because the first LED takes and keeps the first RGB values, and then passes all the following bytes to the next LED. This is all handled in my top level design file, where we have a state machine that feeds the values in:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl"><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">CLK</span><span class="p">)</span> <span class="k">begin</span>

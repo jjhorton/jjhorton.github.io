@@ -18,7 +18,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -332,8 +332,8 @@ next, again this will probably be removed from the final code .</li>
 </ul>
 <p>The code is shown here, although its very simple</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//the code to control the rotor speeds
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> 	<span class="cpf">Servo.h;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> 	<span class="cpf">Servo.h;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">Servo</span> <span class="n">rotor1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">Servo</span> <span class="n">rotor2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">Servo</span> <span class="n">rotor3</span><span class="p">;</span>
@@ -341,15 +341,15 @@ next, again this will probably be removed from the final code .</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">initRotor</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//attach the servos, to stop them from beeping
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">rotor1</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor2</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor3</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor4</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//This will then set all the rotors to zero rotorSet(0, 0, 0, 0);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">rotorSet</span><span class="p">(</span><span class="kt">int</span> <span class="n">speed1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">speed4</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//speed values must be given as 0-1000, to update power
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="n">speed1</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">rotor1</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="n">speed1</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor2</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="n">speed2</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor3</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="n">speed3</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor4</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="n">speed4</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
@@ -357,7 +357,7 @@ next, again this will probably be removed from the final code .</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">rotorStop</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//this function stops al the rotors
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rotor1</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">	<span class="n">rotor1</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor2</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor3</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotor4</span><span class="p">.</span><span class="nf">writeMicroseconds</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>

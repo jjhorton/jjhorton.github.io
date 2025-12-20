@@ -18,7 +18,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -315,7 +315,7 @@
 <p>We will talk though the build firmware Github Action, which I have called <code>Build Firmware</code>. I have decided that this should be run whenever I push the repositry, for Pull requests and on demand. So we define the name of the action, and add the description of when it should be run, the <code>workflow_dispatch</code> allows me to manually trigger it being run.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
@@ -326,25 +326,25 @@
 </span></span></span></code></pre></div><p>Now that we have the image we are running on we need to add the dependancies that are required for building out FPGA image. First step is to checkout our repository we are running from with the
 <code>uses: actions/checkout@v2</code>, which will get our repo using the default settings without any issues. With both Yosys and Next-Pnr needed to build the image, the next step is a little different to what I originally had planned. I thought that I would need to build these tools from source like I would on my own computer, but that is very time consuming, and I came across some pip packages, which installs them much quicker. This reduces build time, which on private repo&rsquo;s on GitHub are billed after you are passed your allowance.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl">- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install the required Tools</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-yosys</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">sudo -H pip3 install yowasp-nextpnr-ecp5-25k</span><span class="w">
 </span></span></span></code></pre></div><p>One problem I did come across when installing these packages, was that if I ran these <code>pip3 install</code> commands without sudo, then the commands that I need then aren&rsquo;t available. Running with <code>sudo</code> solves this issue although i&rsquo;m not sure why.</p>
 <p>Now we have all the tools in place we can now run both yosys and nextpnr, using the commands specific to the <code>yowasp-yosys</code> and <code>yowasp-nextpnr</code> packages, which are a little different to the standard commands I would use on my own Laptop.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run yosys on the files</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-yosys -p &#39;synth_ecp5 -json top.json&#39; -S firmware/top.v</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Place and Route</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">yowasp-nextpnr-ecp5 --25k --package CABGA381 --json top.json --lpf firmware/colorlight.lpf --textcfg out.config</span><span class="w">
 </span></span></span></code></pre></div><p>We can then pull all those components into a single <code>FirmwareBuild.yaml</code> file in the <code>.github/workflow</code> folder, which is then run on each push to the repo. The current design is very simple, but runs in a little over 30 seconds for the build, this makes running on each push manageable, but as the firmware design continues to grow, I may look to only run on Pull request.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Firmware</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -361,12 +361,12 @@
 </span></span></span></code></pre></div><p>The GitHub action for running the simulation is very similar, but instead of <code>pip3 install</code> for the build tools, I require <code>Verilator</code> which is available to install using apt. As the code to run my Verilator tests is identical between how i run it on my computer and in the GitHub action, I just us my make command to run the tests.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Simulate Firmware</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">

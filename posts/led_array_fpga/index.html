@@ -18,7 +18,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5DDLL3E1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -315,13 +315,13 @@
 <p>The first thing to consider is the sub system that controls sending the data, for this to work as intended we need a system clock which is derived from the FPGA Clock, this is used to control the rate at which data is sent out to the <a class="link" href="https://github.com/jjhorton/PMod/blob/master/PMod_LEDArray/Docs/TM1640.pdf"  target="_blank" rel="noopener"
     >GN1640</a> chip that controlls the LED&rsquo;s</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">    <span class="c1">// clock rate for calculating the clock divider
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">parameter</span> 	<span class="n">clk_in_rate_hz</span> <span class="o">=</span> <span class="mh">12</span><span class="n">_000_000</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">	<span class="k">parameter</span> 	<span class="n">clk_in_rate_hz</span> <span class="o">=</span> <span class="mh">12</span><span class="n">_000_000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">parameter</span>	<span class="n">clk_pixel_rate_hz</span> <span class="o">=</span> <span class="mh">1</span><span class="n">_000_000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">parameter</span> 	<span class="n">clk_divider_count</span> <span class="o">=</span> <span class="p">(</span><span class="n">clk_in_rate_hz</span><span class="o">/</span><span class="n">clk_pixel_rate_hz</span><span class="p">)</span><span class="o">/</span><span class="mh">2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">parameter</span>   <span class="n">clk_count</span> <span class="o">=</span> <span class="n">clk_divider_count</span><span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//clock divider for setting the rate that the state can change
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">clk</span><span class="p">)</span> <span class="k">begin</span>
+</span></span></span><span class="line"><span class="cl">	<span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">clk</span><span class="p">)</span> <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="n">clk_count</span> <span class="p">)</span>
 </span></span><span class="line"><span class="cl">			<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">((</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
@@ -344,11 +344,11 @@
 </span></span><span class="line"><span class="cl">			<span class="nl">IDLE:</span>
 </span></span><span class="line"><span class="cl">				<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">//idle is both clk and data high
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">//change to start tx if data avalible
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span> <span class="p">(</span><span class="n">data_ready</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">data_ready</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">START_1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">end</span>
@@ -358,22 +358,22 @@
 </span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">START_2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">// set data and clk to indicate the start
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">//initalise the bit counter
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="k">end</span>
 </span></span><span class="line"><span class="cl">            <span class="nl">START_2:</span>
 </span></span><span class="line"><span class="cl">				<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">DATA_1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">// set data and clk to indicate the start
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">//initalise the bit counter
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span><span class="p">(</span> <span class="n">my_value</span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b11111111</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span> <span class="n">my_value</span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b11111111</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">else</span>
 </span></span><span class="line"><span class="cl">                        <span class="n">bit_counter</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
@@ -419,27 +419,27 @@
 </span></span><span class="line"><span class="cl">            <span class="nl">FINISH_1:</span>
 </span></span><span class="line"><span class="cl">				<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_2</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="k">end</span>
 </span></span><span class="line"><span class="cl">            <span class="nl">FINISH_2:</span>
 </span></span><span class="line"><span class="cl">				<span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_3</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_3</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">fin_count</span> <span class="o">&lt;=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="k">end</span>
 </span></span><span class="line"><span class="cl">            <span class="nl">FINISH_3:</span>
 </span></span><span class="line"><span class="cl">                <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// set data to indicate end of bits to be written 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="n">data_out</span>    <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">clk_out</span>     <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// the next state is Idle
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="n">fin_count</span> <span class="o">&lt;=</span> <span class="n">fin_count</span> <span class="o">+</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">fin_count</span> <span class="o">&lt;</span> <span class="mh">128</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                        <span class="n">state</span> <span class="o">&lt;=</span> <span class="n">FINISH_3</span><span class="p">;</span>
@@ -451,8 +451,8 @@
 </span></span><span class="line"><span class="cl">    <span class="k">end</span>
 </span></span></code></pre></div><p>This state machine is what forms the backbone of the design, which is captured in the <code>writepixels.v</code> file, segregating the design from the rest of the design. At the top level we have a <code>top.v</code> file which connects the designs other components together, including the serial link which is a design I have used before. The top level provides the state machine that feeds the the values to the pixelwriter. The 16 lines are set one after another, before then being triggered by the <code>pps</code> signal which would normally trigger the display update once per second.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl">    <span class="c1">// state Machine for setting display
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// State Machine States
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">parameter</span> 	<span class="n">IDLE</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// State Machine States
+</span></span></span><span class="line"><span class="cl">    <span class="k">parameter</span> 	<span class="n">IDLE</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">parameter</span> 	<span class="n">INITDISPLAY</span>	<span class="o">=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">parameter</span> 	<span class="n">PAUSE</span>	    <span class="o">=</span> <span class="mh">2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">parameter</span> 	<span class="n">SETDISPLAY</span>	<span class="o">=</span> <span class="mh">3</span><span class="p">;</span>
@@ -470,7 +470,7 @@
 </span></span><span class="line"><span class="cl">            <span class="nl">INITDISPLAY:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// if the display is not busy set the input
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">                <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">value</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b10001001</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">valid</span> <span class="o">&lt;=</span> <span class="mh">1</span><span class="p">;</span>
@@ -497,7 +497,7 @@
 </span></span><span class="line"><span class="cl">            <span class="nl">SETDISPLAY:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">begin</span> 
 </span></span><span class="line"><span class="cl">                <span class="c1">// if the display is not busy set the input
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">((</span><span class="n">busy</span> <span class="o">==</span> <span class="mh">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid</span> <span class="o">==</span> <span class="mh">0</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">                <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="cm">/* verilator lint_off WIDTH */</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">pos</span> <span class="o">&lt;=</span> <span class="mh">8</span><span class="mb">&#39;b11000000</span> <span class="o">+</span> <span class="n">byte_count</span><span class="p">;</span>
@@ -521,13 +521,13 @@
 </span></span><span class="line"><span class="cl">    <span class="k">end</span>
 </span></span></code></pre></div><p>With the state machines controlling the output to the LED array from the <code>tx_value</code> array, the only missing stage is setting the values from the serial insterface. As the display is being updated slowly i&rsquo;m only using a single display buffer, so the values that are read in over the serial link are ready into this, the readin of data is triggered based on the character <code>A</code> which triggers the start of reading 16 8 bit characters which are put into the <code>tx_value</code>. which is completed with a simple state machine.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-verilog" data-lang="verilog"><span class="line"><span class="cl"><span class="c1">//uart statemachine
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">parameter</span> 	<span class="n">WAIT</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">parameter</span> 	<span class="n">WAIT</span> 	    <span class="o">=</span> <span class="mh">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">parameter</span>   <span class="n">START_CHAR</span>  <span class="o">=</span> <span class="mh">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">parameter</span> 	<span class="n">RECEIVING</span>	<span class="o">=</span> <span class="mh">2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">always</span> <span class="p">@(</span><span class="k">posedge</span> <span class="n">CLK</span><span class="p">)</span> <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//check if there is valid serial data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
+</span></span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">    <span class="k">case</span><span class="p">(</span><span class="n">data_state</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="nl">WAIT:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">begin</span>
@@ -539,7 +539,7 @@
 </span></span><span class="line"><span class="cl">            <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">uart_valid</span> <span class="o">==</span> <span class="mh">1</span><span class="p">)</span> <span class="k">begin</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="n">uart_value</span> <span class="o">==</span> <span class="mh">8</span><span class="mb">&#39;b01000001</span><span class="p">)</span> <span class="c1">//check for &#39;a&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">RECEIVING</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                        <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">RECEIVING</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">else</span> 
 </span></span><span class="line"><span class="cl">                        <span class="n">data_state</span> <span class="o">&lt;=</span> <span class="n">START_CHAR</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="k">end</span>
