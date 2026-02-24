@@ -6,7 +6,31 @@
         <description>Recent content in Tags on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>FPGA</title>
+        <link>https://jjhorton.co.uk/tags/fpga/</link>
+        <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/fpga/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Scripting</title>
+        <link>https://jjhorton.co.uk/tags/scripting/</link>
+        <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/scripting/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Vivado</title>
+        <link>https://jjhorton.co.uk/tags/vivado/</link>
+        <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/tags/vivado/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Raspberry Pi</title>
         <link>https://jjhorton.co.uk/tags/raspberry-pi/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
@@ -20,14 +44,6 @@
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
         
         <guid>https://jjhorton.co.uk/tags/rp2040/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>FPGA</title>
-        <link>https://jjhorton.co.uk/tags/fpga/</link>
-        <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://jjhorton.co.uk/tags/fpga/</guid>
         <description></description>
         </item>
         <item>
@@ -271,7 +287,7 @@
         <description></description>
         </item>
         <item>
-        <title>Matlab</title>
+        <title>MATLAB</title>
         <link>https://jjhorton.co.uk/tags/matlab/</link>
         <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
         

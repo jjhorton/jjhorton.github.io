@@ -6,7 +6,83 @@
         <description>Recent content on James Horton</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-uk</language>
-        <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jjhorton.co.uk/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Vivado Build Scripts</title>
+        <link>https://jjhorton.co.uk/posts/vivadoscript/</link>
+        <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://jjhorton.co.uk/posts/vivadoscript/</guid>
+        <description>&lt;img src="https://jjhorton.co.uk/img/PicoPmod-JLC_PCB.jpg" alt="Featured image of post Vivado Build Scripts" /&gt;&lt;p&gt;When working with the ice40 and ECP5 devices, where the FPGA images i&amp;rsquo;m creating are built using command line tools, they lend themselves to building scripts and makefiles to generate them. While I use Yosys and Next-PNR with the lattice devices for my personal projects over the last few years, in my day job i&amp;rsquo;m much more exposed to the Xilinix Devices. As a result I have found myself wanting to experiment with the low end versions of these devices but the tutorials found online will always push towards using the GUI to create and build projects, which is a big change to my personal workflow.&lt;/p&gt;
+&lt;p&gt;To experiment with a purchased two Micrphase Devices, one based on the arty and and other on a small Zynq, these are both compatible with the current open source tools so I can use them this way, but I also wanted to look at using the Xilinix Tools, for this it was time to venture into Tcl scripts to see if I could create a workflow similar to my other personal projects.&lt;/p&gt;
+&lt;p&gt;An example build tcl file, which allows for the vivado batch script to be used to read the tcl file building the project and creating the bitfile, this is based on &lt;a class=&#34;link&#34; href=&#34;https://projectf.io/posts/vivado-tcl-build-script/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Projectf build script&lt;/a&gt;
+post which I found a very useful starting point.&lt;/p&gt;
+&lt;p&gt;I made a simple project for a recently purchased Artix based MicroPhase development Board, which I wanted to build a simple example for. This project is designed to flash the LED on the board.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# read design sources (add one line for each file)
+read_verilog -sv &amp;#34;top.v&amp;#34;
+
+# read constraints
+read_xdc &amp;#34;board.xdc&amp;#34;
+
+# synth
+synth_design -top &amp;#34;top&amp;#34; -part &amp;#34;xc7a35tfgg484-1&amp;#34;
+
+# place and route
+opt_design
+place_design
+route_design
+
+# write bitstream
+write_bitstream -force &amp;#34;hello.bit&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With the &lt;code&gt;tcl&lt;/code&gt; file above I can call vivado from the command line using &lt;code&gt;vivado -mode batch -source build.tcl&#39; which runs the script and generates the &lt;/code&gt;hello.bit` bitstream for my FPGA.  By using this structure, and placing a pin out file at the top layer, i&amp;rsquo;m able to build a couple of scripts that reuse the same source code but are used by different tools. I good use of this could be building and testing with both vivado, and having a second set that use yosys/nextpnr with the same code.&lt;/p&gt;
+&lt;p&gt;To enable more advanced setups and automation the next set is running all this though a makefile, this needs to create the tcl file that will be used in vivado itself, so that the intermediate step is always upto date and the build process is all generated and called from within the project.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# FPGA settings
+PROJECT_NAME = blink
+FPGA_PART = xc7a35tfgg484-1
+FPGA_TOP = top
+
+#Files for Synthesis
+SYN_FILES = top.v
+
+# XDC Files
+XDC_FILES = board.xdc
+
+default: program
+build: $(FPGA_TOP).bit
+
+%.bit:
+        echo &amp;#34;read_verilog -sv top.v&amp;#34; &amp;gt; program.tcl
+        echo &amp;#34;read_xdc $(XDC_FILES)&amp;#34; &amp;gt;&amp;gt; program.tcl
+        echo &amp;#34;synth_design -top $(FPGA_TOP) -part $(FPGA_PART)&amp;#34; &amp;gt;&amp;gt; program.tcl
+        echo &amp;#34;opt_design&amp;#34; &amp;gt;&amp;gt; program.tcl
+        echo &amp;#34;place_design&amp;#34; &amp;gt;&amp;gt; program.tcl
+        echo &amp;#34;route_design&amp;#34; &amp;gt;&amp;gt; program.tcl
+        echo &amp;#34;write_bitstream -force $(PROJECT_NAME).bit&amp;#34; &amp;gt;&amp;gt; program.tcl
+        vivado -nojournal -nolog -mode batch -source program.tcl
+
+.PHONY: check
+check:
+        verilator --lint-only -cc top.v
+
+.PHONY: test
+test: 
+        verilator -Wall -GWIDTH=3 --trace --build --coverage -cc --exe top.v test.cpp
+        ./obj_dir/Vtop
+        verilator_coverage logs/coverage.dat --annotate logs/annotated --write-info logs/coverage.info --write logs/results.txt --rank
+        genhtml logs/coverage.info --output-directory logs/html
+        lcov --list logs/coverage.info &amp;gt; logs/coverage.txt
+
+program: $(FPGA_TOP).bit
+        openFPGALoader -c ft232 $(PROJECT_NAME).bit
+
+.PHONY: clean
+clean:
+        rm program.tcl $(PROJECT_NAME).bit
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;echo&lt;/code&gt; commands do the work of generating out tcl script, using the varriables defined at the top of the &lt;code&gt;Makefile&lt;/code&gt;, this includes the FPGA details but also the pin definition file. The &lt;code&gt;Makefile&lt;/code&gt; also inludes some of the testing and verilator checking that i use as part of the development process. Allowing for all the standard building commands to be captured here, even including using &lt;code&gt;openFPGALoader&lt;/code&gt; to be able to deploy the generated bit file to the development board, in this case using the FT232 programmer that is built into the board.&lt;/p&gt;
+&lt;p&gt;With these simple integrations it is now possible to automate large parts of the build process and avoid having to open the Vivado, and hopefully with a bit more work be able to support some more advanced projects.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Pi Hut Let in Glow Advent Calendar</title>
         <link>https://jjhorton.co.uk/posts/2024adventpihut/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
